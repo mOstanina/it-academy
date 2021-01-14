@@ -1,0 +1,11 @@
+p {
+  padding: 100px;
+  background: url(img/r-left-top-angle.png) 0 0 no-repeat,
+    url(img/r-right-top-angle.png) 100% 0% no-repeat,
+    url(img/r-right-bottom-angle.png) 100% 100% no-repeat,
+    url(img/r-left-bottom-angle.png) 0% 100% no-repeat,
+    url(img/bottom-horizontal.png) 50% 100% repeat-x,
+    url(img/top-horizontal.png) 50% 0% repeat-x,
+    url(img/left-vertical.png) 0% 50% repeat-y,
+    url(img/right-vertical.png) 100% 50% repeat-y;
+}

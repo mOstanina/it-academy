@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тег &lt;area&gt;</title>
+  </head>
+  <body>
+    <img
+      src="o9iy1701-min1.jpg"
+      alt="Навигация по сайту"
+      width="450"
+      height="338"
+      usemap="#Navigation"
+    />
+    <p>
+      <map name="Navigation">
+        <area
+          shape="poly"
+          coords="37, 16, 55, 0, 132, 5, 132, 26, 58, 29"
+          href="https://www.it-academy.by/course/front-end-developer/"
+          alt="Frontend" />
+        <area
+          shape="poly"
+          coords="127, 34, 203, 29, 218, 44, 206, 59, 127, 55"
+          href="https://www.it-academy.by/course/java-developer/"
+          alt="Backend" />
+        <area
+          shape="poly"
+          coords="40, 75, 63, 59, 133, 63, 133, 86, 63, 92"
+          href="https://www.it-academy.by/course/osnovy-data-science/osnovy-data-science/"
+          alt="Data" />
+        <area
+          shape="poly"
+          coords="126, 96, 196, 90, 210, 107, 195, 122, 127, 114"
+          href="https://www.it-academy.by/course/python-software-engineering-in-test/"
+          alt="QA" />
+        <area
+          shape="poly"
+          coords="55, 136, 72, 124, 131, 124, 131, 146, 76, 156"
+          href="http://gorksm.by/"
+          alt="The end"
+      /></map>
+    </p>
+    <p>
+      Каждый элемент &lt;area&gt; определяет активные области изображения,
+      которые являются ссылками. Рисунок с привязанными к нему активными
+      областями называется в совокупности картой-изображением. Такая карта по
+      внешнему виду ничем не отличается от обычного изображения, но при этом оно
+      может быть разбито на невидимые зоны разной формы, где каждая из областей
+      служит ссылкой. Тег &lt;area&gt; задает форму области, ее размеры,
+      устанавливает адрес документа, на который следует сделать ссылку, а также
+      имя окна или фрейма, куда браузер будет загружать документ. Этот тег
+      всегда располагается в контейнере &lt;map&gt;, который связывает
+      координаты областей с изображением.
+    </p>
+
+    <p>
+      Несколько областей могут перекрывать друг друга, сверху будет та, которая
+      в коде HTML располагается выше.
+    </p>
+  </body>
+</html>

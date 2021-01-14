@@ -1,0 +1,7 @@
+div {
+  border: 100px solid;
+  border-image-source: url(img/ramka.png);
+  border-image-slice: 100;
+  border-image-repeat: stretch;
+  border-image-width: 100px;
+}
