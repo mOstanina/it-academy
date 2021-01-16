@@ -1,5 +1,5 @@
 div {
-  border: 100px solid;
+  border: 100px solid black;
   border-image-source: url(img/ramka.png);
   border-image-slice: 100;
   border-image-repeat: stretch;
