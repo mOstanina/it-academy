@@ -97,3 +97,20 @@ a:hover {
 .four a:not(:first-child):before {
   content: url(redLine.gif);
 }
+/* Пятый  способ */
+
+
+.five :last-child {
+  border: none;
+}
+.five a {
+  color: green;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  
+}
+a:hover {
+  color: red;
+}
+
