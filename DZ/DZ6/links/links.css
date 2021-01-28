@@ -74,5 +74,26 @@ a:hover {
 
 .three div:not(:first-child):before {
   content: url(redLine.gif);
+}
+.three div {
   
+}
+/* Четвертый способ */
+
+
+.four :last-child {
+  border: none;
+}
+.four a {
+  color: green;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  
+}
+a:hover {
+  color: red;
+}
+.four a:not(:first-child):before {
+  content: url(redLine.gif);
 }
