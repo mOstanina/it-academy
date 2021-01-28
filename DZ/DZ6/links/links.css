@@ -1,0 +1,78 @@
+div {
+  padding-top: 20px;
+  margin: 10px 0 10px 0;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.first :last-child {
+  border: none;
+}
+.first a {
+  color: green;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  border-right: 2px solid red;
+}
+a:hover {
+  color: red;
+}
+/* Второй способ */
+
+.second div {
+  float: left;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  display: inline;
+}
+.second div a {
+  color: green;
+}
+.second div a:hover {
+  color: red;
+}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.second div {
+  border-right: 2px solid red;
+}
+.second :nth-of-type(5) {
+  border: none;
+}
+
+/* Третий способ */
+
+.three div {
+  float: left;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  display: inline;
+}
+.three div a {
+  color: green;
+}
+.three div a:hover {
+  color: red;
+}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.three div:not(:first-child):before {
+  content: url(redLine.gif);
+  
+}
