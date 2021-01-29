@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+div.star div {
+  width: 75px;
+  height: 78px;
+  background-image: url("star1.png");
+  float: left;
+}
+div.star > div:hover::before, div.star > div:hover ~ div::before{
+  content: url("star0.png");
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture</title>
+  </head>
+  <body>
+    <p>
+      Элемент picture — инструмент, который предоставляет
+      дополнительные возможности управления выбором изображений. Элемент picture подразумевает ручной выбор изображения в
+      зависимости от условий. Внутри picture через дочерние элементы source
+      можно указывать изображения и медиаусловия, при которых они будут выбраны.
+      Элемент img обязателен — через него задаются размеры, стили и прочие
+      атрибуты изображения. Если браузер не поддерживает picture или source,
+      подставляется изображение из img.
+    </p>
+    <picture>
+      <source srcset="siamskaya-350-280.jpg" media="(max-width: 350px)" />
+      <source srcset="siamskaya-800-640.jpg" media="(max-width: 800px)" />
+      <source srcset="siamskaya-1500-1200.jpg" media="(min-width: 1001px)" />
+      <img src="siamskaya-1000-800.jpg" alt="cat" />
+    </picture>
+  </body>
+</html>

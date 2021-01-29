@@ -1,0 +1,42 @@
+body {
+  padding: 0.5px;
+}
+
+p {
+  color: blue;
+  font-style: italic;
+  padding-left: 0px;
+}
+
+.name {
+  color: black;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.date {
+  color: green;
+  font-style: normal;
+}
+
+.champ {
+  color: red;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.href {
+  font-style: normal;
+}
+
+p.href  {
+  background-image: url("extref.png");
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: 0 5px;
+}
+
+p.href a{
+  padding-left: 15px;
+}

@@ -4,48 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LINKS</title>
-    <link rel="stylesheet" href="../../reset.css" />
     <link rel="stylesheet" href="links.css" />
   </head>
   <body>
+    <!--
+      Первый способ. 
+      Меню сверстано DIVами.
+      Разделители заданы бордером.
+    -->
     <div class="first clearfix">
-      <a href="https://www.google.by/">превая ссылка</a>
-      <a href="https://www.google.by/">вторая ссылка</a>
-      <a href="https://www.google.by/">третья ссылка</a>
-      <a href="https://www.google.by/">четвертая ссылка</a>
-      <a href="https://www.google.by/">пятая ссылка</a>
-    </div>
-    <div class="second clearfix">
       <div><a href="https://www.google.by/">превая ссылка</a></div>
       <div><a href="https://www.google.by/">вторая ссылка</a></div>
       <div><a href="https://www.google.by/">третья ссылка</a></div>
       <div><a href="https://www.google.by/">четвертая ссылка</a></div>
       <div><a href="https://www.google.by/">пятая ссылка</a></div>
     </div>
-    <div class="three clearfix">
-        <div><a href="https://www.google.by/">превая ссылка</a></div>
-        <div><a href="https://www.google.by/">вторая ссылка</a></div>
-        <div><a href="https://www.google.by/">третья ссылка</a></div>
-        <div><a href="https://www.google.by/">четвертая ссылка</a></div>
-        <div><a href="https://www.google.by/">пятая ссылка</a></div>
-      </div>
-      <div class="four clearfix">
-        <a href="https://www.google.by/">превая ссылка</a>
-        <a href="https://www.google.by/">вторая ссылка</a>
-        <a href="https://www.google.by/">третья ссылка</a>
-        <a href="https://www.google.by/">четвертая ссылка</a>
-        <a href="https://www.google.by/">пятая ссылка</a>
-      </div>
-      <div class="five clearfix">
-        <a href="https://www.google.by/">превая ссылка</a>
-        <img src="redLine.gif">
-        <a href="https://www.google.by/">вторая ссылка</a>
-        <img src="redLine.gif">
-        <a href="https://www.google.by/">третья ссылка</a>
-        <img src="redLine.gif">
-        <a href="https://www.google.by/">четвертая ссылка</a>
-        <img src="redLine.gif">
-        <a href="https://www.google.by/">пятая ссылка</a>
-      </div>
+    <!--
+      Второй способ. 
+      Меню сверстано списком.
+      Разделители заданы бордером.
+    -->
+    <ul class="second">
+      <li><a href="https://www.google.by/">превая ссылка</a></li>
+      <li><a href="https://www.google.by/">вторая ссылка</a></li>
+      <li><a href="https://www.google.by/">третья ссылка</a></li>
+      <li><a href="https://www.google.by/">четвертая ссылка</a></li>
+      <li><a href="https://www.google.by/">пятая ссылка</a></li>
+    </ul>
+    <div class="clearfix"></div>
+    <!--
+      Второй способ. 
+      Меню сверстано списком.
+      Разделители заданы картинками.
+    -->
+    <ul class="third">
+      <li><a href="https://www.google.by/">превая ссылка</a></li>
+      <li><img src="redLine.gif" alt="red line" /></li>
+      <li><a href="https://www.google.by/">вторая ссылка</a></li>
+      <li><img src="redLine.gif" alt="red line" /></li>
+      <li><a href="https://www.google.by/">третья ссылка</a></li>
+      <li><img src="redLine.gif" alt="red line" /></li>
+      <li><a href="https://www.google.by/">четвертая ссылка</a></li>
+      <li><img src="redLine.gif" alt="red line" /></li>
+      <li><a href="https://www.google.by/">пятая ссылка</a></li>
+    </ul>
   </body>
 </html>
+<!--На мой взгляд, самый простой способ - это верстать списком задавая бордер
+Т.к. если на странице всего один список, нет необходимости задавсть класс, молжно обращаться по тегу.
+В данном случае разделители проще задавать бордером и стилизовать в CSS, 
+нет необходимости центрировать текст относительно разделителя -->

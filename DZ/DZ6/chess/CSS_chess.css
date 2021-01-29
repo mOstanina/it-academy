@@ -1,0 +1,22 @@
+table{height: 511px;
+width: 511px;}
+
+tr:nth-child(even) td:nth-child(odd) {
+  background-color: black;
+}
+
+tr:nth-child(odd) td:nth-child(even) {
+  background-color: black;
+}
+
+table.CHESS tr:first-child td,
+table.CHESS tr:last-child td {
+  background-color: rgb(144 238 144);
+ height: 25px;
+}
+
+table.CHESS tr td:first-child ,
+table.CHESS tr td:last-child  {
+  background-color:rgb(144 238 144);
+ width: 25px;
+}

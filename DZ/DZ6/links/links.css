@@ -1,38 +1,21 @@
-div {
-  padding-top: 20px;
-  margin: 10px 0 10px 0;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.first :last-child {
-  border: none;
-}
-.first a {
-  color: green;
-  font-size: 20px;
-  padding: 20px;
+body {
   margin: 0;
-  border-right: 2px solid red;
+  padding: 0;
 }
-a:hover {
-  color: red;
-}
-/* Второй способ */
 
-.second div {
+/* первый способ */
+
+.first div {
   float: left;
   font-size: 20px;
   padding: 20px;
   margin: 0;
   display: inline;
 }
-.second div a {
+.first div a {
   color: green;
 }
-.second div a:hover {
+.first div a:hover {
   color: red;
 }
 .clearfix:after {
@@ -42,75 +25,52 @@ a:hover {
   height: 0;
   clear: both;
 }
-.second div {
+.first div {
   border-right: 2px solid red;
 }
-.second :nth-of-type(5) {
+.first :nth-of-type(5) {
   border: none;
 }
 
-/* Третий способ */
-
-.three div {
+/* второй способ */
+ul.second li {
+  list-style-type: none;
   float: left;
+  border-right: 2px solid red;
+  height: 40px;
+  padding-top: 10px;
   font-size: 20px;
-  padding: 20px;
-  margin: 0;
-  display: inline;
+  margin-right: 20px;
+  padding-right: 20px;
 }
-.three div a {
+li a {
   color: green;
 }
-.three div a:hover {
-  color: red;
+ul {
+  padding-left: 20px;
 }
-.clearfix:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both;
-}
-
-.three div:not(:first-child):before {
-  content: url(redLine.gif);
-}
-.three div {
-  
-}
-/* Четвертый способ */
-
-
-.four :last-child {
+ul.second li:nth-child(5) {
   border: none;
 }
-.four a {
-  color: green;
+ul li a:hover{
+color: red ;
+}
+
+/* третий способ */
+ul.third li {
+  list-style-type: none;
+  float: left;
+  height: 40px;
+  padding-top: 10px;
   font-size: 20px;
-  padding: 20px;
-  margin: 0;
-  
+  padding-right: 20px;
 }
-a:hover {
-  color: red;
-}
-.four a:not(:first-child):before {
-  content: url(redLine.gif);
-}
-/* Пятый  способ */
-
-
-.five :last-child {
-  border: none;
-}
-.five a {
+li a {
   color: green;
-  font-size: 20px;
-  padding: 20px;
-  margin: 0;
-  
 }
-a:hover {
-  color: red;
+ul {
+  padding-left: 20px;
 }
-
+ul.third li img {
+  margin-top: -10px;
+}
