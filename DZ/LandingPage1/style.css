@@ -7,6 +7,9 @@ body {
   font-family: "Roboto Slab", serif;
   font-size: 14px;
 }
+ul {
+  list-style-type: none;
+}
 .container {
   width: 950px;
   margin: 0 auto;
@@ -46,7 +49,6 @@ div.logo p {
 }
 .header ul li {
   float: right;
-  list-style-type: none;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: inherit;
@@ -96,14 +98,14 @@ h1 {
   border-radius: 6px;
 }
 /* второй блок */
-div h2 {
+h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 38px;
   font-weight: bold;
   text-transform: uppercase;
   color: black;
   text-align: center;
-  margin-top: 105px;
+  padding-top: 120px;
 }
 
 h4 {
@@ -111,7 +113,7 @@ h4 {
   font-size: 16px;
   font-weight: lighter;
   text-align: center;
-  margin-top: 10px;
+  padding-top: 10px;
   color: #777777;
 }
 .services {
@@ -124,7 +126,6 @@ h4 {
   float: left;
   background-position: center;
   background-repeat: no-repeat;
-  list-style-type: none;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: black;
@@ -152,4 +153,124 @@ h4 {
 }
 .services ul li:nth-child(3) {
   background-image: url("img/webSecurity.png"), url("img/Circle-1.png");
+}
+/* третий блок */
+.portfolio {
+  background-color: #f7f7f7;
+  height: 1215px;
+  text-align: center;
+}
+.portfolio ul li {
+  background-position: center;
+  background-repeat: no-repeat;
+  float: left;
+  margin-inline: 12px;
+  padding-top: 42px;
+}
+
+.portfolio .container ul li div {
+  height: 394px;
+  width: 291px;
+  background: url(img/portfolio_bg.png) no-repeat;
+}
+
+/* четвертый блок */
+.about {
+  height: 1670px;
+}
+.about ul li {
+  float: left;
+  margin-inline: 21px;
+}
+.about ul li div {
+  width: 320px;
+  height: 180px;
+  vertical-align: middle;
+}
+.about ul li:first-child div {
+  text-align: right;
+}
+.about ul li:last-child div {
+  text-align: left;
+}
+.about p {
+  color: #777777;
+  font-size: 14px;
+}
+.about h3 {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.about h4 {
+  padding-bottom: 80px;
+}
+.line {
+  text-align: center;
+}
+.about ul li div.story {
+  width: 180px;
+  background: url("img/aboutUs5.png") no-repeat center;
+}
+div.story p {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+/* пятый блок */
+
+.team {
+  height: 820px;
+  background-color: #f7f7f7;
+}
+.team ul li {
+  float: left;
+  text-align: center;
+  padding-inline: 30px;
+}
+
+.team div div {
+  text-align: center;
+  color: #777777;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+li.tw {
+  width: 42px;
+  float: left;
+  text-align: center;
+  background: url("img/Facebook.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+li.fb {
+  width: 42px;
+  float: left;
+  text-align: center;
+  background: url("img/Twitter.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+li.pn {
+  width: 42px;
+  float: left;
+  text-align: center;
+  background: url("img/Pinterest.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+li.google {
+  width: 42px;
+  float: left;
+  text-align: center;
+  background: url("img/Google.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+ul.sosial{
+    margin-left: 20px; 
+}
+li:first-child:nth-last-child(2){
+    margin-left: 30px;
 }
