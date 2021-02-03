@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+}
+.container {
+  width: 950px;
+  margin: 0 auto;
+}
+.header {
+  height: 700px;
+  background: url(img/header_tint_bg.png) no-repeat center,
+    url(img/header_bg.png) no-repeat center;
+  background-size: cover;
+  color: white;
+  padding-top: 50px;
+}
+@font-face {
+  font-family: "Wisdom Script AJ";
+  src: url("fonts/Wisdom-Script-AJ.ttf") format("ttf"),
+    url("fonts/Wisdom-Script-AJ.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+div.logo p {
+  font-family: "Wisdom Script AJ";
+  font-size: 25px;
+  color: gold;
+  float: left;
+}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.header ul li a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+.header ul li {
+  float: right;
+  list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: inherit;
+  margin-inline: 18px;
+}
+.header ul {
+  width: 500px;
+  margin: 0 auto;
+  float: right;
+  overflow: hidden;
+}
+.welcome {
+  font-family: "Montserrat", sans-serif;
+  font-size: 75px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 30px;
+  letter-spacing: -2px;
+}
+h1 {
+  font-family: "Droid Serif", arial;
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 195px;
+  text-transform: capitalize;
+}
+.container button {
+  width: 240px;
+  height: 65px;
+  background-color: #fed136;
+  border-radius: 5px;
+  margin-left: 357px;
+  margin-top: 40px;
+}
+
+.btn_tell {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: inherit;
+  padding: 12px 30px;
+  border: 0px;
+  border-radius: 6px;
+}
+/* второй блок */
+div h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  margin-top: 105px;
+}
+
+h4 {
+  font-family: "Droid Serif", arial;
+  font-size: 16px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 10px;
+  color: #777777;
+}
+.services {
+  height: 568px;
+  padding-top: 10px;
+}
+
+.services ul li {
+  width: 290px;
+  float: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  margin-inline: 13px;
+  margin-top: -35px;
+}
+.services ul li div h3 {
+  margin-top: 190px;
+}
+.services ul li p {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  padding-top: 15px;
+  color: #777777;
+  line-height: 1.5;
+}
+
+.services ul li:nth-child(1) {
+  background-image: url("img/e-commerce.png"), url("img/Circle-1.png");
+  float: left;
+}
+.services ul li:nth-child(2) {
+  background-image: url("img/responsiveWeb.png"), url("img/Circle-1.png");
+}
+.services ul li:nth-child(3) {
+  background-image: url("img/webSecurity.png"), url("img/Circle-1.png");
+}
