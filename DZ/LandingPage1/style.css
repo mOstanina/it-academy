@@ -198,6 +198,8 @@ h4 {
   font-size: 14px;
 }
 .about h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #222222;
   font-size: 18px;
   padding-bottom: 10px;
 }
@@ -211,6 +213,7 @@ h4 {
   width: 180px;
   background: url("img/aboutUs5.png") no-repeat center;
 }
+
 div.story p {
   text-align: center;
   vertical-align: middle;
@@ -228,49 +231,111 @@ div.story p {
   height: 820px;
   background-color: #f7f7f7;
 }
-.team ul li {
+.team ul li.people {
   float: left;
   text-align: center;
-  padding-inline: 30px;
+  padding-inline: 41px;
+}
+.team .sosial li.tw, .team .sosial li.fb, .team .sosial li.pn, .team .sosial li.google{
+  width: 42px;
+  height: 42px;
+  float: left;
+  text-align: center;
 }
 
-.team div div {
-  text-align: center;
-  color: #777777;
-  margin: 0 auto;
-  padding-top: 50px;
-}
-li.tw {
-  width: 42px;
-  float: left;
-  text-align: center;
+.team .sosial li.tw {
   background: url("img/Facebook.png") no-repeat center,
-    url("img/team-bgpng.png") no-repeat center;
+    url("img/team-bgpng.png") no-repeat center ;
 }
-li.fb {
-  width: 42px;
-  float: left;
-  text-align: center;
+.team .sosial li.fb {
   background: url("img/Twitter.png") no-repeat center,
     url("img/team-bgpng.png") no-repeat center;
 }
-li.pn {
-  width: 42px;
-  float: left;
-  text-align: center;
+.team .sosial li.pn {
   background: url("img/Pinterest.png") no-repeat center,
     url("img/team-bgpng.png") no-repeat center;
 }
-li.google {
-  width: 42px;
-  float: left;
-  text-align: center;
-  background: url("img/Google.png") no-repeat center,
+.team .sosial li.google {
+  background: url("img/Google.png")no-repeat center,
     url("img/team-bgpng.png") no-repeat center;
 }
-ul.sosial{
-    margin-left: 20px; 
+.team .sosial li{
+ float: none;
+ margin-left: 10px;
 }
-li:first-child:nth-last-child(2){
-    margin-left: 30px;
+.team .sosial ul:first-child{
+  margin-left: 32px;
+}
+.people:last-child li.fb{
+  margin-left: 35px;
+}
+.team p{
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  text-align: center;
+  color: #777777;
+  margin-top: 7px;
+  margin-bottom: 19px;
+}
+.teamPeople{
+  width: 550px;
+  padding-top: 50px;
+  margin-left: 163px;
+}
+.team h4{
+  padding-bottom: 85px;
+}
+/* шестой блок */
+
+.sponsor{
+  height: 165px;
+}
+.sponsor ul li{
+  float: left;
+padding-inline: 35px;
+padding-top: 70px;
+}
+/* седьмой блок */
+.contact{
+  height: 676px;
+  color: white;
+  background: url("img/contact-bg-Map.png") no-repeat 805px 124px, url("img/contact-bg.png") no-repeat center;
+}
+.contact h2{
+  color: white;
+}
+/* восьмой блок */
+.footer{
+  height: 90px;
+  padding-top: 30px;
+}
+.footer li.tw,  .footer li.fb, .footer li.pn, .footer li.google{
+  width: 42px;
+  height: 42px;
+  float:right;
+  text-align: center;
+}
+.footer li.tw {
+  background: url("img/footer-Twitter.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.fb {
+  background: url("img/footer-Facebook.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.pn {
+  background: url("img/footer-Pinterest.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.google {
+  background: url("img/footer-Google.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+    margin-right: 370px;
+}
+.footer p{
+  float: left;
+  padding-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #777777;
 }
