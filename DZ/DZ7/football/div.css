@@ -18,7 +18,7 @@ body {
   font-weight: 400;
 }
 .forBackground {
-  background-image: url(../menu-fon.png);
+  background-image: url(menu-fon.png);
   background-repeat: repeat-y;
 }
 .menu {
@@ -31,7 +31,7 @@ ul{
   padding-inline-start: 25px
 }
 .content {
-  background-image: url(../small-ball.png);
+  background-image: url(small-ball.png);
   background-repeat: repeat-y;
   background-position: 100% 0%;
   font-weight: 300;
