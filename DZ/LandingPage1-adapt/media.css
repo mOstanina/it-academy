@@ -1,0 +1,246 @@
+@media all and (max-width: 950px) {
+  .container {
+    width: 810px;
+  }
+  .header ul {
+    width: 700px;
+    margin-left: 356px;
+    margin-inline: none;
+    margin-top: 30px;
+}
+  h1 {
+    margin-top: 85px;
+  }
+  .header {
+    padding-top: 25px;
+    padding-bottom: 85px;
+  }
+  /* второй блок */
+  .services {
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+  .services ul li:nth-child(1),
+  .services ul li:nth-child(2) {
+    margin-right: 57px;
+    margin-left: 57px;
+  }
+  .services ul li:last-child {
+    margin-left: 250px;
+  }
+  /* третий блок */
+  .portfolio {
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
+  .portfolio ul li {
+    margin-right: 56px;
+    margin-left: 56px;
+  }
+  /* четвертый блок */
+  .about {
+    padding-top: 75px;
+    padding-bottom: 95px;
+  }
+  .line {
+    display: none;
+  }
+
+  .january img,
+  .february img {
+    margin-left: 180px;
+  }
+
+  .yuly img,
+  .december img {
+    margin-left: 95px;
+  }
+
+  .about div.story {
+    margin-top: 75px;
+  }
+
+  /* пятый блок */
+  .team {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+  .team ul li:nth-child(1):not(.sosial li),
+  .team ul li:nth-child(2):not(.sosial li) {
+    margin-right: 85px;
+    margin-left: 85px;
+  }
+  .team ul li:nth-child(3):not(.sosial li) {
+    margin-left: 300px;
+  }
+  /* шестой блок */
+  .sponsor {
+    padding-top: 50px;
+    padding-bottom: 140px;
+  }
+  .sponsor ul li {
+    margin-right: 105px;
+    margin-left: 105px;
+  }
+  .sponsor ul li:nth-child(3),
+  .sponsor ul li:nth-child(4) {
+    margin-top: 20px;
+  }
+  .sponsor ul li:nth-child(4) {
+    margin-left: 135px;
+  }
+  /* седьмой блок */
+  .contact {
+    padding-bottom: 250px;
+  }
+  .container button {
+    margin-left: 285px;
+  }
+  .contact {
+    background: url("img/contact-bg-Map.png") no-repeat 363px 124px,
+      url("img/contact-bg.png") no-repeat center;
+  }
+  /* восьмой блок */
+
+  .footer p {
+    font-size: 12px;
+    margin-right: 38px;
+  }
+  .footer li.google {
+    margin-right: 338px;
+}
+
+@media all and (max-width: 850px) {
+  .container {
+    width: 730px;
+  }
+  div.logo p {
+    float: none;
+    text-align: center;
+  }
+  .header ul {
+    width: 700px;
+    margin-left: 110px;
+    margin-inline: none;
+    margin-top: 30px;
+  }
+  h1 {
+    font-size: 30px;
+    margin-top: 40px;
+  }
+  .welcome {
+    font-size: 60px;
+    margin-top: 20px;
+  }
+  .header {
+    padding-bottom: 80px;
+  }
+  .header button {
+    margin-left: 254px;
+  }
+  /* второй блок */
+  .services {
+    padding-top: 60px;
+    padding-bottom: 75px;
+  }
+  .services ul li:nth-child(1),
+  .services ul li:nth-child(2) {
+    margin-left: 225px;
+  }
+  .services ul li:nth-child(1),
+  .services ul li:nth-child(3) {
+    margin-left: 225px;
+  }
+  .services ul li {
+    margin-top: -70px;
+  }
+  /* третий блок */
+
+  .portfolio {
+    padding-top: 60px;
+    padding-bottom: 95px;
+  }
+  .portfolio ul li {
+    float: none;
+    margin-left: 230px;
+    padding-top: 22px;
+  }
+  /* четвертый блок */
+  .about {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+  .yuly,
+  .december,
+  .january,
+  .february {
+    margin-bottom: 16px;
+  }
+  .about div.story {
+    margin-top: 30px;
+  }
+  .yuly img,
+  .december img {
+    margin-left: 145px;
+  }
+  .january img,
+  .february img {
+    margin-left: 88px;
+  }
+  /* пятый блок */
+  .team {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  .team ul li:nth-child(1):not(.sosial li),
+  .team ul li:nth-child(2):not(.sosial li) {
+    margin-right: 89px;
+    margin-left: 260px;
+  }
+  .team ul li:nth-child(3):not(.sosial li) {
+    margin-left: 267px;
+  }
+  .team h4 {
+    padding-bottom: 55px;
+  }
+  .teamPeople {
+    margin-left: 115px;
+  }
+  /* шестой блок */
+  .sponsor {
+    padding-top: 30px;
+    padding-bottom: 140px;
+  }
+  .sponsor ul li {
+    margin-right: 50px;
+    margin-left: 115px;
+  }
+  .sponsor ul li:nth-child(3),
+  .sponsor ul li:nth-child(4) {
+    margin-top: 20px;
+  }
+  .sponsor ul li:nth-child(4) {
+    margin-left: 147px;
+  }
+  /* седьмой блок */
+  .contact {
+    padding-top: 70px;
+    padding-bottom: 215px;
+  }
+  .container button {
+    margin-left: 240px;
+  }
+  .contact {
+    background: url("img/contact-bg-Map.png") no-repeat 250px 124px,
+      url("img/contact-bg.png") no-repeat center;
+  }
+  /* восьмой блок */
+  .footer {
+    padding-top: 50px;
+    padding-bottom: 65px;
+    padding-top: 30px;
+  }
+  .footer li.google {
+    margin-right: 298px;
+  }
+}

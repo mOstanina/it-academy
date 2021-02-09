@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+}
+ul {
+  list-style-type: none;
+}
+.container {
+  width: 950px;
+  margin: 0 auto;
+}
+.header {
+  background: url(img/header_tint_bg.png) no-repeat center,
+    url(img/header_bg.png) no-repeat center;
+  background-size: cover;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+@font-face {
+  font-family: "Wisdom Script AJ";
+  src: url("fonts/Wisdom-Script-AJ.ttf") format("ttf"),
+    url("fonts/Wisdom-Script-AJ.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+div.logo p {
+  font-family: "Wisdom Script AJ";
+  font-size: 25px;
+  color: gold;
+  float: left;
+}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.header ul li a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+.header ul li {
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: inherit;
+  margin-inline: 17px;
+}
+.header ul {
+  width: 700px;
+  margin-left: 433px;
+}
+
+.welcome {
+  font-family: "Montserrat", sans-serif;
+  font-size: 75px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 30px;
+  letter-spacing: -2px;
+}
+h1 {
+  font-family: "Droid Serif", arial;
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 195px;
+  text-transform: capitalize;
+}
+.container button {
+  width: 240px;
+  height: 65px;
+  background-color: #fed136;
+  border-radius: 5px;
+  margin-left: 357px;
+  margin-top: 40px;
+}
+
+.btn_tell {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: inherit;
+  padding: 12px 30px;
+  border: 0px;
+  border-radius: 6px;
+}
+/* второй блок */
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+}
+
+h4 {
+  font-family: "Droid Serif", arial;
+  font-size: 16px;
+  font-weight: lighter;
+  text-align: center;
+  padding-top: 10px;
+  color: #777777;
+}
+.services {
+  padding-top: 130px;
+  padding-bottom: 100px;
+}
+
+.services ul li {
+  width: 290px;
+  float: left;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-top: -35px;
+}
+.services ul li div h3 {
+  margin-top: 190px;
+}
+.services ul li p {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  padding-top: 15px;
+  color: #777777;
+  line-height: 1.5;
+}
+
+.services ul li:nth-child(1) {
+  background-image: url("img/e-commerce.png"), url("img/Circle-1.png");
+  float: left;
+}
+.services ul li:nth-child(2) {
+  background-image: url("img/responsiveWeb.png"), url("img/Circle-1.png");
+}
+.services ul li:nth-child(3) {
+  background-image: url("img/webSecurity.png"), url("img/Circle-1.png");
+}
+/* третий блок */
+.portfolio {
+  background-color: #f7f7f7;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  text-align: center;
+}
+.portfolio ul li {
+  background-position: center;
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 12px;
+  margin-left: 12px;
+  padding-top: 57px;
+}
+
+.portfolio .container ul li div {
+  height: 394px;
+  width: 291px;
+  background: url(img/portfolio_bg.png) no-repeat;
+}
+
+/* четвертый блок */
+.about {
+  padding-top: 100px;
+  padding-bottom: 115px;
+}
+.yuly div,
+.december div {
+  width: 300px;
+  float: left;
+  text-align: right;
+  margin-left: 55px;
+  margin-right: 25px;
+}
+.january div,
+.february div {
+  width: 300px;
+  float: right;
+  text-align: left;
+  margin-left: 55px;
+  margin-right: 25px;
+}
+
+.january img,
+.february img {
+  margin-left: 383px;
+}
+
+.about p {
+  color: #777777;
+  font-size: 14px;
+}
+.about h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #222222;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.about h4 {
+  padding-bottom: 80px;
+}
+.line {
+  text-align: center;
+}
+.about div.story {
+  width: 180px;
+  height: 180px;
+  background: url("img/aboutUs5.png") no-repeat center;
+  margin: 0 auto;
+}
+div.story p {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* пятый блок */
+
+.team {
+  padding-top: 110px;
+  padding-bottom: 140px;
+  background-color: #f7f7f7;
+}
+.team ul li.people {
+  float: left;
+  text-align: center;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+.team .sosial li.tw,
+.team .sosial li.fb,
+.team .sosial li.pn,
+.team .sosial li.google {
+  width: 42px;
+  height: 42px;
+  float: left;
+}
+
+.team .sosial li.tw {
+  background: url("img/Twitter.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+.team .sosial li.fb {
+  background: url("img/Facebook.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+.team .sosial li.pn {
+  background: url("img/Pinterest.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+.team .sosial li.google {
+  background: url("img/Google.png") no-repeat center,
+    url("img/team-bgpng.png") no-repeat center;
+}
+.team .sosial li {
+  float: none;
+  margin-left: 10px;
+}
+.team .sosial ul:first-child {
+  margin-left: 32px;
+}
+.people:last-child li.fb {
+  margin-left: 35px;
+}
+.team p {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+  text-align: center;
+  color: #777777;
+  margin-top: 7px;
+  margin-bottom: 19px;
+}
+.teamPeople {
+  width: 550px;
+  padding-top: 50px;
+  margin-left: 163px;
+}
+.team h4 {
+  padding-bottom: 85px;
+}
+/* шестой блок */
+
+.sponsor {
+  padding-top: 60px;
+  padding-bottom: 105px;
+}
+.sponsor ul li {
+  float: left;
+  margin-right: 38px;
+  margin-left: 38px;
+}
+/* седьмой блок */
+.contact {
+  padding-top: 100px;
+  padding-bottom: 395px;
+  color: white;
+  background: url("img/contact-bg-Map.png") no-repeat 582px 124px,
+    url("img/contact-bg.png") no-repeat center;
+}
+.contact h2 {
+  color: white;
+}
+/* восьмой блок */
+.footer {
+  padding-top: 50px;
+  padding-bottom: 65px;
+  padding-top: 30px;
+}
+.footer li.tw,
+.footer li.fb,
+.footer li.pn,
+.footer li.google {
+  width: 42px;
+  height: 42px;
+  float: right;
+}
+.footer li.tw {
+  background: url("img/footer-Twitter.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.fb {
+  background: url("img/footer-Facebook.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.pn {
+  background: url("img/footer-Pinterest.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+}
+.footer li.google {
+  background: url("img/footer-Google.png") no-repeat center,
+    url("img/footer-Background.png") no-repeat center;
+  margin-right: 377px;
+}
+.footer p {
+  float: left;
+  padding-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #777777;
+}
