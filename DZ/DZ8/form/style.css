@@ -1,0 +1,63 @@
+* {
+  margin: 0 auto;
+}
+body {
+  font-size: 15px;
+}
+ul {
+  width: 400px;
+  float: left;
+  margin-left: -47px;
+}
+li {
+  list-style: none;
+  float: left;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+}
+input[type="radio"] {
+  vertical-align: middle;
+  margin: -2px 2px 0 8px;
+}
+input[type="checkbox"] {
+  float: left;
+}
+.container {
+  padding: 10px;
+}
+.label {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+.form {
+  float: left;
+  width: 80%;
+  margin-top: 6px;
+}
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+select {
+  font-size: 12px;
+}
+
+@media all and (max-width: 672px) {
+  .label,
+  .form {
+    width: 100%;
+    margin-top: 0;
+  }
+  select {
+    width: 100%;
+  }
+  li {
+    float: none;
+  }
+}

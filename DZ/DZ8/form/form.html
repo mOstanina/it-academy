@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>form</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>Для публикации вашей статьи заполните, пожалуйста, следующую форму:</p>
+      <form method="GET" action="">
+        <div class="label">
+          <label>Название статьи:</label>
+        </div>
+        <div class="form">
+          <input type="text" name="title-of-article" />
+        </div>
+        <br />
+        <div class="label">
+          <label>Рубрика:</label>
+        </div>
+        <div class="form">
+          <select name="rubric">
+            <option value="1" selected>программирование</option>
+            <option value="2">вёрстка</option>
+            <option value="3">дизайн</option>
+            <option value="4">маркетинг</option></select
+          ><br />
+        </div>
+        <div class="label">
+          <label>Публикация:</label>
+        </div>
+        <div class="form">
+          <ul>
+            <li><input type="radio" name="answer" value="1" />на сайте</li>
+            <li><input type="radio" name="answer" value="2" />в журнале</li>
+            <li>
+              <input type="radio" name="answer" value="3" />на сайте и в журнале
+            </li>
+          </ul>
+        </div>
+        <div class="clearfix">
+          <div class="label">
+            <label>Разрешить комментарии:</label>
+          </div>
+          <div class="form">
+            <input type="checkbox" name="allow-comments" checked />
+          </div>
+        </div>
+        <div class="label">
+          <label>Текст статьи:</label>
+        </div>
+        <div><textarea name="text-of-article"></textarea><br /></div>
+        <input type="submit" value="Опубликовать" />
+      </form>
+    </div>
+  </body>
+</html>
