@@ -59,4 +59,16 @@ select {
   li {
     float: none;
   }
+  label {
+    float: none;
+  }
+  .form {
+    margin-left: 0px;
+  }
+  .fl label {
+    float: left;
+  }
+  div input[type="checkbox"] {
+    float: left;
+  }
 }
