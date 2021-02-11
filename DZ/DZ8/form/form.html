@@ -10,49 +10,50 @@
   <body>
     <div class="container">
       <p>Для публикации вашей статьи заполните, пожалуйста, следующую форму:</p>
-      <form method="GET" action="">
+      <form method="GET" action="TestForm.php">
         <div class="label">
           <label>Название статьи:</label>
-        </div>
-        <div class="form">
-          <input type="text" name="title-of-article" />
+          <div class="form">
+            <input type="text" name="title-of-article" />
+          </div>
         </div>
         <br />
-        <div class="label">
+        <div class="label clearfix">
           <label>Рубрика:</label>
+          <div class="form">
+            <select name="rubric">
+              <option value="1" selected>программирование</option>
+              <option value="2">вёрстка</option>
+              <option value="3">дизайн</option>
+              <option value="4">маркетинг</option></select
+            ><br />
+          </div>
         </div>
-        <div class="form">
-          <select name="rubric">
-            <option value="1" selected>программирование</option>
-            <option value="2">вёрстка</option>
-            <option value="3">дизайн</option>
-            <option value="4">маркетинг</option></select
-          ><br />
-        </div>
-        <div class="label">
+        <div class="label clearfix">
           <label>Публикация:</label>
-        </div>
-        <div class="form">
-          <ul>
-            <li><input type="radio" name="answer" value="1" />на сайте</li>
-            <li><input type="radio" name="answer" value="2" />в журнале</li>
-            <li>
-              <input type="radio" name="answer" value="3" />на сайте и в журнале
-            </li>
-          </ul>
+          <div class="form">
+            <ul>
+              <li><input type="radio" name="answer" value="1" />на сайте</li>
+              <li><input type="radio" name="answer" value="2" />в журнале</li>
+              <li>
+                <input type="radio" name="answer" value="3" />на сайте и в
+                журнале
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="clearfix">
           <div class="label">
             <label>Разрешить комментарии:</label>
-          </div>
-          <div class="form">
-            <input type="checkbox" name="allow-comments" checked />
+            <div class="form">
+              <input type="checkbox" name="allow-comments" checked />
+            </div>
           </div>
         </div>
         <div class="label">
           <label>Текст статьи:</label>
+          <div><textarea name="text-of-article"></textarea><br /></div>
         </div>
-        <div><textarea name="text-of-article"></textarea><br /></div>
         <input type="submit" value="Опубликовать" />
       </form>
     </div>
