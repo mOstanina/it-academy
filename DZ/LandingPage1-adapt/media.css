@@ -3,8 +3,8 @@
     width: 810px;
   }
   .header ul {
-    width: 700px;
-    margin-left: 356px;
+    width: 518px;
+    margin-left: 315px;
     margin-inline: none;
     margin-top: 30px;
 }
@@ -98,8 +98,30 @@
   }
   .contact {
     background: url("img/contact-bg-Map.png") no-repeat 363px 124px,
-      url("img/contact-bg.png") no-repeat center;
+      url("img/contact-bg.png") no-repeat cover;
+      padding-top: 45px;
+      padding-bottom: 30px;
+     
   }
+  form {
+    padding-top: 20px;
+   
+  }
+  input[type="text"],
+  input[type="email"] {
+    float: none;
+    margin-bottom: 15px;
+  }
+  .identification, .message-area  {
+    float: none;
+    padding-left: 165px;
+  }
+  input[type="submit"]{
+    margin-left: 270px;
+    margin-top: 20px;
+  }
+  
+
   /* восьмой блок */
 
   .footer p {
@@ -119,7 +141,7 @@
     text-align: center;
   }
   .header ul {
-    width: 700px;
+    width: 518px;
     margin-left: 110px;
     margin-inline: none;
     margin-top: 30px;
@@ -224,15 +246,15 @@
   }
   /* седьмой блок */
   .contact {
-    padding-top: 70px;
-    padding-bottom: 215px;
+    padding-top: 38px;
+    padding-bottom: 30px;
   }
   .container button {
     margin-left: 240px;
   }
   .contact {
     background: url("img/contact-bg-Map.png") no-repeat 250px 124px,
-      url("img/contact-bg.png") no-repeat center;
+      url("img/contact-bg.png") no-repeat ;
   }
   /* восьмой блок */
   .footer {
@@ -241,6 +263,6 @@
     padding-top: 30px;
   }
   .footer li.google {
-    margin-right: 298px;
+    margin-right: 266px;
   }
 }

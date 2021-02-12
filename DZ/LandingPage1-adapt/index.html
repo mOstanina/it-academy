@@ -296,7 +296,19 @@
   <div class="container">
     <h2>contact us</h2>
     <h4>Proin iaculis purus consequat sem cure.</h4>
-    <button class="btn_tell">send message</button>
+    <form method="GET" action="http://fe.it-academy.by/TestForm.php">
+      <div class="clearfix">
+        <div class="identification">
+          <input type="text" name="yourName" placeholder="your name *" /> <br />
+          <input type="email" name="e-mail" placeholder="your e-mail *" /><br />
+          <input type="text" name="subject" placeholder="subject" />
+        </div>
+        <div class="message-area">
+          <textarea name="message" placeholder="your message *"></textarea>
+        </div>
+        <input type="submit" value="send message" />
+      </div>
+    </form>
   </div>
 </div>
 <!-- восьмой блок  -->
