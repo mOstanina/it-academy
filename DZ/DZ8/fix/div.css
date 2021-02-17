@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+.header {
+  background-color: #add8e6;
+  width: 100%;
+  color: blue;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.forBackground {
+  background-image: url(menu-fon.png);
+  background-repeat: repeat-y;
+}
+.menu {
+  background-color: #f0e68c;
+  width: 190px;
+  font-size: 15px;
+  float: left;
+}
+ul{
+  padding-inline-start: 25px
+}
+.content {
+  background-image: url(small-ball.png);
+  background-repeat: repeat-y;
+  background-position: 100% 0%;
+  font-weight: 300;
+  margin-left: 210px;
+}
+p {
+  padding-bottom: 15px;
+  margin: 0px;
+}
+p.types{
+  font-weight: 600; 
+  padding: 5px
+}
+.football {
+  text-align: center;
+  clear: none;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.footer {
+  background-color: #add8e6;
+  width: 100%;
+  color: blue;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 20px;
+}
+img {
+  float: left;
+  padding-bottom: 15px;
+  float: left; 
+  margin-right: 20px;
+}
+.block{
+  background-color: springgreen;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  border:blue 2px solid;
+  padding: 20px 20px;
+}

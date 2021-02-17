@@ -1,0 +1,24 @@
+@media all and (max-width: 733px){
+    img{
+        width: 100%;
+    }
+}
+@media all and (max-width: 510px){
+  .menu{
+      float: none;
+      width: 100%;
+      padding-bottom: 10px;
+  }
+  .content{
+      margin-left: 10px;
+  }
+  .forBackground{
+    background-image: none;
+  }
+  .content {
+    background-image: none;
+  }
+  ul{
+    padding-inline-start: 25%;
+  }
+}
