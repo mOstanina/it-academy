@@ -1,0 +1,25 @@
+rect#e5_rectangle {
+  stroke: mediumblue;
+  stroke-width: 1px;
+}
+rect#e5_rectangle:hover {
+  stroke: darkred;
+  stroke-width: 8px;
+}
+#e4_pathH:hover {
+  transform: scaleY(0.9);
+}
+#e2_rectangle {
+  transition: 1s all;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+#e2_rectangle:hover {
+  transform: scale(2, 2);
+}
+rect#e6_rectangle {
+  fill: lightgray;
+}
+rect#e6_rectangle:hover {
+  fill: gold;
+}

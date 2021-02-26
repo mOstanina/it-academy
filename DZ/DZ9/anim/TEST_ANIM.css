@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.content {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: orangered solid 2px;
+}
+
+
+
+.first {
+  width: 150px;
+  height: 150px;
+  background-image: radial-gradient(circle at 25% bottom, red, lightblue 50%, green);
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  animation-name: first-item;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes first-item {
+  0% {
+    background-image: radial-gradient(circle at 25% bottom, blue, lightblue 50%, green);
+  }
+  50% {
+    background-image: radial-gradient(circle at 35% bottom, blue, lightblue 70%, green);
+
+   
+  }
+  100% {
+    background-image: radial-gradient(circle at 45% bottom, blue, lightblue 100%, green);
+  }
+  
+}
+
+.second {
+  width: 10px;
+  height: 10px;
+  background-color: seagreen;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 250px;
+  animation-name: second-item;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-play-state: paused;
+}
+@keyframes second-item {
+  0% {
+    width: 10px;
+    height: 10px;
+    left: 40px;
+  }
+  50% {
+    width: 85px;
+    height: 85px;
+    left: 80px;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    left: 140px;
+  }
+}
+.third {
+  width: 150px;
+  height: 50px;
+  background-color: skyblue;
+  border-radius: 10%;
+  position: absolute;
+  left: 300px;
+  top: 150px;
+  animation-name: third-item;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  font-size: 40px;
+  font-weight: bold;
+  color: midnightblue;
+  animation-play-state: paused;animation-direction: alternate-reverse;
+  box-shadow: 0 10px 10px 0 slategray;
+}
+.third > p {
+  text-align: center;
+}
+@keyframes third-item {
+  0% {
+    color: midnightblue;
+    box-shadow: 0 20px 20px 0 grey;
+  }
+  50% {
+    color: royalblue;
+    box-shadow: 0 20px 20px 0 lightgray;
+    transform: translate(-50px, -50px) rotate(10deg);
+  }
+  100% {
+    color: skyblue;
+    transform: translate(-80px, -80px) rotate(40deg);
+  }
+}
+
+.fourth {
+  width: 150px;
+  height: 150px;
+  background-color: mediumpurple;
+  border-radius: 0%;
+  position: absolute;
+  left: 290px;
+  top: 250px;
+  animation-name: fourth-item;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  font-size: 40px;
+  font-weight: bold;
+  color: midnightblue;
+  animation-play-state: paused;
+  box-shadow: 0 10px 10px 0 slategray;
+  text-align: center;
+  padding-top: 50px;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes fourth-item {
+  0% {
+    border-radius: 0;
+    box-shadow: 0 20px 20px 0 grey;
+    color: midnightblue;
+  }
+  50% {
+    border-radius: 25%;
+    transform: scaleY(-1);
+    box-shadow: 0 40px 40px 0 grey;
+    color: oldlace;
+  }
+  100% {
+    box-shadow: 0 80px 80px 0 grey;
+    border-radius: 50%;
+    color: orangered;
+  }
+}
+.content:hover .second,
+.content:hover .third,
+.content:hover .fourth {
+  animation-play-state: running;
+}

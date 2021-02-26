@@ -1,0 +1,14 @@
+
+@keyframes MyAnimation{
+  from {
+    background: url("cat-walk-sprite.jpg") 0 0;
+  }
+  to {
+    background: url("cat-walk-sprite.jpg") 0 -2200px;
+  }
+}
+#cat {
+    width: 900px;
+    height: 200px;
+    animation: MyAnimation 1s steps(11) infinite;
+  }
