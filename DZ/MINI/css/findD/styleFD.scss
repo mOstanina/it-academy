@@ -1,0 +1,236 @@
+@import "varFD";
+@import "mixinFD";
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: black;
+}
+ul {
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+.containerPage {
+  max-width: $md;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.controls {
+  position: fixed;
+  font-size: 42px;
+  right: 10px;
+  top: 10px;
+  display: none;
+  @include myMediaDiller($thirdmedia) {
+    display: flex;
+    .fa-times-circle {
+      display: none;
+    }
+  }
+}
+header {
+  .header {
+    .containerPage {
+      nav {
+        width: 100%;
+        margin: 20px 0 20px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include myMediaDiller($firstmedia) {
+          flex-direction: column;
+        }
+        .logo {
+          height: 35px;
+          width: 75px;
+          margin-left: 20px;
+          background: url("../../img/mini-logo-black.svg") no-repeat center;
+          margin-right: 40px;
+          @include myMediaDiller($firstmedia) {
+            margin-right: 20px;
+            margin-bottom: 10px;
+          }
+          &:hover {
+            background: url("../../img/first-page/mini-logo-white.svg")
+              no-repeat center;
+            background-color: black;
+            border-radius: 3px;
+          }
+        }
+        ul {
+          width: 90%;
+          display: flex;
+          margin: 0;
+          justify-content: space-around;
+          @include myMediaDiller($secondmedia) {
+            width: 100%;
+            padding-left: 0;
+          }
+          @include myMediaDiller($thirdmedia) {
+            position: fixed;
+            height: 101vh;
+            background-color: black;
+            flex-direction: column;
+            top: 0;
+            left: -80%;
+            width: 80%;
+            transition: 0.5s;
+            z-index: 9;
+            justify-content: space-evenly;
+            padding-left: 30px;
+          }
+
+          li {
+            list-style: none;
+            color: black;
+            padding: 8px;
+            @include myMediaDiller($thirdmedia) {
+              color: white;
+              font-size: 30px;
+            }
+            @include myMediaDiller($fivesmedia) {
+              font-size: 20px;
+            }
+            &:hover {
+              background-color: black;
+              border-radius: 3px;
+              color: white;
+            }
+            a {
+              color: inherit;
+              text-transform: uppercase;
+              margin: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#dillers {
+  padding: 30px 0;
+  background-color: $JCW-background;
+  margin-bottom: 50px;
+  h1 {
+    text-align: center;
+    font-family: $main-font-family;
+    font-size: 32px;
+    font-weight: 400;
+  }
+}
+#map {
+  .containerPage {
+    display: flex;
+    flex-shrink: 1;
+    iframe {
+      @include myMediaDiller($fourthmedia) {
+        max-height: 300px;
+      }
+    }
+  }
+}
+#dillerInfo {
+  margin: 50px 0 5px 0;
+  background-color: $JCW-background;
+  .containerPage {
+    .autoidea {
+      line-height: 2;
+      @include myMediaDiller($fourthmedia) {
+        flex-direction: column;
+      }
+
+      h3 {
+        font-family: $main-font-family;
+        font-size: 32px;
+        font-weight: 400;
+        @include myMediaDiller($fourthmedia) {
+          margin-bottom: 20px;
+        }
+      }
+      padding: 30px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .conacts {
+        display: flex;
+        justify-content: center;
+        .autoidea-inquiry {
+          margin-right: 30px;
+        }
+      }
+    }
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  .containerPage {
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      color: $slider-text-color;
+      position: relative;
+      .social {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        .facebook {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-color: black;
+          margin-right: 20px;
+          margin-left: 20px;
+          text-align: center;
+          i {
+            color: white;
+            margin-top: 7px;
+          }
+        }
+        .instagram {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-color: black;
+          margin-right: 20px;
+          text-align: center;
+          vertical-align: middle;
+          i {
+            color: white;
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+    .up {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: black;
+      margin-right: 20px;
+      text-align: center;
+      @include myMediaDiller($fourthmedia) {
+        position: fixed;
+        z-index: 20;
+        bottom: 20px;
+        right: 10px;
+        margin: 0;
+      }
+      i {
+        color: white;
+        margin-top: 7px;
+      }
+    }
+  }
+}

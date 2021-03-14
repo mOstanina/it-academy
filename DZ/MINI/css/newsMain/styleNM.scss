@@ -1,0 +1,328 @@
+@import "varNM";
+@import "mixinNM";
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: black;
+  font-family: "Source Serif Pro", serif;
+}
+
+ul {
+  li {
+    list-style: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+.containerPage {
+  max-width: $md;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.controls {
+  position: fixed;
+  font-size: 42px;
+  right: 10px;
+  top: 10px;
+  display: none;
+  //   @include myMediaNM($thirdmedia) {
+  //     display: flex;
+  //     .fa-times-circle {
+  //       display: none;
+  //     }
+  //   }
+}
+header {
+  .header {
+    .containerPage {
+      nav {
+        width: 100%;
+        margin: 20px 0 20px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        // @include myMediaNM($firstmedia) {
+        //   flex-direction: column;
+        // }
+        .logo {
+          height: 35px;
+          width: 75px;
+          margin-left: 20px;
+          background: url("../../img/mini-logo-black.svg") no-repeat center;
+          margin-right: 40px;
+          //   @include myMediaNM($firstmedia) {
+          //     margin-right: 20px;
+          //     margin-bottom: 10px;
+          //   }
+          &:hover {
+            background: url("../../img/first-page/mini-logo-white.svg")
+              no-repeat center;
+            background-color: black;
+            border-radius: 3px;
+          }
+        }
+        ul {
+          width: 90%;
+          display: flex;
+          margin: 0;
+          justify-content: space-around;
+          //   @include myMediaNM($secondmedia) {
+          //     width: 100%;
+          //     padding-left: 0;
+          //   }
+          //   @include myMediaNM($thirdmedia) {
+          //     position: fixed;
+          //     height: 101vh;
+          //     background-color: black;
+          //     flex-direction: column;
+          //     top: 0;
+          //     left: -80%;
+          //     width: 80%;
+          //     transition: 0.5s;
+          //     z-index: 9;
+          //     justify-content: space-evenly;
+          //     padding-left: 30px;
+          //   }
+
+          li {
+            list-style: none;
+            color: black;
+            padding: 8px;
+            // @include myMediaNM($thirdmedia) {
+            //   color: white;
+            //   font-size: 30px;
+            // }
+            // @include myMediaNM($fivesmedia) {
+            //   font-size: 20px;
+            // }
+            &:hover {
+              background-color: black;
+              border-radius: 3px;
+              color: white;
+            }
+            a {
+              color: inherit;
+              text-transform: uppercase;
+              margin: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#ourNews {
+  margin: 20px 0 20px 0;
+  h1 {
+    font-size: 75px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 20px 0 20px 0;
+  }
+  hr {
+    height: 3px;
+    color: black;
+  }
+  h4 {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 20px 0 20px 0;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+#main-news-on-page {
+  margin: 20px 0 20px 0;
+  background-color: $JCW-background;
+  .fresh-news {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 50px 0;
+    .main-card {
+      padding: 0 0 40px 0;
+      background-color: $white;
+      width: 900px;
+
+      img {
+        max-width: 900px;
+        height: 500px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+      h2 {
+        text-transform: uppercase;
+        font-size: 30px;
+        margin-top: 8px;
+        margin-left: 10px;
+        font-weight: 500;
+      }
+      p {
+        font-style: italic;
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+#news {
+  h3 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    &::before,
+    &::after {
+      content: "\2014";
+    }
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+  }
+}
+#news-line {
+  padding-top: 30px;
+  background-color: $JCW-background;
+  .containerPage {
+    .newsCards {
+      padding: 50px 0 60px 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .card {
+        background-color: $white;
+        width: 350px;
+        margin: 0 20px;
+        border: none;
+        //   @include myMedia($six) {
+        //     width: 95%;
+        //     margin: 0;
+        //   }
+        .image1,
+        .image2,
+        .image3 {
+          margin-left: -20px;
+          margin-top: -20px;
+          width: 350px;
+          height: 250px;
+          // @include myMedia($first) {
+          //   width: 400px;
+          // }
+          // @include myMedia($six) {
+          //   width: 100%;
+          // }
+        }
+
+        .image1 {
+          background: url(../../img/first-page/news1.jpeg) no-repeat;
+          background-size: cover;
+        }
+        .image2 {
+          background: url(../../img/first-page/news2.jpg) no-repeat;
+          background-size: cover;
+        }
+        .image3 {
+          background: url(../../img/first-page/news3.jpg) no-repeat;
+          background-size: cover;
+        }
+        h2 {
+          text-transform: uppercase;
+          font-size: 20px;
+          font-weight: 400;
+          margin-bottom: 20px;
+          margin-left: 10px;
+          margin-top: 18px;
+        }
+        p {
+          font-style: italic;
+          text-decoration: underline;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+        //   @include myMedia($first) {
+        //     width: 400px;
+        //   }
+      }
+
+      // .card2 {
+      //   @include myMedia($third) {
+      //     margin-top: 70px;
+      //   }
+      // }
+      // .card3 {
+      //   @include myMedia($first) {
+      //     margin-top: 70px;
+      //   }
+      // }
+    }
+  }
+}
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  .containerPage {
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      color: $slider-text-color;
+      position: relative;
+      .social {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        .facebook {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-color: black;
+          margin-right: 20px;
+          margin-left: 20px;
+          text-align: center;
+          i {
+            color: white;
+            margin-top: 7px;
+          }
+        }
+        .instagram {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-color: black;
+          margin-right: 20px;
+          text-align: center;
+          vertical-align: middle;
+          i {
+            color: white;
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+    .up {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: black;
+      margin-right: 20px;
+      text-align: center;
+      //   @include myMediaNM($fourthmedia) {
+      //     position: fixed;
+      //     z-index: 20;
+      //     bottom: 20px;
+      //     right: 10px;
+      //     margin: 0;
+      //   }
+      i {
+        color: white;
+        margin-top: 7px;
+      }
+    }
+  }
+}
