@@ -30,35 +30,36 @@ a {
   right: 10px;
   top: 10px;
   display: none;
-  //   @include myMediaNM($thirdmedia) {
-  //     display: flex;
-  //     .fa-times-circle {
-  //       display: none;
-  //     }
-  //   }
+    @include myMediaNM($fourthmedia) {
+      display: flex;
+      .fa-times-circle {
+        display: none;
+      }
+    }
 }
 header {
   .header {
     .containerPage {
-      nav {
+      .navHead {
         width: 100%;
         margin: 20px 0 20px 0;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        // @include myMediaNM($firstmedia) {
-        //   flex-direction: column;
-        // }
+        @include myMediaNM($secondmedia) {
+          flex-direction: column;
+        }
         .logo {
+          display: inline-block;
           height: 35px;
           width: 75px;
           margin-left: 20px;
           background: url("../../img/mini-logo-black.svg") no-repeat center;
           margin-right: 40px;
-          //   @include myMediaNM($firstmedia) {
-          //     margin-right: 20px;
-          //     margin-bottom: 10px;
-          //   }
+            @include myMediaNM($secondmedia) {
+              margin-right: 20px;
+              margin-bottom: 10px;
+            }
           &:hover {
             background: url("../../img/first-page/mini-logo-white.svg")
               no-repeat center;
@@ -71,32 +72,35 @@ header {
           display: flex;
           margin: 0;
           justify-content: space-around;
-          //   @include myMediaNM($secondmedia) {
-          //     width: 100%;
-          //     padding-left: 0;
-          //   }
-          //   @include myMediaNM($thirdmedia) {
-          //     position: fixed;
-          //     height: 101vh;
-          //     background-color: black;
-          //     flex-direction: column;
-          //     top: 0;
-          //     left: -80%;
-          //     width: 80%;
-          //     transition: 0.5s;
-          //     z-index: 9;
-          //     justify-content: space-evenly;
-          //     padding-left: 30px;
-          //   }
+            @include myMediaNM($secondmedia) {
+              width: 100%;
+              padding-left: 0;
+              justify-content: space-between;
+            }
+            @include myMediaNM($fourthmedia) {
+              position: fixed;
+              height: 101vh;
+              background-color: black;
+              flex-direction: column;
+              top: 0;
+              left: -80%;
+              width: 80%;
+              transition: 0.5s;
+              z-index: 9;
+              justify-content: space-evenly;
+              padding-left: 30px;
+            }
 
           li {
             list-style: none;
             color: black;
             padding: 8px;
-            // @include myMediaNM($thirdmedia) {
-            //   color: white;
-            //   font-size: 30px;
-            // }
+            
+            @include myMediaNM($fourthmedia) {
+              font-size: 15px;
+              font-weight: 400;
+              color: $white;
+            }
             // @include myMediaNM($fivesmedia) {
             //   font-size: 20px;
             // }
@@ -109,20 +113,59 @@ header {
               color: inherit;
               text-transform: uppercase;
               margin: 5px;
+              @include myMediaNM($secondmedia) {
+                margin: 0;
+              }
             }
           }
         }
       }
     }
   }
+  .breadcrumb{
+    ol{  
+      padding-top: 20px;
+      margin: 0;
+      li {
+        display: inline;
+        list-style: none;
+        color: black;
+        color: inherit;
+        text-transform: uppercase;
+        font-size: 13px;
+        span{
+          &:hover {
+          text-decoration:underline;
+        }
+      }
+        a {
+          color: inherit;
+          text-transform: uppercase;
+          margin: 5px;
+        }
+        &::after{
+          content: " /\00a0";
+        }
+      }
+    }
+  }
 }
 #ourNews {
-  margin: 20px 0 20px 0;
+  margin: 20px 5px 20px 5px;
   h1 {
     font-size: 75px;
     text-transform: uppercase;
     font-weight: 600;
     margin: 20px 0 20px 0;
+    @include myMediaNM($thirdmedia) {    
+      font-size: 50px;
+    }
+    @include myMediaNM($fourthmedia) {
+      font-size: 40px;
+    }
+    @include myMediaNM($fivesmedia) {
+      font-size: 25px;
+    }
   }
   hr {
     height: 3px;
@@ -133,33 +176,68 @@ header {
     text-transform: uppercase;
     font-weight: 400;
     margin: 20px 0 20px 0;
+    @include myMediaNM($thirdmedia) {    
+      font-size: 30px;
+    }
+    @include myMediaNM($fourthmedia) {
+      font-size: 20px;
+    }
+    @include myMediaNM($fivesmedia) {
+      font-size: 17px;
+    }
+  
   }
   p {
     font-size: 18px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  @include myMediaNM($fourthmedia) {
+    font-size: 11px;
+  }
+  @include myMediaNM($fourthmedia) {
+    font-size: 8px;
   }
 }
+
 #main-news-on-page {
   margin: 20px 0 20px 0;
   background-color: $JCW-background;
+  @include myMediaNM($thirdmedia) {
+    display: none;
+  }
   .fresh-news {
-    display: flex;
-    justify-content: center;
-    padding: 100px 0 50px 0;
-    .main-card {
-      padding: 0 0 40px 0;
-      background-color: $white;
-      width: 900px;
-
-      img {
-        max-width: 900px;
-        height: 500px;
-        margin-top: -50px;
-        margin-left: -50px;
-      }
-      h2 {
+        padding: 90px 0 60px 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .main-card {
+          background-color: $white;
+          width: 900px;
+          margin: 0 20px;
+          border: none; 
+          @include myMediaNM($firstmedia) {
+          max-width: 700px;
+          }
+          .main-image {
+            background: url(../../img/news/damImage.narrow.1640w.j_1560856873531.jpg) no-repeat;
+            background-size: cover;
+            margin-left: -40px;
+            margin-top: -40px;
+            width: 900px;
+            height: 550px;
+            @include myMediaNM($firstmedia) {
+              max-width: 700px;
+              height: 500px;
+              margin-left: 0;
+              margin-top: 0;
+            }
+          }
+          h2 {
         text-transform: uppercase;
         font-size: 30px;
-        margin-top: 8px;
+        padding-top: 8px;
+        padding-bottom: 25px;
         margin-left: 10px;
         font-weight: 500;
       }
@@ -195,15 +273,20 @@ header {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+      @include myMediaNM($secondmedia) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
       .card {
         background-color: $white;
         width: 350px;
         margin: 0 20px;
         border: none;
-        //   @include myMedia($six) {
-        //     width: 95%;
-        //     margin: 0;
-        //   }
+        @include myMediaNM($fivesmedia) {
+          margin: 0;
+          max-width: 280px;
+        }
         .image1,
         .image2,
         .image3 {
@@ -211,6 +294,11 @@ header {
           margin-top: -20px;
           width: 350px;
           height: 250px;
+          @include myMediaNM($fivesmedia) {
+            margin-left: 0;
+            margin-top: 0;
+            max-width: 280px;
+          }
           // @include myMedia($first) {
           //   width: 400px;
           // }
@@ -245,21 +333,19 @@ header {
           margin-left: 10px;
           margin-top: 10px;
         }
-        //   @include myMedia($first) {
-        //     width: 400px;
-        //   }
+        
       }
 
-      // .card2 {
-      //   @include myMedia($third) {
-      //     margin-top: 70px;
-      //   }
-      // }
-      // .card3 {
-      //   @include myMedia($first) {
-      //     margin-top: 70px;
-      //   }
-      // }
+      .card2 {
+        @include myMediaNM($secondmedia) {
+          margin-top: 70px;
+        }
+      }
+      .card3 {
+        @include myMediaNM($secondmedia) {
+          margin-top: 70px;
+        }
+      }
     }
   }
 }
@@ -312,13 +398,13 @@ footer {
       background-color: black;
       margin-right: 20px;
       text-align: center;
-      //   @include myMediaNM($fourthmedia) {
-      //     position: fixed;
-      //     z-index: 20;
-      //     bottom: 20px;
-      //     right: 10px;
-      //     margin: 0;
-      //   }
+        @include myMediaNM($fivesmedia) {
+          position: fixed;
+          z-index: 20;
+          bottom: 20px;
+          right: 10px;
+          margin: 0;
+        }
       i {
         color: white;
         margin-top: 7px;

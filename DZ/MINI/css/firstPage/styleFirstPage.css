@@ -504,13 +504,20 @@ h3 {
       border-radius: 1px;
       color: white;
       font-family: "Roboto", sans-serif;
-      font-weight: 200;
+      font-weight: 300;
       font-size: 20px;
       border: black solid 2px; }
+      #news .button button a {
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-size: 20px; }
       #news .button button:hover {
         background-color: white;
         color: black;
         border: black solid 2px; }
+        #news .button button:hover a {
+          color: black; }
 
 footer {
   padding-top: 20px;
