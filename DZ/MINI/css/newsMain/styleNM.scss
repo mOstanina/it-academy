@@ -97,7 +97,7 @@ header {
             padding: 8px;
             
             @include myMediaNM($fourthmedia) {
-              font-size: 15px;
+              font-size: 30px;
               font-weight: 400;
               color: $white;
             }

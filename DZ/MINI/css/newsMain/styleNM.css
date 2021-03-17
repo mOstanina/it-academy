@@ -104,7 +104,7 @@ header .header .containerPage .navHead {
       padding: 8px; }
       @media all and (max-width: 599px) {
         header .header .containerPage .navHead ul li {
-          font-size: 15px;
+          font-size: 30px;
           font-weight: 400;
           color: white; } }
       header .header .containerPage .navHead ul li:hover {
