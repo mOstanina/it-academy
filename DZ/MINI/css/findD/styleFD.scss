@@ -129,8 +129,8 @@ header {
         span{
           &:hover {
           text-decoration:underline;
+          }
         }
-      }
         a {
           color: inherit;
           text-transform: uppercase;
@@ -138,6 +138,11 @@ header {
         }
         &::after{
           content: " /\00a0";
+        }
+        &:last-child{
+          &:after{
+            display: none;
+          }
         }
       }
     }

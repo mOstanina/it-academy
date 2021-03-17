@@ -112,6 +112,8 @@ header .breadcrumb ol {
       margin: 5px; }
     header .breadcrumb ol li::after {
       content: " /\00a0"; }
+    header .breadcrumb ol li:last-child:after {
+      display: none; }
 
 #dillers {
   padding: 30px 0;

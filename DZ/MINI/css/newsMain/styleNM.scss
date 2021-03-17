@@ -98,7 +98,6 @@ header {
             
             @include myMediaNM($fourthmedia) {
               font-size: 30px;
-              font-weight: 400;
               color: $white;
             }
             // @include myMediaNM($fivesmedia) {
@@ -136,8 +135,8 @@ header {
         span{
           &:hover {
           text-decoration:underline;
+          }
         }
-      }
         a {
           color: inherit;
           text-transform: uppercase;
@@ -145,6 +144,11 @@ header {
         }
         &::after{
           content: " /\00a0";
+        }
+        &:last-child{
+          &:after{
+            display: none;
+          }
         }
       }
     }
@@ -189,14 +193,12 @@ header {
   }
   p {
     font-size: 18px;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  @include myMediaNM($fourthmedia) {
-    font-size: 11px;
-  }
-  @include myMediaNM($fourthmedia) {
-    font-size: 8px;
+    @include myMediaNM($fourthmedia) {
+      font-size: 11px;
+    }
+    @include myMediaNM($fourthmedia) {
+      font-size: 8px;
+    }
   }
 }
 

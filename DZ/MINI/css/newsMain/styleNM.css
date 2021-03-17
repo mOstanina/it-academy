@@ -105,7 +105,6 @@ header .header .containerPage .navHead {
       @media all and (max-width: 599px) {
         header .header .containerPage .navHead ul li {
           font-size: 30px;
-          font-weight: 400;
           color: white; } }
       header .header .containerPage .navHead ul li:hover {
         background-color: black;
@@ -136,6 +135,8 @@ header .breadcrumb ol {
       margin: 5px; }
     header .breadcrumb ol li::after {
       content: " /\00a0"; }
+    header .breadcrumb ol li:last-child:after {
+      display: none; }
 
 #ourNews {
   margin: 20px 5px 20px 5px; }
@@ -171,15 +172,13 @@ header .breadcrumb ol {
       #ourNews h4 {
         font-size: 17px; } }
   #ourNews p {
-    font-size: 18px;
-    padding-right: 10px;
-    padding-left: 10px; }
-  @media all and (max-width: 599px) {
-    #ourNews {
-      font-size: 11px; } }
-  @media all and (max-width: 599px) {
-    #ourNews {
-      font-size: 8px; } }
+    font-size: 18px; }
+    @media all and (max-width: 599px) {
+      #ourNews p {
+        font-size: 11px; } }
+    @media all and (max-width: 599px) {
+      #ourNews p {
+        font-size: 8px; } }
 
 #main-news-on-page {
   margin: 20px 0 20px 0;

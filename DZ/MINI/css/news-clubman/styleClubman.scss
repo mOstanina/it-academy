@@ -1,5 +1,5 @@
-@import "varNL";
-@import "mixinNL";
+@import "varClubman";
+@import "mixinClubman";
 
 * {
   margin: 0 auto;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
   outline: none;
   color: black;
-  font-family: "Source Serif Pro", serif;
+  font-family: $main-font-family;
 }
 
 ul {
@@ -29,12 +29,12 @@ a {
   right: 10px;
   top: 10px;
   display: none;
-    @include myMediaNL($secondmedia) {
-      display: flex;
-      .fa-times-circle {
-        display: none;
-      }
-    }
+    // @include myMediaClubman($secondmedia) {
+    //   display: flex;
+    //   .fa-times-circle {
+    //     display: none;
+    //   }
+    // }
 }
 header {
     .header {
@@ -45,9 +45,9 @@ header {
           display: flex;
           justify-content: space-around;
           align-items: center;
-          @include myMediaNL($firstmedia) {
-            flex-direction: column;
-          }
+        //   @include myMediaClubman($firstmedia) {
+        //     flex-direction: column;
+        //   }
           .logo {
             display: inline-block;
             height: 35px;
@@ -55,13 +55,13 @@ header {
             margin-left: 20px;
             background: url("../../img/mini-logo-black.svg") no-repeat center;
             margin-right: 40px;
-            @include myMediaNL($firstmedia){
-              margin-right: 20px;
-              margin-bottom: 10px;
-            }
-            @include myMediaNL($secondmedia) {
-              margin-bottom: 0;
-            }
+            // @include myMediaClubman($firstmedia){
+            //   margin-right: 20px;
+            //   margin-bottom: 10px;
+            // }
+            // @include myMediaClubman($secondmedia) {
+            //   margin-bottom: 0;
+            // }
             &:hover {
               background: url("../../img/first-page/mini-logo-white.svg")
                 no-repeat center;
@@ -74,35 +74,35 @@ header {
             display: flex;
             margin: 0;
             justify-content: space-around;
-            @include myMediaNL($firstmedia) {
-              width: 100%;
-              padding-left: 0;
-            }
-            @include myMediaNL($secondmedia) {
-              position: fixed;
-              height: 101vh;
-              background-color: black;
-              flex-direction: column;
-              top: 0;
-              left: -80%;
-              width: 80%;
-              transition: 0.5s;
-              z-index: 9;
-              justify-content: space-evenly;
-              padding-left: 30px;
-            }
+            // @include myMediaClubman($firstmedia) {
+            //   width: 100%;
+            //   padding-left: 0;
+            // }
+            // @include myMediaClubman($secondmedia) {
+            //   position: fixed;
+            //   height: 101vh;
+            //   background-color: black;
+            //   flex-direction: column;
+            //   top: 0;
+            //   left: -80%;
+            //   width: 80%;
+            //   transition: 0.5s;
+            //   z-index: 9;
+            //   justify-content: space-evenly;
+            //   padding-left: 30px;
+            // }
   
             li {
               list-style: none;
               color: black;
               padding: 8px;
-                @include myMediaNL($secondmedia) {
-                  color: white;
-                  font-size: 30px;
-                }
-                @include myMediaNL($thirdmedia) {
-                  font-size: 20px;
-                }
+                // @include myMediaClubman($secondmedia) {
+                //   color: white;
+                //   font-size: 30px;
+                // }
+                // @include myMediaClubman($thirdmedia) {
+                //   font-size: 20px;
+                // }
               &:hover {
                 background-color: black;
                 border-radius: 3px;
@@ -120,9 +120,9 @@ header {
     }
     
     .breadcrumb{
-      @include myMediaNL($secondmedia) {
-        display: none;
-      }
+    //   @include myMediaClubman($secondmedia) {
+    //     display: none;
+    //   }
       ol{  
         padding-top: 20px;
         padding-bottom: 20px;
@@ -156,33 +156,78 @@ header {
       }
     }
 }
-#headlights{
-  img{
-    width: 100%;
-  }
-  hr {
-    height: 3px;
-    color: black;
-  }
-  .date {
-    font-style: italic;
-    text-decoration: underline;
-    margin-top: 10px;
-  }
-  p {
-    font-size: 18px;
-    padding: 20px 0 20px 0;
-    @include myMediaNL($thirdmedia) {
-      font-size: 15px;
+#news-clubman{
+    .smallContain{
+        hr {
+            height: 3px;
+            color: black;
+            }
+        max-width: 1100px;
+        .clubman{
+            width: 70%;
+            h1{
+                font-size: 60px;
+                padding: 30px 0 30px 0;
+            }
+            img{
+                width: 100%;
+                padding: 20px 0 20px 0;
+            }
+        }
+    .full {
+        width: 100%;
+        padding: 20px 0 20px 0;
     }
-  }
-  h2 {
-    text-transform: uppercase;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-top: 18px;
-  }
+    h2,h3{
+        text-transform: uppercase;
+        font-size: 28px;
+        margin-bottom: 20px;
+        margin-top: 18px;
+        font-family: $main-font-family;
+    }
+    h2 {
+        font-weight: 600;
+    }
+    h3{ 
+        font-weight: 500;
+    }
+    p {
+        font-size: 18px;
+        padding: 20px 0 20px 0;
+        // @include myMediaClubman($thirdmedia) {
+        //   font-size: 15px;
+        // }
+        }
+    .comfort{
+     .images{
+        
+        display: flex;
+        justify-content: space-between;
+        .first-img, .second-img{
+            width: 45%;
+        }
+     }
+    }
+    
+    
+}
+
+
+
+
+
+
+
+//   img{
+//     width: 100%;
+//   }
+//   hr {
+//     height: 3px;
+//     color: black;
+//   }
+//  
+//  
+//   
   
 }
 #btn-allNews{
@@ -203,19 +248,19 @@ header {
       font-weight: 300;
       font-size: 20px;
       border: black solid 2px; 
-      @include myMediaNL($secondmedia) {
-        padding: 13px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
+    //   @include myMediaClubman($secondmedia) {
+    //     padding: 13px;
+    //     margin-top: 30px;
+    //     margin-bottom: 30px;
+    //   }
       a{
         color: white;
         font-family: $font-for-btn;
         font-weight: 300;
         font-size: 20px;
-        @include myMediaNL($secondmedia) {
-          font-size: 16px;
-        }
+        // @include myMediaClubman($secondmedia) {
+        //   font-size: 16px;
+        // }
       }
       &:hover {
         background-color: white;
@@ -277,13 +322,13 @@ footer {
       background-color: black;
       margin-right: 20px;
       text-align: center;
-        @include myMediaNL($thirdmedia) {
-          position: fixed;
-          z-index: 20;
-          bottom: 20px;
-          right: 10px;
-          margin: 0;
-        }
+        // @include myMediaClubman($thirdmedia) {
+        //   position: fixed;
+        //   z-index: 20;
+        //   bottom: 20px;
+        //   right: 10px;
+        //   margin: 0;
+        // }
       i {
         color: white;
         margin-top: 7px;

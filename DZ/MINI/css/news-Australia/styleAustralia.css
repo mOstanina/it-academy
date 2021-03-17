@@ -142,22 +142,22 @@ header .breadcrumb ol {
     header .breadcrumb ol li:last-child:after {
       display: none; }
 
-#headlights img {
+#australia img {
   width: 100%; }
-#headlights hr {
+#australia hr {
   height: 3px;
   color: black; }
-#headlights .date {
+#australia .date {
   font-style: italic;
   text-decoration: underline;
   margin-top: 10px; }
-#headlights p {
+#australia p {
   font-size: 18px;
   padding: 20px 0 20px 0; }
   @media all and (max-width: 490px) {
-    #headlights p {
+    #australia p {
       font-size: 15px; } }
-#headlights h2 {
+#australia h2 {
   text-transform: uppercase;
   font-size: 28px;
   font-weight: 600;
@@ -267,4 +267,4 @@ footer {
       color: white;
       margin-top: 7px; }
 
-/*# sourceMappingURL=styleNL.css.map */
+/*# sourceMappingURL=styleAustralia.css.map */

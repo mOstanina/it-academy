@@ -1,5 +1,5 @@
-@import "varNL";
-@import "mixinNL";
+@import "varAustralia";
+@import "mixinAustarlia";
 
 * {
   margin: 0 auto;
@@ -29,7 +29,7 @@ a {
   right: 10px;
   top: 10px;
   display: none;
-    @include myMediaNL($secondmedia) {
+    @include myMediaAu($secondmedia) {
       display: flex;
       .fa-times-circle {
         display: none;
@@ -45,7 +45,7 @@ header {
           display: flex;
           justify-content: space-around;
           align-items: center;
-          @include myMediaNL($firstmedia) {
+          @include myMediaAu($firstmedia) {
             flex-direction: column;
           }
           .logo {
@@ -55,11 +55,11 @@ header {
             margin-left: 20px;
             background: url("../../img/mini-logo-black.svg") no-repeat center;
             margin-right: 40px;
-            @include myMediaNL($firstmedia){
+            @include myMediaAu($firstmedia){
               margin-right: 20px;
               margin-bottom: 10px;
             }
-            @include myMediaNL($secondmedia) {
+            @include myMediaAu($secondmedia) {
               margin-bottom: 0;
             }
             &:hover {
@@ -74,11 +74,11 @@ header {
             display: flex;
             margin: 0;
             justify-content: space-around;
-            @include myMediaNL($firstmedia) {
+            @include myMediaAu($firstmedia) {
               width: 100%;
               padding-left: 0;
             }
-            @include myMediaNL($secondmedia) {
+            @include myMediaAu($secondmedia) {
               position: fixed;
               height: 101vh;
               background-color: black;
@@ -96,11 +96,11 @@ header {
               list-style: none;
               color: black;
               padding: 8px;
-                @include myMediaNL($secondmedia) {
+                @include myMediaAu($secondmedia) {
                   color: white;
                   font-size: 30px;
                 }
-                @include myMediaNL($thirdmedia) {
+                @include myMediaAu($thirdmedia) {
                   font-size: 20px;
                 }
               &:hover {
@@ -120,7 +120,7 @@ header {
     }
     
     .breadcrumb{
-      @include myMediaNL($secondmedia) {
+      @include myMediaAu($secondmedia) {
         display: none;
       }
       ol{  
@@ -156,7 +156,7 @@ header {
       }
     }
 }
-#headlights{
+#australia{
   img{
     width: 100%;
   }
@@ -172,7 +172,7 @@ header {
   p {
     font-size: 18px;
     padding: 20px 0 20px 0;
-    @include myMediaNL($thirdmedia) {
+    @include myMediaAu($thirdmedia) {
       font-size: 15px;
     }
   }
@@ -203,7 +203,7 @@ header {
       font-weight: 300;
       font-size: 20px;
       border: black solid 2px; 
-      @include myMediaNL($secondmedia) {
+      @include myMediaAu($secondmedia) {
         padding: 13px;
         margin-top: 30px;
         margin-bottom: 30px;
@@ -213,7 +213,7 @@ header {
         font-family: $font-for-btn;
         font-weight: 300;
         font-size: 20px;
-        @include myMediaNL($secondmedia) {
+        @include myMediaAu($secondmedia) {
           font-size: 16px;
         }
       }
@@ -277,7 +277,7 @@ footer {
       background-color: black;
       margin-right: 20px;
       text-align: center;
-        @include myMediaNL($thirdmedia) {
+        @include myMediaAu($thirdmedia) {
           position: fixed;
           z-index: 20;
           bottom: 20px;

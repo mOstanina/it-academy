@@ -531,17 +531,13 @@ footer {
     color: white;
     position: relative; }
     footer .containerPage .footer .social {
+      margin: 0;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-      @media all and (max-width: 569px) {
-        footer .containerPage .footer .social {
-          position: absolute;
-          right: 50%;
-          top: 50%; } }
       footer .containerPage .footer .social .facebook {
         width: 35px;
         height: 35px;
