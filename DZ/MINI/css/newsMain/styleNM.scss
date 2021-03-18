@@ -194,10 +194,10 @@ header {
   p {
     font-size: 18px;
     @include myMediaNM($fourthmedia) {
-      font-size: 11px;
+      font-size: 17px;
     }
     @include myMediaNM($fourthmedia) {
-      font-size: 8px;
+      font-size: 16px;
     }
   }
 }
