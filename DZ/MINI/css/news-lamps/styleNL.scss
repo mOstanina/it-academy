@@ -1,161 +1,8 @@
+@import "../all/mixin";
+@import "../all/var";
+@import "../all/menu-footer-style";
 @import "varNL";
-@import "mixinNL";
 
-* {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  color: black;
-  font-family: "Source Serif Pro", serif;
-}
-
-ul {
-  li {
-    list-style: none;
-  }
-}
-a {
-  text-decoration: none;
-}
-.containerPage {
-  max-width: $md;
-  margin: 0 auto;
-  padding: 0;
-}
-.controls {
-  position: fixed;
-  font-size: 42px;
-  right: 10px;
-  top: 10px;
-  display: none;
-    @include myMediaNL($secondmedia) {
-      display: flex;
-      .fa-times-circle {
-        display: none;
-      }
-    }
-}
-header {
-    .header {
-      .containerPage {
-        .navHead {
-          width: 100%;
-          margin: 20px 0 20px 0;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          @include myMediaNL($firstmedia) {
-            flex-direction: column;
-          }
-          .logo {
-            display: inline-block;
-            height: 35px;
-            width: 75px;
-            margin-left: 20px;
-            background: url("../../img/mini-logo-black.svg") no-repeat center;
-            margin-right: 40px;
-            @include myMediaNL($firstmedia){
-              margin-right: 20px;
-              margin-bottom: 10px;
-            }
-            @include myMediaNL($secondmedia) {
-              margin-bottom: 0;
-            }
-            &:hover {
-              background: url("../../img/first-page/mini-logo-white.svg")
-                no-repeat center;
-              background-color: black;
-              border-radius: 3px;
-            }
-          }
-          ul {
-            width: 90%;
-            display: flex;
-            margin: 0;
-            justify-content: space-around;
-            @include myMediaNL($firstmedia) {
-              width: 100%;
-              padding-left: 0;
-            }
-            @include myMediaNL($secondmedia) {
-              position: fixed;
-              height: 101vh;
-              background-color: black;
-              flex-direction: column;
-              top: 0;
-              left: -80%;
-              width: 80%;
-              transition: 0.5s;
-              z-index: 9;
-              justify-content: space-evenly;
-              padding-left: 30px;
-            }
-  
-            li {
-              list-style: none;
-              color: black;
-              padding: 8px;
-                @include myMediaNL($secondmedia) {
-                  color: white;
-                  font-size: 30px;
-                }
-                @include myMediaNL($thirdmedia) {
-                  font-size: 20px;
-                }
-              &:hover {
-                background-color: black;
-                border-radius: 3px;
-                color: white;
-              }
-              a {
-                color: inherit;
-                text-transform: uppercase;
-                margin: 5px;
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    .breadcrumb{
-      @include myMediaNL($secondmedia) {
-        display: none;
-      }
-      ol{  
-        padding-top: 20px;
-        padding-bottom: 20px;
-        margin: 0;
-        li {
-          display: inline;
-          list-style: none;
-          color: black;
-          color: inherit;
-          text-transform: uppercase;
-          font-size: 13px;
-          span{
-            &:hover {
-            text-decoration: underline;
-            }
-          }
-          a {
-            color: inherit;
-            text-transform: uppercase;
-            margin: 5px;
-          }
-          &::after{
-            content: " /\00a0";
-          }
-          &:last-child{
-            &:after{
-              display: none;
-            }
-          }
-        }
-      }
-    }
-}
 #headlights{
   img{
     width: 100%;
@@ -172,7 +19,7 @@ header {
   p {
     font-size: 18px;
     padding: 20px 0 20px 0;
-    @include myMediaNL($thirdmedia) {
+    @include myMedia($thirdmedia) {
       font-size: 16px;
     }
   }
@@ -203,7 +50,7 @@ header {
       font-weight: 300;
       font-size: 20px;
       border: black solid 2px; 
-      @include myMediaNL($secondmedia) {
+      @include myMedia($secondmedia) {
         padding: 13px;
         margin-top: 30px;
         margin-bottom: 30px;
@@ -213,7 +60,7 @@ header {
         font-family: $font-for-btn;
         font-weight: 300;
         font-size: 20px;
-        @include myMediaNL($secondmedia) {
+        @include myMedia($secondmedia) {
           font-size: 16px;
         }
       }
@@ -224,69 +71,6 @@ header {
         a{
           color: black;
         }
-      }
-    }
-  }
-}
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  .containerPage {
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      color: $slider-text-color;
-      position: relative;
-      .social {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        .facebook {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          margin-left: 20px;
-          text-align: center;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-        .instagram {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          text-align: center;
-          vertical-align: middle;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-      }
-    }
-    .up {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: black;
-      margin-right: 20px;
-      text-align: center;
-        @include myMediaNL($thirdmedia) {
-          position: fixed;
-          z-index: 20;
-          bottom: 20px;
-          right: 10px;
-          margin: 0;
-        }
-      i {
-        color: white;
-        margin-top: 7px;
       }
     }
   }

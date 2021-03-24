@@ -1,5 +1,0 @@
-@mixin myMediaClubman($w) {
-    @media all and (max-width: $w) {
-      @content;
-    }
-}

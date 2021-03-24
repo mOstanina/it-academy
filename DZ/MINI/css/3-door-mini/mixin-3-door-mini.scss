@@ -1,5 +1,0 @@
-@mixin myMedia-3-d-m($w) {
-    @media all and (max-width: $w) {
-      @content;
-    }
-}

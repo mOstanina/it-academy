@@ -1,159 +1,7 @@
+@import "../all/mixin";
+@import "../all/var";
+@import "../all/menu-footer-style";
 @import "varNM";
-@import "mixinNM";
-
-* {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  color: black;
-  font-family: "Source Serif Pro", serif;
-}
-
-ul {
-  li {
-    list-style: none;
-  }
-}
-a {
-  text-decoration: none;
-}
-.containerPage {
-  max-width: $md;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.controls {
-  position: fixed;
-  font-size: 42px;
-  right: 10px;
-  top: 10px;
-  display: none;
-    @include myMediaNM($fourthmedia) {
-      display: flex;
-      .fa-times-circle {
-        display: none;
-      }
-    }
-}
-header {
-  .header {
-    .containerPage {
-      .navHead {
-        width: 100%;
-        margin: 20px 0 20px 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        @include myMediaNM($secondmedia) {
-          flex-direction: column;
-        }
-        .logo {
-          display: inline-block;
-          height: 35px;
-          width: 75px;
-          margin-left: 20px;
-          background: url("../../img/mini-logo-black.svg") no-repeat center;
-          margin-right: 40px;
-            @include myMediaNM($secondmedia) {
-              margin-right: 20px;
-              margin-bottom: 10px;
-            }
-          &:hover {
-            background: url("../../img/first-page/mini-logo-white.svg")
-              no-repeat center;
-            background-color: black;
-            border-radius: 3px;
-          }
-        }
-        ul {
-          width: 90%;
-          display: flex;
-          margin: 0;
-          justify-content: space-around;
-            @include myMediaNM($secondmedia) {
-              width: 100%;
-              padding-left: 0;
-              justify-content: space-between;
-            }
-            @include myMediaNM($fourthmedia) {
-              position: fixed;
-              height: 101vh;
-              background-color: black;
-              flex-direction: column;
-              top: 0;
-              left: -80%;
-              width: 80%;
-              transition: 0.5s;
-              z-index: 9;
-              justify-content: space-evenly;
-              padding-left: 30px;
-            }
-
-          li {
-            list-style: none;
-            color: black;
-            padding: 8px;
-            
-            @include myMediaNM($fourthmedia) {
-              font-size: 30px;
-              color: $white;
-            }
-            // @include myMediaNM($fivesmedia) {
-            //   font-size: 20px;
-            // }
-            &:hover {
-              background-color: black;
-              border-radius: 3px;
-              color: white;
-            }
-            a {
-              color: inherit;
-              text-transform: uppercase;
-              margin: 5px;
-              @include myMediaNM($secondmedia) {
-                margin: 0;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .breadcrumb{
-    ol{  
-      padding-top: 20px;
-      margin: 0;
-      li {
-        display: inline;
-        list-style: none;
-        color: black;
-        color: inherit;
-        text-transform: uppercase;
-        font-size: 13px;
-        span{
-          &:hover {
-          text-decoration:underline;
-          }
-        }
-        a {
-          color: inherit;
-          text-transform: uppercase;
-          margin: 5px;
-        }
-        &::after{
-          content: " /\00a0";
-        }
-        &:last-child{
-          &:after{
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
 #ourNews {
   margin: 20px 5px 20px 5px;
   h1 {
@@ -161,13 +9,13 @@ header {
     text-transform: uppercase;
     font-weight: 600;
     margin: 20px 0 20px 0;
-    @include myMediaNM($thirdmedia) {    
+    @include myMedia($thirdmedia) {
       font-size: 50px;
     }
-    @include myMediaNM($fourthmedia) {
+    @include myMedia($fourthmedia) {
       font-size: 40px;
     }
-    @include myMediaNM($fivesmedia) {
+    @include myMedia($fivesmedia) {
       font-size: 25px;
     }
   }
@@ -180,62 +28,61 @@ header {
     text-transform: uppercase;
     font-weight: 400;
     margin: 20px 0 20px 0;
-    @include myMediaNM($thirdmedia) {    
+    @include myMedia($thirdmedia) {
       font-size: 30px;
     }
-    @include myMediaNM($fourthmedia) {
+    @include myMedia($fourthmedia) {
       font-size: 20px;
     }
-    @include myMediaNM($fivesmedia) {
+    @include myMedia($fivesmedia) {
       font-size: 17px;
     }
-  
   }
   p {
     font-size: 18px;
-    @include myMediaNM($fourthmedia) {
+    @include myMedia($fourthmedia) {
       font-size: 17px;
     }
-    @include myMediaNM($fourthmedia) {
+    @include myMedia($fourthmedia) {
       font-size: 16px;
     }
   }
 }
-
 #main-news-on-page {
   margin: 20px 0 20px 0;
   background-color: $JCW-background;
-  @include myMediaNM($thirdmedia) {
+  @include myMedia($thirdmedia) {
     display: none;
   }
   .fresh-news {
-        padding: 90px 0 60px 0;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        .main-card {
-          background-color: $white;
-          width: 900px;
-          margin: 0 20px;
-          border: none; 
-          @include myMediaNM($firstmedia) {
+    padding: 90px 0 60px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .main-card {
+      background-color: $white;
+      width: 900px;
+      margin: 0 20px;
+      border: none;
+      @include myMedia($firstmedia) {
+        max-width: 700px;
+      }
+      .main-image {
+        background: url(../../img/news/damImage.narrow.1640w.j_1560856873531.jpg)
+          no-repeat;
+        background-size: cover;
+        margin-left: -40px;
+        margin-top: -40px;
+        width: 900px;
+        height: 550px;
+        @include myMedia($firstmedia) {
           max-width: 700px;
-          }
-          .main-image {
-            background: url(../../img/news/damImage.narrow.1640w.j_1560856873531.jpg) no-repeat;
-            background-size: cover;
-            margin-left: -40px;
-            margin-top: -40px;
-            width: 900px;
-            height: 550px;
-            @include myMediaNM($firstmedia) {
-              max-width: 700px;
-              height: 500px;
-              margin-left: 0;
-              margin-top: 0;
-            }
-          }
-          h2 {
+          height: 500px;
+          margin-left: 0;
+          margin-top: 0;
+        }
+      }
+      h2 {
         text-transform: uppercase;
         font-size: 30px;
         padding-top: 8px;
@@ -275,17 +122,17 @@ header {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      @include myMediaNM($secondmedia) {
+      @include myMedia($secondmedia) {
         display: flex;
         flex-direction: column;
         align-items: center;
-       }
+      }
       .card {
         background-color: $white;
         width: 350px;
         margin: 0 20px;
         border: none;
-        @include myMediaNM($fivesmedia) {
+        @include myMedia($fivesmedia) {
           margin: 0;
           max-width: 280px;
         }
@@ -296,7 +143,7 @@ header {
           margin-top: -20px;
           width: 350px;
           height: 250px;
-          @include myMediaNM($fivesmedia) {
+          @include myMedia($fivesmedia) {
             margin-left: 0;
             margin-top: 0;
             max-width: 280px;
@@ -335,81 +182,17 @@ header {
           margin-left: 10px;
           margin-top: 10px;
         }
-        
       }
 
       .card2 {
-        @include myMediaNM($secondmedia) {
+        @include myMedia($secondmedia) {
           margin-top: 70px;
         }
       }
       .card3 {
-        @include myMediaNM($secondmedia) {
+        @include myMedia($secondmedia) {
           margin-top: 70px;
         }
-      }
-    }
-  }
-}
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  .containerPage {
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      color: $slider-text-color;
-      position: relative;
-      .social {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        .facebook {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          margin-left: 20px;
-          text-align: center;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-        .instagram {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          text-align: center;
-          vertical-align: middle;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-      }
-    }
-    .up {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: black;
-      margin-right: 20px;
-      text-align: center;
-        @include myMediaNM($fivesmedia) {
-          position: fixed;
-          z-index: 20;
-          bottom: 20px;
-          right: 10px;
-          margin: 0;
-        }
-      i {
-        color: white;
-        margin-top: 7px;
       }
     }
   }

@@ -24,6 +24,13 @@ a {
   right: 10px;
   top: 10px;
   display: none; }
+  @media all and (max-width: 648px) {
+    .controls {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .controls .fa-times-circle {
+        display: none; } }
 
 header .header .containerPage .navHead {
   width: 100%;
@@ -36,6 +43,12 @@ header .header .containerPage .navHead {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  @media all and (max-width: 783px) {
+    header .header .containerPage .navHead {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
   header .header .containerPage .navHead .logo {
     display: inline-block;
     height: 35px;
@@ -43,6 +56,13 @@ header .header .containerPage .navHead {
     margin-left: 20px;
     background: url("../../img/mini-logo-black.svg") no-repeat center;
     margin-right: 40px; }
+    @media all and (max-width: 783px) {
+      header .header .containerPage .navHead .logo {
+        margin-right: 20px;
+        margin-bottom: 10px; } }
+    @media all and (max-width: 648px) {
+      header .header .containerPage .navHead .logo {
+        margin-bottom: 0; } }
     header .header .containerPage .navHead .logo:hover {
       background: url("../../img/first-page/mini-logo-white.svg") no-repeat center;
       background-color: black;
@@ -55,10 +75,37 @@ header .header .containerPage .navHead {
     margin: 0;
     -ms-flex-pack: distribute;
         justify-content: space-around; }
+    @media all and (max-width: 783px) {
+      header .header .containerPage .navHead ul {
+        width: 100%;
+        padding-left: 0; } }
+    @media all and (max-width: 648px) {
+      header .header .containerPage .navHead ul {
+        position: fixed;
+        height: 101vh;
+        background-color: black;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        top: 0;
+        left: -80%;
+        width: 80%;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        z-index: 55;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+        padding-left: 30px; } }
     header .header .containerPage .navHead ul li {
       list-style: none;
       color: black;
       padding: 8px; }
+      @media all and (max-width: 648px) {
+        header .header .containerPage .navHead ul li {
+          color: white;
+          font-size: 20px; } }
       header .header .containerPage .navHead ul li:hover {
         background-color: black;
         border-radius: 3px;
@@ -67,10 +114,16 @@ header .header .containerPage .navHead {
         color: inherit;
         text-transform: uppercase;
         margin: 5px; }
+@media all and (max-width: 419px) {
+  header .breadcrumb {
+    display: none; } }
 header .breadcrumb ol {
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0; }
+  @media all and (max-width: 648px) {
+    header .breadcrumb ol {
+      padding-top: 0; } }
   header .breadcrumb ol li {
     display: inline;
     list-style: none;
@@ -86,36 +139,10 @@ header .breadcrumb ol {
       margin: 5px; }
     header .breadcrumb ol li::after {
       content: " /\00a0"; }
+    header .breadcrumb ol li::before {
+      display: none; }
     header .breadcrumb ol li:last-child:after {
       display: none; }
-
-#vid .main-video {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden; }
-  #vid .main-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-width: 0;
-    outline-width: 0;
-    margin-top: -58px; }
-  #vid .main-video .white-bord {
-    background-color: white;
-    width: 100%;
-    height: 55px;
-    z-index: 50;
-    position: absolute;
-    bottom: 55px; }
-  #vid .main-video .transparent {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    z-index: 51;
-    position: absolute; }
 
 footer {
   padding-top: 20px;
@@ -167,8 +194,252 @@ footer {
     background-color: black;
     margin-right: 20px;
     text-align: center; }
+    @media all and (max-width: 419px) {
+      footer .containerPage .up {
+        position: fixed;
+        z-index: 20;
+        bottom: 20px;
+        right: 10px;
+        margin: 0; } }
     footer .containerPage .up i {
       color: white;
       margin-top: 7px; }
+
+#vid .main-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden; }
+  #vid .main-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-width: 0;
+    outline-width: 0;
+    margin-top: -58px; }
+  #vid .main-video .white-bord {
+    background-color: white;
+    width: 100%;
+    height: 55px;
+    z-index: 50;
+    position: absolute;
+    bottom: 55px; }
+  #vid .main-video .transparent {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    z-index: 51;
+    position: absolute; }
+    #vid .main-video .transparent .onVideo {
+      width: 50%;
+      line-height: 1.5;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-family: "Source Serif Pro", serif;
+      text-transform: uppercase;
+      font-size: 50px; }
+      #vid .main-video .transparent .onVideo .underline {
+        width: 100px;
+        height: 5px;
+        background-color: white;
+        position: absolute; }
+
+#shortTezis .shortTezis {
+  width: 70%; }
+  #shortTezis .shortTezis p {
+    font-family: "Source Serif Pro", serif;
+    font-size: 19px;
+    padding-bottom: 20px; }
+
+#carousel-cars .owl-carousel img {
+  max-height: 530px; }
+
+h2,
+h3 {
+  text-transform: uppercase; }
+
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  h3::before, h3::after {
+    content: "\2014"; }
+
+h2 {
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px; }
+
+#features {
+  background-color: black;
+  color: white;
+  padding-bottom: 40px; }
+  #features h2,
+  #features h3,
+  #features h4,
+  #features p,
+  #features button {
+    color: white;
+    font-family: "Source Serif Pro", serif; }
+  #features hr {
+    color: white;
+    height: 3px;
+    opacity: 0.8; }
+  #features .plus-minus {
+    position: relative;
+    height: 40px; }
+    #features .plus-minus i {
+      position: absolute;
+      left: 50%;
+      color: white;
+      font-size: 40px;
+      padding: 20px; }
+    #features .plus-minus .fa-plus-circle {
+      display: inline-block; }
+    #features .plus-minus .fa-minus-circle {
+      display: none; }
+  #features .content {
+    width: 100%;
+    height: 830px;
+    background: url(../../img/mini-3-dors/features-main.jpg); }
+  #features .accordion-body {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 60%; }
+    #features .accordion-body img {
+      padding: 20px 0 20px 0; }
+    #features .accordion-body h4 {
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start; }
+    #features .accordion-body p {
+      padding-bottom: 40px; }
+
+#cooseColor {
+  padding-top: 40px;
+  background-color: #f1f1f1; }
+  #cooseColor hr {
+    height: 3px;
+    color: black;
+    opacity: 1; }
+  #cooseColor .opppa {
+    position: relative; }
+    #cooseColor .opppa .car-change-color {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators {
+        margin-bottom: 0;
+        z-index: 2222;
+        padding: 0; }
+        #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%; }
+          #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button:first-child {
+            background-image: -webkit-gradient(linear, left top, right bottom, from(#bd0410), color-stop(rgba(191, 14, 23, 0.97)), color-stop(rgba(193, 23, 30, 0.94)), color-stop(rgba(195, 33, 38, 0.91)), color-stop(rgba(197, 42, 45, 0.88)), color-stop(rgba(199, 52, 52, 0.85)), color-stop(rgba(198, 45, 45, 0.88)), color-stop(rgba(196, 38, 38, 0.9)), color-stop(rgba(195, 31, 31, 0.93)), color-stop(rgba(194, 24, 24, 0.95)), color-stop(rgba(192, 17, 17, 0.98)), to(#bf0a0a));
+            background-image: linear-gradient(to bottom right, #bd0410, rgba(191, 14, 23, 0.97), rgba(193, 23, 30, 0.94), rgba(195, 33, 38, 0.91), rgba(197, 42, 45, 0.88), rgba(199, 52, 52, 0.85), rgba(198, 45, 45, 0.88), rgba(196, 38, 38, 0.9), rgba(195, 31, 31, 0.93), rgba(194, 24, 24, 0.95), rgba(192, 17, 17, 0.98), #bf0a0a); }
+          #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button:nth-child(2) {
+            background-image: -webkit-gradient(linear, left top, right bottom, from(#1b0f9e), color-stop(#1d13a7), color-stop(#1f18b0), color-stop(#211cba), color-stop(#2321c3), color-stop(#2525cc), color-stop(#2122c4), color-stop(#1c1ebc), color-stop(#181bb4), color-stop(#1417ac), color-stop(#0f14a4), to(#0b109c));
+            background-image: linear-gradient(to bottom right, #1b0f9e, #1d13a7, #1f18b0, #211cba, #2321c3, #2525cc, #2122c4, #1c1ebc, #181bb4, #1417ac, #0f14a4, #0b109c); }
+          #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button:nth-child(3) {
+            background-image: -webkit-gradient(linear, left top, right bottom, from(#e06a09), color-stop(rgba(221, 108, 18, 0.99)), color-stop(rgba(218, 110, 27, 0.99)), color-stop(rgba(215, 112, 36, 0.98)), color-stop(rgba(212, 114, 45, 0.98)), color-stop(rgba(209, 116, 54, 0.97)), color-stop(rgba(213, 116, 49, 0.97)), color-stop(rgba(218, 117, 44, 0.97)), color-stop(rgba(222, 117, 39, 0.97)), color-stop(rgba(226, 117, 33, 0.96)), color-stop(rgba(231, 118, 28, 0.96)), to(rgba(235, 118, 23, 0.96)));
+            background-image: linear-gradient(to bottom right, #e06a09, rgba(221, 108, 18, 0.99), rgba(218, 110, 27, 0.99), rgba(215, 112, 36, 0.98), rgba(212, 114, 45, 0.98), rgba(209, 116, 54, 0.97), rgba(213, 116, 49, 0.97), rgba(218, 117, 44, 0.97), rgba(222, 117, 39, 0.97), rgba(226, 117, 33, 0.96), rgba(231, 118, 28, 0.96), rgba(235, 118, 23, 0.96)); }
+          #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button:nth-child(4) {
+            background-image: -webkit-gradient(linear, left top, right bottom, from(#091a03), color-stop(#13210f), color-stop(#1e281a), color-stop(#282f26), color-stop(#333631), color-stop(#3d3d3d), color-stop(#343633), color-stop(#2b2f29), color-stop(#22281f), color-stop(#192015), color-stop(#10190b), to(#071201));
+            background-image: linear-gradient(to bottom right, #091a03, #13210f, #1e281a, #282f26, #333631, #3d3d3d, #343633, #2b2f29, #22281f, #192015, #10190b, #071201); }
+          #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators button:last-child {
+            background-image: -webkit-gradient(linear, left top, right bottom, from(#1c5707), color-stop(#1f590e), color-stop(#225b15), color-stop(#265d1c), color-stop(#295f23), color-stop(#2c612a), color-stop(#2b5d26), color-stop(#295822), color-stop(#28541e), color-stop(#26501a), color-stop(#254b16), to(#234712));
+            background-image: linear-gradient(to bottom right, #1c5707, #1f590e, #225b15, #265d1c, #295f23, #2c612a, #2b5d26, #295822, #28541e, #26501a, #254b16, #234712); }
+        #cooseColor .opppa .car-change-color .car-carousel .carousel-indicators [data-bs-target] {
+          opacity: 1; }
+    #cooseColor .opppa .wheels {
+      padding-bottom: 80px; }
+      #cooseColor .opppa .wheels .wheels-car {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        #cooseColor .opppa .wheels .wheels-car .carousel-indicators {
+          margin-bottom: -75px;
+          z-index: 222;
+          padding: 0; }
+          #cooseColor .opppa .wheels .wheels-car .carousel-indicators button {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: inherit;
+            background-size: contain;
+            background-repeat: no-repeat; }
+            #cooseColor .opppa .wheels .wheels-car .carousel-indicators button:first-child {
+              background-image: url(../../img/mini-3-dors/wheel1.png); }
+            #cooseColor .opppa .wheels .wheels-car .carousel-indicators button:nth-child(2) {
+              background-image: url(../../img/mini-3-dors/wheel2.png); }
+            #cooseColor .opppa .wheels .wheels-car .carousel-indicators button:nth-child(3) {
+              background-image: url(../../img/mini-3-dors/wheel3.png); }
+            #cooseColor .opppa .wheels .wheels-car .carousel-indicators button:nth-child(4) {
+              background-image: url(../../img/mini-3-dors/wheel4.png); }
+            #cooseColor .opppa .wheels .wheels-car .carousel-indicators button:last-child {
+              background-image: url(../../img/mini-3-dors/wheel5.png); }
+          #cooseColor .opppa .wheels .wheels-car .carousel-indicators [data-bs-target] {
+            opacity: 1; }
+
+#ditails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  #ditails .item {
+    background-color: #f1f1f1;
+    padding: 10px;
+    width: 450px;
+    height: 650px; }
+    #ditails .item h5 {
+      text-transform: uppercase;
+      font-family: "Source Serif Pro", serif;
+      font-size: 25px;
+      font-weight: 600;
+      padding-top: 20px; }
+    #ditails .item p {
+      font-family: "Source Serif Pro", serif;
+      font-size: 20px; }
+
+#test-drive img, #diller-in-RB img {
+  width: 100%; }
+#test-drive button, #diller-in-RB button {
+  text-transform: uppercase;
+  background-color: black;
+  border: none;
+  margin-top: 65px;
+  padding: 15px;
+  border-radius: 1px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  border: black solid 2px; }
+  #test-drive button a, #diller-in-RB button a {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 20px; }
+  #test-drive button:hover, #diller-in-RB button:hover {
+    background-color: white;
+    color: black;
+    border: black solid 2px; }
+    #test-drive button:hover a, #diller-in-RB button:hover a {
+      color: black; }
 
 /*# sourceMappingURL=style-3-door-mini.css.map */

@@ -1,250 +1,374 @@
+@import "../all/mixin";
+@import "../all/var";
+@import "../all/menu-footer-style";
 @import "var-3-door-mini";
-@import "mixin-3-door-mini";
-
-* {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  color: black;
-  font-family: "Source Serif Pro", serif;
-}
-
-ul {
-  li {
-    list-style: none;
-  }
-}
-a {
-  text-decoration: none;
-}
-.containerPage {
-  max-width: $md;
-  margin: 0 auto;
-  padding: 0;
-}
-.controls {
-  position: fixed;
-  font-size: 42px;
-  right: 10px;
-  top: 10px;
-  display: none;
-    // @include myMediaNl($fourthmedia) {
-    //   display: flex;
-    //   .fa-times-circle {
-    //     display: none;
-    //   }
-    // }
-}
-header {
-    .header {
-      .containerPage {
-        .navHead {
-          width: 100%;
-          margin: 20px 0 20px 0;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-        //   @include myMediaDiller($firstmedia) {
-        //     flex-direction: column;
-        //   }
-          .logo {
-            display: inline-block;
-            height: 35px;
-            width: 75px;
-            margin-left: 20px;
-            background: url("../../img/mini-logo-black.svg") no-repeat center;
-            margin-right: 40px;
-            // @include myMediaDiller($firstmedia) {
-            //   margin-right: 20px;
-            //   margin-bottom: 10px;
-            // }
-            &:hover {
-              background: url("../../img/first-page/mini-logo-white.svg")
-                no-repeat center;
-              background-color: black;
-              border-radius: 3px;
-            }
-          }
-          ul {
-                width: 90%;
-                display: flex;
-                margin: 0;
-                justify-content: space-around;
-                // @include myMediaDiller($secondmedia) {
-                //   width: 100%;
-                //   padding-left: 0;
-                // }
-                // @include myMediaDiller($thirdmedia) {
-                //   position: fixed;
-                //   height: 101vh;
-                //   background-color: black;
-                //   flex-direction: column;
-                //   top: 0;
-                //   left: -80%;
-                //   width: 80%;
-                //   transition: 0.5s;
-                //   z-index: 9;
-                //   justify-content: space-evenly;
-                //   padding-left: 30px;
-                // }
-                li {
-                list-style: none;
-                color: black;
-                padding: 8px;
-                //   @include myMediaDiller($thirdmedia) {
-                //     color: white;
-                //     font-size: 30px;
-                //   }
-                //   @include myMediaDiller($fivesmedia) {
-                //     font-size: 20px;
-                //   }
-                &:hover {
-                    background-color: black;
-                    border-radius: 3px;
-                    color: white;
-                }
-                a {
-                    color: inherit;
-                    text-transform: uppercase;
-                    margin: 5px;
-                }
-                    
-            }
-          }
-        }
-      }
+#vid {
+  .main-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-width: 0;
+      outline-width: 0;
+      margin-top: -58px;
     }
-    
-    .breadcrumb{
-      ol{  
-        padding-top: 20px;
-        padding-bottom: 20px;
-        margin: 0;
-        li {
-          display: inline;
-          list-style: none;
-          color: black;
-          color: inherit;
-          text-transform: uppercase;
-          font-size: 13px;
-          span{
-            &:hover {
-            text-decoration:underline;
-            }
-          }
-          a {
-            color: inherit;
-            text-transform: uppercase;
-            margin: 5px;
-          }
-          &::after{
-            content: " /\00a0";
-          }
-          &:last-child{
-            &:after{
-              display: none;
-            }
-          }
-        }
-      }
+    .white-bord {
+      background-color: $white;
+      width: 100%;
+      height: 55px;
+      z-index: 50;
+      position: absolute;
+      bottom: 55px;
     }
-}
-#vid{
-    .main-video{
-        position: relative;
-        padding-bottom: 56.25%; 
-        height: 0;
-        overflow: hidden;
-        iframe{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-width: 0;
-            outline-width: 0;
-            margin-top: -58px;
-        }
-        .white-bord{
-            background-color: $white;
-            width: 100%;
-            height: 55px;
-            z-index: 50;
-            position: absolute;
-            bottom: 55px;
-        }
-        .transparent{
-            background-color: transparent;
-            width: 100%;
-            height: 100%;
-            z-index: 51;
-            position: absolute;
-        }
-    }
-}
-
-
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  .containerPage {
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      color: $slider-text-color;
+    .transparent {
       position: relative;
-      .social {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        .facebook {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          margin-left: 20px;
-          text-align: center;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      z-index: 51;
+      position: absolute;
+      .onVideo {
+        width: 50%;
+        line-height: 1.5;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: $white;
+        font-family: $main-font-family;
+        text-transform: uppercase;
+        font-size: 50px;
+        .underline {
+          width: 100px;
+          height: 5px;
+          background-color: $white;
+          position: absolute;
         }
-        .instagram {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          text-align: center;
-          vertical-align: middle;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-      }
-    }
-    .up {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: black;
-      margin-right: 20px;
-      text-align: center;
-        // @include myMediaNL($fivesmedia) {
-        //   position: fixed;
-        //   z-index: 20;
-        //   bottom: 20px;
-        //   right: 10px;
-        //   margin: 0;
-        // }
-      i {
-        color: white;
-        margin-top: 7px;
       }
     }
   }
 }
+#shortTezis {
+  .shortTezis {
+    width: 70%;
+    p {
+      font-family: $main-font-family;
+      font-size: 19px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+#carousel-cars {
+  .owl-carousel {
+    img {
+      max-height: 530px;
+    }
+  }
+}
+h2,
+h3 {
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  &::before,
+  &::after {
+    content: "\2014";
+  }
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+h2 {
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+#features {
+  background-color: black;
+  color: $white;
+  padding-bottom: 40px;
+  h2,
+  h3,
+  h4,
+  p,
+  button {
+    color: $white;
+    font-family: $main-font-family;
+  }
+  hr {
+    color: white;
+    height: 3px;
+    opacity: 0.8;
+  }
+
+  .plus-minus {
+    position: relative;
+    height: 40px;
+    i {
+      position: absolute;
+      left: 50%;
+      color: $white;
+      font-size: 40px;
+      padding: 20px;
+    }
+    .fa-plus-circle {
+      display: inline-block;
+    }
+    .fa-minus-circle {
+      display: none;
+    }
+  }
+  .content {
+    width: 100%;
+    height: 830px;
+    background: url(../../img/mini-3-dors/features-main.jpg);
+  }
+  .accordion-body {
+    display: none;
+    flex-direction: column;
+    width: 60%;
+    img {
+      padding: 20px 0 20px 0;
+    }
+    h4 {
+      align-items: flex-start;
+    }
+    p {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+#cooseColor {
+  padding-top: 40px;
+  background-color: $JCW-background;
+  hr {
+    height: 3px;
+    color: black;
+    opacity: 1;
+  }
+  .opppa {
+    position: relative;
+    .car-change-color {
+      display: flex;
+      .car-carousel {
+        // position: absolute;
+        // right: 0;
+        // top: 0;
+        .carousel-indicators {
+          margin-bottom: 0;
+          // position: absolute;
+          // right: 0;
+          // bottom: 0;
+          // left: 0;
+          z-index: 2222;
+          // display: flex;
+          // justify-content: flex-end;
+          padding: 0;
+          button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            &:first-child {
+              background-image: linear-gradient(
+                to bottom right,
+                rgb(189, 4, 16),
+                rgba(191, 14, 23, 0.97),
+                rgba(193, 23, 30, 0.94),
+                rgba(195, 33, 38, 0.91),
+                rgba(197, 42, 45, 0.88),
+                rgba(199, 52, 52, 0.85),
+                rgba(198, 45, 45, 0.88),
+                rgba(196, 38, 38, 0.9),
+                rgba(195, 31, 31, 0.93),
+                rgba(194, 24, 24, 0.95),
+                rgba(192, 17, 17, 0.98),
+                rgb(191, 10, 10)
+              );
+            }
+            &:nth-child(2) {
+              background-image: linear-gradient(
+                to bottom right,
+                rgb(27, 15, 158),
+                rgb(29, 19, 167),
+                rgb(31, 24, 176),
+                rgb(33, 28, 186),
+                rgb(35, 33, 195),
+                rgb(37, 37, 204),
+                rgb(33, 34, 196),
+                rgb(28, 30, 188),
+                rgb(24, 27, 180),
+                rgb(20, 23, 172),
+                rgb(15, 20, 164),
+                rgb(11, 16, 156)
+              );
+            }
+            &:nth-child(3) {
+              background-image: linear-gradient(
+                to bottom right,
+                rgb(224, 106, 9),
+                rgba(221, 108, 18, 0.99),
+                rgba(218, 110, 27, 0.99),
+                rgba(215, 112, 36, 0.98),
+                rgba(212, 114, 45, 0.98),
+                rgba(209, 116, 54, 0.97),
+                rgba(213, 116, 49, 0.97),
+                rgba(218, 117, 44, 0.97),
+                rgba(222, 117, 39, 0.97),
+                rgba(226, 117, 33, 0.96),
+                rgba(231, 118, 28, 0.96),
+                rgba(235, 118, 23, 0.96)
+              );
+            }
+            &:nth-child(4) {
+              background-image: linear-gradient(
+                to bottom right,
+                rgb(9, 26, 3),
+                rgb(19, 33, 15),
+                rgb(30, 40, 26),
+                rgb(40, 47, 38),
+                rgb(51, 54, 49),
+                rgb(61, 61, 61),
+                rgb(52, 54, 51),
+                rgb(43, 47, 41),
+                rgb(34, 40, 31),
+                rgb(25, 32, 21),
+                rgb(16, 25, 11),
+                rgb(7, 18, 1)
+              );
+            }
+            &:last-child {
+              background-image: linear-gradient(
+                to bottom right,
+                rgb(28, 87, 7),
+                rgb(31, 89, 14),
+                rgb(34, 91, 21),
+                rgb(38, 93, 28),
+                rgb(41, 95, 35),
+                rgb(44, 97, 42),
+                rgb(43, 93, 38),
+                rgb(41, 88, 34),
+                rgb(40, 84, 30),
+                rgb(38, 80, 26),
+                rgb(37, 75, 22),
+                rgb(35, 71, 18)
+              );
+            }
+          }
+          [data-bs-target] {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .wheels {
+      padding-bottom: 80px;
+      .wheels-car {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        .carousel-indicators {
+          margin-bottom: -75px;
+          // position: absolute;
+          // right: 0;
+          // bottom: 0;
+          // left: 0;
+          z-index: 222;
+          // display: flex;
+          // justify-content: flex-end;
+          padding: 0;
+          button {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: inherit;
+            background-size: contain;
+            background-repeat: no-repeat;
+            &:first-child {
+              background-image: url(../../img/mini-3-dors/wheel1.png);
+            }
+            &:nth-child(2) {
+              background-image: url(../../img/mini-3-dors/wheel2.png);
+            }
+            &:nth-child(3) {
+              background-image: url(../../img/mini-3-dors/wheel3.png);
+            }
+            &:nth-child(4) {
+              background-image: url(../../img/mini-3-dors/wheel4.png);
+            }
+            &:last-child {
+              background-image: url(../../img/mini-3-dors/wheel5.png);
+            }
+          }
+          [data-bs-target] {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+#ditails {
+  display: flex;
+  .item {
+    background-color: $JCW-background;
+    padding: 10px;
+    width: 450px;
+    height: 650px;
+    h5{
+      text-transform: uppercase;
+      font-family: $main-font-family;
+      font-size: 25px;
+      font-weight: 600;
+      padding-top: 20px;
+    }
+    p{
+      font-family: $main-font-family;
+      font-size: 20px;
+    }
+  }
+}
+#test-drive, #diller-in-RB{
+  img{
+    width: 100%;
+  }
+    button {
+      text-transform: uppercase;
+      background-color: $main-text-color;
+      border: none;
+      margin-top: 65px;
+      padding: 15px;
+      border-radius: 1px;
+      color: $slider-text-color;
+      font-family: $font-for-btn;
+      font-weight: 300;
+      font-size: 20px;
+      border: black solid 2px;
+      a{
+        color: white;
+        font-family: $font-for-btn;
+        font-weight: 300;
+        font-size: 20px;
+      }
+      &:hover {
+        background-color: white;
+        color: black;
+        border: black solid 2px;
+        a{
+          color: black;
+        }
+      }
+    }
+  
+}
+

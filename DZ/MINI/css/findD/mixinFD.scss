@@ -1,5 +1,0 @@
-@mixin myMediaDiller($w) {
-    @media all and (max-width: $w) {
-      @content;
-    }
-  }

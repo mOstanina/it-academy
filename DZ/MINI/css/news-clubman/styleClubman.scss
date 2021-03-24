@@ -1,164 +1,8 @@
+@import "../all/mixin";
+@import "../all/var";
+@import "../all/menu-footer-style";
 @import "varClubman";
-@import "mixinClubman";
 
-* {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  color: black;
-  font-family: $main-font-family;
-}
-
-ul {
-  li {
-    list-style: none;
-  }
-}
-a {
-  text-decoration: none;
-}
-.containerPage {
-  max-width: $md;
-  margin: 0 auto;
-  padding: 0;
-}
-.controls {
-  position: fixed;
-  font-size: 42px;
-  right: 10px;
-  top: 10px;
-  display: none;
-    @include myMediaClubman($secondmedia) {
-      display: flex;
-      .fa-times-circle {
-        display: none;
-      }
-    }
-}
-header {
-    .header {
-      .containerPage {
-        .navHead {
-          width: 100%;
-          margin: 20px 0 20px 0;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          @include myMediaClubman($firstmedia) {
-            flex-direction: column;
-          }
-          @include myMediaClubman($thirdmedia) {
-             margin-bottom: 0; 
-          }
-          .logo {
-            display: inline-block;
-            height: 35px;
-            width: 75px;
-            margin-left: 20px;
-            background: url("../../img/mini-logo-black.svg") no-repeat center;
-            margin-right: 40px;
-            @include myMediaClubman($firstmedia){
-              margin-right: 20px;
-              margin-bottom: 10px;
-            }
-            @include myMediaClubman($secondmedia) {
-              margin-bottom: 0;
-            }
-            &:hover {
-              background: url("../../img/first-page/mini-logo-white.svg")
-                no-repeat center;
-              background-color: black;
-              border-radius: 3px;
-            }
-          }
-          ul {
-            width: 90%;
-            display: flex;
-            margin: 0;
-            justify-content: space-around;
-            @include myMediaClubman($firstmedia) {
-              width: 100%;
-              padding-left: 0;
-            }
-            @include myMediaClubman($secondmedia) {
-              position: fixed;
-              height: 101vh;
-              background-color: black;
-              flex-direction: column;
-              top: 0;
-              left: -80%;
-              width: 80%;
-              transition: 0.5s;
-              z-index: 9;
-              justify-content: space-evenly;
-              padding-left: 30px;
-            }
-  
-            li {
-              list-style: none;
-              color: black;
-              padding: 8px;
-                @include myMediaClubman($secondmedia) {
-                  color: white;
-                  font-size: 30px;
-                }
-                // @include myMediaClubman($thirdmedia) {
-                //   font-size: 20px;
-                // }
-              &:hover {
-                background-color: black;
-                border-radius: 3px;
-                color: white;
-              }
-              a {
-                color: inherit;
-                text-transform: uppercase;
-                margin: 5px;
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    .breadcrumb{
-      @include myMediaClubman($thirdmedia) {
-        display: none;
-      }
-      ol{  
-        padding-top: 20px;
-        padding-bottom: 20px;
-        margin: 0;
-        li {
-          display: inline;
-          list-style: none;
-          color: black;
-          color: inherit;
-          text-transform: uppercase;
-          font-size: 13px;
-          span{
-            &:hover {
-            text-decoration: underline;
-            }
-          }
-          a {
-            color: inherit;
-            text-transform: uppercase;
-            margin: 5px;
-          }
-          &::after{
-            content: " /\00a0";
-          }
-          &:last-child{
-            &:after{
-              display: none;
-            }
-          }
-        }
-      }
-    }
-}
 #news-clubman{
   .full {
     width: 100%;
@@ -175,7 +19,7 @@ header {
       h1{
         font-size: 60px;
         padding: 30px 0 30px 0;
-        @include myMediaClubman($secondmedia) {
+        @include myMedia($secondmedia) {
           font-size: 50px;;
         }
       }
@@ -190,7 +34,7 @@ header {
       margin-bottom: 20px;
       margin-top: 18px;
       font-family: $main-font-family;
-      @include myMediaClubman($secondmedia) {
+      @include myMedia($secondmedia) {
         font-size: 23px;;
       }
     }
@@ -203,7 +47,7 @@ header {
     p {
       font-size: 18px;
       padding: 20px 0 20px 0;
-      @include myMediaClubman($thirdmedia) {
+      @include myMedia($thirdmedia) {
         font-size: 16px;
       }
     }
@@ -211,13 +55,13 @@ header {
      .images{
         display: flex;
         justify-content: space-between;
-        @include myMediaClubman($thirdmedia) {
+        @include myMedia($thirdmedia) {
           flex-direction: column;
           width: 100%;
          }
         .first-img, .second-img{
           width: 45%;
-          @include myMediaClubman($thirdmedia) {
+          @include myMedia($thirdmedia) {
             flex-direction: column;
             width: 90%;
            }
@@ -244,7 +88,7 @@ header {
       font-weight: 300;
       font-size: 20px;
       border: black solid 2px; 
-      @include myMediaClubman($secondmedia) {
+      @include myMedia($secondmedia) {
         padding: 13px;
         margin-top: 30px;
         margin-bottom: 30px;
@@ -254,7 +98,7 @@ header {
         font-family: $font-for-btn;
         font-weight: 300;
         font-size: 20px;
-        @include myMediaClubman($secondmedia) {
+        @include myMedia($secondmedia) {
           font-size: 16px;
         }
       }
@@ -265,69 +109,6 @@ header {
         a{
           color: black;
         }
-      }
-    }
-  }
-}
-footer {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  .containerPage {
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      color: $slider-text-color;
-      position: relative;
-      .social {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        .facebook {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          margin-left: 20px;
-          text-align: center;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-        .instagram {
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          background-color: black;
-          margin-right: 20px;
-          text-align: center;
-          vertical-align: middle;
-          i {
-            color: white;
-            margin-top: 7px;
-          }
-        }
-      }
-    }
-    .up {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: black;
-      margin-right: 20px;
-      text-align: center;
-        @include myMediaClubman($thirdmedia) {
-          position: fixed;
-          z-index: 20;
-          bottom: 20px;
-          right: 10px;
-          margin: 0;
-        }
-      i {
-        color: white;
-        margin-top: 7px;
       }
     }
   }
