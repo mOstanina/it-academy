@@ -1,0 +1,55 @@
+@import "../all/mixin";
+@import "../all/var";
+@import "../all/menu-footer-style";
+@import "var-5-door-mini";
+#vid {
+  .main-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-width: 0;
+      outline-width: 0;
+      margin-top: -58px;
+    }
+    .white-bord {
+      background-color: $white;
+      width: 100%;
+      height: 55px;
+      z-index: 50;
+      position: absolute;
+      bottom: 55px;
+    }
+    .transparent {
+      position: relative;
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      z-index: 51;
+      position: absolute;
+      .onVideo {
+        width: 50%;
+        line-height: 1.5;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: $white;
+        font-family: $main-font-family;
+        text-transform: uppercase;
+        font-size: 50px;
+        .underline {
+          width: 100px;
+          height: 5px;
+          background-color: $white;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
