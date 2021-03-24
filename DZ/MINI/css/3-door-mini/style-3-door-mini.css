@@ -256,8 +256,10 @@ footer {
     font-size: 19px;
     padding-bottom: 20px; }
 
-#carousel-cars .owl-carousel img {
-  max-height: 530px; }
+#carousel-cars {
+  overflow: hidden; }
+  #carousel-cars .owl-carousel img {
+    max-height: 530px; }
 
 h2,
 h3 {
@@ -281,49 +283,49 @@ h2 {
   background-color: black;
   color: white;
   padding-bottom: 40px; }
-  #features h2,
-  #features h3,
-  #features h4,
-  #features p,
-  #features button {
-    color: white;
-    font-family: "Source Serif Pro", serif; }
-  #features hr {
-    color: white;
-    height: 3px;
-    opacity: 0.8; }
-  #features .plus-minus {
-    position: relative;
-    height: 40px; }
-    #features .plus-minus i {
-      position: absolute;
-      left: 50%;
+  #features .features-accordion {
+    width: 100%; }
+    #features .features-accordion h2,
+    #features .features-accordion h3,
+    #features .features-accordion h4,
+    #features .features-accordion p {
       color: white;
-      font-size: 40px;
-      padding: 20px; }
-    #features .plus-minus .fa-plus-circle {
-      display: inline-block; }
-    #features .plus-minus .fa-minus-circle {
-      display: none; }
-  #features .content {
-    width: 100%;
-    height: 830px;
-    background: url(../../img/mini-3-dors/features-main.jpg); }
-  #features .accordion-body {
-    display: none;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 60%; }
-    #features .accordion-body img {
-      padding: 20px 0 20px 0; }
-    #features .accordion-body h4 {
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start; }
-    #features .accordion-body p {
-      padding-bottom: 40px; }
+      font-family: "Source Serif Pro", serif; }
+    #features .features-accordion hr {
+      color: white;
+      height: 3px;
+      opacity: 0.8; }
+    #features .features-accordion .plus-minus {
+      position: relative;
+      height: 40px; }
+      #features .features-accordion .plus-minus i {
+        position: absolute;
+        right: 47%;
+        color: white;
+        font-size: 40px;
+        padding: 20px; }
+      #features .features-accordion .plus-minus .fa-plus-circle {
+        display: inline-block; }
+      #features .features-accordion .plus-minus .fa-minus-circle {
+        display: none; }
+    #features .features-accordion .content img {
+      width: 100%; }
+    #features .features-accordion .accordion-body {
+      display: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      width: 60%; }
+      #features .features-accordion .accordion-body img {
+        width: 100%;
+        padding: 20px 0 20px 0; }
+      #features .features-accordion .accordion-body h4 {
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start; }
+      #features .features-accordion .accordion-body p {
+        padding-bottom: 40px; }
 
 #cooseColor {
   padding-top: 40px;
@@ -400,7 +402,8 @@ h2 {
 #ditails {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  overflow: hidden; }
   #ditails .item {
     background-color: #f1f1f1;
     padding: 10px;
@@ -416,9 +419,11 @@ h2 {
       font-family: "Source Serif Pro", serif;
       font-size: 20px; }
 
-#test-drive img, #diller-in-RB img {
+#test-drive img,
+#diller-in-RB img {
   width: 100%; }
-#test-drive button, #diller-in-RB button {
+#test-drive button,
+#diller-in-RB button {
   text-transform: uppercase;
   background-color: black;
   border: none;
@@ -430,16 +435,18 @@ h2 {
   font-weight: 300;
   font-size: 20px;
   border: black solid 2px; }
-  #test-drive button a, #diller-in-RB button a {
+  #test-drive button a,
+  #diller-in-RB button a {
     color: white;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 20px; }
-  #test-drive button:hover, #diller-in-RB button:hover {
+  #test-drive button:hover,
+  #diller-in-RB button:hover {
     background-color: white;
     color: black;
     border: black solid 2px; }
-    #test-drive button:hover a, #diller-in-RB button:hover a {
+    #test-drive button:hover a,
+    #diller-in-RB button:hover a {
       color: black; }
-
 /*# sourceMappingURL=style-3-door-mini.css.map */

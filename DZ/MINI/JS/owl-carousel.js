@@ -5,7 +5,17 @@ $(document).ready(function () {
         autoWidth: true,
         items: 4,
         dots: true,
-        autoHeight: false,
+        responsive:{
+            0:{
+              items:1
+            },
+            768:{
+                height: 200,
+            },
+            1280:{
+              items:3
+            }
+          }
     });
 
 });
