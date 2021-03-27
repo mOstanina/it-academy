@@ -67,7 +67,7 @@ header {
             border-radius: 3px;
           }
         }
-        ul {
+        #menu {
           width: 90%;
           display: flex;
           margin: 0;
@@ -89,7 +89,20 @@ header {
             justify-content: space-evenly;
             padding-left: 30px;
           }
-          li {
+          .arrow {
+            .fa-angle-down,
+            .fa-angle-up {
+              display: none;
+              color: white;
+            }
+            .fa-angle-down {
+              @include myMedia($menu2) {
+                display: inline-block;
+              }
+            }
+          }
+          > li {
+            position: relative;
             list-style: none;
             color: black;
             padding: 8px;
@@ -101,11 +114,41 @@ header {
               background-color: black;
               border-radius: 3px;
               color: white;
+              #sub-menu {
+                display: block;
+              }
             }
             a {
               color: inherit;
               text-transform: uppercase;
               margin: 5px;
+            }
+            #sub-menu {
+              @include myMedia($menu2) {
+                display: none;
+              }
+              z-index: 99;
+              display: none;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 260px;
+              padding-top: 40px;
+              margin-left: -32px;
+              li {
+                background-color: $JCW-background;
+                padding: 10px 0 10px 8px;
+                &:hover {
+                  background-color: black;
+                  border-radius: 3px;
+                  color: white;
+                  a {
+                    color: inherit;
+                    text-transform: uppercase;
+                    margin: 5px;
+                  }
+                }
+              }
             }
           }
         }
@@ -143,7 +186,7 @@ header {
         &::after {
           content: " /\00a0";
         }
-        &::before{
+        &::before {
           display: none;
         }
         &:last-child {

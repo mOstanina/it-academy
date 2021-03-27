@@ -1,58 +1,7 @@
 @import "../all/mixin";
 @import "../all/var";
-@import "../all/menu-footer-style";
 @import "var-COUNTRYMAN";
-#vid {
-  .main-video {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-width: 0;
-      outline-width: 0;
-      margin-top: -58px;
-    }
-    .white-bord {
-      background-color: $white;
-      width: 100%;
-      height: 55px;
-      z-index: 50;
-      position: absolute;
-      bottom: 55px;
-    }
-    .transparent {
-      position: relative;
-      background-color: transparent;
-      width: 100%;
-      height: 100%;
-      z-index: 51;
-      position: absolute;
-      .onVideo {
-        width: 50%;
-        line-height: 1.5;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: $white;
-        font-family: $main-font-family;
-        text-transform: uppercase;
-        font-size: 50px;
-        .underline {
-          width: 100px;
-          height: 5px;
-          background-color: $white;
-          position: absolute;
-        }
-      }
-    }
-  }
-}
+
 h2 {
   font-family: $main-font-family;
   font-weight: 600;
@@ -261,6 +210,76 @@ h3 {
             opacity: 1;
           }
         }
+      }
+    }
+  }
+}
+#coose-model {
+  .first-block,
+  .second-block {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    padding: 20px 0 20px 0;
+  }
+  .cooper,
+  .cooperS {
+    justify-content: center;
+    width: 500px;
+    background-color: $JCW-background;
+    margin: 10px;
+  }
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    h6{align-self: flex-start;}
+  }
+  img{width: 80%;}
+  h4,
+  h6,
+  p {
+    font-family: $main-font-family;
+  }
+  h4 {
+    font-size: 35px;
+  }
+  h6 {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .card {
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+  button {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $main-text-color;
+    border: none;
+    margin: 25px 0 25px 0;
+    padding: 15px;
+    border-radius: 1px;
+    color: $slider-text-color;
+    font-family: $font-for-btn;
+    font-weight: 300;
+    font-size: 20px;
+    border: black solid 2px;
+    a {
+      color: white;
+      font-family: $font-for-btn;
+      font-weight: 300;
+      font-size: 20px;
+    }
+    &:hover {
+      background-color: white;
+      color: black;
+      border: black solid 2px;
+      a {
+        color: black;
       }
     }
   }

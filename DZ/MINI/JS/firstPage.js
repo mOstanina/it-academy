@@ -8,3 +8,13 @@ $(".fa-times-circle").click(function(){
     $(this).css("display", "none");
     $(".fa-bars").css("display", "block");
 })
+$(".fa-angle-down").click(function(){
+    $("#sub-menu").css("display", "block");
+    $(this).css("display", "none");
+    $(".fa-angle-up").css("display", "inline-block");
+})
+$(".fa-angle-up").click(function(){
+    $("#sub-menu").css("display", "none");
+    $(this).css("display", "none");
+    $(".fa-angle-down").css("display", "inline-block");
+})

@@ -1,58 +1,7 @@
 @import "../all/mixin";
 @import "../all/var";
-@import "../all/menu-footer-style";
 @import "var-3-door-mini";
-#vid {
-  .main-video {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-width: 0;
-      outline-width: 0;
-      margin-top: -58px;
-    }
-    .white-bord {
-      background-color: $white;
-      width: 100%;
-      height: 55px;
-      z-index: 50;
-      position: absolute;
-      bottom: 55px;
-    }
-    .transparent {
-      position: relative;
-      background-color: transparent;
-      width: 100%;
-      height: 100%;
-      z-index: 51;
-      position: absolute;
-      .onVideo {
-        width: 50%;
-        line-height: 1.5;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: $white;
-        font-family: $main-font-family;
-        text-transform: uppercase;
-        font-size: 50px;
-        .underline {
-          width: 100px;
-          height: 5px;
-          background-color: $white;
-          position: absolute;
-        }
-      }
-    }
-  }
-}
+
 #shortTezis {
   .shortTezis {
     width: 70%;
@@ -63,12 +12,35 @@
     }
   }
 }
-
 #carousel-cars {
   overflow: hidden;
-  .owl-carousel {
-    img {
-      max-height: 530px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 0;
+  .slider-photo-car {
+    .photo {
+      &:nth-child(1) {
+        background: url(../../img/mini-3-dors/owl-c-1.jpg) no-repeat center;
+      }
+      &:nth-child(2) {
+        background: url(../../img/mini-3-dors/owl-c-2.jpg) no-repeat center;
+      }
+      &:nth-child(3) {
+        background: url(../../img/mini-3-dors/owl-c-3.jpg) no-repeat center;
+      }
+      &:nth-child(4) {
+        background: url(../../img/mini-3-dors/owl-c-4.jpg) no-repeat center;
+      }
+      &:nth-child(5) {
+        background: url(../../img/mini-3-dors/owl-c-5.jpg) no-repeat center;
+      }
+      &:nth-child(6) {
+        background: url(../../img/mini-3-dors/owl-c-6.jpg) no-repeat center;
+      }
+
+      width: 300px;
+      height: 350px;
+      margin: 10px;
     }
   }
 }
@@ -150,7 +122,6 @@ h2 {
     }
   }
 }
-
 #cooseColor {
   padding-top: 40px;
   background-color: $JCW-background;
@@ -324,22 +295,50 @@ h2 {
 }
 #ditails {
   display: flex;
-  overflow: hidden;
-  .item {
-    background-color: $JCW-background;
-    padding: 10px;
-    width: 450px;
-    height: 650px;
-    h5 {
-      text-transform: uppercase;
-      font-family: $main-font-family;
-      font-size: 25px;
-      font-weight: 600;
-      padding-top: 20px;
-    }
-    p {
-      font-family: $main-font-family;
-      font-size: 20px;
+  justify-content: space-between;
+  min-width: 0;
+  .containerPage {
+    overflow: hidden;
+  }
+  .slider-ditals {
+    .slick-track {
+      display: flex;
+      min-width: 0;
+      .item {
+        .slick-list {
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+          @include myMedia(480px) {
+            display: none;
+          }
+        }
+        background-color: $JCW-background;
+        padding: 10px;
+        margin: 20px;
+        height: 650px;
+        @include myMedia(480px) {
+          height: 300px;
+        }
+        h5 {
+          text-transform: uppercase;
+          font-family: $main-font-family;
+          font-size: 25px;
+          font-weight: 600;
+          padding-top: 20px;
+          @include myMedia(480px) {
+            font-size: 20px;
+          }
+        }
+        p {
+          font-family: $main-font-family;
+          font-size: 20px;
+          @include myMedia(480px) {
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }
