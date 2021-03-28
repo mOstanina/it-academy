@@ -83,6 +83,7 @@ h2 {
 #features .features-accordion .plus-minus {
   position: relative;
   height: 40px;
+  width: 100%;
 }
 #features .features-accordion .plus-minus i {
   position: absolute;
@@ -90,6 +91,11 @@ h2 {
   color: white;
   font-size: 40px;
   padding: 20px;
+}
+@media all and (max-width: 680px) {
+  #features .features-accordion .plus-minus i {
+    right: 40%;
+  }
 }
 #features .features-accordion .plus-minus .fa-plus-circle {
   display: inline-block;
@@ -104,6 +110,11 @@ h2 {
   display: none;
   flex-direction: column;
   width: 60%;
+}
+@media all and (max-width: 680px) {
+  #features .features-accordion .accordion-body {
+    width: 80%;
+  }
 }
 #features .features-accordion .accordion-body img {
   width: 100%;
@@ -202,25 +213,64 @@ h2 {
 }
 
 #ditails {
-  overflow: hidden;
   display: flex;
+  justify-content: space-between;
+  min-width: 0;
 }
-#ditails .item {
+#ditails .containerPage {
+  overflow: hidden;
+}
+#ditails .slider-ditals .slick-track {
+  display: flex;
+  min-width: 0;
+}
+#ditails .slider-ditals .slick-track .item {
   background-color: #f1f1f1;
   padding: 10px;
-  width: 450px;
+  margin: 20px;
   height: 650px;
 }
-#ditails .item h5 {
+#ditails .slider-ditals .slick-track .item .slick-list {
+  overflow: hidden;
+}
+#ditails .slider-ditals .slick-track .item img {
+  width: 100%;
+}
+@media all and (max-width: 480px) {
+  #ditails .slider-ditals .slick-track .item img {
+    display: none;
+  }
+}
+@media all and (max-width: 680px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: 680px;
+  }
+}
+@media all and (max-width: 480px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: 350px;
+  }
+}
+#ditails .slider-ditals .slick-track .item h5 {
   text-transform: uppercase;
   font-family: "Source Serif Pro", serif;
   font-size: 25px;
   font-weight: 600;
   padding-top: 20px;
 }
-#ditails .item p {
+@media all and (max-width: 680px) {
+  #ditails .slider-ditals .slick-track .item h5 {
+    font-size: 20px;
+  }
+}
+#ditails .slider-ditals .slick-track .item p {
   font-family: "Source Serif Pro", serif;
   font-size: 20px;
+}
+@media all and (max-width: 680px) {
+  #ditails .slider-ditals .slick-track .item p {
+    font-size: 18px;
+  }
 }
 
 #test-drive img,

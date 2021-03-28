@@ -4,6 +4,9 @@
 
 #dillers {
   padding: 30px 0;
+  @include myMedia(366px) {
+    padding: 10px 0;
+  }
   background-color: $JCW-background;
   margin-bottom: 50px;
   h1 {
@@ -17,6 +20,7 @@
   .containerPage {
     display: flex;
     flex-shrink: 1;
+    border: rgba(112, 103, 103, 0.377) solid 0.1em;
     iframe {
       @include myMedia($fourthmedia) {
         max-height: 300px;
@@ -42,6 +46,9 @@
         }
       }
       padding: 30px 0;
+      @include myMedia(366px) {
+        padding: 10px 0;
+      }
       display: flex;
       justify-content: center;
       align-items: center;
@@ -50,6 +57,12 @@
         justify-content: center;
         .autoidea-inquiry {
           margin-right: 30px;
+          @include myMedia(366px) {
+            margin-right: 1px;
+          }
+        }
+        @include myMedia(366px) {
+          font-size: 15px;
         }
       }
     }
@@ -57,4 +70,70 @@
       margin-right: 10px;
     }
   }
+}
+.ui-tabs-active.ui-state-active {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  @include myMedia(390px) {
+    font-size: 14px;
+
+  }
+}
+
+.ui-tabs-nav {
+  background-color: white;
+  border: none;
+}
+.ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
+  border: none;
+}
+
+#tabs-2 {
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding-left: 10px;
+  }
+  input {
+    height: 25px;
+  }
+  label {
+    font-family: $main-font-family;
+    font-size: 20px;
+    margin: 20px 0;
+    opacity: 0.9;
+  }
+  form {
+    background-color: $JCW-background;
+    padding: 20px;
+    border: rgba(112, 103, 103, 0.377) solid 0.1em;
+  }
+  textarea {
+    height: 80px;
+  }
+  input[type="submit"] {
+    text-transform: uppercase;
+    background-color: $main-text-color;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 1px;
+    color: $slider-text-color;
+    font-family: $font-for-btn;
+    font-weight: 300;
+    font-size: 20px;
+    border: black solid 2px;
+    height: 60px;
+    @include myMedia($fourthmedia) {
+      width: 100%;
+    }
+  }
+}
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
 }

@@ -6,7 +6,9 @@
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-
+    @include myMedia(430px) {
+      display: none;
+    }
     iframe {
       position: absolute;
       top: 0;
@@ -63,6 +65,14 @@
           position: absolute;
         }
       }
+    }
+  }
+  .on-430px{
+    width: 100%;
+    display: none;
+    @include myMedia(430px) {
+      display: block;
+      margin-bottom: 10px;
     }
   }
 }

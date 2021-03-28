@@ -16,10 +16,14 @@ ul {
 a {
   text-decoration: none;
 }
+p, h1, h2, h3, h4, h5, h6{
+  margin: 0 10px;
+}
 .containerPage {
   max-width: $md;
   margin: 0 auto;
   padding: 0;
+  // overflow: hidden;
 }
 .controls {
   position: fixed;
@@ -27,6 +31,7 @@ a {
   right: 10px;
   top: 10px;
   display: none;
+  z-index: 1000;
   @include myMedia($menu2) {
     display: flex;
     .fa-times-circle {
@@ -85,7 +90,7 @@ header {
             left: -80%;
             width: 80%;
             transition: 0.5s;
-            z-index: 55;
+            z-index: 3000;
             justify-content: space-evenly;
             padding-left: 30px;
           }
@@ -127,7 +132,7 @@ header {
               @include myMedia($menu2) {
                 display: none;
               }
-              z-index: 99;
+              z-index: 4000;
               display: none;
               position: absolute;
               left: 0;

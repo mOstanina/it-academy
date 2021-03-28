@@ -22,10 +22,19 @@
       integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
       crossorigin="anonymous"
     />
+    <!-- jquery-ui -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <!-- мои стили -->
     <link rel="stylesheet" href="../css/all/menu-footer-style.css" />
     <link rel="stylesheet" href="../css/findD/styleFD.css" />
-    <link rel="shortcut icon" href="../img/first-page/mini-logo-white.svg" type="svg">
+    <link
+      rel="shortcut icon"
+      href="../img/first-page/mini-logo-white.svg"
+      type="svg"
+    />
     <title>НАЙТИ ДИЛЛЕРА</title>
   </head>
   <body>
@@ -42,7 +51,10 @@
             <ul id="menu">
               <li>
                 <a href="#">модели</a>
-                <span class="menu-arrow arrow"><i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></span>
+                <span class="menu-arrow arrow"
+                  ><i class="fas fa-angle-down"></i
+                  ><i class="fas fa-angle-up"></i
+                ></span>
                 <ul id="sub-menu">
                   <li><a href="3-door-mini.html">MINI 3 двери</a></li>
                   <li><a href="5-door-mini.html">MINI 5 дверей</a></li>
@@ -79,17 +91,56 @@
         <h1>Диллеры MINI в Беларуси</h1>
       </div>
     </section>
-
-    <section id="map">
+    <section id="map-form">
       <div class="containerPage">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2346.7352868766297!2d27.586529416309848!3d53.97196833536532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc601aec7a0c7%3A0xb7f5be59ac1e42ba!2z0JDQktCi0J7QmNCU0JXQrw!5e0!3m2!1sru!2sby!4v1615643134529!5m2!1sru!2sby"
-          width="1280"
-          height="600"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
+        <div id="tabs">
+          <ul>
+            <li><a href="#tabs-1">Как к нам проехать</a></li>
+            <li><a href="#tabs-2">Напишите нам</a></li>
+          </ul>
+          <div id="tabs-1">
+            <section id="map">
+              <div class="containerPage">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2346.7352868766297!2d27.586529416309848!3d53.97196833536532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc601aec7a0c7%3A0xb7f5be59ac1e42ba!2z0JDQktCi0J7QmNCU0JXQrw!5e0!3m2!1sru!2sby!4v1615643134529!5m2!1sru!2sby"
+                  width="1280"
+                  height="600"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </section>
+          </div>
+          <div id="tabs-2">
+            <form action="http://fe.it-academy.by/TestForm.php" method="get">
+              <div class="label">
+                <label>Ваша фамилия:</label>
+                <div class="form">
+                  <input type="text" name="user-last-name" value="" />
+                </div>
+              </div>
+              <div class="label">
+                <label>Ваше имя:</label>
+                <div class="form">
+                  <input type="text" name="user-first-name" value="" />
+                </div>
+              </div>
+              <div class="label">
+                <label>Ваш телефон:</label>
+                <div class="form">
+                  <input type="tel" name="user-phone-number" value="+375-" />
+                </div>
+              </div>
+              <div class="label">
+                <label for="recipient-phone" class="col-form-label"
+                  >Ваше сообщение:</label
+                ><textarea name="user-text"></textarea>
+              </div>
+              <input class="btn" type="submit" value="Отправить">
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -155,6 +206,8 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../JS/firstPage.js"></script>
+    <script src="../JS/form.js"></script>
   </body>
 </html>

@@ -3,6 +3,11 @@
   background-color: #f1f1f1;
   margin-bottom: 50px;
 }
+@media all and (max-width: 366px) {
+  #dillers {
+    padding: 10px 0;
+  }
+}
 #dillers h1 {
   text-align: center;
   font-family: "Source Serif Pro", serif;
@@ -13,6 +18,7 @@
 #map .containerPage {
   display: flex;
   flex-shrink: 1;
+  border: rgba(112, 103, 103, 0.377) solid 0.1em;
 }
 @media all and (max-width: 580px) {
   #map .containerPage iframe {
@@ -46,6 +52,11 @@
     margin-bottom: 20px;
   }
 }
+@media all and (max-width: 366px) {
+  #dillerInfo .containerPage .autoidea {
+    padding: 10px 0;
+  }
+}
 #dillerInfo .containerPage .autoidea .conacts {
   display: flex;
   justify-content: center;
@@ -53,6 +64,84 @@
 #dillerInfo .containerPage .autoidea .conacts .autoidea-inquiry {
   margin-right: 30px;
 }
+@media all and (max-width: 366px) {
+  #dillerInfo .containerPage .autoidea .conacts .autoidea-inquiry {
+    margin-right: 1px;
+  }
+}
+@media all and (max-width: 366px) {
+  #dillerInfo .containerPage .autoidea .conacts {
+    font-size: 15px;
+  }
+}
 #dillerInfo .containerPage i {
   margin-right: 10px;
+}
+
+.ui-tabs-active.ui-state-active {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+@media all and (max-width: 390px) {
+  .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    font-size: 14px;
+  }
+}
+
+.ui-tabs-nav {
+  background-color: white;
+  border: none;
+}
+
+.ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
+  border: none;
+}
+
+#tabs-2 input[type=text],
+#tabs-2 textarea {
+  width: 100%;
+  padding-left: 10px;
+}
+#tabs-2 input {
+  height: 25px;
+}
+#tabs-2 label {
+  font-family: "Source Serif Pro", serif;
+  font-size: 20px;
+  margin: 20px 0;
+  opacity: 0.9;
+}
+#tabs-2 form {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: rgba(112, 103, 103, 0.377) solid 0.1em;
+}
+#tabs-2 textarea {
+  height: 80px;
+}
+#tabs-2 input[type=submit] {
+  text-transform: uppercase;
+  background-color: black;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 1px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  border: black solid 2px;
+  height: 60px;
+}
+@media all and (max-width: 580px) {
+  #tabs-2 input[type=submit] {
+    width: 100%;
+  }
+}
+
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
 }/*# sourceMappingURL=styleFD.css.map */

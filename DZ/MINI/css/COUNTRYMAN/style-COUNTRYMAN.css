@@ -7,6 +7,13 @@ h2 {
   text-transform: uppercase;
 }
 
+h2, h4 {
+  padding: 0 10px;
+}
+
+#models-table table {
+  width: 100%;
+}
 #models-table table tr {
   width: 100%;
   border-style: dashed;
@@ -26,6 +33,11 @@ h2 {
 #more-plase .player {
   text-align: center;
   width: 100%;
+}
+@media all and (max-width: 570px) {
+  #more-plase .player iframe {
+    width: 100%;
+  }
 }
 
 #about {

@@ -83,6 +83,7 @@ h2 {
 #features .features-accordion .plus-minus {
   position: relative;
   height: 40px;
+  width: 100%;
 }
 #features .features-accordion .plus-minus i {
   position: absolute;
@@ -90,6 +91,11 @@ h2 {
   color: white;
   font-size: 40px;
   padding: 20px;
+}
+@media all and (max-width: 680px) {
+  #features .features-accordion .plus-minus i {
+    right: 40%;
+  }
 }
 #features .features-accordion .plus-minus .fa-plus-circle {
   display: inline-block;
@@ -104,6 +110,11 @@ h2 {
   display: none;
   flex-direction: column;
   width: 60%;
+}
+@media all and (max-width: 680px) {
+  #features .features-accordion .accordion-body {
+    width: 80%;
+  }
 }
 #features .features-accordion .accordion-body img {
   width: 100%;
@@ -230,9 +241,14 @@ h2 {
     display: none;
   }
 }
+@media all and (max-width: 680px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: 680px;
+  }
+}
 @media all and (max-width: 480px) {
   #ditails .slider-ditals .slick-track .item {
-    height: 300px;
+    height: 370px;
   }
 }
 #ditails .slider-ditals .slick-track .item h5 {
@@ -242,7 +258,7 @@ h2 {
   font-weight: 600;
   padding-top: 20px;
 }
-@media all and (max-width: 480px) {
+@media all and (max-width: 680px) {
   #ditails .slider-ditals .slick-track .item h5 {
     font-size: 20px;
   }
@@ -251,7 +267,7 @@ h2 {
   font-family: "Source Serif Pro", serif;
   font-size: 20px;
 }
-@media all and (max-width: 480px) {
+@media all and (max-width: 680px) {
   #ditails .slider-ditals .slick-track .item p {
     font-size: 18px;
   }

@@ -20,22 +20,28 @@
   .slider-photo-car {
     .photo {
       &:nth-child(1) {
-        background: url(../../img/clubman/courusel-clubman-1.jpeg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-1.jpeg) no-repeat
+          center;
       }
       &:nth-child(2) {
-        background: url(../../img/clubman/courusel-clubman-2.jpg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-2.jpg) no-repeat
+          center;
       }
       &:nth-child(3) {
-        background: url(../../img/clubman/courusel-clubman-3.jpg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-3.jpg) no-repeat
+          center;
       }
       &:nth-child(4) {
-        background: url(../../img/clubman/courusel-clubman-4.jpg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-4.jpg) no-repeat
+          center;
       }
       &:nth-child(5) {
-        background: url(../../img/clubman/courusel-clubman-5.jpg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-5.jpg) no-repeat
+          center;
       }
       &:nth-child(6) {
-        background: url(../../img/clubman/courusel-clubman-7.jpg) no-repeat center;
+        background: url(../../img/clubman/courusel-clubman-7.jpg) no-repeat
+          center;
       }
 
       width: 300px;
@@ -86,12 +92,16 @@ h2 {
     .plus-minus {
       position: relative;
       height: 40px;
+      width: 100%;
       i {
         position: absolute;
         right: 47%;
         color: $white;
         font-size: 40px;
         padding: 20px;
+        @include myMedia(680px) {
+          right: 40%;
+        }
       }
       .fa-plus-circle {
         display: inline-block;
@@ -109,6 +119,9 @@ h2 {
       display: none;
       flex-direction: column;
       width: 60%;
+      @include myMedia(680px) {
+        width: 80%;
+      }
       img {
         width: 100%;
         padding: 20px 0 20px 0;
@@ -294,23 +307,54 @@ h2 {
   }
 }
 #ditails {
-  overflow: hidden;
   display: flex;
-  .item {
-    background-color: $JCW-background;
-    padding: 10px;
-    width: 450px;
-    height: 650px;
-    h5 {
-      text-transform: uppercase;
-      font-family: $main-font-family;
-      font-size: 25px;
-      font-weight: 600;
-      padding-top: 20px;
-    }
-    p {
-      font-family: $main-font-family;
-      font-size: 20px;
+  justify-content: space-between;
+  min-width: 0;
+  .containerPage {
+    overflow: hidden;
+  }
+  .slider-ditals {
+    .slick-track {
+      display: flex;
+      min-width: 0;
+      .item {
+        .slick-list {
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+          @include myMedia(480px) {
+            display: none;
+          }
+        }
+        background-color: $JCW-background;
+        padding: 10px;
+        margin: 20px;
+        height: 650px;
+        @include myMedia(680px) {
+          height: 680px;
+        }
+        @include myMedia(480px) {
+          height: 350px;
+        }
+        h5 {
+          text-transform: uppercase;
+          font-family: $main-font-family;
+          font-size: 25px;
+          font-weight: 600;
+          padding-top: 20px;
+          @include myMedia(680px) {
+            font-size: 20px;
+          }
+        }
+        p {
+          font-family: $main-font-family;
+          font-size: 20px;
+          @include myMedia(680px) {
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }
@@ -347,4 +391,3 @@ h2 {
     }
   }
 }
-  

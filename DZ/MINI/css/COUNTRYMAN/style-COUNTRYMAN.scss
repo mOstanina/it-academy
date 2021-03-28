@@ -9,8 +9,12 @@ h2 {
   padding-bottom: 30px;
   text-transform: uppercase;
 }
+h2, h4{
+  padding: 0 10px;
+}
 #models-table {
   table {
+    width: 100%;
     tr {
       width: 100%;
       border-style: dashed;
@@ -28,6 +32,11 @@ h2 {
   display: flex;
   justify-content: center;
   .player {
+    iframe {
+      @include myMedia(570px) {
+        width: 100%;
+      }
+    }
     text-align: center;
     width: 100%;
   }
@@ -235,9 +244,13 @@ h3 {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-    h6{align-self: flex-start;}
+    h6 {
+      align-self: flex-start;
+    }
   }
-  img{width: 80%;}
+  img {
+    width: 80%;
+  }
   h4,
   h6,
   p {

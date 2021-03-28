@@ -41,7 +41,7 @@
       width: 300px;
       height: 350px;
       margin: 10px;
-    }
+    } 
   }
 }
 h2,
@@ -86,12 +86,16 @@ h2 {
     .plus-minus {
       position: relative;
       height: 40px;
+      width: 100%;
       i {
         position: absolute;
         right: 47%;
         color: $white;
         font-size: 40px;
         padding: 20px;
+        @include myMedia(680px) {
+          right: 40%;
+        }
       }
       .fa-plus-circle {
         display: inline-block;
@@ -109,6 +113,9 @@ h2 {
       display: none;
       flex-direction: column;
       width: 60%;
+      @include myMedia(680px) {
+        width: 80%;
+      }
       img {
         width: 100%;
         padding: 20px 0 20px 0;
@@ -318,8 +325,11 @@ h2 {
         padding: 10px;
         margin: 20px;
         height: 650px;
+        @include myMedia(680px) {
+          height: 680px;
+        }
         @include myMedia(480px) {
-          height: 300px;
+          height: 370px;
         }
         h5 {
           text-transform: uppercase;
@@ -327,14 +337,14 @@ h2 {
           font-size: 25px;
           font-weight: 600;
           padding-top: 20px;
-          @include myMedia(480px) {
+          @include myMedia(680px) {
             font-size: 20px;
           }
         }
         p {
           font-family: $main-font-family;
           font-size: 20px;
-          @include myMedia(480px) {
+          @include myMedia(680px) {
             font-size: 18px;
           }
         }

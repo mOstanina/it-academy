@@ -4,6 +4,11 @@
   height: 0;
   overflow: hidden;
 }
+@media all and (max-width: 430px) {
+  #vid .main-video {
+    display: none;
+  }
+}
 #vid .main-video iframe {
   position: absolute;
   top: 0;
@@ -66,4 +71,14 @@
   height: 5px;
   background-color: white;
   position: absolute;
+}
+#vid .on-430px {
+  width: 100%;
+  display: none;
+}
+@media all and (max-width: 430px) {
+  #vid .on-430px {
+    display: block;
+    margin-bottom: 10px;
+  }
 }/*# sourceMappingURL=video-for-all.css.map */
