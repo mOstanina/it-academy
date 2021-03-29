@@ -17,31 +17,45 @@
   display: flex;
   justify-content: space-between;
   min-width: 0;
+  .containerPage {
+    overflow: hidden;
+  }
   .slider-photo-car {
     .photo {
       &:nth-child(1) {
-        background: url(../../img/mini-5-dors/courusel1.jpeg) no-repeat center;
+        background: url(../../img/mini-5-dors/courusel1-1.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
       &:nth-child(2) {
-        background: url(../../img/mini-5-dors/courusel2.jpg) no-repeat center;
+        background: url(../../img/mini-5-dors/courusel2-2.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
       &:nth-child(3) {
-        background: url(../../img/mini-5-dors/courusel3.jpg) no-repeat center;
+        background: url(../../img/mini-5-dors/courusel3-3.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
+      
       &:nth-child(4) {
-        background: url(../../img/mini-5-dors/courusel3.jpg) no-repeat center;
+        background: url(../../img/mini-5-dors/courusel5-5.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
       &:nth-child(5) {
-        background: url(../../img/mini-5-dors/courusel5.jpeg) no-repeat center;
+        background: url(../../img/mini-3-dors/owl-c-5-5.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
       &:nth-child(6) {
-        background: url(../../img/mini-5-dors/courusel6.jpg) no-repeat center;
-      }  &:nth-child(7) {
-        background: url(../../img/mini-5-dors/courusel7.jpg) no-repeat center;
+        background: url(../../img/mini-5-dors/courusel7-7.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
-      width: 300px;
-      height: 350px;
+      width: 400px;
+      height: 400px;
       margin: 10px;
     }
   }
@@ -326,12 +340,21 @@ h2 {
         background-color: $JCW-background;
         padding: 10px;
         margin: 20px;
-        height: 650px;
+        height: 700px;
         @include myMedia(680px) {
           height: 680px;
         }
+        @include myMedia(746px) {
+          height: 700px;
+        }
+        @include myMedia(650px) {
+          height: 650px;
+        }
         @include myMedia(480px) {
-          height: 350px;
+           height: auto;
+        }
+        @include myMedia(390px) {
+          height: auto;
         }
         h5 {
           text-transform: uppercase;
@@ -371,6 +394,9 @@ h2 {
     font-weight: 300;
     font-size: 20px;
     border: black solid 2px;
+    @include myMedia(480px) {
+      width: 100%;
+     }
     a {
       color: white;
       font-family: $font-for-btn;

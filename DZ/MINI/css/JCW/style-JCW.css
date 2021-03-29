@@ -1,2 +1,205 @@
+@charset "UTF-8";
+h2 {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+@media all and (max-width: 630px) {
+  h2 {
+    font-size: 35px;
+  }
+}
 
-/*# sourceMappingURL=style-JCW.css.map *//*# sourceMappingURL=style-JCW.css.map */
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+h3::before, h3::after {
+  content: "—";
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 45px;
+  font-weight: 600;
+}
+@media all and (max-width: 630px) {
+  h2 {
+    font-size: 35px;
+  }
+}
+@media all and (max-width: 400px) {
+  h2 {
+    font-size: 25px;
+  }
+}
+
+p {
+  font-size: 20px;
+}
+@media all and (max-width: 630px) {
+  p {
+    font-size: 18px;
+  }
+}
+@media all and (max-width: 400px) {
+  p {
+    font-size: 15px;
+  }
+}
+
+.shortTezis,
+.text-about-test {
+  width: 80%;
+  padding: 35px 0;
+}
+@media all and (max-width: 630px) {
+  .shortTezis,
+.text-about-test {
+    padding: 5px 0 25px 0;
+  }
+}
+
+#carousel-cars {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  min-width: 0;
+}
+#carousel-cars .containerPage {
+  overflow: hidden;
+}
+#carousel-cars .slider-photo-car-JCW .photo {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+}
+#carousel-cars .slider-photo-car-JCW .photo:nth-child(1) {
+  background-image: url(../../img/JCW-img/slider-1.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#carousel-cars .slider-photo-car-JCW .photo:nth-child(2) {
+  background: url(../../img/JCW-img/slider-2.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#carousel-cars .slider-photo-car-JCW .photo:nth-child(3) {
+  background: url(../../img/JCW-img/slider-3.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#carousel-cars .slider-photo-car-JCW .photo:nth-child(4) {
+  background: url(../../img/JCW-img/slider-4-4.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media all and (max-width: 750px) {
+  #carousel-cars .slider-photo-car-JCW .photo {
+    height: 500px;
+  }
+}
+@media all and (max-width: 500px) {
+  #carousel-cars .slider-photo-car-JCW .photo {
+    height: 400px;
+  }
+}
+@media all and (max-width: 380px) {
+  #carousel-cars .slider-photo-car-JCW .photo {
+    height: 350px;
+  }
+}
+@media all and (max-width: 350px) {
+  #carousel-cars .slider-photo-car-JCW .photo {
+    height: 300px;
+  }
+}
+
+#test-JCW {
+  padding: 30px 0;
+  background-color: black;
+}
+#test-JCW hr {
+  color: white;
+  height: 3px;
+  opacity: 0.8;
+}
+#test-JCW h2,
+#test-JCW p {
+  color: white;
+}
+#test-JCW h2 {
+  margin-bottom: 15px;
+}
+#test-JCW .YT-video {
+  width: 100%;
+}
+#test-JCW .YT-video iframe {
+  width: 100%;
+  overflow: hidden;
+}
+#test-JCW .YT-video-content {
+  display: flex;
+  width: 100%;
+}
+#test-JCW .YT-video-content .YT-video iframe {
+  padding: 10px;
+}
+@media all and (max-width: 600px) {
+  #test-JCW .YT-video-content {
+    flex-flow: wrap;
+  }
+}
+
+#test-drive-JCW img {
+  width: 100%;
+  padding: 40px 0;
+}
+#test-drive-JCW h2 {
+  padding-bottom: 0;
+}
+@media all and (max-width: 630px) {
+  #test-drive-JCW h2 {
+    padding-top: 0;
+  }
+}
+#test-drive-JCW hr {
+  color: black;
+  height: 3px;
+  opacity: 0.8;
+}
+#test-drive-JCW button {
+  text-transform: uppercase;
+  background-color: black;
+  border: none;
+  margin: 40px 0;
+  padding: 15px;
+  border-radius: 1px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  border: black solid 2px;
+}
+@media all and (max-width: 480px) {
+  #test-drive-JCW button {
+    width: 100%;
+  }
+}
+#test-drive-JCW button a {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+#test-drive-JCW button:hover {
+  background-color: white;
+  color: black;
+  border: black solid 2px;
+}
+#test-drive-JCW button:hover a {
+  color: black;
+}/*# sourceMappingURL=style-JCW.css.map */

@@ -14,31 +14,43 @@
   justify-content: space-between;
   min-width: 0;
 }
+#carousel-cars .containerPage {
+  overflow: hidden;
+}
 #carousel-cars .slider-photo-car .photo {
-  width: 300px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   margin: 10px;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(1) {
-  background: url(../../img/mini-5-dors/courusel1.jpeg) no-repeat center;
+  background: url(../../img/mini-5-dors/courusel1-1.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(2) {
-  background: url(../../img/mini-5-dors/courusel2.jpg) no-repeat center;
+  background: url(../../img/mini-5-dors/courusel2-2.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(3) {
-  background: url(../../img/mini-5-dors/courusel3.jpg) no-repeat center;
+  background: url(../../img/mini-5-dors/courusel3-3.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(4) {
-  background: url(../../img/mini-5-dors/courusel3.jpg) no-repeat center;
+  background: url(../../img/mini-5-dors/courusel5-5.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(5) {
-  background: url(../../img/mini-5-dors/courusel5.jpeg) no-repeat center;
+  background: url(../../img/mini-3-dors/owl-c-5-5.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #carousel-cars .slider-photo-car .photo:nth-child(6) {
-  background: url(../../img/mini-5-dors/courusel6.jpg) no-repeat center;
-}
-#carousel-cars .slider-photo-car .photo:nth-child(7) {
-  background: url(../../img/mini-5-dors/courusel7.jpg) no-repeat center;
+  background: url(../../img/mini-5-dors/courusel7-7.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 h2,
@@ -231,7 +243,7 @@ h2 {
   background-color: #f1f1f1;
   padding: 10px;
   margin: 20px;
-  height: 650px;
+  height: 700px;
 }
 #ditails .slider-ditals .slick-track .item .slick-list {
   overflow: hidden;
@@ -249,9 +261,24 @@ h2 {
     height: 680px;
   }
 }
+@media all and (max-width: 746px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: 700px;
+  }
+}
+@media all and (max-width: 650px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: 650px;
+  }
+}
 @media all and (max-width: 480px) {
   #ditails .slider-ditals .slick-track .item {
-    height: 350px;
+    height: auto;
+  }
+}
+@media all and (max-width: 390px) {
+  #ditails .slider-ditals .slick-track .item {
+    height: auto;
   }
 }
 #ditails .slider-ditals .slick-track .item h5 {
@@ -293,6 +320,12 @@ h2 {
   font-weight: 300;
   font-size: 20px;
   border: black solid 2px;
+}
+@media all and (max-width: 480px) {
+  #test-drive button,
+#diller-in-RB button {
+    width: 100%;
+  }
 }
 #test-drive button a,
 #diller-in-RB button a {
