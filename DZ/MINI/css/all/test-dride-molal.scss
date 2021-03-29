@@ -1,0 +1,47 @@
+@import "../all/mixin";
+@import "../all/var";
+#inline {
+  h4 {
+    font-weight: 600;
+    font-size: 40px;
+    @include myMedia(480px) {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  p {
+    margin: 20px 0;
+    @include myMedia(480px) {
+      font-size: 15px;
+    }
+  }
+  background-color: #fff;
+  padding: 30px;
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding-left: 10px;
+    margin: 10px 0;
+  }
+  input[type="submit"] {
+    text-transform: uppercase;
+    background-color: $main-text-color;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 1px;
+    color: $slider-text-color;
+    font-family: $font-for-btn;
+    font-weight: 300;
+    font-size: 18px;
+    border: black solid 2px;
+    height: 60px;
+    @include myMedia(480px) {
+        font-size: 15px;
+        padding: 8px;
+        height: 40px;
+      }
+  }
+}

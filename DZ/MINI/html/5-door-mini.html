@@ -40,11 +40,13 @@
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
-
+    <!-- lity -->
+    <link rel="stylesheet" href="../lity-2.4.1/dist/lity.css" />
     <!-- мои стили -->
     <link rel="stylesheet" href="../css/all/menu-footer-style.css" />
     <link rel="stylesheet" href="../css/all/video-for-all.css" />
     <link rel="stylesheet" href="../css/5-door-mini/style-5-door-mini.css" />
+    <link rel="stylesheet" href="../css/all/test-dride-molal.css" />
     <link
       rel="shortcut icon"
       href="../img/first-page/mini-logo-white.svg"
@@ -66,7 +68,10 @@
             <ul id="menu">
               <li>
                 <a href="#">модели</a>
-                <span class="menu-arrow arrow"><i class="fas fa-angle-down"></i><i class="fas fa-angle-up"></i></span>
+                <span class="menu-arrow arrow"
+                  ><i class="fas fa-angle-down"></i
+                  ><i class="fas fa-angle-up"></i
+                ></span>
                 <ul id="sub-menu">
                   <li><a href="3-door-mini.html">MINI 3 двери</a></li>
                   <li><a href="5-door-mini.html">MINI 5 дверей</a></li>
@@ -120,7 +125,11 @@
           </div>
         </div>
       </div>
-      <img class="on-430px" src="../img/first-page/slide-3.jpg" alt="пятидверный MINI">
+      <img
+        class="on-430px"
+        src="../img/first-page/slide-3.jpg"
+        alt="пятидверный MINI"
+      />
     </section>
 
     <section id="shortTezis">
@@ -151,7 +160,6 @@
         </div>
       </div>
     </section>
-
 
     <section id="features">
       <div class="containerPage">
@@ -528,10 +536,38 @@
         />
         <h2>ПРОЙДИ ТЕСТ-ДРАЙВ СЕГОДНЯ.</h2>
         <button type="button">
-          <a title="запишитесь на тест-драйв" href="#"
+          <a title="запишитесь на тест-драйв" href="#inline" data-lity
             >записаться на тест-драйв</a
           >
         </button>
+        <div id="inline" class="lity-hide">
+          <div class="InputBlock">
+            <form action="http://fe.it-academy.by/TestForm.php" method="get">
+              <h4>Заказать обратный звонок</h4>
+              <p>Отравьте нам Ваш номер телефона и мы Вам перезалним!</p>
+              <input
+                type="tel"
+                name="telefont"
+                class="tele"
+                placeholder="телефон"
+              />
+
+              <div class="InputBlock">
+                <textarea
+                  name="message"
+                  class="message"
+                  placeholder="удобное время для звонка"
+                ></textarea>
+              </div>
+              <input
+                type="submit"
+                class="submit"
+                name="submit"
+                value="заказать звонок"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </section>
     <section id="diller-in-RB">
@@ -574,30 +610,30 @@
     </footer>
 
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"
-  ></script>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
 
-  <script
-    type="text/javascript"
-    src="//code.jquery.com/jquery-1.11.0.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
-  ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
 
-  <script src="../JS/owl.carousel.min.js"></script>
-  <script src="../JS/owl-carousel.js"></script>
+    <script src="../JS/owl.carousel.min.js"></script>
+    <script src="../JS/owl-carousel.js"></script>
 
-  <script
-    type="text/javascript"
-    src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-  ></script>
-
-  <script src="../JS/accordion.js"></script>
-  <script src="../JS/firstPage.js"></script>
-  <script src="../JS/slick-cards.js"></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="../lity-2.4.1/dist/lity.js"></script>
+    <script src="../JS/accordion.js"></script>
+    <script src="../JS/firstPage.js"></script>
+    <script src="../JS/slick-cards.js"></script>
   </body>
 </html>

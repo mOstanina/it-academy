@@ -8,13 +8,27 @@ h2 {
   font-size: 40px;
   padding-bottom: 30px;
   text-transform: uppercase;
+  @include myMedia(480px) {
+    font-size: 35px;
+  }
 }
-h2, h4{
+h2,
+h4 {
   padding: 0 10px;
+}
+h4 {
+  @include myMedia(480px) {
+    font-size: 25px;
+  }
 }
 #models-table {
   table {
+    background-color: $JCW-background;
     width: 100%;
+    margin: 40px 0;
+    @include myMedia(480px) {
+      font-size: 13px;
+    }
     tr {
       width: 100%;
       border-style: dashed;
@@ -31,6 +45,11 @@ h2, h4{
 #more-plase {
   display: flex;
   justify-content: center;
+  p {
+    @include myMedia(480px) {
+      padding: 20px 0;
+    }
+  }
   .player {
     iframe {
       @include myMedia(570px) {
@@ -43,10 +62,12 @@ h2, h4{
 }
 #about {
   padding: 40px 0 40px 0;
+  p {
+    padding: 20px 0;
+  }
   .bagage,
   .seats {
     display: flex;
-    flex-flow: wrap;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
@@ -58,8 +79,9 @@ h2, h4{
       }
     }
   }
+  .bagage{flex-flow: wrap;}
+  .seats{flex-flow: wrap-reverse;}
 }
-
 h3 {
   text-transform: uppercase;
   font-size: 20px;
@@ -75,6 +97,9 @@ h3 {
 #cooseColor {
   padding-top: 40px;
   background-color: $JCW-background;
+  @include myMedia(480px) {
+    padding-top: 0px;
+  }
   hr {
     height: 3px;
     color: black;
@@ -85,18 +110,9 @@ h3 {
     .car-change-color {
       display: flex;
       .car-carousel {
-        // position: absolute;
-        // right: 0;
-        // top: 0;
         .carousel-indicators {
           margin-bottom: 0;
-          // position: absolute;
-          // right: 0;
-          // bottom: 0;
-          // left: 0;
           z-index: 2222;
-          // display: flex;
-          // justify-content: flex-end;
           padding: 0;
           button {
             height: 40px;
@@ -187,13 +203,7 @@ h3 {
         display: flex;
         .carousel-indicators {
           margin-bottom: -75px;
-          // position: absolute;
-          // right: 0;
-          // bottom: 0;
-          // left: 0;
           z-index: 222;
-          // display: flex;
-          // justify-content: flex-end;
           padding: 0;
           button {
             height: 50px;
@@ -240,10 +250,12 @@ h3 {
   }
   .info {
     width: 100%;
+    padding: 5px 30px;
+    @include myMedia(480px) {
+      padding: 2px 5px;
+    }
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: space-between;
     h6 {
       align-self: flex-start;
     }
@@ -255,6 +267,9 @@ h3 {
   h6,
   p {
     font-family: $main-font-family;
+    @include myMedia(480px) {
+      font-size: 15px;
+    }
   }
   h4 {
     font-size: 35px;
@@ -262,6 +277,10 @@ h3 {
   h6 {
     font-weight: 600;
     text-transform: uppercase;
+    @include myMedia(480px) {
+      font-size: 15px;
+      font-weight: 700;
+    }
   }
   .card {
     display: flex;

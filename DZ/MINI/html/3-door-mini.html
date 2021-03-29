@@ -40,11 +40,14 @@
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
-
+    <!-- lity -->
+    <link rel="stylesheet" href="../lity-2.4.1/dist/lity.css" />
     <!-- мои стили -->
+
     <link rel="stylesheet" href="../css/all/menu-footer-style.css" />
     <link rel="stylesheet" href="../css/all/video-for-all.css" />
     <link rel="stylesheet" href="../css/3-door-mini/style-3-door-mini.css" />
+    <link rel="stylesheet" href="../css/all/test-dride-molal.css" />
     <link
       rel="shortcut icon"
       href="../img/first-page/mini-logo-white.svg"
@@ -123,7 +126,11 @@
           </div>
         </div>
       </div>
-      <img class="on-430px" src="../img/first-page/slide-2.jpg" alt="трёхдрерный MINI">
+      <img
+        class="on-430px"
+        src="../img/first-page/slide-2.jpg"
+        alt="трёхдрерный MINI"
+      />
     </section>
 
     <section id="shortTezis">
@@ -540,10 +547,37 @@
         <img src="../img/mini-3-dors/test-drive.jpg" alt="тест-драйв MINI" />
         <h2>ПРОЙДИ ТЕСТ-ДРАЙВ СЕГОДНЯ.</h2>
         <button type="button">
-          <a title="запишитесь на тест-драйв" href="#"
+          <a title="запишитесь на тест-драйв" href="#inline" data-lity
             >записаться на тест-драйв</a
           >
         </button>
+        <div id="inline" class="lity-hide">
+          <div class="InputBlock">
+            <form action="http://fe.it-academy.by/TestForm.php" method="get">
+              <h4>Заказать обратный звонок</h4>
+              <p>Отравьте нам Ваш номер телефона и мы Вам перезалним!</p>
+              <input
+                type="tel"
+                name="telefont"
+                class="tele"
+                placeholder="телефон"
+              />
+              <div class="InputBlock">
+                <textarea
+                  name="message"
+                  class="message"
+                  placeholder="удобное время для звонка"
+                ></textarea>
+              </div>
+              <input
+                type="submit"
+                class="submit"
+                name="submit"
+                value="заказать звонок"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </section>
     <section id="diller-in-RB">
@@ -607,6 +641,7 @@
       type="text/javascript"
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
+    <script src="../lity-2.4.1/dist/lity.js"></script>
 
     <script src="../JS/accordion.js"></script>
     <script src="../JS/firstPage.js"></script>

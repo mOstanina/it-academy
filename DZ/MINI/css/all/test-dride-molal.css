@@ -1,0 +1,51 @@
+#inline {
+  background-color: #fff;
+  padding: 30px;
+}
+#inline h4 {
+  font-weight: 600;
+  font-size: 40px;
+}
+@media all and (max-width: 480px) {
+  #inline h4 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+#inline p {
+  margin: 20px 0;
+}
+@media all and (max-width: 480px) {
+  #inline p {
+    font-size: 15px;
+  }
+}
+#inline input[type=tel],
+#inline textarea {
+  width: 100%;
+  padding-left: 10px;
+  margin: 10px 0;
+}
+#inline input[type=submit] {
+  text-transform: uppercase;
+  background-color: black;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 1px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  border: black solid 2px;
+  height: 60px;
+}
+@media all and (max-width: 480px) {
+  #inline input[type=submit] {
+    font-size: 15px;
+    padding: 8px;
+    height: 40px;
+  }
+}/*# sourceMappingURL=test-dride-molal.css.map */
