@@ -1,5 +1,5 @@
 var enterString = prompt("Введите строку содержащую несколько слов");
-var userString;
+
 
 function askAString(userString) {
     var j = userString.length - 1;
