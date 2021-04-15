@@ -11,7 +11,7 @@ function askAString(userString) {
     };
     var stringToUser;
     if (i == userString.length) {
-        stringToUser = userString.substring(i, userString.length);
+        stringToUser = "";
     } else {
         stringToUser = userString.substring(i, j + 1);
     }
