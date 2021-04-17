@@ -4,11 +4,11 @@ function askAString(userString) {
     var halfOfUserString = (Math.floor(newReplaceUserString.length / 2));
     var lastIndex = newReplaceUserString.length - 1;
     for (var i = 0; i < halfOfUserString; i++) {
-        if (newReplaceUserString[i] !== newReplaceUserString[lastIndex  - i]) {
-           return "это не палиндром";
+        if (newReplaceUserString[i] !== newReplaceUserString[lastIndex - i]) {
+            return false;
         } else {
-        return "это палиндром"
+            return true;
         }
     }
 }
-console.log(askAString(enterString));
+console.log(askAString(enterString) ? "это палиндром" : "это не палиндром");
