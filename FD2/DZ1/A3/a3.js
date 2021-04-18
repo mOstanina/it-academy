@@ -6,9 +6,8 @@ function askAString(userString) {
     for (var i = 0; i < halfOfUserString; i++) {
         if (newReplaceUserString[i] !== newReplaceUserString[lastIndex - i]) {
             return false;
-        } else {
-            return true;
         }
     }
+    return true;
 }
 console.log(askAString(enterString) ? "это палиндром" : "это не палиндром");
