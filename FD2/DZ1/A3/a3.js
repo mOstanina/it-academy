@@ -1,6 +1,6 @@
-var enterString = prompt("Введите строку").toLowerCase();
+var enterString = prompt("Введите строку");
 function askAString(userString) {
-    var newReplaceUserString = userString.replace(/[ ъъ.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/ё/g, "e");
+    var newReplaceUserString = userString.replace(/[ ъъ.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/ё/g,"е").toLowerCase();
     var halfOfUserString = (Math.floor(newReplaceUserString.length / 2));
     var lastIndex = newReplaceUserString.length - 1;
     for (var i = 0; i < halfOfUserString; i++) {
