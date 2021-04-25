@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="корни" onclick="ttt()" />
+
+    <script>
+      "use strict";
+      // находим корни квадратного уравнения
+      // возвращает массив корней
+      function squareRoots(a, b, c) {
+        var d = b * b - 4 * a * c; // дискриминант
+        if (d < 0) return []; // нет корней
+        if (d == 0) return [-b / (2 * a)]; // один корень
+        if (a == 0) return [-c / b];
+        var x1 = (-b + Math.sqrt(d)) / (2 * a);
+        var x2 = (-b - Math.sqrt(d)) / (2 * a);
+        return [x1, x2]; // два корня
+      }
+      function ttt() {
+        var a = Number(prompt("Введите a"));
+        var b = Number(prompt("Введите b"));
+        var c = Number(prompt("Введите c"));
+        var roots = squareRoots(a, b, c);
+        if (!roots.length) alert("корней нет!");
+        else if (roots.length == 1) alert("один корень: " + roots[0]);
+        else alert("два корня: " + roots[0] + " и " + roots[1]);
+      }
+    </script>
+  </body>
+</html>
