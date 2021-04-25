@@ -9,6 +9,7 @@ function countOf(userString) {
         }
         return count;
     };
-    return newUserString.forEach(forE);
+   newUserString.forEach(forE);
+   return count;
 };
 console.log(countOf(userMessage));
