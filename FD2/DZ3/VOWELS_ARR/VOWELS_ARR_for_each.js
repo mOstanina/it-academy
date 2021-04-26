@@ -7,7 +7,7 @@ function countOf(userString) {
         if (vowels.indexOf(el) !== -1) {
             count++;
         }
-        return count;
+        
     };
    newUserString.forEach(forE);
    return count;

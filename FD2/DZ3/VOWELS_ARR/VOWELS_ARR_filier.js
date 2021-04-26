@@ -3,8 +3,11 @@ function countOf(userString) {
     var newUserString = userString.toLowerCase().split('');
     var vowels = "аеёиоуыэюя";
     function filt(el, index, arr) {
-        if (vowels.indexOf(el) !== -1)
-            return true;
+        if (vowels.indexOf(el) !== -1) { 
+            return true; 
+        } else {
+            return false;
+        }
     };
     return newUserString.filter(filt).length;
 };
