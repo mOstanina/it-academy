@@ -1,36 +1,41 @@
-//     function forE(el, index, arr) {
-//         var str;
-//         if (symbol.indexOf(el) !== -1) {
-//             str = newUserString.replace(newUserString[index], symbol.charCodeAt(index));
-//         };
-//         return str;
-//     };
-//     var f = newUserString.forEach(forE);
-//     // return ("<P>" + newUserString.forEach(forE).replace(newUserString, symbol.charCodeAt()) + "</P>");
 
-//     return ("<P>" + f + "</P>");
-// };
-
-// console.log(buildWrapper("Однажды в студёную зимнюю пору"))
-
+var wrapP = buildWrapper();// по заданию как аргумент принимается сразу "P"
+// в консоли выдает "Uncaught TypeError: wrapP is not a function at b6.js:19",
+//ну да, это не функция, а ссылка на фукцию buildWrapper
 function buildWrapper(userString) {
-    var newUserString = userString.split('');
-    // var symbol = "&\"\`<>";
-   
-    var symbol = {
-        "&": "&amp;",
-        "'": "&#039;",
-        '"': "&quot;",
-        "<": "&lt;",
-        ">": "&gt;",
+ 
+    var newUserString = userString.split(" "); //разбиваю строку по пробелу на массив слов 
+    console.log(newUserString); //проверяю что вышло, потом удалю
+    var languageAtr = {
+        'lang:"ru"': "lang='ru'",
+        "lang:'ru'": "lang='ru'",
+        'lang:"en"': "lang='en'",
+        "lang:'en'": "lang='en'",
     };
-    for (var i = 0; i < newUserString.length; i++) {
-        if (newUserString[i] in symbol) {
-          newUserString.replace(newUserString[i], symbol.newUserString[i]);
-        }
-    };
-    console.log(newUserString)
-    return ("<P>" + newUserString.join('') + "</P>");
-};
 
-console.log(buildWrapper("Однажды в студёную зимнюю пору"))
+    //тут пытаюсь проверить полученный массив на наличие в нем ключа объекта но выдает -1, тк не находит 
+    if (newUserString.indexOf('lang:"ru"')) {
+        console.log(newUserString.indexOf(Object.keys(languageAtr)))
+    };
+   
+}
+console.log(wrapP("Однажды в студёную зимнюю пору", { lang: "ru" }));
+
+
+
+//функция меняющая символы на мнемонику:
+//тут все работает
+function convertString(stringToConvert) {
+    var mnemo = {
+        "<": "&lt",
+        ">": "&gt",
+        "&": "&amp",
+        "'": "&#039",
+        '"': "&quot",
+    };
+    function changeSymbol(symbol) {
+        return mnemo[symbol];
+    }
+    return stringToConvert.replace(/[<&>\'\"]/g, changeSymbol);
+}
+console.log(convertString("привет &привет>  < привет gbhg"));
