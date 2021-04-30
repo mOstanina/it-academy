@@ -4,9 +4,11 @@ function buildWrapper(tagNew) {
     //создаю функцию, коротую буду возвращать
     //в функцию может передаваться 2 аргумента, но может и один
     var a = function getUserString(userStr, atri) {
+        //создаю переменную, куда в итоге попадет отформатированный атрибут
+        var userAtribut;
         //в случае, если второй аргумент НЕ передается, то присваем сразу пустую строку
         if (atri == undefined) {
-            hhh = "";
+            userAtribut = "";
             //если второй аргумент есть
         } else {
             //создаю хеш, ключи котоорого - это возможные атрибуты
@@ -26,24 +28,21 @@ function buildWrapper(tagNew) {
             //(чтобы они тоже не поменялись на мнемонику)
             //(функция замены смволов на мнемонику опианв ниже, но она "всплывет")
             for (var i = 0; i < atrInUserString.length; i++) {
-                atrInUserString[i][1] =
-                    "'" + convertString(atrInUserString[i][1]) + "'";
+                atrInUserString[i][1] = "'" + convertString(atrInUserString[i][1]) + "'";
             }
-            //создаю пустой массив hh, в который буду добавлять
-            var hh = [];
+            //создаю пустой массив newArrayForAtribut, в который буду добавлять
+            var newArrayForAtribut = [];
             //для каждого элемента массива atrInUserString, который в свою очередь является массивом,
-            // склеиваю в один элемент через = и сразу добавляю в свой пустой массив hh
+            // склеиваю в один элемент через = и сразу добавляю в свой пустой массив newArrayForAtribut
             atrInUserString.forEach(function (item, i, atrInUserString) {
-                hh.push(item.join("="));
-                return hh;
+                newArrayForAtribut.push(item.join("="));
+                return newArrayForAtribut;
             });
-            //склеиваю свои элементы массива hh в строку через пробел, чтобы убрать запятые, которые будут, если
+            //склеиваю свои элементы массива newArrayForAtribut в строку через пробел, чтобы убрать запятые, которые будут, если
             //не перевести в строку, а оставить массивом
-            var hhh = " " + hh.join(" ");
+            userAtribut = " " + newArrayForAtribut.join(" ");
         }
         //перый аргумент привожу к массиву
-        var arrayOfUserString = userStr.split(" ");
-        arrayOfUserString = arrayOfUserString.join(" ");
         //функция замены символов на мнемонику
         function convertString(stringToConvert) {
             var mnemo = {
@@ -59,18 +58,9 @@ function buildWrapper(tagNew) {
             }
             return stringToConvert.replace(/[<&>\'\"]/g, changeSymbol);
         }
-        //возвращаю итоговую строку. Если второй агрумент не передавался, то в самом насале при прверке hhh=""
-        //присваиваю ему пустое место
-        return (
-            "<" +
-            tagNew +
-            hhh +
-            ">" +
-            convertString(arrayOfUserString) +
-            "</" +
-            tagNew +
-            ">"
-        );
+        //возвращаю итоговую строку. Если второй агрумент не передавался, то в самом насале при прверке  
+        //userAtribut="" ,т.е. присваиваю ему пустое место
+        return ("<" + tagNew + userAtribut + ">" + convertString(userStr) + "</" + tagNew + ">");
     };
     //возвращаю функцию
     return a;
