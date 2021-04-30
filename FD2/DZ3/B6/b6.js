@@ -36,27 +36,29 @@ function buildWrapper(tagNew) {
             // склеиваю в один элемент через = и сразу добавляю в свой пустой массив newArrayForAtribut
             atrInUserString.forEach(function (item, i, atrInUserString) {
                 newArrayForAtribut.push(item.join("="));
-                return newArrayForAtribut;
+                //склеиваю свои элементы массива newArrayForAtribut в строку через пробел, чтобы убрать запятые, которые будут, если
+                //не перевести в строку, а оставить массивом
+                // userAtribut = " " + newArrayForAtribut.join(" ");
+                return userAtribut = " " + newArrayForAtribut.join(" ");
             });
-            //склеиваю свои элементы массива newArrayForAtribut в строку через пробел, чтобы убрать запятые, которые будут, если
-            //не перевести в строку, а оставить массивом
-            userAtribut = " " + newArrayForAtribut.join(" ");
         }
         //перый аргумент привожу к массиву
         //функция замены символов на мнемонику
         function convertString(stringToConvert) {
             var mnemo = {
-                "<": "&lt",
-                ">": "&gt",
-                "&": "&amp",
-                "'": "&apos",
-                '"': "&quot",
+                "<": "&lt;",
+                ">": "&gt;",
+                "&": "&amp;",
+                "'": "&apos;",
+                '"': "&quot;",
             };
             //проверяю каждый симовл в СТРОКЕ
-            function changeSymbol(symbol) {
+            // function changeSymbol(symbol) {
+            //     return mnemo[symbol];
+            // }
+            return stringToConvert.replace(/[<&>\'\"]/g, function (symbol) {
                 return mnemo[symbol];
-            }
-            return stringToConvert.replace(/[<&>\'\"]/g, changeSymbol);
+            });
         }
         //возвращаю итоговую строку. Если второй агрумент не передавался, то в самом насале при прверке  
         //userAtribut="" ,т.е. присваиваю ему пустое место
