@@ -13,36 +13,46 @@ function buildWrapper(tagNew) {
         } else {
             //создаю хеш, ключи котоорого - это возможные атрибуты
             var atrHash = {
-                lang: "",
-                align: "",
-                title: "",
+                lang: true,
+                align: true,
+                title: true,
             };
-            //проверяю для каждого ключа хеша есть ли в нем передаваемый атрибут
+            // //проверяю для каждого ключа хеша есть ли в нем передаваемый атрибут
+            // for (var key in atrHash) {
+            //     //если атрибут есть среди ключей хеша, то записываю его (этот ключ) в переменную
+            //     if (key in atri) {
+            //         var atrInUserString = Object.entries(atri);
+            //     } // тут вернется массив, с количеством элементов, равным количеству ключей, которое совпадет
+            // }
+            // //к каждому второй элемент массива заменяю символы на мнемонику, аотом уже добавляю кавычки
+            // //(чтобы они тоже не поменялись на мнемонику)
+            // //(функция замены смволов на мнемонику опианв ниже, но она "всплывет")
+            // for (var i = 0; i < atrInUserString.length; i++) {
+            //     atrInUserString[i][1] = "'" + convertString(atrInUserString[i][1]) + "'";
+            // }
+            // //создаю пустой массив newArrayForAtribut, в который буду добавлять
+            // var newArrayForAtribut = [];
+            // //для каждого элемента массива atrInUserString, который в свою очередь является массивом,
+            // // склеиваю в один элемент через = и сразу добавляю в свой пустой массив newArrayForAtribut
+            // atrInUserString.forEach(function (item, i, atrInUserString) {
+            //     newArrayForAtribut.push(item.join("="));
+            //     //склеиваю свои элементы массива newArrayForAtribut в строку через пробел, чтобы убрать запятые, которые будут, если
+            //     //не перевести в строку, а оставить массивом
+            //     // userAtribut = " " + newArrayForAtribut.join(" ");
+            //     return userAtribut = " " + newArrayForAtribut.join(" ");
+            // });
+            var arrayA = [];
             for (var key in atrHash) {
-                //если атрибут есть среди ключей хеша, то записываю его (этот ключ) в переменную
-                if (key in atri) {
-                    var atrInUserString = Object.entries(atri);
-                } // тут вернется массив, с количеством элементов, равным количеству ключей, которое совпадет
-            }
-            //к каждому второй элемент массива заменяю символы на мнемонику, аотом уже добавляю кавычки
-            //(чтобы они тоже не поменялись на мнемонику)
-            //(функция замены смволов на мнемонику опианв ниже, но она "всплывет")
-            for (var i = 0; i < atrInUserString.length; i++) {
-                atrInUserString[i][1] = "'" + convertString(atrInUserString[i][1]) + "'";
-            }
-            //создаю пустой массив newArrayForAtribut, в который буду добавлять
-            var newArrayForAtribut = [];
-            //для каждого элемента массива atrInUserString, который в свою очередь является массивом,
-            // склеиваю в один элемент через = и сразу добавляю в свой пустой массив newArrayForAtribut
-            atrInUserString.forEach(function (item, i, atrInUserString) {
-                newArrayForAtribut.push(item.join("="));
-                //склеиваю свои элементы массива newArrayForAtribut в строку через пробел, чтобы убрать запятые, которые будут, если
-                //не перевести в строку, а оставить массивом
-                // userAtribut = " " + newArrayForAtribut.join(" ");
-                return userAtribut = " " + newArrayForAtribut.join(" ");
-            });
+                if (atri[key] == undefined) {
+                    continue;
+                } else {
+                    var a = atri[key];
+                    var b = key + "=" + "'" + convertString(a) + "'";
+                };
+                arrayA.push(b);
+            };
+            userAtribut = " " + arrayA.join(" ");
         }
-        //перый аргумент привожу к массиву
         //функция замены символов на мнемонику
         function convertString(stringToConvert) {
             var mnemo = {
