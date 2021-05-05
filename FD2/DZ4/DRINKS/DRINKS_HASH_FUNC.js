@@ -35,13 +35,10 @@ var nameDrink;
 function addDrink() {
     nameDrink = prompt("введите название напитка");
     var a = confirm("напиток алкогольный?");
-    (a == true) ? (a = "да") : (a = "нет");
+    var c = (a == true) ? "да" : "нет";
     var b = prompt("введите рецепт напитка");
-    drinkStorage.storage[nameDrink] = {
-        alco: a,
-        recipe: b,
-    };
-    drinkStorage.addValue(nameDrink, (drinkStorage.storage[nameDrink]));
+   
+    drinkStorage.addValue(nameDrink, (drinkStorage.storage[nameDrink] = { alco: c, recipe: b }));
 };
 function infoAboutDrink() {
     var nameOfDrink = prompt("введите название напитка");
@@ -54,7 +51,7 @@ function infoAboutDrink() {
 };
 function deleteDrink() {
     var presenceInList = drinkStorage.deleteValue((prompt("введите название напитка, который хотите удалить")));
-    (presenceInList) ? alert("напиток удален"): alert("такого напитка нет в перечне");
+    (presenceInList) ? alert("напиток удален") : alert("такого напитка нет в перечне");
 };
 function sowAllDrinks() {
     alert(drinkStorage.getKeys());
