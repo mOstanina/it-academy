@@ -4,13 +4,12 @@ function HashStorageFunc() {
     self.storage = {};
     self.addValue = function (key, value) {
         self.storage[key] = value;
-        // console.log(self.storage[key]); //для проверки
+        console.log(self.storage); //для проверки
         // console.log(Object.keys(self.storage)); //для проверки
     };
-
     self.getValue = function (key) {
         // console.log(self.storage[key]);//для проверки
-        return self.storage[key];
+        return (self.storage[key]);
     };
     self.deleteValue = function (key) {
         if (key in self.storage) {
@@ -24,17 +23,39 @@ function HashStorageFunc() {
         }
     };
     self.getKeys = function () {
-        var claearArrayOfKeys =  Object.keys(self.storage);
+        var claearArrayOfKeys = Object.keys(self.storage);
         // console.log(claearArrayOfKeys);//для проверки
         return claearArrayOfKeys;
     };
 };
 var drinkStorage = new HashStorageFunc();
-drinkStorage.addValue("coctail111", "mmm");
-drinkStorage.addValue("coctail222", "vvv");
-drinkStorage.addValue("coctail333", "zzz");
-drinkStorage.addValue("coctail444", "yyy");
-drinkStorage.getValue("coctail111");
-drinkStorage.getValue("coctail222");
-drinkStorage.deleteValue("coctail222");
-drinkStorage.getKeys();
+var alco;
+var recipe;
+var nameDrink;
+function addDrink() {
+    nameDrink = prompt("введите название напитка");
+    var a = confirm("напиток алкогольный?");
+    (a == true) ? (a = "да") : (a = "нет");
+    var b = prompt("введите рецепт напитка");
+    drinkStorage.storage[nameDrink] = {
+        alco: a,
+        recipe: b,
+    };
+    drinkStorage.addValue(nameDrink, (drinkStorage.storage[nameDrink]));
+};
+function infoAboutDrink() {
+    var nameOfDrink = prompt("введите название напитка");
+    var drinkInfoMessage = drinkStorage.getValue(nameOfDrink);
+    if (nameOfDrink in drinkStorage.storage) {
+        alert("напиток: " + nameOfDrink + "\n" + "алкогольный: " + drinkInfoMessage["alco"] + "\n" + "рецепт приготовления: " + drinkInfoMessage["recipe"]);
+    } else {
+        alert("такого напитка нет в перечне");
+    };
+};
+function deleteDrink() {
+    var presenceInList = drinkStorage.deleteValue((prompt("введите название напитка, который хотите удалить")));
+    (presenceInList) ? alert("напиток удален"): alert("такого напитка нет в перечне");
+};
+function sowAllDrinks() {
+    alert(drinkStorage.getKeys());
+};
