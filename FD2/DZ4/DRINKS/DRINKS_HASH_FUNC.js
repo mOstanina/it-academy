@@ -4,7 +4,7 @@ function HashStorageFunc() {
     self.storage = {};
     self.addValue = function (key, value) {
         self.storage[key] = value;
-        console.log(self.storage); //для проверки
+        //console.log(self.storage); //для проверки
         // console.log(Object.keys(self.storage)); //для проверки
     };
     self.getValue = function (key) {
