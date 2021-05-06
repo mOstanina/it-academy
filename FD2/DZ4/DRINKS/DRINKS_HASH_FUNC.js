@@ -4,11 +4,12 @@ function HashStorageFunc() {
     self.storage = {};
     self.addValue = function (key, value) {
         self.storage[key] = value;
-        console.log(self.storage); //для проверки
+        // console.log(self.storage); //для проверки
         // console.log(Object.keys(self.storage)); //для проверки
     };
     self.getValue = function (key) {
         // console.log(self.storage[key]);//для проверки
+        // console.log(typeof(self.storage[key]));//для проверки
         return (self.storage[key]);
     };
     self.deleteValue = function (key) {
@@ -44,7 +45,7 @@ function addDrink() {
 function infoAboutDrink() {
     var nameOfDrink = prompt("введите название напитка");
     var drinkInfoMessage = drinkStorage.getValue(nameOfDrink);
-    if (nameOfDrink == drinkInfoMessage) {
+    if (typeof drinkInfoMessage == "object") {
         alert("напиток: " + nameOfDrink + "\n" + "алкогольный: " + drinkInfoMessage["alco"] + "\n" + "рецепт приготовления: " + drinkInfoMessage["recipe"]);
     } else{
         alert("такого напитка нет в перечне");
