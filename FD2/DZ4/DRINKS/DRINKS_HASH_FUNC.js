@@ -4,7 +4,7 @@ function HashStorageFunc() {
     self.storage = {};
     self.addValue = function (key, value) {
         self.storage[key] = value;
-        //console.log(self.storage); //для проверки
+        console.log(self.storage); //для проверки
         // console.log(Object.keys(self.storage)); //для проверки
     };
     self.getValue = function (key) {
@@ -37,15 +37,16 @@ function addDrink() {
     var a = confirm("напиток алкогольный?");
     var c = (a == true) ? "да" : "нет";
     var b = prompt("введите рецепт напитка");
-   
-    drinkStorage.addValue(nameDrink, (drinkStorage.storage[nameDrink] = { alco: c, recipe: b }));
+    var hash = { alco: c, recipe: b }
+    // drinkStorage.addValue(nameDrink, (drinkStorage.storage[nameDrink] = { alco: c, recipe: b }));
+    drinkStorage.addValue(nameDrink, hash);
 };
 function infoAboutDrink() {
     var nameOfDrink = prompt("введите название напитка");
     var drinkInfoMessage = drinkStorage.getValue(nameOfDrink);
-    if (nameOfDrink in drinkStorage.storage) {
+    if (nameOfDrink == drinkInfoMessage) {
         alert("напиток: " + nameOfDrink + "\n" + "алкогольный: " + drinkInfoMessage["alco"] + "\n" + "рецепт приготовления: " + drinkInfoMessage["recipe"]);
-    } else {
+    } else{
         alert("такого напитка нет в перечне");
     };
 };

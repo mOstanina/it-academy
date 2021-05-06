@@ -60,7 +60,7 @@ function mood(colorsCount) {
     var colorList = {};
     var counter = 0;
     while (counter < colorsCount) {
-        for (var i = 1; i <= colorsCount; i++) {
+        for (var i = 1; i <= colors.length; i++) {
             var n = randomDiap(1, 7);
             var colorName = colors[n];
             if (!(colorName in colorList) && (counter < colorsCount)) {
