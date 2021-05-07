@@ -1,5 +1,5 @@
 "use strict"
-class HashStorageFunc {
+class HashStorageClass {
     constructor() {
         this.storage = {};
     }
@@ -22,7 +22,7 @@ class HashStorageFunc {
         return claearArrayOfKeys;
     }
 }
-class DrinkStorage extends HashStorageFunc {
+class DrinkStorage extends HashStorageClass {
     constructor() {
         super();
         this.alco;
