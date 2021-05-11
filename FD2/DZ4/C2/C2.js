@@ -1,10 +1,10 @@
 function deepCopy(value) {
     var clon;
-    if (typeof value !== "object") {
+    if (typeof value !== "object" || value == null) {
         clon = value;
-    } else if (typeof value == null) {
-        clon = value;
-        console.log(clon);
+        // } else if (value == null) {
+        //     clon = value;
+        //     console.log(clon);
     } else if (Array.isArray(value)) {
         clon = [];
         for (var i = 0; i < value.length; i++) {
