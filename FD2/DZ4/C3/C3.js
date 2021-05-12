@@ -1,59 +1,83 @@
 "use strict"
 function deepComp(value1, value2) {
     var result;
-    if (typeof value1 !== typeof value2) {
+    if (value1 === value2) {
+        return true
+    };
+    if (!value1 || !value2 || (typeof value1 !== 'object' && typeof value2 !== 'object')) {
+        return value1 === value2
+    };
+    if (value1 === null || value1 === undefined || value2 === null || value2 === undefined) {
+        return false
+    };
+    if (Array.isArray(value1) && Array.isArray(value2)) {
+        if (value1.length !== value2.length) {
+            result = false;
+        } else {
+            for (var j = 0; j < value1.length; j++) {
+                if (typeof value1[j] == typeof value2[j]) {
+                    deepComp(value1[j], value2[j]);
+                } else {
+                    result = false;
+                };
+            };
+        }
+    }
+    var keys = Object.keys(value1);
+    if (keys.length !== Object.keys(value2).length) {
         result = false;
     } else {
-        if (typeof value1 == "number" || typeof value1 == "boolean") {
-            if (value1 == value2) {
-                result = true;
-            } else {
-                result = false;
-            }
-        } else if ((value1 == null && value2 == null) || (value1 == undefined && value2 == undefined)) {
-            result = true;
-        } else if (typeof value1 == "string") {
-            if (value1.length !== value2.length) {
-                result = false;
-            } else {
-                for (var i = 0; i < value1.length; i++) {
-                    if (value1[i] == value2[i]) {
-                        result = true;
-                    } else {
-                        result = false;
-                    }
-                }
-            }
-        } else if (Array.isArray(value1)) {
-            if (value1.length !== value2.length) {
-                result = false;
-            } else {
-                for (var j = 0; j < value1.length; j++) {
-                    if (typeof value1[j] == typeof value2[j]) {
-                        deepComp(value1[j], value2[j]);
-                    } else {
-                        result = false;
-                    };
-                };
-            };
-        } else {
-            if (Object.keys(value1).length !== Object.keys(value2).length) {
-                result = false;
-            } else {
-                for (var key in value1) {
-                    deepComp(value1[key], value2[key]);
-                };
-            };
-        };
+        result = keys.every(k => deepComp(value1[k], value2[k]));
     };
+    // return keys.every(k => deepComp(value1[k], value2[k]));
     return result;
+    // if (typeof value1 !== typeof value2) {
+    //     result = false;
+    // } else {
+    //     if ((value1 == null && value2 == null) || (value1 == undefined && value2 == undefined)) {
+    //         result = true;
+    //     } else {
+    //         if (typeof value1 == "number" || typeof value1 == "boolean" || typeof value1 == "string") {
+    //             if (value1 == value2) {
+    //                 console.log(value1);
+    //                 result = true;
+    //             } else {
+    //                 result = false;
+    //             }
+    //         } else if (Array.isArray(value1)) {
+    //             if (value1.length !== value2.length) {
+    //                 result = false;
+    //             } else {
+    //                 for (var j = 0; j < value1.length; j++) {
+    //                     if (typeof value1[j] == typeof value2[j]) {
+    //                         deepComp(value1[j], value2[j]);
+    //                     } else {
+    //                         result = false;
+    //                     };
+    //                 };
+    //             };
+    //         } else {
+    //             var objKeys1 = Object.keys(value1);
+    //             var objKeys2 = Object.keys(value2);
+    //             if (objKeys1.length !== objKeys2.length) {
+    //                 console.log(objKeys1.length);
+    //                 result = false;
+    //             } else {
+    //                 for (var key in value1) {
+    //                     deepComp(value1[key], value2[key]);
+    //                 };
+    //             };
+    //         };
+    //     };
+    //     return result;
+    // };
 };
 //тесты
 function deepCompTests() {
     var count = 0;
     for (var i = 0; i < znach.length; i++) {
-        console.log(znach[i].expectedResult);
         console.log(znach[i].expr);
+        console.log(znach[i].expectedResult);
         if (znach[i].expr === znach[i].expectedResult) {
             console.log("тест пройден");
             count++
@@ -78,24 +102,24 @@ var A2 = [5, 5, 7];
 var A3 = [5, 8, 7];
 var znach = [
     { condition: "deepComp(H1,H2) будет true", expr: deepComp(H1, H2), expectedResult: true },
-    { condition: "deepComp(H1,H3) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(H1,H4) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(H1,H5) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(H6,H7) будет true", expr: deepComp(H1, H2), expectedResult: true },
-    { condition: "deepComp(H8,H9) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(H8,H10) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(null,H10) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(H10,null) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(null,null) будет true", expr: deepComp(H1, H2), expectedResult: true },
-    { condition: "deepComp(null,undefined) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(5,'5') будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(5,H1) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(A1,H1) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(A2,A3) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp( {a:5,b:undefined}, {a:5,c:undefined} ) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp([5,7],{0:5,1:7}) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp( [5,7],{0:5,1:7,length:2} ) будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp('aaa','bbb') будет false", expr: deepComp(H1, H2), expectedResult: false },
-    { condition: "deepComp(Number.NaN,Number.NaN) будет true", expr: deepComp(H1, H2), expectedResult: true },
+    { condition: "deepComp(H1,H3) будет false", expr: deepComp(H1, H3), expectedResult: false },
+    { condition: "deepComp(H1,H4) будет false", expr: deepComp(H1, H4), expectedResult: false },
+    { condition: "deepComp(H1,H5) будет false", expr: deepComp(H1, H5), expectedResult: false },
+    { condition: "deepComp(H6,H7) будет true", expr: deepComp(H6, H7), expectedResult: true },
+    { condition: "deepComp(H8,H9) будет false", expr: deepComp(H8, H9), expectedResult: false },
+    { condition: "deepComp(H8,H10) будет false", expr: deepComp(H8, H10), expectedResult: false },
+    { condition: "deepComp(null,H10) будет false", expr: deepComp(null, H10), expectedResult: false },
+    { condition: "deepComp(H10,null) будет false", expr: deepComp(H10, null), expectedResult: false },
+    { condition: "deepComp(null,null) будет true", expr: deepComp(null, null), expectedResult: true },
+    { condition: "deepComp(null,undefined) будет false", expr: deepComp(null, undefined), expectedResult: false },
+    { condition: "deepComp(5,'5') будет false", expr: deepComp(5, '5'), expectedResult: false },
+    { condition: "deepComp(5,H1) будет false", expr: deepComp(5, H1), expectedResult: false },
+    { condition: "deepComp(A1,H1) будет false", expr: deepComp(A1, H1), expectedResult: false },
+    { condition: "deepComp(A2,A3) будет false", expr: deepComp(A2, A3), expectedResult: false },
+    { condition: "deepComp( {a:5,b:undefined}, {a:5,c:undefined} ) будет false", expr: deepComp({ a: 5, b: undefined }, { a: 5, c: undefined }), expectedResult: false },
+    { condition: "deepComp([5,7],{0:5,1:7}) будет false", expr: deepComp([5, 7], { 0: 5, 1: 7 }), expectedResult: false },
+    { condition: "deepComp( [5,7],{0:5,1:7,length:2} ) будет false", expr: deepComp([5, 7], { 0: 5, 1: 7, length: 2 }), expectedResult: false },
+    { condition: "deepComp('aaa','bbb') будет false", expr: deepComp('aaa', 'bbb'), expectedResult: false },
+    { condition: "deepComp(Number.NaN,Number.NaN) будет true", expr: deepComp(Number.NaN, Number.NaN), expectedResult: true },
 ];
 deepCompTests();
