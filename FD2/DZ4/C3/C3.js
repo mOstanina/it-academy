@@ -54,14 +54,11 @@ function deepComp(value1, value2) {
         for (var i = 0; i < keys.length; i++) {
             if (keys[i] in value2) {
                 count++;
-                console.log(keys[i])
                 result = deepComp(value1[keys[i]], value2[keys[i]]);
-                console.log(value1[keys[i]])
-                console.log(value2[keys[i]])
                 if (result === false) {
                     return false;
                 }
-                console.log(count)
+
             }
         }
         if (count < keys.length) {
