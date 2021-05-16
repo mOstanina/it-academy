@@ -7,13 +7,19 @@ function deepComp(value1, value2) {
     if (typeof value1 !== typeof value2) {
         return false;
     }
-    if (typeof value1 == "number" && typeof value2 == "number" && isNaN(value1) && isNaN(value2)) {
+    if (typeof value1 == "number" && isNaN(value1) && isNaN(value2)) {
         return true;
     }
-    if ((Array.isArray(value1) && !Array.isArray(value2)) || (!Array.isArray(value1) && Array.isArray(value2))) {
-        return false;
-    };
-    if (Array.isArray(value1) && Array.isArray(value2)) {
+    if (typeof value1 !== 'object') {
+        return (value1 === value2);
+    }
+    // if (Array.isArray(value1) !== Array.isArray(value2)) {
+    //     return false;
+    // }
+    if (Array.isArray(value1)) {
+        if (value1.length === 0) {
+            return true;
+        }
         if (value1.length !== value2.length) {
             return false;
         } else {
@@ -23,11 +29,7 @@ function deepComp(value1, value2) {
                     return false;
                 }
             };
-            return (result);
         }
-    }
-    if (typeof value1 !== 'object' && typeof value2 !== 'object') {
-        return (value1 === value2);
     }
     if ((value1 !== null && value2 === null) || (value1 === null && value2 !== null) || (value1 !== undefined && value2 === undefined) || (value1 === undefined && value2 !== undefined)) {
         return false;
@@ -35,36 +37,21 @@ function deepComp(value1, value2) {
     if (Object.keys(value1).length !== Object.keys(value2).length) {
         return false;
     } else if (!Array.isArray(value1) && !Array.isArray(value2)) {
-        // var keys1 = Object.keys(value1).sort();
-        // var keys2 = Object.keys(value2).sort();
-        // for (var i = 0; i < keys1.length; i++) {
-        //     if (keys1[i] === keys2[i]) {
-        //         deepComp(value1[keys1[i]], value2[keys2[i]]);
-        //         result = deepComp(value1[keys1[i]], value2[keys2[i]]);
-        //         if (result === false) {
-        //             return false;
-        //         }
-        //     } else {
-        //         return false;
-        //     }
-        // };
-        //////////////////////////////////////////////////////////////
         var keys = Object.keys(value1);
-        var count = 0;
-        for (var i = 0; i < keys.length; i++) {
-            if (keys[i] in value2) {
-                count++;
-                result = deepComp(value1[keys[i]], value2[keys[i]]);
-                if (result === false) {
+        if (keys.length === 0) {
+            return true;
+        } else {
+            for (var i = 0; i < keys.length; i++) {
+                if (keys[i] in value2) {
+                    result = deepComp(value1[keys[i]], value2[keys[i]]);
+                    if (result === false) {
+                        return false;
+                    }
+                }else {
                     return false;
                 }
-
             }
         }
-        if (count < keys.length) {
-            return false;
-        }
-        return (result);
     }
     return result;
 };
@@ -115,6 +102,8 @@ var znach = [
     { condition: "deepComp( [5,7],{0:5,1:7,length:2} ) будет false", expr: deepComp([5, 7], { 0: 5, 1: 7, length: 2 }), expectedResult: false },
     { condition: "deepComp('aaa','bbb') будет false", expr: deepComp('aaa', 'bbb'), expectedResult: false },
     { condition: "deepComp(Number.NaN,Number.NaN) будет true", expr: deepComp(Number.NaN, Number.NaN), expectedResult: true },
-    { condition: "deepComp([2],[2] будет true", expr: deepComp([2], [2]), expectedResult: true },
+    { condition: "deepComp([2],[2]) будет true", expr: deepComp([2], [2]), expectedResult: true },
+    { condition: "deepComp([],[]) будет true", expr: deepComp([], []), expectedResult: true },
+    { condition: "deepComp({}, {}) будет true", expr: deepComp({}, {}), expectedResult: true },
 ];
 deepCompTests();
