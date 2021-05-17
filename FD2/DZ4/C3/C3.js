@@ -1,55 +1,36 @@
 "use strict"
 function deepComp(value1, value2) {
-    var result;
-    if (value1 === value2) {
+    if (value1 === value2) return true;
+    if (typeof value1 !== typeof value2) return false;
+    if (typeof value1 == "number" && isNaN(value1) && isNaN(value2)) return true;
+    if (typeof value1 !== 'object') return (value1 === value2);
+    if (Array.isArray(value1) !== Array.isArray(value2))
+        return false;
+    if (Array.isArray(value1)) {
+        if (value1.length !== value2.length) return false;
+        for (var j = 0; j < value1.length; j++) {
+            var result;
+            result = deepComp(value1[j], value2[j]);
+            if (result === false) return false;
+        };
         return true;
     }
-    if (typeof value1 !== typeof value2) {
+    if (value1 === null || value2 === null) return (value1 === value2);
+    if (Object.keys(value1).length !== Object.keys(value2).length)
         return false;
-    }
-    if (typeof value1 == "number" && isNaN(value1) && isNaN(value2)) {
-        return true;
-    }
-    if (typeof value1 !== 'object') {
-        return (value1 === value2);
-    }
-    if (Array.isArray(value1) !== Array.isArray(value2)) {
-        return false;
-    } else {
-        if (Array.isArray(value1)) {
-            if (value1.length !== value2.length) {
-                return false;
-            } else {
-                for (var j = 0; j < value1.length; j++) {
-                    result = deepComp(value1[j], value2[j]);
-                    if (result === false) {
-                        return false;
-                    }
-                };
-                return true;
-            }
-        }
-    }
-    if ((value1 !== null && value2 === null) || (value1 === null && value2 !== null)) {
-        return false;
-    }
-    if (Object.keys(value1).length !== Object.keys(value2).length) {
-        return false;
-    } else if (!Array.isArray(value1) && !Array.isArray(value2)) {
+    if (!Array.isArray(value1) && !Array.isArray(value2)) {
         var keys = Object.keys(value1);
         for (var i = 0; i < keys.length; i++) {
             if (keys[i] in value2) {
+                var result;
                 result = deepComp(value1[keys[i]], value2[keys[i]]);
-                if (result === false) {
-                    return false;
-                }
+                if (result === false) return false;
             } else {
                 return false;
             }
         }
         return true;
     }
-    return result;
 };
 //тесты
 function deepCompTests() {
