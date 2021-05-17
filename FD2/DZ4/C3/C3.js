@@ -20,11 +20,7 @@ function deepComp(value1, value2) {
     for (var key in value1) {
         if (value1.hasOwnProperty(key) !== value2.hasOwnProperty(key)) return false;
         var result;
-        console.log("!!!");
         result = deepComp(value1[key], value2[key]);
-        console.log(value1[key], value2[key]);
-        console.log(result);
-        console.log(key);
         if (result === false) return false;
     }
     return true;
