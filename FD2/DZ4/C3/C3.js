@@ -13,45 +13,41 @@ function deepComp(value1, value2) {
     if (typeof value1 !== 'object') {
         return (value1 === value2);
     }
-    // if (Array.isArray(value1) !== Array.isArray(value2)) {
-    //     return false;
-    // }
-    if (Array.isArray(value1)) {
-        if (value1.length === 0) {
-            return true;
-        }
-        if (value1.length !== value2.length) {
-            return false;
-        } else {
-            for (var j = 0; j < value1.length; j++) {
-                result = deepComp(value1[j], value2[j]);
-                if (result === false) {
-                    return false;
-                }
-            };
+    if (Array.isArray(value1) !== Array.isArray(value2)) {
+        return false;
+    } else {
+        if (Array.isArray(value1)) {
+            if (value1.length !== value2.length) {
+                return false;
+            } else {
+                for (var j = 0; j < value1.length; j++) {
+                    result = deepComp(value1[j], value2[j]);
+                    if (result === false) {
+                        return false;
+                    }
+                };
+                return true;
+            }
         }
     }
-    if ((value1 !== null && value2 === null) || (value1 === null && value2 !== null) || (value1 !== undefined && value2 === undefined) || (value1 === undefined && value2 !== undefined)) {
+    if ((value1 !== null && value2 === null) || (value1 === null && value2 !== null)) {
         return false;
     }
     if (Object.keys(value1).length !== Object.keys(value2).length) {
         return false;
     } else if (!Array.isArray(value1) && !Array.isArray(value2)) {
         var keys = Object.keys(value1);
-        if (keys.length === 0) {
-            return true;
-        } else {
-            for (var i = 0; i < keys.length; i++) {
-                if (keys[i] in value2) {
-                    result = deepComp(value1[keys[i]], value2[keys[i]]);
-                    if (result === false) {
-                        return false;
-                    }
-                }else {
+        for (var i = 0; i < keys.length; i++) {
+            if (keys[i] in value2) {
+                result = deepComp(value1[keys[i]], value2[keys[i]]);
+                if (result === false) {
                     return false;
                 }
+            } else {
+                return false;
             }
         }
+        return true;
     }
     return result;
 };
@@ -105,5 +101,6 @@ var znach = [
     { condition: "deepComp([2],[2]) будет true", expr: deepComp([2], [2]), expectedResult: true },
     { condition: "deepComp([],[]) будет true", expr: deepComp([], []), expectedResult: true },
     { condition: "deepComp({}, {}) будет true", expr: deepComp({}, {}), expectedResult: true },
+    { condition: "deepComp( [5,7],{0:5,1:7} ) будет false", expr: deepComp([5, 7], { 0: 5, 1: 7 }), expectedResult: false },
 ];
 deepCompTests();
