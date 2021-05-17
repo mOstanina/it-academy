@@ -2,6 +2,7 @@
 function deepComp(value1, value2) {
     if (value1 === value2) return true;
     if (typeof value1 !== typeof value2) return false;
+    if (value1 === null || value2 === null) return (value1 === value2);
     if (typeof value1 == "number" && isNaN(value1) && isNaN(value2)) return true;
     if (typeof value1 !== 'object') return (value1 === value2);
     if (Array.isArray(value1) !== Array.isArray(value2))
@@ -15,22 +16,18 @@ function deepComp(value1, value2) {
         };
         return true;
     }
-    if (value1 === null || value2 === null) return (value1 === value2);
-    if (Object.keys(value1).length !== Object.keys(value2).length)
-        return false;
-    if (!Array.isArray(value1) && !Array.isArray(value2)) {
-        var keys = Object.keys(value1);
-        for (var i = 0; i < keys.length; i++) {
-            if (keys[i] in value2) {
-                var result;
-                result = deepComp(value1[keys[i]], value2[keys[i]]);
-                if (result === false) return false;
-            } else {
-                return false;
-            }
-        }
-        return true;
+    if (Object.keys(value1).length !== Object.keys(value2).length) return false;
+    for (var key in value1) {
+        if (value1.hasOwnProperty(key) !== value2.hasOwnProperty(key)) return false;
+        var result;
+        console.log("!!!");
+        result = deepComp(value1[key], value2[key]);
+        console.log(value1[key], value2[key]);
+        console.log(result);
+        console.log(key);
+        if (result === false) return false;
     }
+    return true;
 };
 //тесты
 function deepCompTests() {

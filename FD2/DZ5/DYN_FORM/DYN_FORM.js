@@ -14,7 +14,6 @@ var formDef2 = [{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' }
 ///////////////////////////////////////////////////////////////////////////////
 function dunForm(tag, content) {
     var str = "";
-    var str2 = "";
     var newForm = document.createElement(tag);
     console.log(newForm);
     newForm.setAttribute("action", "https://fe.it-academy.by/TestForm.php");
@@ -22,67 +21,42 @@ function dunForm(tag, content) {
     var contElem = document.getElementById("foForm");
     contElem.appendChild(newForm);
 
-
-
     function createTag(tagName, con) {
         var newTaginForm = document.createElement(tagName);//создаю новый тег внутри формы
         //   console.log(newTaginForm);
-
-
         if (tagName === "input") {
             newTaginForm.setAttribute("type", content[i].kind);
             newTaginForm.setAttribute("name", content[i].name);
         }
-        if (content[i].kind ==="check") {
+        if (content[i].kind === "check") {
             newTaginForm.setAttribute("type", "checkbox");
             newTaginForm.checked = true;
         }
-        // {label:'Размещение:',kind:'radio',name:'payment',
-        // variants:[{text:'бесплатное',value:1},
-        //           {text:'платное',value:2},
-        //           {text:'VIP',value:3}]},
-        // if (content[i].kind ==="radio") {
-        //     for(i=0;i<variants.length;i++){
-        //         newTaginForm.setAttribute("type", content[i].kind);
-        //     }
-            
-        // }
-       
-
-
         var newTextInForm = document.createTextNode(con);
         var innerElem = document.getElementById("myForm");//тег куда вставляю строчку
-        //  console.log(innerElem);
-
         newTaginForm.appendChild(newTextInForm);
         innerElem.appendChild(newTaginForm);
         newTaginForm.innerHTML = con;
-        // console.log(newTextInForm);
 
-        // if (tagName !== "label") {
-        //     newTaginForm.setAttribute("type", content[i].kind);
-        //     newTaginForm.setAttribute("name", content[i].name);
-        // }
-        // var newTextInForm = document.createTextNode(con);
-        // //  console.log(con);
-        // var innerElem = document.getElementById("myForm");//тег куда вставляю строчку
-        // //  console.log(innerElem);
-        // newTaginForm.appendChild(newTextInForm);
-        // innerElem.appendChild(newTaginForm);
-        // newTaginForm.innerHTML = con;
-        // // console.log(newTextInForm);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
     for (var i = 0; i < content.length; i++) {
         //   console.log(content[i].label);
         console.log(content[i].kind);
-
-        str += createTag("label", content[i].label) + createTag("input", content[i].kind) + createTag("br");
-
+        str += createTag("label", content[i].label);
+        if (content[i].kind === "radio") {
+            for (var j = 0; j < content[i].variants.length; j++) {
+                console.log(content[i].variants[j].text);
+                str += createTag("input") + createTag("span", content[i].variants[j].text)
+                newTaginForm.setAttribute("value", "!!!!");
+            }
+            str +=createTag("br") 
+        }else{
+            str += createTag("input", content[i].kind) + createTag("br") 
+        }
+       
     }
-
-
 }
-// dunForm("form", formDef2);
+//dunForm("form", formDef2);
 dunForm("form", formDef1);
