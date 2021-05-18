@@ -14,21 +14,22 @@ var formDef2 = [{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' }
 ///////////////////////////////////////////////////////////////////////////////
 function dunForm(tag, content) {
     var str = "";
-    var newForm = document.createElement(tag);
-    newForm.setAttribute("action", "https://fe.it-academy.by/TestForm.php");
-    newForm.setAttribute("id", "myForm");
+    var newDiv = document.createElement("div");
     var contElem = document.getElementById("foForm");
-    contElem.appendChild(newForm);
-
+    var newForm = document.createElement(tag);
+    newDiv.appendChild(newForm);
+    contElem.appendChild(newDiv);
+    newForm.setAttribute("action", "https://fe.it-academy.by/TestForm.php");
+   
     function createTag(tagName, con) {
         var newTaginForm = document.createElement(tagName);//создаю новый тег внутри формы
         //   console.log(newTaginForm);
         var newTextInForm = document.createTextNode(con);// текст
-        var innerElem = document.getElementById("myForm");//тег куда вставляю строчку
+        var innerElem = newForm;//тег куда вставляю строчку
         newTaginForm.appendChild(newTextInForm);//привязываю текст к элементу
         innerElem.appendChild(newTaginForm);//привязываю элемент к дереву
         newTaginForm.innerHTML = con;
-        if (tagName !== "label" && tagName !== "br"&& tagName !== "span"&& tagName !== "hr") {
+        if (tagName !== "label" && tagName !== "br" && tagName !== "span" && tagName !== "hr") {
             if (content[i].kind === "submit") {
                 newTaginForm.setAttribute("type", "submit");
             }
