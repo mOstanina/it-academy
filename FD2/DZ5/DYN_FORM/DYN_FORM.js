@@ -14,11 +14,9 @@ var formDef2 = [{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' }
 ///////////////////////////////////////////////////////////////////////////////
 function dunForm(tag, content) {
     var str = "";
-    var newDiv = document.createElement("div");
     var contElem = document.getElementById("foForm");
     var newForm = document.createElement(tag);
-    newDiv.appendChild(newForm);
-    contElem.appendChild(newDiv);
+    contElem.appendChild(newForm);
     newForm.setAttribute("action", "https://fe.it-academy.by/TestForm.php");
    
     function createTag(tagName, con) {
