@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name='INFO' action='http://fe.it-academy.by/TestForm.php' novalidate>
+        Введите ФИО: <input type=text name='FIO'><br />
+        Введите возраст: <input type=text name='AGE'><span id="AGE"></span><br />
+        Согласитесь с правилами сайта: <input type=checkbox name='AGREE'><br />
+        Выберите дизайн:<br />
+        <select name='DESIGN'>
+            <option value=1>минималистичный</option>
+            <option value=2>вычурный</option>
+            <option value=3>нормальный</option>
+        </select><br />
+        Выберите язык:<br />
+            <input id=LANG11 type=radio name='LANG' value=11>русский<br />
+            <input type=radio name='LANG' value=22>английский<br />
+            <input type=radio name='LANG' value=33>немецкий<br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <input type='submit' value='готово'>
+    </form>
+
+
+    <!-- <form name="INFO" action="http://fe.it-academy.by/TestForm.php" novalidate>
+      <label>Разработчики:</label> <input type="text" name="FIO" /><span class="FIO"></span><br />
+      <label>Название сайта:</label><input type="text" name="nameOfWebsite" /><br />
+      <label>URL сайта:</label><input type="text" name="URLOfWebsite" /><br />
+      <label>Дата запуска сайта:</label><input type="number" name="dateOfWebsiteStart" /><br />
+      <label>Посетителей в сутки:</label> <input type="number" name="countOfVisited" /><br />
+      <label>E-mail для связи:</label><input type="text" name="email" /><br />
+      <label>Рубрика каталога:</label>
+      <select name="rubrick">
+        <option value="1">здоровье</option>
+        <option value="2">домашний уют</option>
+        <option value="3">бытовая техника</option>
+        </select><br />
+      <label>Размещение:</label><br />
+      <input id="LANG11" type="radio" name="LANG" value="11" />бесплатное<br />
+      <input type="radio" name="LANG" value="22" />платное<br />
+      <input type="radio" name="LANG" value="33" />VIP<br />
+      <label>Разрешить отзывы:</label>
+      <input type="checkbox" name="allow-comments" />
+      <label>Описание сайта:</label>
+      <div><textarea name="text-of-article"></textarea><br /></div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <input type="submit" value="готово" />
+    </form> -->
+    <script src="VALID_FORM.js"></script>
+  </body>
+</html>
