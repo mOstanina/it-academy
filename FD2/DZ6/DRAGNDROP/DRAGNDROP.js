@@ -5,18 +5,30 @@ function changeImgPosition() {
     var img = null;
     var globalZIndex = 10;
     var elems = document.body.getElementsByTagName("img");
-    var otsup = 0;
+    var coordsHash = {}
+    for (var j = 0; j < elems.length; j++) {//выясняю координаты каждой картинки пока не присвоила им position: absolute 
+        elems[j].setAttribute("id", "img" + j);
+        var coor = getCoords(elems[j])
+        console.log(coor)
+        var left = coor.left;
+        var top = coor.top;
+        var elem = elems[j].id;
+        coordsHash[elem] = coor;
+    }
+    console.log(coordsHash)
     for (var i = 0; i < elems.length; i++) {
-        elems[i].setAttribute("id", "img" + i);
+        console.log(left)
+        console.log(top)
+        var elemm = elems[i].id;
+        var tOffset = coordsHash[elemm].top;
+        var lOffset = coordsHash[elemm].left;
         elems[i].setAttribute("z-index", 1);
-        var left = getCoords(elems[i]).left + otsup;
-        var top = getCoords(elems[i]).top;
-        otsup += elems[i].offsetWidth
-        elems[i].style = "position:absolute; left:" + left + "px; top:" + top + "px;";
+        elems[i].style = "position: absolute; left:" + lOffset + "px; top:" + tOffset + "px;";
         var img = elems[i];
         moveEl(img);
 
         function moveEl(img) {
+
             img.onmousedown = function (e) {
                 var coords = getCoords(img);
                 var shiftX = e.pageX - coords.left;
@@ -43,6 +55,7 @@ function changeImgPosition() {
             img.ondragstart = function () {
                 return false;
             };
+
         }
     }
 }
