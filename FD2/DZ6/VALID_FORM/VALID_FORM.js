@@ -1,6 +1,6 @@
 "use strict";
 function createErrorMessage(name) {
-    var span = document.getElementsById(name);//тег куда вставляю строчку
+    var span = document.getElementById(name);//тег куда вставляю строчку
     console.log(span)
     var textInOpt = document.createTextNode("!!!!!!!");// текст
     span.appendChild(textInOpt);
@@ -42,20 +42,27 @@ function validateInfoForm(EO) {
             EO.preventDefault(); // форма не будет отправлена на сервер
             return;
         }
-        var opt = document.createElement("option");//создаю новый тег
-        var sele = document.getElementById("sel");//тег куда вставляю строчку
-        
-       
 
         if (isNaN(ageValue)) {
+
+            var r = document.getElementById("AGEINPUT")
+            console.log(r)
+            ageField.addEventListener("blur", createMessageError, false);
+
+            function createMessageError() {
+                console.log("!!!")
+                var textInOpt = document.createTextNode("Error");
+                var span = document.getElementById("AGE");
+                span.appendChild(textInOpt);
+                return;
+            }
             alert('Введите пожалуйста в поле возраста корректную цифру!');
-            var textInOpt = document.createTextNode("!!!");
-            var span = document.getElementById("AGE");
-            span.appendChild(textInOpt);
             ageField.focus();
             EO.preventDefault(); // форма не будет отправлена на сервер
             return;
+
         }
+
 
         if (ageValue < 16) {
             alert('Возраст должен быть не менее 16 лет!');

@@ -7,7 +7,6 @@ function changeImgPosition() {
     var elems = document.body.getElementsByTagName("img");
     var coordsHash = {}
     for (var j = 0; j < elems.length; j++) {//выясняю координаты каждой картинки пока не присвоила им position: absolute 
-        elems[j].setAttribute("id", "img" + j);
         var coor = getCoords(elems[j])
         console.log(coor)
         var left = coor.left;
@@ -20,7 +19,6 @@ function changeImgPosition() {
         console.log(top)
         var tOffset = coordsHash[i].top;
         var lOffset = coordsHash[i].left;
-        elems[i].setAttribute("z-index", 1);
         elems[i].style = "position: absolute; left:" + lOffset + "px; top:" + tOffset + "px;";
         var img = elems[i];
         moveEl(img);
