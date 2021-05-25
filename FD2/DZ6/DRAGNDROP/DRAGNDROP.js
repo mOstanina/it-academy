@@ -12,16 +12,14 @@ function changeImgPosition() {
         console.log(coor)
         var left = coor.left;
         var top = coor.top;
-        var elem = elems[j].id;
-        coordsHash[elem] = coor;
+        coordsHash[j] = coor;
     }
     console.log(coordsHash)
     for (var i = 0; i < elems.length; i++) {
         console.log(left)
         console.log(top)
-        var elemm = elems[i].id;
-        var tOffset = coordsHash[elemm].top;
-        var lOffset = coordsHash[elemm].left;
+        var tOffset = coordsHash[i].top;
+        var lOffset = coordsHash[i].left;
         elems[i].setAttribute("z-index", 1);
         elems[i].style = "position: absolute; left:" + lOffset + "px; top:" + tOffset + "px;";
         var img = elems[i];
