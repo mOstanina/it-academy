@@ -1,117 +1,245 @@
 "use strict";
-function createErrorMessage(name) {
-    var span = document.getElementById(name);//тег куда вставляю строчку
-    console.log(span)
-    var textInOpt = document.createTextNode("!!!!!!!");// текст
-    span.appendChild(textInOpt);
-    console.log("!!!!")
+var formTag = document.forms.INFO;
+var developersField = formTag.elements.DEVELOPERS;
+var developersValue = developersField.value;
+developersField.addEventListener("blur", createMessageErrorDEVELOPERS, false);
+function createMessageErrorDEVELOPERS(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("DEVELOPERS");
+    span.appendChild(textInSpan);
+    console.log(developersValue.length)
+    var text;
+    if (developersValue.length > 5 || developersValue === "") {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+
+    return;
 }
 
-var formTag = document.forms.INFO; // а можно было найти через getElementById
-formTag.addEventListener('submit', validateInfoForm, false); // назначаем обработчик события submit
-
-
+//////////
+var websiteField = formTag.elements.WEBSITE;
+var websiteValue = websiteField.value;
+websiteField.addEventListener("blur", createMessageErrorWEBSITE, false);
+function createMessageErrorWEBSITE(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("WEBSITE");
+    var text;
+    textInSpan.innerHTML = text;
+    if (websiteValue === "") {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!");
+        text = "";
+    }
+    span.appendChild(textInSpan);
+    return;
+}
+//////////
+var websiteUrlField = formTag.elements.WEBSITEURL;
+var websiteUrlValue = websiteUrlField.value;
+websiteUrlField.addEventListener("blur", createMessageErrorWEBSITEURL, false);
+function createMessageErrorWEBSITEURL(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("WEBSITEURL");
+    span.appendChild(textInSpan);
+    var text;
+    if (websiteUrlValue === "") {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var datelField = formTag.elements.DATE;
+var datelValue = parseInt(datelField.value.trim());
+datelField.addEventListener("blur", createMessageErrorDATE, false);
+function createMessageErrorDATE(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("WEBSITEURL");
+    span.appendChild(textInSpan);
+    var text;
+    if (isNaN(datelValue)) {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var visitorsField = formTag.elements.VISITORS;
+var visitorsValue = parseInt(visitorsField.value.trim());
+visitorsField.addEventListener("blur", createMessageErrorVISITORS, false);
+function createMessageErrorVISITORS(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("VISITORS");
+    span.appendChild(textInSpan);
+    var text;
+    if (isNaN(visitorsValue)) {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var emailField = formTag.elements.EMAIL;
+var emailValue = emailField.value;
+emailField.addEventListener("blur", createMessageErrorEMAIL, false);
+function createMessageErrorEMAIL(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("EMAIL");
+    span.appendChild(textInSpan);
+    var text;
+    if (emailValue === "") {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var headingField = formTag.elements.HEADING;
+var headingValue = headingField.value;
+headingField.addEventListener("blur", createMessageErrorHEADING, false);
+function createMessageErrorHEADING(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("HEADING");
+    span.appendChild(textInSpan);
+    var text;
+    if (headingValue === 3) {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var placementField = formTag.elements.PLACEMENT;
+var placementValue = placementField.value;
+placementField.addEventListener("blur", createMessageErrorPLACEMENT, false);
+function createMessageErrorPLACEMENT(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("PLACEMENT");
+    span.appendChild(textInSpan);
+    var text;
+    if (placementValue === 33) {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var resolutionField = formTag.elements.RESOLUTION;
+var resolutionValue = resolutionField.checked;
+resolutionField.addEventListener("blur", createMessageErrorRESOLUTION, false);
+function createMessageErrorRESOLUTION(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("RESOLUTION");
+    span.appendChild(textInSpan);
+    var text;
+    if (!resolutionValue) {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////
+var discriptionField = formTag.elements.DESCRIPTION;
+var discriptionValue = discriptionField.value;
+discriptionField.addEventListener("blur", createMessageErrorDESCRIPTION, false);
+function createMessageErrorDESCRIPTION(EO) {
+    EO = EO || window.event;
+    console.log("!!!")
+    var textInSpan = document.createTextNode("");
+    var span = document.getElementById("DESCRIPTION");
+    span.appendChild(textInSpan);
+    var text;
+    if (discriptionValue === "") {
+        console.log("Error!")
+        text = "Error";
+        EO.preventDefault();
+    } else {
+        console.log("notError!")
+        text = "";
+    }
+    textInSpan.innerHTML = text;
+    return;
+}
+//////////////////////////////////////////////////
+formTag.addEventListener('submit', validateInfoForm, false);
 function validateInfoForm(EO) {
     EO = EO || window.event;
     try {
-        var formTag = document.forms.INFO;
-
-        var fioField = formTag.elements.FIO; // а можно было найти через getElementById
-        var fioValue = fioField.value; // текстовое значение
-
-        var ageField = formTag.elements.AGE;
-        var ageValue = parseInt(ageField.value.trim()); // текст -> число
-
-        var agreeField = formTag.elements.AGREE;
-        var agreeValue = agreeField.checked; // логическое значение
-
-        var designField = formTag.elements.DESIGN;
-        var designValue = designField.value; // строковое значение
-
-        // каждая радиокнопка является отдельным элементом формы
-        // форма.elements[имя] для радиогруппы вернёт КОЛЛЕКЦИЮ
-        // т.е. несколько элементов формы с одинаковым именем
-        // и коллекция.value вернёт value ВЫБРАННОЙ радиокнопки
-        // (могут быть проблемы совместимости с IE, проверяйте!)
-        var langField = formTag.elements.LANG;
-        var langValue = langField.value; // строковое значение
-
-        if (fioValue.length > 30) {
-            alert('Введите пожалуйста ФИО не длиннее 30 символов!');
-            fioField.focus(); // фокусируем элемент и прокручиваем к нему
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-
-        if (isNaN(ageValue)) {
-
-            var r = document.getElementById("AGEINPUT")
-            console.log(r)
-            ageField.addEventListener("blur", createMessageError, false);
-
-            function createMessageError() {
-                console.log("!!!")
-                var textInOpt = document.createTextNode("Error");
-                var span = document.getElementById("AGE");
-                span.appendChild(textInOpt);
-                return;
-            }
-            alert('Введите пожалуйста в поле возраста корректную цифру!');
-            ageField.focus();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-
-        }
-
-
-        if (ageValue < 16) {
-            alert('Возраст должен быть не менее 16 лет!');
-            ageField.focus();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-
-        if (ageValue == 222) {
-            alert('Возраст не может быть таким!');
-            ageField.focuspokus(); // случайная ошибка!
-            EO.preventDefault();
-            return;
-        }
-
-        if (!agreeValue) {
-            alert('Вы не согласились с правилами сайта!');
-            agreeField.focus();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-
-        if (designValue == 2) {
-            alert('Вы выбрали вычурный дизайн, подумайте ещё!');
-            designField.focus();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-
-        if (langValue == "") { // если ничего не выбрано - radio показывает пустую строку
-            alert('Вы не выбрали язык!');
-            // langField.focus(); сфокусировать ВСЮ радиокнопку не получится
-            // но можно промотать страницу к первой из радиокнопок:
-            document.getElementById('LANG11').scrollIntoView();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-        if (langValue == 33) {
-            alert('Вы выбрали немецкий язык, подумайте ещё!');
-            //langField.focus(); сфокусировать ВСЮ радиокнопку не получится
-            document.getElementById('LANG11').scrollIntoView();
-            EO.preventDefault(); // форма не будет отправлена на сервер
-            return;
-        }
-
-        // валидация успешная - форма будет отправлена на сервер
+        createMessageErrorDEVELOPERS(EO);
+        createMessageErrorWEBSITE(EO);
+        createMessageErrorWEBSITEURL(EO);
+        createMessageErrorDATE(EO);
+        createMessageErrorVISITORS(EO);
+        createMessageErrorEMAIL(EO);
+        createMessageErrorHEADING(EO);
+        createMessageErrorPLACEMENT(EO);
+        createMessageErrorRESOLUTION(EO);
+        createMessageErrorDESCRIPTION(EO);
     }
     catch (ex) {
         alert('Извините, что-то пошло не так, неожиданный сбой! Пересмотрите заполнение формы, возможно, это всё из-за вас!');
-        EO.preventDefault(); // что-то пошло не так - считаем что валидация не прошла
+        EO.preventDefault();
     }
 }

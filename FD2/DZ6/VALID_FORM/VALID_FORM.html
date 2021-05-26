@@ -7,49 +7,41 @@
     <title>Document</title>
   </head>
   <body>
-    <form name='INFO' action='http://fe.it-academy.by/TestForm.php' novalidate>
-        Введите ФИО: <input type=text name='FIO'><br />
-        Введите возраст: <input id="AGEINPUT" type=text name='AGE' ><span id="AGE"></span><br />
-        Согласитесь с правилами сайта: <input type=checkbox name='AGREE'><br />
-        Выберите дизайн:<br />
-        <select name='DESIGN'>
-            <option value=1>минималистичный</option>
-            <option value=2>вычурный</option>
-            <option value=3>нормальный</option>
-        </select><br />
-        Выберите язык:<br />
-            <input id=LANG11 type=radio name='LANG' value=11>русский<br />
-            <input type=radio name='LANG' value=22>английский<br />
-            <input type=radio name='LANG' value=33>немецкий<br />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <input type='submit' value='готово'>
-    </form>
-
-
-    <!-- <form name="INFO" action="http://fe.it-academy.by/TestForm.php" novalidate>
-      <label>Разработчики:</label> <input type="text" name="FIO" /><span class="FIO"></span><br />
-      <label>Название сайта:</label><input type="text" name="nameOfWebsite" /><br />
-      <label>URL сайта:</label><input type="text" name="URLOfWebsite" /><br />
-      <label>Дата запуска сайта:</label><input type="number" name="dateOfWebsiteStart" /><br />
-      <label>Посетителей в сутки:</label> <input type="number" name="countOfVisited" /><br />
-      <label>E-mail для связи:</label><input type="text" name="email" /><br />
+    <form name="INFO" action="http://fe.it-academy.by/TestForm.php" novalidate>
+      <label>Разработчики:</label>
+      <input type="text" name="DEVELOPERS" /><span id="DEVELOPERS"></span
+      ><br /><br />
+      <label>Название сайта:</label>
+      <input type="text" name="WEBSITE"/><span id="WEBSITE"></span><br /><br />
+      <label>URL сайта:</label>
+      <input type="text" name="WEBSITEURL" /><span id="WEBSITEURL"></span><br /><br />
+      <label>Дата запуска сайта:</label>
+      <input type="text" name="DATE" /><span id="DATE"></span><br /><br />
+      <label>Посетителей в сутки:</label>
+      <input type="text" name="VISITORS" /><span id="VISITORS"></span><br /><br />
+      <label>E-mail для связи:</label>
+      <input type="text" name="EMAIL" /><span id="EMAIL"></span><br /><br />
       <label>Рубрика каталога:</label>
-      <select name="rubrick">
-        <option value="1">здоровье</option>
-        <option value="2">домашний уют</option>
-        <option value="3">бытовая техника</option>
-        </select><br />
-      <label>Размещение:</label><br />
-      <input id="LANG11" type="radio" name="LANG" value="11" />бесплатное<br />
-      <input type="radio" name="LANG" value="22" />платное<br />
-      <input type="radio" name="LANG" value="33" />VIP<br />
+      <select name="HEADING">
+        <option value="1">бытовая техника</option>
+        <option value="2">здоровье</option>
+        <option value="3">домашний уют</option></select
+      >
+      <span id="HEADING"></span>
+      <br /><br />
+      <label>Размещение:</label>
+      <input id="PLACEMENT" type="radio" name="PLACEMENT" value="11" />
+      <span>бесплатное</span> <input type="radio" name="LANG" value="22" /><span
+        >платное</span
+      >
+      <input type="radio" name="LANG" value="33" /><span>VIP</span><span id="PLACEMENT"></span><br /><br />
       <label>Разрешить отзывы:</label>
-      <input type="checkbox" name="allow-comments" />
-      <label>Описание сайта:</label>
-      <div><textarea name="text-of-article"></textarea><br /></div>
+      <input type="checkbox" name="RESOLUTION" /><span id="RESOLUTION"></span><br /><br />
+      <label>Описание сайта:</label><span id="DESCRIPTION"></span><br />
+      <textarea name="DESCRIPTION"></textarea>
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <input type="submit" value="готово" />
-    </form> -->
+    </form>
     <script src="VALID_FORM.js"></script>
   </body>
 </html>
