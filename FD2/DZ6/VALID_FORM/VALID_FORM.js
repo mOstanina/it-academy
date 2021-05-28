@@ -8,7 +8,7 @@ function createMessageErrorDEVELOPERS(EO) {
     EO = EO || window.event;
     var developersValue = developersField.value;
     var span = document.getElementById("DEVELOPERS");
-    if (developersValue.length > 5 || developersValue === "") {
+    if (developersValue.length > 50 || developersValue === "") {
         span.innerHTML = "Error";
         errors[0] = "Error"
     } else {
@@ -104,7 +104,7 @@ function createMessageErrorHEADING(EO) {
     EO = EO || window.event;
     var headingValue = headingField.value;
     var span = document.getElementById("HEADING");
-    if (headingValue == 3) {
+    if (headingValue == 1) {
         span.innerHTML = "Error";
         errors[6] = "Error"
     } else {
