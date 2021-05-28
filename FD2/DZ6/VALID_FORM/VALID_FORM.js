@@ -99,13 +99,13 @@ function createMessageErrorEMAIL(EO) {
 }
 //////////
 var headingField = formTag.elements.HEADING;
-headingField.addEventListener("blur", createMessageErrorHEADING, false);
+headingField.addEventListener("change", createMessageErrorHEADING, false);
 function createMessageErrorHEADING(EO) {
     EO = EO || window.event;
     var headingValue = headingField.value;
     var span = document.getElementById("HEADING");
     if (headingValue == 1) {
-        span.innerHTML = "Error";
+        span.innerHTML = "эта рубрика на данный момент недоступна";
         errors[6] = "Error"
     } else {
         span.innerHTML = "";
@@ -127,9 +127,27 @@ function createMessageErrorPLACEMENT() {
     }
     return;
 }
+var firstRadio = document.getElementById("11")
+firstRadio.addEventListener("change", createMessageErrorPLACEMENT, false);
+if (firstRadio.checked) {
+    span.innerHTML = "";
+    errors[7] = "notError"
+}
+var secondRadio = document.getElementById("22")
+secondRadio.addEventListener("change", createMessageErrorPLACEMENT, false);
+if (secondRadio.checked) {
+    span.innerHTML = "";
+    errors[7] = "notError"
+}
+var thirdRadio = document.getElementById("33")
+thirdRadio.addEventListener("change", createMessageErrorPLACEMENT, false);
+if (thirdRadio.checked) {
+    span.innerHTML = "";
+    errors[7] = "notError"
+}
 //////////
 var resolutionField = formTag.elements.RESOLUTION;
-resolutionField.addEventListener("blur", createMessageErrorRESOLUTION, false);
+resolutionField.addEventListener("change", createMessageErrorRESOLUTION, false);
 function createMessageErrorRESOLUTION(EO) {
     EO = EO || window.event;
     var resolutionValue = resolutionField.checked;
