@@ -18,14 +18,26 @@ function calc(statement) {
 
   //////     преобразую в массив
   var arrayOfsymbols = statement.split("");
+  // console.log(arrayOfsymbols)
   var newArr = [];
   var resultT = "";
   //////     если после скобки идет минус нужно сделать отрицательное число
   for (var j = 0; j < arrayOfsymbols.length; j++) {
+    // console.log(arrayOfsymbols)
+    // console.log(arrayOfsymbols[j])
     if (arrayOfsymbols[j] === "(" && (arrayOfsymbols[j + 1]) === "-") {
       arrayOfsymbols[j + 1] + arrayOfsymbols[j + 2]
       arrayOfsymbols = arrayOfsymbols.slice(0, j + 1).concat(arrayOfsymbols[j + 1] + arrayOfsymbols[j + 2], arrayOfsymbols.slice(j + 3))
     }
+  }
+  if (arrayOfsymbols[0] === "-") {
+    var firstMinus = []
+    firstMinus.push(arrayOfsymbols[0] + arrayOfsymbols[1])
+    var otherPartOfArray = arrayOfsymbols.slice(2)
+    // console.log(firstMinus)
+    // console.log(otherPartOfArray)
+    arrayOfsymbols = firstMinus.concat(otherPartOfArray)
+    // console.log(arrayOfsymbols)
   }
   //////     где есть точка делаю дробное число
   for (var k = 0; k < arrayOfsymbols.length; k++) {
@@ -86,12 +98,12 @@ function calc(statement) {
         }
         if (c === ")") {
           // console.log("######")
-          for (var j = operatorsStack.length-1; j > 0; j--) {
+          for (var j = operatorsStack.length - 1; j > 0; j--) {
             // console.log(operatorsStack[j])
             if (operatorsStack[j] !== "(") {
               stackOut.push(operatorsStack.pop())
             } else {
-              // console.log("******")
+              //console.log("******")
               operatorsStack.pop()
             }
           }
@@ -122,4 +134,5 @@ function calc(statement) {
 }
 console.log(calc("(6+10-4)/(1+1*2)+1"));
 console.log(calc("2*(-3+1)"));
-console.log(calc("1.5+(2*(-3+1))"));
+console.log(calc("1+(2*(-3+1))"));
+console.log(calc("-2+3"));
