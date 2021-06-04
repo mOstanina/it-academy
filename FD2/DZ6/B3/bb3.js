@@ -50,6 +50,7 @@ function calc(statement) {
             newArr[f] = t;
         }
     }
+    console.log(newArr)
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 2)собственно само вычисление с помощью "побратной польской записи"
@@ -83,14 +84,18 @@ function calc(statement) {
                     }
                 }
                 if (c === ")") {
-                    for (var j = 1; j < operatorsStack.length; j++) {
-                        if (j !== "(") {
+                    for (var j = 0; j < operatorsStack.length; j++) {
+                        if (operatorsStack[j] !== "(") {
                             stackOut.push(operatorsStack.pop())
                         }
+                        if(operatorsStack[j]  === "("){
+                            operatorsStack.pop()
+                        }
                     }
-                    operatorsStack.pop()
                 }
             }
+            console.log(stackOut)
+            console.log(operatorsStack)
         }
         for (var s = 0; s < operatorsStack.length; s++) {
             stackOut.push(operatorsStack.pop())
@@ -110,5 +115,6 @@ function calc(statement) {
     resultT = tt(newArr);
     return resultT
 }
-console.log(calc("(6+10-4)/(1+1*2)+1"));
-console.log(calc("2*(-3+1)"));
+//console.log(calc("(6+10-4)/(1+1*2)+1"));
+//console.log(calc("2*(-3+1)"));
+console.log(calc("1+(2*(-3+1))"));
