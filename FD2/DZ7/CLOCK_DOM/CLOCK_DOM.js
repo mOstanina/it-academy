@@ -124,10 +124,10 @@ electronicClock.style.width = electronicClockWidth + "px";
 electronicClock.style.top = (heightDiv - electronicClockHeight) / 3 + "px";
 electronicClock.style.left = (heightDiv / 2 - electronicClockWidth / 2) + "px";
 //
-electronicClock.innerHTML = `${hoursScore}:${minutesScore}:${secondsScore}`;
 if (hoursScore < 10) { hoursScore = "0" + hoursScore }
 if (minutesScore < 10) { minutesScore = "0" + minutesScore }
 if (secondsScore < 10) { secondsScore = "0" + secondsScore }
+electronicClock.innerHTML = `${hoursScore}:${minutesScore}:${secondsScore}`;
 //
 setInterval(() => {
     var time = new Date();
