@@ -2,8 +2,7 @@
 window.onload = interval;
 // //создаю желтый круг
 
-
-
+var clock = document.getElementById("SS");
 var svgRect = document.getElementById("SSS");
 var heightDiv = window.getComputedStyle(svgRect).height;
 heightDiv = parseFloat(heightDiv.replace(/[px]/g, ''));
@@ -82,12 +81,25 @@ handHour.setAttribute("x2", radiusYellowCircle);
 handHour.setAttribute("y2", radiusYellowCircle * 1.05);
 handHour.setAttribute("stroke-linecap", "round");
 handHour.setAttribute("transform-origin", radiusYellowCircle);
-
+// //электронные часы
+var electronicClock = document.createElement("div");
+clock.appendChild(electronicClock);
+var electronicClockHeight = heightDiv * 0.1;
+var electronicClockWidth = heightDiv * 0.3;
+electronicClock.setAttribute("style", `text-align: center; font-size: ${heightDiv * 0.1}px`);
+electronicClock.style.position = "absolute";
+//electronicClock.setAttribute("style", "text-align: center;");
+electronicClock.style.height = electronicClockHeight + "px";
+electronicClock.style.width = electronicClockWidth + "px";
+electronicClock.style.top = (heightDiv - electronicClockHeight) / 3 + "px";
+electronicClock.style.left = (heightDiv / 2 - electronicClockWidth / 2) + "px";
+electronicClock.style.zIndex = 99999;
 function interval() {
     var time = new Date();
+    var seconds = time.getSeconds();
     var hours = time.getHours();
     var minutes = time.getMinutes();
-    var seconds = time.getSeconds();
+    
     var hoursPosition = hours * (360 / 12);
     var minutesPosition = minutes * (360 / 60);
     var secondsPosition = seconds * (360 / 60);
@@ -97,6 +109,8 @@ function interval() {
     if (hours < 10) { hours = "0" + hours }
     if (minutes < 10) { minutes = "0" + minutes }
     if (seconds < 10) { seconds = "0" + seconds }
-    //console.log(`${hours}:${minutes}:${seconds}`)
+    electronicClock.innerHTML = `${hours}:${minutes}:${seconds}`;
+    electronicClock.style.zIndex = 9999;
+    console.log(`${hours}:${minutes}:${seconds}`)
 }
 setInterval(interval, 1000)
