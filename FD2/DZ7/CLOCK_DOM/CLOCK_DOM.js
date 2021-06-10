@@ -1,4 +1,10 @@
 "use strict";
+
+window.onload = interval;
+// window.onload = function () {
+//     interval()
+// }
+
 //создаю желтый круг
 var clock = document.getElementById("clock");
 var yellow = document.createElement("div");
@@ -44,6 +50,7 @@ for (var i = 1; i <= 12; i++) {
     numberTime.style.fontSize = fontSize + "px";
     numberTime.style.marginTop = (greenHeight - fontSize) / 2 + "px";
 }
+
 //создаю секудную стрелку
 var handSecondDiv = document.createElement("div");
 clock.appendChild(handSecondDiv);
@@ -61,13 +68,7 @@ handSecondDiv.style.zIndex = 11;
 handSecond.style.position = "absolute";//позиционирую стрелку
 handSecond.style.left = (heightDiv - widthtHandSecond) / 2 + "px";
 handSecond.style.top = (yellowRadius - heightHandSecond) + yellowRadius * 0.2 + "px";
-//
-var timeAnalog = new Date();
-//
-var secondsScore = timeAnalog.getSeconds();
-var seconds = secondsScore * (360 / 60);
-handSecondDiv.style.transform = `rotateZ(${seconds}deg)`;
-//
+
 //создаю минутную стрелку
 var handMinuteDiv = document.createElement("div");
 clock.appendChild(handMinuteDiv);
@@ -85,11 +86,7 @@ handMinuteDiv.style.zIndex = 10;
 handMinute.style.position = "absolute";//позиционирую стрелку
 handMinute.style.left = (heightDiv - widthtHandMinute) / 2 + "px";
 handMinute.style.top = (yellowRadius - heightHandMinute) + yellowRadius * 0.2 + "px";
-//
-var minutesScore = timeAnalog.getMinutes();
-var minutes = minutesScore * (360 / 60);
-handMinuteDiv.style.transform = `rotateZ(${minutes}deg)`;
-//
+
 //создаю часовую стрелку
 var handHourDiv = document.createElement("div");
 clock.appendChild(handHourDiv);
@@ -106,11 +103,7 @@ handHour.style.width = widthtHandHour + "px";
 handHour.style.position = "absolute";//позиционирую стрелку
 handHour.style.left = (heightDiv - widthtHandHour) / 2 + "px";
 handHour.style.top = (yellowRadius - heightHandHour) + yellowRadius * 0.2 + "px";
-//
-var hoursScore = timeAnalog.getHours();
-var hours = hoursScore * (360 / 12);
-handHourDiv.style.transform = `rotateZ(${(hours) + (minutes / 12)}deg)`;
-//
+
 //электронные часы
 var electronicClock = document.createElement("div");
 clock.appendChild(electronicClock);
@@ -123,13 +116,9 @@ electronicClock.style.height = electronicClockHeight + "px";
 electronicClock.style.width = electronicClockWidth + "px";
 electronicClock.style.top = (heightDiv - electronicClockHeight) / 3 + "px";
 electronicClock.style.left = (heightDiv / 2 - electronicClockWidth / 2) + "px";
+
 //
-if (hoursScore < 10) { hoursScore = "0" + hoursScore }
-if (minutesScore < 10) { minutesScore = "0" + minutesScore }
-if (secondsScore < 10) { secondsScore = "0" + secondsScore }
-electronicClock.innerHTML = `${hoursScore}:${minutesScore}:${secondsScore}`;
-//
-setInterval(() => {
+function interval() {
     var time = new Date();
     var hoursScore = time.getHours();
     var minutesScore = time.getMinutes();
@@ -146,4 +135,5 @@ setInterval(() => {
     electronicClock.innerHTML = `${hoursScore}:${minutesScore}:${secondsScore}`;
     console.log(electronicClock.innerHTML)
     electronicClock.style.zIndex = 10;
-}, 1000)
+}
+setInterval(interval, 1000)
