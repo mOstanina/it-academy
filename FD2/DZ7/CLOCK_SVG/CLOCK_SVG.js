@@ -99,7 +99,6 @@ function interval() {
     var seconds = time.getSeconds();
     var hours = time.getHours();
     var minutes = time.getMinutes();
-    
     var hoursPosition = hours * (360 / 12);
     var minutesPosition = minutes * (360 / 60);
     var secondsPosition = seconds * (360 / 60);
