@@ -4,12 +4,10 @@ function interval() {
     var seconds = time.getSeconds();
     var hours = time.getHours();
     var minutes = time.getMinutes();
-    var hoursPosition = hours * (360 / 12);
-    var minutesPosition = minutes * (360 / 60);
-    var secondsPosition = seconds * (360 / 60);
-
-    // handHourAngle = `rotate(${(hoursPosition) + (minutesPosition / 12)}deg)`;
-    // handMinuteAngle = `rotate(${minutesPosition}deg)`;
+    var hoursPosition = hours * (360 / 12) / 180 * Math.PI;
+    var minutesPosition = minutes * (360 / 60) / 180 * Math.PI;
+    var secondsPosition = seconds * (360 / 60) / 180 * Math.PI;
+    console.log(`${hours}:${minutes}:${seconds}`)
 
     // // создаю желтый круг
 
@@ -51,8 +49,8 @@ function interval() {
 
     // //создаю секудную стрелку
     var handSecond = canvasRect.getContext("2d");
-    handSecond.strokeStyle = "red";
-    handSecond.fillStyle = "red";
+    handSecond.strokeStyle = "black";
+    handSecond.fillStyle = "black";
     handSecond.lineCap = "round";
     handSecond.beginPath();
 
@@ -61,31 +59,68 @@ function interval() {
     // x0, y0 - центр, a - угол, r - радиус.
 
     handSecond.moveTo(radiusYellowCircle, radiusYellowCircle);
-    handSecond.lineTo(radiusYellowCircle + radiusYellowCircle * 0.8 * Math.cos(secondsPosition), radiusYellowCircle - radiusYellowCircle * 0.8 * Math.sin(secondsPosition));
+    handSecond.lineTo(radiusYellowCircle + radiusYellowCircle * 0.8 * Math.sin(secondsPosition), radiusYellowCircle - radiusYellowCircle * 0.8 * Math.cos(secondsPosition));
+    context.lineWidth = 3;
+    handSecond.stroke();
+    // //создаю хвостик секндной стрелки
+    var handSecondTail = canvasRect.getContext("2d");
+    handSecondTail.strokeStyle = "black";
+    handSecondTail.fillStyle = "black";
+    handSecondTail.lineCap = "black";
+    handSecondTail.beginPath();
+    handSecondTail.moveTo(radiusYellowCircle, radiusYellowCircle);
+    handSecondTail.lineTo(radiusYellowCircle - radiusYellowCircle * 0.1 * Math.sin(secondsPosition), radiusYellowCircle + radiusYellowCircle * 0.1 * Math.cos(secondsPosition));
     context.lineWidth = 3;
     handSecond.stroke();
 
     // //создаю минутную стрелку
     var handMinute = canvasRect.getContext("2d");
-    handMinute.strokeStyle = "green";
-    handMinute.fillStyle = "green";
+    handMinute.strokeStyle = "black";
+    handMinute.fillStyle = "black";
     handMinute.beginPath();
     handMinute.moveTo(radiusYellowCircle, radiusYellowCircle);
-    handMinute.lineTo(radiusYellowCircle, radiusYellowCircle * 0.44);
+    handMinute.lineTo(radiusYellowCircle + radiusYellowCircle * 0.6 * Math.sin(minutesPosition), radiusYellowCircle - radiusYellowCircle * 0.6 * Math.cos(minutesPosition));
     context.lineWidth = 6;
     handMinute.stroke();
+    // //создаю хвостик секндной стрелки
+    var handMinuteTail = canvasRect.getContext("2d");
+    handMinuteTail.strokeStyle = "black";
+    handMinuteTail.fillStyle = "black";
+    handMinuteTail.lineCap = "black";
+    handMinuteTail.beginPath();
+    handMinuteTail.moveTo(radiusYellowCircle, radiusYellowCircle);
+    handMinuteTail.lineTo(radiusYellowCircle - radiusYellowCircle * 0.1 * Math.sin(minutesPosition), radiusYellowCircle + radiusYellowCircle * 0.1 * Math.cos(minutesPosition));
+    context.lineWidth = 6;
+    handMinuteTail.stroke();
+
     // //создаю часовую стрелку
     var handHour = canvasRect.getContext("2d");
-    handHour.strokeStyle = "blue";
-    handHour.fillStyle = "blue";
+    handHour.strokeStyle = "black";
+    handHour.fillStyle = "black";
     handHour.beginPath();
-    handMinute.moveTo(radiusYellowCircle, radiusYellowCircle);
-    handMinute.lineTo(radiusYellowCircle, radiusYellowCircle * 0.6);
+    handHour.moveTo(radiusYellowCircle, radiusYellowCircle);
+    handHour.lineTo(radiusYellowCircle + radiusYellowCircle * 0.5 * Math.sin(hoursPosition), radiusYellowCircle - radiusYellowCircle * 0.5 * Math.cos(hoursPosition));
     context.lineWidth = 12;
-    handMinute.stroke();
+    handHour.stroke();
+    // //создаю хвостик секндной стрелки
+    var handHourTail = canvasRect.getContext("2d");
+    handHourTail.strokeStyle = "black";
+    handHourTail.fillStyle = "black";
+    handHourTail.lineCap = "black";
+    handHourTail.beginPath();
+    handHourTail.moveTo(radiusYellowCircle, radiusYellowCircle);
+    handHourTail.lineTo(radiusYellowCircle - radiusYellowCircle * 0.1 * Math.sin(hoursPosition), radiusYellowCircle + radiusYellowCircle * 0.1 * Math.cos(hoursPosition));
+    context.lineWidth = 12;
+    handHourTail.stroke();
+
+    // //электронные часы
+    var electronicClock = canvasRect.getContext("2d");
+    electronicClock.fillStyle = "black";
+    electronicClock.font = 'bold 30px Arial';
+    electronicClock.fillText(`${hours}:${minutes}:${seconds}`, radiusYellowCircle * 0.7, radiusYellowCircle * 0.8);
 
 
-
+    setTimeout(interval, 1020 - (new Date()).getMilliseconds())
 
 }
-setInterval(interval, 1000)
+setTimeout(interval, 1020 - (new Date()).getMilliseconds())
