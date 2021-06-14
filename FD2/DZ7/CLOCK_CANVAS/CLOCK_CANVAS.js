@@ -1,4 +1,5 @@
 "use strict";
+window.onload = interval;
 function interval() {
     var time = new Date();
     var seconds = time.getSeconds();
@@ -7,6 +8,9 @@ function interval() {
     var hoursPosition = hours * (360 / 12) / 180 * Math.PI;
     var minutesPosition = minutes * (360 / 60) / 180 * Math.PI;
     var secondsPosition = seconds * (360 / 60) / 180 * Math.PI;
+    if (hours < 10) { hours = "0" + hours }
+    if (minutes < 10) { minutes = "0" + minutes }
+    if (seconds < 10) { seconds = "0" + seconds }
     console.log(`${hours}:${minutes}:${seconds}`)
 
     // // создаю желтый круг
@@ -123,4 +127,3 @@ function interval() {
     setTimeout(interval, 1020 - (new Date()).getMilliseconds())
 
 }
-setTimeout(interval, 1020 - (new Date()).getMilliseconds())
