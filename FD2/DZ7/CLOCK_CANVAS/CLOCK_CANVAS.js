@@ -99,7 +99,7 @@ function interval() {
     handHour.fillStyle = "black";
     handHour.beginPath();
     handHour.moveTo(radiusYellowCircle, radiusYellowCircle);
-    handHour.lineTo(radiusYellowCircle + radiusYellowCircle * 0.5 * Math.sin(hoursPosition), radiusYellowCircle - radiusYellowCircle * 0.5 * Math.cos(hoursPosition));
+    handHour.lineTo(radiusYellowCircle + radiusYellowCircle * 0.5 * Math.sin(hoursPosition+minutesPosition/12), radiusYellowCircle - radiusYellowCircle * 0.5 * Math.cos(hoursPosition+minutesPosition/12));
     context.lineWidth = 12;
     handHour.stroke();
     // //создаю хвостик секндной стрелки
@@ -109,7 +109,7 @@ function interval() {
     handHourTail.lineCap = "black";
     handHourTail.beginPath();
     handHourTail.moveTo(radiusYellowCircle, radiusYellowCircle);
-    handHourTail.lineTo(radiusYellowCircle - radiusYellowCircle * 0.1 * Math.sin(hoursPosition), radiusYellowCircle + radiusYellowCircle * 0.1 * Math.cos(hoursPosition));
+    handHourTail.lineTo(radiusYellowCircle - radiusYellowCircle * 0.1 * Math.sin(hoursPosition+minutesPosition/12), radiusYellowCircle + radiusYellowCircle * 0.1 * Math.cos(hoursPosition+minutesPosition/12));
     context.lineWidth = 12;
     handHourTail.stroke();
 
