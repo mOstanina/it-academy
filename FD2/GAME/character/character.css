@@ -1,0 +1,18 @@
+.sprite-container {
+    width: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .sprite-img {
+      width: 55px;
+      height: 74px;
+      animation: MyAnimation 0.8s steps(3) infinite;
+    }
+  @keyframes MyAnimation {
+    from {
+      background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+    }
+    to {
+      background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+    }
+  }

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh; 
+}
+#info{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    height: 5%;
+    border: green solid 2px;
+}
+#screen {
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  border: orangered solid 2px;
+}
+#gameWindow{
+    position: relative;
+    width: 1000px;
+    height: 90%;
+    border: blue solid 2px;  
+}
+#buttons{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    height: 5%;
+    border: yellow solid 2px;  
+}
