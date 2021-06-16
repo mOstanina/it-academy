@@ -37,8 +37,8 @@
   padding: 0;
   position: relative;
   display: flex;
-  background-image: url(/FD2/GAME/img/Forest1.jpeg);
-  background-size: contain;
+  background-image: url(/FD2/GAME/img/fon.jpeg);
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
