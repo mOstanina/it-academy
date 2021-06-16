@@ -1,0 +1,68 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  max-width: 712px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  border: brown solid 1px;
+}
+#screen {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#info {
+  width: 100%;
+  margin: 0 auto;
+  height: 20px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  // border: yellow solid 1px;
+}
+#gameWindow {
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  display: flex;
+  // border: green solid 1px;
+  background-image: url(/FD2/GAME/img/Forest1.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#buttons {
+  width: 100%;
+  margin: 0 auto;
+  height: 20px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  // border: blue solid 1px;
+}
+@media screen and (orientation: portrait) {
+  #buttons {
+    position: fixed;
+    width: 100%;
+    height: 20px;
+  }
+}
+@media screen and (orientation: landscape) {
+  #buttons {
+    // position: fixed;
+    // display: flex;
+    // flex-direction: column;
+
+    // left: 0;
+    // bottom: 40px;
+    width: 100%;
+  }
+}
