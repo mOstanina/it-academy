@@ -26,7 +26,6 @@
   padding: 0;
   position: absolute;
   display: flex;
-  border: yellow solid 1px;
 }
 
 #gameWindow {
@@ -43,7 +42,7 @@
 #buttons {
   width: 100%;
   margin: 0 auto;
-  height: 20px;
+  height: 25px;
   padding: 0;
   position: absolute;
   left: 0;
