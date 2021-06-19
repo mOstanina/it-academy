@@ -50,68 +50,222 @@ function drowGame() {
     }
 
 }
-
+// function Btn(nameBtn) {
+//     var self = this;
+//     self.style.width = heightGameWindow * 0.1;
+//     self.style.height = heightGameWindow * 0.1;
+//     leftButton.style.position = "absolute";
+// }
 
 // рисую кнопки
-var leftBtn = document.getElementById("left");
-var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
-// console.log(widthGameWindow)
-// console.log(heightGameWindow)
-leftButton.style.width = heightGameWindow * 0.1;
-leftButton.style.height = heightGameWindow * 0.1;
-leftButton.style.position = "absolute";
-leftButton.style.left = "10px";
-leftButton.style.bottom = "5px";
+function leftBtnn() {
+    var leftBtn = document.getElementById("left");
+    var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
+    leftButton.style.width = heightGameWindow * 0.1;
+    leftButton.style.height = heightGameWindow * 0.1;
+    leftButton.style.position = "absolute";
+    leftButton.style.left = "10px";
+    leftButton.style.bottom = "5px";
 
-var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-leftCircle.setAttribute("fill", "sandybrown");
-var leftCircleRdius = btnRadius
-leftCircle.setAttribute("r", leftCircleRdius);
-leftCircle.setAttribute("cx", leftCircleRdius);
-leftCircle.setAttribute("cy", leftCircleRdius);
-leftButton.appendChild(leftCircle);
+    var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    leftCircle.setAttribute("fill", "sandybrown");
+    var leftCircleRdius = btnRadius
+    leftCircle.setAttribute("r", leftCircleRdius);
+    leftCircle.setAttribute("cx", leftCircleRdius);
+    leftCircle.setAttribute("cy", leftCircleRdius);
+    leftButton.appendChild(leftCircle);
 
-var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-leftButton.appendChild(firstLine);
-firstLine.setAttribute("stroke-width", 5);
-firstLine.setAttribute("stroke", "black");
-firstLine.setAttribute("x1", leftCircleRdius * 1.5);
-firstLine.setAttribute("y1", leftCircleRdius * 1);
-firstLine.setAttribute("x2", leftCircleRdius * 0.2);
-firstLine.setAttribute("y2", leftCircleRdius * 1);
-firstLine.setAttribute("stroke-linecap", "round");
-firstLine.setAttribute("transform-origin", leftCircleRdius);
-var secongLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-leftButton.appendChild(secongLine);
-secongLine.setAttribute("stroke-width", 5);
-secongLine.setAttribute("stroke", "black");
-secongLine.setAttribute("x1", leftCircleRdius * 1.1);
-secongLine.setAttribute("y1", leftCircleRdius * 1.5);
-secongLine.setAttribute("x2", leftCircleRdius * 0.2);
-secongLine.setAttribute("y2", leftCircleRdius * 1);
-secongLine.setAttribute("stroke-linecap", "round");
-secongLine.setAttribute("transform-origin", leftCircleRdius);
-var thirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-leftButton.appendChild(thirdLine);
-thirdLine.setAttribute("stroke-width", 5);
-thirdLine.setAttribute("stroke", "black");
-thirdLine.setAttribute("x1", leftCircleRdius * 1.1);
-thirdLine.setAttribute("y1", leftCircleRdius * 0.5);
-thirdLine.setAttribute("x2", leftCircleRdius * 0.2);
-thirdLine.setAttribute("y2", leftCircleRdius * 1);
-thirdLine.setAttribute("stroke-linecap", "round");
-thirdLine.setAttribute("transform-origin", leftCircleRdius);
+    var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    leftButton.appendChild(firstLine);
+    firstLine.setAttribute("stroke-width", 5);
+    firstLine.setAttribute("stroke", "black");
+    firstLine.setAttribute("x1", leftCircleRdius * 1.5);
+    firstLine.setAttribute("y1", leftCircleRdius * 1);
+    firstLine.setAttribute("x2", leftCircleRdius * 0.3);
+    firstLine.setAttribute("y2", leftCircleRdius * 1);
+    firstLine.setAttribute("stroke-linecap", "round");
+    firstLine.setAttribute("transform-origin", leftCircleRdius);
+    var secongLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    leftButton.appendChild(secongLine);
+    secongLine.setAttribute("stroke-width", 5);
+    secongLine.setAttribute("stroke", "black");
+    secongLine.setAttribute("x1", leftCircleRdius * 1.1);
+    secongLine.setAttribute("y1", leftCircleRdius * 1.5);
+    secongLine.setAttribute("x2", leftCircleRdius * 0.3);
+    secongLine.setAttribute("y2", leftCircleRdius * 1);
+    secongLine.setAttribute("stroke-linecap", "round");
+    secongLine.setAttribute("transform-origin", leftCircleRdius);
+    var thirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    leftButton.appendChild(thirdLine);
+    thirdLine.setAttribute("stroke-width", 5);
+    thirdLine.setAttribute("stroke", "black");
+    thirdLine.setAttribute("x1", leftCircleRdius * 1.1);
+    thirdLine.setAttribute("y1", leftCircleRdius * 0.5);
+    thirdLine.setAttribute("x2", leftCircleRdius * 0.3);
+    thirdLine.setAttribute("y2", leftCircleRdius * 1);
+    thirdLine.setAttribute("stroke-linecap", "round");
+    thirdLine.setAttribute("transform-origin", leftCircleRdius);
 
+}
+leftBtnn()
+function rightBtn() {//     ВПРАВО
+    var rightBtn = document.getElementById("left");
+    var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
+    rightButton.style.width = heightGameWindow * 0.1;
+    rightButton.style.height = heightGameWindow * 0.1;
+    rightButton.style.position = "absolute";
+    rightButton.style.right = "10px";
+    rightButton.style.bottom = "5px";
 
-//для паузы
-// var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-// leftButton.appendChild(firstLine);
-// firstLine.setAttribute("stroke-width", 3);
-// firstLine.setAttribute("stroke", "black");
-// firstLine.setAttribute("x1", leftCircleRdius);
-// firstLine.setAttribute("y1", leftCircleRdius * 0.3);
-// firstLine.setAttribute("x2", leftCircleRdius);
-// firstLine.setAttribute("y2", leftCircleRdius * 1.05);
-// firstLine.setAttribute("stroke-linecap", "round");
-// firstLine.setAttribute("transform-origin", leftCircleRdius);
+    var rightCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    rightCircle.setAttribute("fill", "sandybrown");
+    var rightCircleRdius = btnRadius
+    rightCircle.setAttribute("r", rightCircleRdius);
+    rightCircle.setAttribute("cx", rightCircleRdius);
+    rightCircle.setAttribute("cy", rightCircleRdius);
+    rightButton.appendChild(rightCircle);
+
+    var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    rightButton.appendChild(firstLine);
+    firstLine.setAttribute("stroke-width", 5);
+    firstLine.setAttribute("stroke", "black");
+    firstLine.setAttribute("x1", rightCircleRdius * 1.7);
+    firstLine.setAttribute("y1", rightCircleRdius * 1);
+    firstLine.setAttribute("x2", rightCircleRdius * 0.5);
+    firstLine.setAttribute("y2", rightCircleRdius * 1);
+    firstLine.setAttribute("stroke-linecap", "round");
+    firstLine.setAttribute("transform-origin", rightCircleRdius);
+    var secongLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    rightButton.appendChild(secongLine);
+    secongLine.setAttribute("stroke-width", 5);
+    secongLine.setAttribute("stroke", "black");
+    secongLine.setAttribute("x1", rightCircleRdius * 1.1);
+    secongLine.setAttribute("y1", rightCircleRdius * 1.5);
+    secongLine.setAttribute("x2", rightCircleRdius * 1.7);
+    secongLine.setAttribute("y2", rightCircleRdius * 1);
+    secongLine.setAttribute("stroke-linecap", "round");
+    secongLine.setAttribute("transform-origin", rightCircleRdius);
+    var thirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    rightButton.appendChild(thirdLine);
+    thirdLine.setAttribute("stroke-width", 5);
+    thirdLine.setAttribute("stroke", "black");
+    thirdLine.setAttribute("x1", rightCircleRdius * 1.1);
+    thirdLine.setAttribute("y1", rightCircleRdius * 0.5);
+    thirdLine.setAttribute("x2", rightCircleRdius * 1.7);
+    thirdLine.setAttribute("y2", rightCircleRdius * 1);
+    thirdLine.setAttribute("stroke-linecap", "round");
+    thirdLine.setAttribute("transform-origin", rightCircleRdius);
+
+}
+rightBtn()
+function recordsBtn() { //  РЕКОДЫ
+    var recordsBtn = document.getElementById("left");
+    var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
+    recordsButton.style.width = heightGameWindow * 0.1;
+    recordsButton.style.height = heightGameWindow * 0.1;
+    recordsButton.style.position = "absolute";
+    recordsButton.style.right = "340px";
+    recordsButton.style.bottom = "5px";
+
+    var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    recordsCircle.setAttribute("fill", "sandybrown");
+    var recordsCircleRdius = btnRadius
+    recordsCircle.setAttribute("r", recordsCircleRdius);
+    recordsCircle.setAttribute("cx", recordsCircleRdius);
+    recordsCircle.setAttribute("cy", recordsCircleRdius);
+    recordsButton.appendChild(recordsCircle);
+
+    var star = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    recordsButton.appendChild(star);
+    star.setAttribute("stroke-width", 2);
+    star.setAttribute("fill", "black");
+    star.setAttribute("stroke", "black");
+    // star.setAttribute("stroke-linecap", "round");
+    // star.setAttribute("stroke-linejoin", "round");
+    // star.setAttribute("stroke-miterlimit", "10");
+    var starPoints ="  "+ Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.7) + "," + Math.floor(recordsCircleRdius * 0.9) + " " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) +" " + Math.floor(recordsCircleRdius * 1) + "," + Math.floor(recordsCircleRdius * 0.2) +" " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) +" " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 0.4) +" " + Math.floor(recordsCircleRdius * 1.2) + "," + Math.floor(recordsCircleRdius * 0.5) +" " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 1.6)+" " + Math.floor(recordsCircleRdius * 0.5) + "," + Math.floor(recordsCircleRdius * 1)
+    star.setAttribute("points", starPoints)
+    // //&#9734;
+    // var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    // recordsCircle.appendChild(txt);
+    // txt.style.fill = "black";
+    // var fontSize = 10
+    // txt.style.fontSize = fontSize
+    // var i="&star;"
+    // console.log(i)
+    // txt.textContent = `${i}`
+    
+    
+    }
+recordsBtn()
+function pouseBtn() { //  ПАУЗА
+    var pouseBtn = document.getElementById("left");
+    var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
+    pouseButton.style.width = heightGameWindow * 0.1;
+    pouseButton.style.height = heightGameWindow * 0.1;
+    pouseButton.style.position = "absolute";
+    pouseButton.style.right = "110px";
+    pouseButton.style.bottom = "5px";
+
+    var pouseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    pouseCircle.setAttribute("fill", "sandybrown");
+    var pouseCircleRdius = btnRadius
+    pouseCircle.setAttribute("r", pouseCircleRdius);
+    pouseCircle.setAttribute("cx", pouseCircleRdius);
+    pouseCircle.setAttribute("cy", pouseCircleRdius);
+    pouseButton.appendChild(pouseCircle);
+
+    var pouseLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    pouseButton.appendChild(pouseLine);
+    pouseLine.setAttribute("stroke-width", 8);
+    pouseLine.setAttribute("stroke", "black");
+    pouseLine.setAttribute("x1", pouseCircleRdius * 1.3);
+    pouseLine.setAttribute("y1", pouseCircleRdius * 1.5);
+    pouseLine.setAttribute("x2", pouseCircleRdius * 1.3);
+    pouseLine.setAttribute("y2", pouseCircleRdius * 0.5);
+    pouseLine.setAttribute("stroke-linecap", "round");
+    pouseLine.setAttribute("transform-origin", pouseCircleRdius);
+    var pouseSecondLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    pouseButton.appendChild(pouseSecondLine);
+    pouseSecondLine.setAttribute("stroke-width", 8);
+    pouseSecondLine.setAttribute("stroke", "black");
+    pouseSecondLine.setAttribute("x1", pouseCircleRdius * 0.7);
+    pouseSecondLine.setAttribute("y1", pouseCircleRdius * 1.5);
+    pouseSecondLine.setAttribute("x2", pouseCircleRdius * 0.7);
+    pouseSecondLine.setAttribute("y2", pouseCircleRdius * 0.5);
+    pouseSecondLine.setAttribute("stroke-linecap", "round");
+    pouseSecondLine.setAttribute("transform-origin", pouseCircleRdius);
+}
+pouseBtn()
+function playBtn() {//     ИГРАТЬ
+    var playBtn = document.getElementById("left");
+    var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
+    playButton.style.width = heightGameWindow * 0.1;
+    playButton.style.height = heightGameWindow * 0.1;
+    playButton.style.position = "absolute";
+    playButton.style.right = "240px";
+    playButton.style.bottom = "5px";
+
+    var playCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    playCircle.setAttribute("fill", "sandybrown");
+    var playCircleRdius = btnRadius
+    playCircle.setAttribute("r", playCircleRdius);
+    playCircle.setAttribute("cx", playCircleRdius);
+    playCircle.setAttribute("cy", playCircleRdius);
+    playButton.appendChild(playCircle);
+
+    var pous = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    playButton.appendChild(pous);
+    pous.setAttribute("stroke-width", 1);
+    pous.setAttribute("fill", "black");
+    pous.setAttribute("stroke", "black");
+    var playPoints ="  "+ Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 1.5) + " " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 0.5) + " " + Math.floor(playCircleRdius * 1.5) + "," + Math.floor(playCircleRdius * 1) + " "
+    pous.setAttribute("points", playPoints);
+    pous.setAttribute("fill", "black");
+}
+playBtn()
