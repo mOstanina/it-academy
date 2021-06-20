@@ -52,7 +52,7 @@ function drowGame() {
                 console.log(btnRadius);
                 //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
                 console.log(mobileScreenWidth);
-                console.log(btnDistance);
+                //console.log(btnDistance);
             }
         }
         rotate()
@@ -89,10 +89,10 @@ function hhh() {
         btnDistance = Math.floor(rr) + "px";
         console.log(btnDistance)
         leftButton.style.left = btnDistance;
-        leftButton.style.top = mobileScreenHeight / 2 + "px";
+        leftButton.style.top = mobileScreenHeight / 3 + "px";
     }
     if (screenPosition === 2) {
-        console.log("!!!")
+        console.log("jjjjj")
         leftButton.style.width = mobileScreenWidth * 0.1;
         leftButton.style.height = mobileScreenWidth * 0.1;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
