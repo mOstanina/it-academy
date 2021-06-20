@@ -169,6 +169,7 @@ function recordsBtn() { //  РЕКОДЫ
     recordsButton.style.position = "absolute";
     recordsButton.style.right = "340px";
     recordsButton.style.bottom = "5px";
+    recordsButton.style.zIndex = 10;
 
     var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     recordsCircle.setAttribute("fill", "sandybrown");
