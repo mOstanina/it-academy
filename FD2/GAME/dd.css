@@ -35,8 +35,8 @@
   position: relative;
   display: flex;
   background-image: url(../GAME/img/fon.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: repeat-x;
 }
 
 #buttons {
