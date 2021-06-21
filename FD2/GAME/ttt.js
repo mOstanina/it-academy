@@ -15,7 +15,6 @@ var btnDistance;
 var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во горизонтально; 2- мобильное утр-во вертикально;
 drowGame()
 window.addEventListener("resize", drowGame, false);
-
 function drowGame() {
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -103,10 +102,10 @@ function hhh() {
         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
     }
 }
-hhh()
-window.addEventListener("load", hhh, false);
-window.addEventListener("resize", hhh, false);
+//hhh()
 
+window.addEventListener("resize", hhh, false);
+window.addEventListener("DOMContentLoaded", hhh, false);
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 leftCircle.setAttribute("fill", "sandybrown");
 var leftCircleRdius = btnRadius
