@@ -31,6 +31,7 @@ function drowGame() {
         function rotate() {
 
             if (mobileScreenHeight > mobileScreenWidth) {
+                alert("2- мобильное утр-во вертикально;")
                 console.log("vert");
                 screenPosition = 2;
                 gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
@@ -44,6 +45,7 @@ function drowGame() {
 
             } else {
                 console.log("gorizont");
+                alert("1- мобильное утр-во горизонтально;")
                 screenPosition = 1;
                 gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
                 gameWindow.setAttribute("style", "height:" + mobileScreenHeight + "px");
