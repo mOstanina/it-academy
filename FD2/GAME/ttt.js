@@ -83,6 +83,7 @@ function hhh() {
         leftButton.style.bottom = "5px";
     }
     if (screenPosition === 1) {
+        alert("1- мобильное утр-во горизонтально;")
         console.log("!!!")
         leftButton.style.width = mobileScreenWidth * 0.1;
         leftButton.style.height = mobileScreenWidth * 0.1;
@@ -93,6 +94,7 @@ function hhh() {
         leftButton.style.top = mobileScreenHeight / 2 + "px";
     }
     if (screenPosition === 2) {
+        alert("2- мобильное утр-во вертикально;")
         console.log("jjjjj")
         leftButton.style.width = mobileScreenWidth * 0.1;
         leftButton.style.height = mobileScreenWidth * 0.1;
