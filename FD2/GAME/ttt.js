@@ -105,7 +105,10 @@ function hhh() {
 //hhh()
 
 window.addEventListener("resize", hhh, false);
-window.addEventListener("DOMContentLoaded", hhh, false);
+window.addEventListener("load", loadTimer, false);
+function loadTimer(){
+    setTimeout(hhh, 1000);
+}
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 leftCircle.setAttribute("fill", "sandybrown");
 var leftCircleRdius = btnRadius
