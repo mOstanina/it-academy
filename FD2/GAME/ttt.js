@@ -89,7 +89,7 @@ function hhh() {
         btnDistance = Math.floor(rr) + "px";
         console.log(btnDistance)
         leftButton.style.left = btnDistance;
-        leftButton.style.top = mobileScreenHeight / 3 + "px";
+        leftButton.style.top = mobileScreenHeight / 2 + "px";
     }
     if (screenPosition === 2) {
         console.log("jjjjj")
@@ -104,6 +104,7 @@ function hhh() {
     }
 }
 hhh()
+window.addEventListener("load", hhh, false);
 window.addEventListener("resize", hhh, false);
 
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
