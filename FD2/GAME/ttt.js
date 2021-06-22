@@ -68,59 +68,64 @@ function drowGame() {
 }
 // // рисую кнопки
 // function leftBtnn() {
+
+// кнопка движения влево
 var leftBtn = document.getElementById("left");
 var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
 leftButton.style.position = "absolute";
-function hhh() {
-    if (screenPosition === 0) {
-        leftButton.style.width = heightGameWindow * 0.1;
-        leftButton.style.height = heightGameWindow * 0.1;
-        console.log(widthGameWindow)
-        var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
-        leftButton.style.left = btnDistance;
-        leftButton.style.bottom = "5px";
-    }
-    if (screenPosition === 1) {
-        alert("1- мобильное утр-во горизонтально;")
-        console.log("!!!")
-        leftButton.style.width = mobileScreenWidth * 0.1;
-        leftButton.style.height = mobileScreenWidth * 0.1;
-        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
-        // console.log(btnDistance)
-        leftButton.style.left = btnDistance;
-        leftButton.style.top = "50vh";
-    }
-    if (screenPosition === 2) {
-        // alert("2- мобильное утр-во вертикально;")
-        // console.log("jjjjj")
-        leftButton.style.width = mobileScreenWidth * 0.1;
-        leftButton.style.height = mobileScreenWidth * 0.1;
-        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
-        console.log(btnDistance)
-        leftButton.style.left = btnDistance;
-        leftButton.style.top = mobileScreenWidth * 0.66 + "px";
-        console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
-    }
-}
-//hhh()
-//
-function gggg() {
-    widthGameWindow = window.getComputedStyle(gameContainer).width;
-    widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
-    console.log(widthGameWindow)
-}
-setInterval(gggg, 1000);
-//
+// function hhh() {
+//     if (screenPosition === 0) {
+//         leftButton.style.width = heightGameWindow * 0.1;
+//         leftButton.style.height = heightGameWindow * 0.1;
+//         console.log(widthGameWindow)
+//         var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
+//         btnDistance = Math.floor(rr) + "px";
+//         leftButton.style.left = btnDistance;
+//         leftButton.style.bottom = "5px";
+//     }
+//     if (screenPosition === 1) {
+//         //alert("1- мобильное утр-во горизонтально;")
+//         console.log("!!!")
+//         leftButton.style.width = mobileScreenWidth * 0.1;
+//         leftButton.style.height = mobileScreenWidth * 0.1;
+//         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+//         btnDistance = Math.floor(rr) + "px";
+//         // console.log(btnDistance)
+//         leftButton.style.left = btnDistance;
+//         leftButton.style.top = "50vh";
+//     }
+//     if (screenPosition === 2) {
+//         // alert("2- мобильное утр-во вертикально;")
+//         // console.log("jjjjj")
+//         leftButton.style.width = mobileScreenWidth * 0.1;
+//         leftButton.style.height = mobileScreenWidth * 0.1;
+//         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+//         btnDistance = Math.floor(rr) + "px";
+//         console.log(btnDistance)
+//         leftButton.style.left = btnDistance;
+//         leftButton.style.top = mobileScreenWidth * 0.66 + "px";
+//         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
+//     }
+// }
+// //hhh()
+// ////////////////////
+// function gggg() {
+//     widthGameWindow = window.getComputedStyle(gameContainer).width;
+//     widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
+//     //console.log(widthGameWindow)
+// }
+// setInterval(gggg, 1000);
+// ////////////////////
 
-window.addEventListener("resize", hhh, false);
-window.addEventListener("load", loadTimer, false);
-function loadTimer() {
-    setTimeout(hhh, 1000);
-}
+// window.addEventListener("resize", hhh, false);
+// window.addEventListener("load", loadTimer, false);
+
+// function loadTimer() {
+//     setTimeout(hhh, 1000);
+// }
+
+
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 leftCircle.setAttribute("fill", "sandybrown");
 var leftCircleRdius = btnRadius
@@ -128,7 +133,6 @@ leftCircle.setAttribute("r", leftCircleRdius);
 leftCircle.setAttribute("cx", leftCircleRdius);
 leftCircle.setAttribute("cy", leftCircleRdius);
 leftButton.appendChild(leftCircle);
-
 var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
 leftButton.appendChild(firstLine);
 firstLine.setAttribute("stroke-width", 5);
@@ -162,100 +166,122 @@ thirdLine.setAttribute("transform-origin", leftCircleRdius);
 
 
 //leftBtnn()
-function rightBtn() {//     ВПРАВО
-    var rightBtn = document.getElementById("left");
-    var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
-    rightButton.style.width = heightGameWindow * 0.1;
-    rightButton.style.height = heightGameWindow * 0.1;
-    rightButton.style.position = "absolute";
+// кнопка движения вправо
+// function rightBtn() {//     ВПРАВО
+var rightBtn = document.getElementById("left");
+var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
+rightButton.style.width = heightGameWindow * 0.1;
+rightButton.style.height = heightGameWindow * 0.1;
+rightButton.style.position = "absolute";
 
-    rightButton.style.right = "10px";
-    rightButton.style.bottom = "5px";
+// rightButton.style.right = "10px";
+// rightButton.style.bottom = "5px";
 
-    var rightCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    rightCircle.setAttribute("fill", "sandybrown");
-    var rightCircleRdius = btnRadius
-    rightCircle.setAttribute("r", rightCircleRdius);
-    rightCircle.setAttribute("cx", rightCircleRdius);
-    rightCircle.setAttribute("cy", rightCircleRdius);
-    rightButton.appendChild(rightCircle);
+//function mmm() { // позиционирование кнопки
+// if (screenPosition === 0) {
+//     rightButton.style.width = heightGameWindow * 0.1;
+//     rightButton.style.height = heightGameWindow * 0.1;
+//     console.log(widthGameWindow)
+//     var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
+//     btnDistance = Math.floor(rr) + "px";
+//     rightButton.style.right = btnDistance;
+//     rightButton.style.bottom = "5px";
+// }
+// if (screenPosition === 1) {
+//     //alert("1- мобильное утр-во горизонтально;")
+//     console.log("!!!")
+//     rightButton.style.width = mobileScreenWidth * 0.1;
+//     rightButton.style.height = mobileScreenWidth * 0.1;
+//     var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+//     btnDistance = Math.floor(rr) + "px";
+//     // console.log(btnDistance)
+//     rightButton.style.right = btnDistance;
+//     rightButton.style.top = "50vh";
+// }
+//     if (screenPosition === 2) {
+//         // alert("2- мобильное утр-во вертикально;")
+//         // console.log("jjjjj")
+//         rightButton.style.width = mobileScreenWidth * 0.1;
+//         rightButton.style.height = mobileScreenWidth * 0.1;
+//         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+//         btnDistance = Math.floor(rr) + "px";
+//         console.log(btnDistance)
+//         rightButton.style.right = btnDistance;
+//         rightButton.style.top = mobileScreenWidth * 0.66 + "px";
+//         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
+//     }
+// }
+// window.addEventListener("resize", mmm, false);
+// window.addEventListener("load", mmm, false);
+var rightCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+rightCircle.setAttribute("fill", "sandybrown");
+var rightCircleRdius = btnRadius
+rightCircle.setAttribute("r", rightCircleRdius);
+rightCircle.setAttribute("cx", rightCircleRdius);
+rightCircle.setAttribute("cy", rightCircleRdius);
+rightButton.appendChild(rightCircle);
+var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+rightButton.appendChild(firstLine);
+firstLine.setAttribute("stroke-width", 5);
+firstLine.setAttribute("stroke", "black");
+firstLine.setAttribute("x1", rightCircleRdius * 1.7);
+firstLine.setAttribute("y1", rightCircleRdius * 1);
+firstLine.setAttribute("x2", rightCircleRdius * 0.5);
+firstLine.setAttribute("y2", rightCircleRdius * 1);
+firstLine.setAttribute("stroke-linecap", "round");
+firstLine.setAttribute("transform-origin", rightCircleRdius);
+var secongLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+rightButton.appendChild(secongLine);
+secongLine.setAttribute("stroke-width", 5);
+secongLine.setAttribute("stroke", "black");
+secongLine.setAttribute("x1", rightCircleRdius * 1.1);
+secongLine.setAttribute("y1", rightCircleRdius * 1.5);
+secongLine.setAttribute("x2", rightCircleRdius * 1.7);
+secongLine.setAttribute("y2", rightCircleRdius * 1);
+secongLine.setAttribute("stroke-linecap", "round");
+secongLine.setAttribute("transform-origin", rightCircleRdius);
+var thirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+rightButton.appendChild(thirdLine);
+thirdLine.setAttribute("stroke-width", 5);
+thirdLine.setAttribute("stroke", "black");
+thirdLine.setAttribute("x1", rightCircleRdius * 1.1);
+thirdLine.setAttribute("y1", rightCircleRdius * 0.5);
+thirdLine.setAttribute("x2", rightCircleRdius * 1.7);
+thirdLine.setAttribute("y2", rightCircleRdius * 1);
+thirdLine.setAttribute("stroke-linecap", "round");
+thirdLine.setAttribute("transform-origin", rightCircleRdius);
 
-    var firstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    rightButton.appendChild(firstLine);
-    firstLine.setAttribute("stroke-width", 5);
-    firstLine.setAttribute("stroke", "black");
-    firstLine.setAttribute("x1", rightCircleRdius * 1.7);
-    firstLine.setAttribute("y1", rightCircleRdius * 1);
-    firstLine.setAttribute("x2", rightCircleRdius * 0.5);
-    firstLine.setAttribute("y2", rightCircleRdius * 1);
-    firstLine.setAttribute("stroke-linecap", "round");
-    firstLine.setAttribute("transform-origin", rightCircleRdius);
-    var secongLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    rightButton.appendChild(secongLine);
-    secongLine.setAttribute("stroke-width", 5);
-    secongLine.setAttribute("stroke", "black");
-    secongLine.setAttribute("x1", rightCircleRdius * 1.1);
-    secongLine.setAttribute("y1", rightCircleRdius * 1.5);
-    secongLine.setAttribute("x2", rightCircleRdius * 1.7);
-    secongLine.setAttribute("y2", rightCircleRdius * 1);
-    secongLine.setAttribute("stroke-linecap", "round");
-    secongLine.setAttribute("transform-origin", rightCircleRdius);
-    var thirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    rightButton.appendChild(thirdLine);
-    thirdLine.setAttribute("stroke-width", 5);
-    thirdLine.setAttribute("stroke", "black");
-    thirdLine.setAttribute("x1", rightCircleRdius * 1.1);
-    thirdLine.setAttribute("y1", rightCircleRdius * 0.5);
-    thirdLine.setAttribute("x2", rightCircleRdius * 1.7);
-    thirdLine.setAttribute("y2", rightCircleRdius * 1);
-    thirdLine.setAttribute("stroke-linecap", "round");
-    thirdLine.setAttribute("transform-origin", rightCircleRdius);
-
-}
+// }
 //rightBtn()
 //          windowHeight
-function recordsBtn() { //  РЕКОДЫ
-    var recordsBtn = document.getElementById("left");
-    var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
-    recordsButton.style.width = heightGameWindow * 0.1;
-    recordsButton.style.height = heightGameWindow * 0.1;
-    recordsButton.style.position = "absolute";
-    recordsButton.style.right = "340px";
-    recordsButton.style.bottom = "5px";
-    recordsButton.style.zIndex = 10;
+// кнопка рекордов
+// function recordsBtn() { //  РЕКОДЫ
+var recordsBtn = document.getElementById("left");
+var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
+recordsButton.style.position = "absolute";
+recordsButton.style.width = heightGameWindow * 0.1;
+recordsButton.style.height = heightGameWindow * 0.1;
+// recordsButton.style.right = "340px";
+// recordsButton.style.bottom = "5px";
+recordsButton.style.zIndex = 10;
 
-    var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    recordsCircle.setAttribute("fill", "sandybrown");
-    var recordsCircleRdius = btnRadius
-    recordsCircle.setAttribute("r", recordsCircleRdius);
-    recordsCircle.setAttribute("cx", recordsCircleRdius);
-    recordsCircle.setAttribute("cy", recordsCircleRdius);
-    recordsButton.appendChild(recordsCircle);
-
-    var star = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-    recordsButton.appendChild(star);
-    star.setAttribute("stroke-width", 2);
-    star.setAttribute("fill", "black");
-    star.setAttribute("stroke", "black");
-    // star.setAttribute("stroke-linecap", "round");
-    // star.setAttribute("stroke-linejoin", "round");
-    // star.setAttribute("stroke-miterlimit", "10");
-    var starPoints = "  " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.7) + "," + Math.floor(recordsCircleRdius * 0.9) + " " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1) + "," + Math.floor(recordsCircleRdius * 0.2) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.2) + "," + Math.floor(recordsCircleRdius * 0.5) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.5) + "," + Math.floor(recordsCircleRdius * 1)
-    star.setAttribute("points", starPoints)
-    // //&#9734;
-    // var txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    // recordsCircle.appendChild(txt);
-    // txt.style.fill = "black";
-    // var fontSize = 10
-    // txt.style.fontSize = fontSize
-    // var i="&star;"
-    // console.log(i)
-    // txt.textContent = `${i}`
-
-
-}
+var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+recordsCircle.setAttribute("fill", "sandybrown");
+var recordsCircleRdius = btnRadius
+recordsCircle.setAttribute("r", recordsCircleRdius);
+recordsCircle.setAttribute("cx", recordsCircleRdius);
+recordsCircle.setAttribute("cy", recordsCircleRdius);
+recordsButton.appendChild(recordsCircle);
+var star = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+recordsButton.appendChild(star);
+star.setAttribute("stroke-width", 2);
+star.setAttribute("fill", "black");
+star.setAttribute("stroke", "black");
+var starPoints = "  " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.7) + "," + Math.floor(recordsCircleRdius * 0.9) + " " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1) + "," + Math.floor(recordsCircleRdius * 0.2) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.2) + "," + Math.floor(recordsCircleRdius * 0.5) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.5) + "," + Math.floor(recordsCircleRdius * 1)
+star.setAttribute("points", starPoints)
+// }
 //recordsBtn()
 function pouseBtn() { //  ПАУЗА
     var pouseBtn = document.getElementById("left");
@@ -325,3 +351,77 @@ function playBtn() {//     ИГРАТЬ
     pous.setAttribute("fill", "black");
 }
 //playBtn()
+
+function hhh() {
+    if (screenPosition === 0) {
+        leftButton.style.width = heightGameWindow * 0.1;
+        leftButton.style.height = heightGameWindow * 0.1;
+        console.log(widthGameWindow)
+        var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
+        btnDistance = Math.floor(rr) + "px";
+        leftButton.style.left = btnDistance;
+        leftButton.style.bottom = "5px";
+        //
+        rightButton.style.right = btnDistance;
+        rightButton.style.bottom = "5px";
+        //
+        recordsButton.style.right = widthGameWindow / 2 + "px";
+        recordsButton.style.bottom = "5px";
+        //
+    }
+    if (screenPosition === 1) {
+        //alert("1- мобильное утр-во горизонтально;")
+        console.log("!!!")
+        leftButton.style.width = mobileScreenWidth * 0.1;
+        leftButton.style.height = mobileScreenWidth * 0.1;
+        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+        btnDistance = Math.floor(rr) + "px";
+        // console.log(btnDistance)
+        leftButton.style.left = btnDistance;
+        leftButton.style.top = "50vh";
+        //
+        rightButton.style.width = mobileScreenWidth * 0.1;
+        rightButton.style.height = mobileScreenWidth * 0.1;
+        rightButton.style.right = "0px";
+        rightButton.style.top = "50vh";
+        //
+        // recordsButton.style.width = mobileScreenWidth * 0.1;
+        // recordsButton.style.height = mobileScreenWidth * 0.1;
+        // recordsButton.style.right = btnDistance;
+        // recordsButton.style.top = "50vh";
+    }
+    if (screenPosition === 2) {
+        // alert("2- мобильное утр-во вертикально;")
+        // console.log("jjjjj")
+        leftButton.style.width = mobileScreenWidth * 0.1;
+        leftButton.style.height = mobileScreenWidth * 0.1;
+        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+        btnDistance = Math.floor(rr) + "px";
+        console.log(btnDistance)
+        leftButton.style.left = btnDistance;
+        leftButton.style.top = mobileScreenWidth * 0.66 + "px";
+        console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
+        //
+        rightButton.style.width = mobileScreenWidth * 0.1;
+        rightButton.style.height = mobileScreenWidth * 0.1;
+        rightButton.style.right = btnDistance;
+        rightButton.style.top = mobileScreenWidth * 0.66 + "px";
+        //
+    }
+}
+//hhh()
+////////////////////
+function gggg() {
+    widthGameWindow = window.getComputedStyle(gameContainer).width;
+    widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
+    //console.log(widthGameWindow)
+}
+setInterval(gggg, 1000);
+////////////////////
+
+window.addEventListener("resize", hhh, false);
+window.addEventListener("load", hhh, false);
+
+// function loadTimer() {
+//     setTimeout(hhh, 1000);
+// }
