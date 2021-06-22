@@ -45,14 +45,14 @@ function drowGame() {
 
             } else {
                 console.log("gorizont");
-               // alert("1- мобильное утр-во горизонтально;")
+                // alert("1- мобильное утр-во горизонтально;")
                 screenPosition = 1;
                 gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
                 gameWindow.setAttribute("style", "height:" + mobileScreenHeight + "px");
                 btnRadius = mobileScreenHeight * 0.05;//задаю радиус кнопки
-               // console.log(btnRadius);
+                // console.log(btnRadius);
                 //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
-               // console.log(mobileScreenWidth);
+                // console.log(mobileScreenWidth);
                 //console.log(btnDistance);
             }
         }
@@ -83,19 +83,19 @@ function hhh() {
         leftButton.style.bottom = "5px";
     }
     if (screenPosition === 1) {
-//alert("1- мобильное утр-во горизонтально;")
+        //alert("1- мобильное утр-во горизонтально;")
         console.log("!!!")
         leftButton.style.width = mobileScreenWidth * 0.1;
         leftButton.style.height = mobileScreenWidth * 0.1;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
         btnDistance = Math.floor(rr) + "px";
-       // console.log(btnDistance)
+        // console.log(btnDistance)
         leftButton.style.left = btnDistance;
         leftButton.style.top = "50vh";
     }
     if (screenPosition === 2) {
-       // alert("2- мобильное утр-во вертикально;")
-       // console.log("jjjjj")
+        // alert("2- мобильное утр-во вертикально;")
+        // console.log("jjjjj")
         leftButton.style.width = mobileScreenWidth * 0.1;
         leftButton.style.height = mobileScreenWidth * 0.1;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
@@ -107,10 +107,18 @@ function hhh() {
     }
 }
 //hhh()
+//
+function gggg() {
+    widthGameWindow = window.getComputedStyle(gameContainer).width;
+    widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
+    console.log(widthGameWindow)
+}
+setInterval(gggg, 1000);
+//
 
 window.addEventListener("resize", hhh, false);
 window.addEventListener("load", loadTimer, false);
-function loadTimer(){
+function loadTimer() {
     setTimeout(hhh, 1000);
 }
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
