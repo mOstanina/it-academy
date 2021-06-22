@@ -484,3 +484,43 @@ window.addEventListener("load", hhh, false);
 window.addEventListener("orientationchange", hhh, false);
 setTimeout(hhh, 2000);
 
+
+
+////////////////
+
+//  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
+//  это будет видно только на десктопе и на мобильном в портретной ориентации
+var canvas = document.getElementById("canvas");
+var canvasContext = canvas.getContext("2d");
+canvasContext.width = canvasContext.offsetWidth;
+canvasContext.height = canvasContext.offsetHeight;
+canvas.style.position= "absolute"
+canvas.left = 0;
+canvas.top = 0;
+var w = canvas.width = window.innerWidth;
+var h = canvas.height = window.innerHeight;
+var height = window.getComputedStyle(canvas).height
+var width = window.getComputedStyle(canvas).width;
+height = parseFloat(height.replace(/[px]/g, ''));
+width = parseFloat(width.replace(/[px]/g, ''));
+var options = {
+    color: "rgba(247, 247, 119, opas)",
+    opas: 0.5,
+    lifeTime: 0.1,
+    size: 5,
+    maxSize: 100
+}
+function step() {
+    canvasContext.beginPath();
+    var randomSircle = Math.random() * options.maxSize;
+    var fillColor = "rgba(247, 247, 119," + options.opas + ")"
+    canvasContext.fillStyle = fillColor;
+    var x = Math.random() * width + 0.5;
+    var y = Math.random() * height + 0.5;
+    var radius = options.size + randomSircle
+    canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
+    canvasContext.fill();
+    canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
+    canvasContext.fillRect(0, 0, width, height);
+}
+setInterval(step, 700);
