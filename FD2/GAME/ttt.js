@@ -16,7 +16,6 @@ var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во
 drowGame()
 window.addEventListener("resize", drowGame, false);
 function drowGame() {
-
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
         console.log("Вы используете мобильное устройство (телефон или планшет).")
         mobileScreenHeight = window.screen.height//определяю высоту экрана устройства
@@ -29,7 +28,6 @@ function drowGame() {
         }
         sizeMobile();
         function rotate() {
-
             if (mobileScreenHeight > mobileScreenWidth) {
                 //alert("2- мобильное утр-во вертикально;")
                 console.log("vert");
@@ -73,7 +71,7 @@ function drowGame() {
 var leftBtn = document.getElementById("left");
 var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
-leftButton.style.position = "absolute";
+// leftButton.style.position = "absolute";
 // function hhh() {
 //     if (screenPosition === 0) {
 //         leftButton.style.width = heightGameWindow * 0.1;
@@ -163,9 +161,8 @@ thirdLine.setAttribute("x2", leftCircleRdius * 0.3);
 thirdLine.setAttribute("y2", leftCircleRdius * 1);
 thirdLine.setAttribute("stroke-linecap", "round");
 thirdLine.setAttribute("transform-origin", leftCircleRdius);
-
-
 //leftBtnn()
+
 // кнопка движения вправо
 // function rightBtn() {//     ВПРАВО
 var rightBtn = document.getElementById("left");
@@ -173,11 +170,9 @@ var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
 // rightButton.style.width = heightGameWindow * 0.1;
 // rightButton.style.height = heightGameWindow * 0.1;
-rightButton.style.position = "absolute";
-
+// rightButton.style.position = "absolute";
 // rightButton.style.right = "10px";
 // rightButton.style.bottom = "5px";
-
 //function mmm() { // позиционирование кнопки
 // if (screenPosition === 0) {
 //     rightButton.style.width = heightGameWindow * 0.1;
@@ -251,16 +246,16 @@ thirdLine.setAttribute("x2", rightCircleRdius * 1.7);
 thirdLine.setAttribute("y2", rightCircleRdius * 1);
 thirdLine.setAttribute("stroke-linecap", "round");
 thirdLine.setAttribute("transform-origin", rightCircleRdius);
-
 // }
 //rightBtn()
 //          windowHeight
+
 // кнопка рекордов
 // function recordsBtn() { //  РЕКОДЫ
 var recordsBtn = document.getElementById("left");
 var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
-recordsButton.style.position = "absolute";
+// recordsButton.style.position = "absolute";
 // recordsButton.style.width = heightGameWindow * 0.1;
 // recordsButton.style.height = heightGameWindow * 0.1;
 // recordsButton.style.right = "340px";
@@ -287,7 +282,7 @@ star.setAttribute("points", starPoints)
 var pouseBtn = document.getElementById("left");
 var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
-pouseButton.style.position = "absolute";
+// pouseButton.style.position = "absolute";
 // pouseButton.style.width = heightGameWindow * 0.1;
 // pouseButton.style.height = heightGameWindow * 0.1;
 // pouseButton.style.right = "110px";
@@ -327,7 +322,7 @@ pouseSecondLine.setAttribute("transform-origin", pouseCircleRdius);
 var playBtn = document.getElementById("left");
 var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
-playButton.style.position = "absolute";
+// playButton.style.position = "absolute";
 // playButton.style.width = heightGameWindow * 0.1;
 // playButton.style.height = heightGameWindow * 0.1;
 // playButton.style.right = "240px";
@@ -354,99 +349,118 @@ pous.setAttribute("fill", "black");
 function hhh() {
     if (screenPosition === 0) {
         var btnRadiusNoPx = Math.floor(btnRadius)
-        console.log(btnRadiusNoPx)
+        //console.log(btnRadiusNoPx)
         //left
+        leftButton.style.position = "absolute"
         leftButton.style.width = heightGameWindow * 0.1;
         leftButton.style.height = heightGameWindow * 0.1;
-        console.log(widthGameWindow)
+        //console.log(widthGameWindow)
         var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;
         btnDistance = Math.floor(rr);
         leftButton.style.left = btnDistance + "px";
         leftButton.style.bottom = "5px";
         //right
+        rightButton.style.position = "absolute"
         rightButton.style.width = heightGameWindow * 0.1;
         rightButton.style.height = heightGameWindow * 0.1;
         rightButton.style.right = btnDistance + "px";
         rightButton.style.bottom = "5px";
         //records
+        recordsButton.style.position = "absolute"
         recordsButton.style.width = heightGameWindow * 0.1;
         recordsButton.style.height = heightGameWindow * 0.1;
         recordsButton.style.left = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
         recordsButton.style.bottom = "5px";
         //pouse
+        pouseButton.style.position = "absolute"
         pouseButton.style.width = heightGameWindow * 0.1;
         pouseButton.style.height = heightGameWindow * 0.1;
         pouseButton.style.right = widthGameWindow / 2 - btnRadiusNoPx + "px";
         pouseButton.style.bottom = "5px";
         //play
+        playButton.style.position = "absolute"
         playButton.style.width = heightGameWindow * 0.1;
         playButton.style.height = heightGameWindow * 0.1;
         playButton.style.right = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
         playButton.style.bottom = "5px";
     }
     if (screenPosition === 1) {
+        mobileScreenWidth = window.screen.width;
+        mobileScreenHeight = window.screen.height;
+        screenHeight = window.getComputedStyle(gameWindow).height;
+        screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
+        console.log(mobileScreenWidth)
         //alert("1- мобильное утр-во горизонтально;")
         var btnRadiusNoPx = Math.floor(btnRadius)
-        console.log(btnRadiusNoPx)
+        //console.log(btnRadiusNoPx)
         //left
+        leftButton.style.position = "absolute"
         leftButton.style.width = btnRadius * 2;
         leftButton.style.height = btnRadius * 2;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
         btnDistance = Math.floor(rr);
         leftButton.style.left = btnDistance + "px";
-        leftButton.style.top = "50vh";
+        leftButton.style.top = mobileScreenHeight / 2 + "px";
         //right
+        rightButton.style.position = "absolute";
         rightButton.style.width = btnRadius * 2;
         rightButton.style.height = btnRadius * 2;
         rightButton.style.right = btnDistance + "px";
-        rightButton.style.top = "50vh";
+        rightButton.style.top = mobileScreenHeight / 2 + "px";
         //records
+        recordsButton.style.position = "absolute";
         recordsButton.style.width = btnRadius * 2;
         recordsButton.style.height = btnRadius * 2;
         recordsButton.style.left = mobileScreenWidth / 3 - btnRadius + "px";
-        recordsButton.style.bottom = "1vh";
+        recordsButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
         //pouse
+        pouseButton.style.position = "absolute";
         pouseButton.style.width = btnRadius * 2;
         pouseButton.style.height = btnRadius * 2;
         pouseButton.style.right = mobileScreenWidth / 2 - btnRadius + "px";
-        pouseButton.style.bottom = "5px";
+        pouseButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
         //play
+        playButton.style.position = "absolute";
         playButton.style.width = btnRadius * 2;
         playButton.style.height = btnRadius * 2;
         playButton.style.right = mobileScreenWidth / 3 - btnRadius + "px";
-        playButton.style.bottom = "5px";
+        playButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
     }
     if (screenPosition === 2) {
         // alert("2- мобильное утр-во вертикально;")
-        var screenHeight = window.getComputedStyle(gameWindow).height
-        console.log(btnDistance)
+        mobileScreenWidth = window.screen.width;
+        mobileScreenHeight = window.screen.height;
+        screenHeight = window.getComputedStyle(gameWindow).height;
+        screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
+        console.log(screenHeight)
         //left
+        leftButton.style.position = "absolute";
         leftButton.style.width = btnRadius * 2;
         leftButton.style.height = btnRadius * 2;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
         btnDistance = Math.floor(rr);
-        console.log(btnDistance)
-        leftButton.style.left = btnDistance + "px";
+        leftButton.style.left = mobileScreenWidth * 0.01 + "px";
         leftButton.style.top = screenHeight * 1.1 + "px";
-        console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
         //right
+        rightButton.style.position = "absolute";
         rightButton.style.width = btnRadius * 2;
         rightButton.style.height = btnRadius * 2;
-        rightButton.style.right = btnDistance + "px";
-        rightButton.style.top =  screenHeight * 1.1 + "px";
+        rightButton.style.right = mobileScreenWidth * 0.01 + "px"
+        rightButton.style.top = screenHeight * 1.1 + "px";
         //records
+        recordsButton.style.position = "absolute";
         recordsButton.style.width = btnRadius * 2;
         recordsButton.style.height = btnRadius * 2;
         recordsButton.style.left = mobileScreenWidth / 3 - btnRadius + "px";
-        recordsButton.style.top =  screenHeight * 1.1 + "px";
-        console.log(mobileScreenWidth * 0.9)
+        recordsButton.style.top = screenHeight * 1.1 + "px";
         //pouse
+        pouseButton.style.position = "absolute";
         pouseButton.style.width = btnRadius * 2;
         pouseButton.style.height = btnRadius * 2;
         pouseButton.style.left = mobileScreenWidth / 2 - btnRadius + "px";
-        pouseButton.style.top =  screenHeight * 1.1 + "px";
-        console.log(mobileScreenWidth * 1.1)
+        pouseButton.style.top = screenHeight * 1.1 + "px";
         //play
+        playButton.style.position = "absolute";
         playButton.style.width = btnRadius * 2;
         playButton.style.height = btnRadius * 2;
         playButton.style.right = mobileScreenWidth / 3 - btnRadius + "px";
@@ -457,15 +471,16 @@ function hhh() {
 ////////////////////
 function gggg() {
     widthGameWindow = window.getComputedStyle(gameContainer).width;
-    widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
-    //console.log(widthGameWindow)
+    widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''));
+    mobileScreenWidth = window.screen.width;
+    mobileScreenHeight = window.screen.height;
 }
 setInterval(gggg, 1000);
 ////////////////////
-
 window.addEventListener("resize", hhh, false);
 window.addEventListener("load", hhh, false);
-window.addEventListener("load", loadTimer, false);
-function loadTimer() {
-    setTimeout(hhh, 1000);
-}
+// //window.addEventListener("load", loadTimer, false);
+// window.addEventListener("orientationchange", gggg, false);
+window.addEventListener("orientationchange", hhh, false);
+setTimeout(hhh, 2000);
+
