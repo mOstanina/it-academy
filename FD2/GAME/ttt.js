@@ -12,7 +12,7 @@ var heightGameWindow = 0;
 var mobileScreenWidth = 0;
 var mobileScreenHeight = 0;
 var screenHeight = 0;
-var btnDistance;
+var btnDistance = 0;
 
 
 //////////////// ЭКРАН
@@ -43,7 +43,7 @@ function drowGame() {
                 console.log(btnRadius);
                 //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
                 //console.log(mobileScreenWidth);
-                console.log(btnDistance);
+                //console.log(btnDistance);
 
             } else {
                 console.log("gorizont");
@@ -564,10 +564,11 @@ function createFox() {
     creature.style.width = widthCreature + "px";
     creature.style.backgroundImage = 'url("../GAME/img/Fox.png")';
     //creature.style.backgroundPosition = "100%"
-    creature.style.zIndex = 10;
+    creature.style.zIndex = 100;
     creature.style.position = "absolute"
     creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
     creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+    creature.style.transform = "scale(1.5, 1.5)"
     console.log(heightGameWindow)
     console.log(btnRadius)
     console.log(heightCreature)
@@ -577,10 +578,12 @@ function createFox() {
 function createFoxApdate() {
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
     widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
+    console.log(btnRadius)
 }
 window.addEventListener("resize", createFoxApdate, false);
 window.addEventListener("load", createFoxApdate, false);
 window.addEventListener("orientationchange", createFoxApdate, false);
+setTimeout(createFoxApdate, 500)
 
 //window.addEventListener("resize", createFox, false);
 window.addEventListener("load", createFox, false);
