@@ -64,4 +64,32 @@
   width: 100%;
   height: 100%;
   display: inline-block;
+}
+
+#sprite-container {
+  display: flex;
+  align-items: center;
+}
+
+#sprite-img {
+  -webkit-animation: walkToRight 0.8s steps(3) infinite;
+          animation: walkToRight 0.8s steps(3) infinite;
+}
+
+@-webkit-keyframes walkToRight {
+  from {
+    background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+  }
+  to {
+    background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+  }
+}
+
+@keyframes walkToRight {
+  from {
+    background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+  }
+  to {
+    background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+  }
 }/*# sourceMappingURL=dd.css.map */

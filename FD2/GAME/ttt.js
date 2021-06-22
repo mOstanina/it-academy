@@ -11,7 +11,7 @@ var heightGameWindow = 0;
 var mobileScreenWidth = 0;
 var mobileScreenHeight = 0;
 var btnDistance;
-//задаю числовое значение виду и положению экрана
+//////////////// ЭКРАН
 var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во горизонтально; 2- мобильное утр-во вертикально;
 drowGame()
 window.addEventListener("resize", drowGame, false);
@@ -251,17 +251,10 @@ thirdLine.setAttribute("transform-origin", rightCircleRdius);
 //          windowHeight
 
 // кнопка рекордов
-// function recordsBtn() { //  РЕКОДЫ
 var recordsBtn = document.getElementById("left");
 var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
-// recordsButton.style.position = "absolute";
-// recordsButton.style.width = heightGameWindow * 0.1;
-// recordsButton.style.height = heightGameWindow * 0.1;
-// recordsButton.style.right = "340px";
-// recordsButton.style.bottom = "5px";
 recordsButton.style.zIndex = 10;
-
 var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 recordsCircle.setAttribute("fill", "sandybrown");
 var recordsCircleRdius = btnRadius
@@ -269,25 +262,42 @@ recordsCircle.setAttribute("r", recordsCircleRdius);
 recordsCircle.setAttribute("cx", recordsCircleRdius);
 recordsCircle.setAttribute("cy", recordsCircleRdius);
 recordsButton.appendChild(recordsCircle);
-var star = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-recordsButton.appendChild(star);
-star.setAttribute("stroke-width", 2);
-star.setAttribute("fill", "black");
-star.setAttribute("stroke", "black");
-var starPoints = "  " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.7) + "," + Math.floor(recordsCircleRdius * 0.9) + " " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1) + "," + Math.floor(recordsCircleRdius * 0.2) + " " + Math.floor(recordsCircleRdius * 0.8) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 0.4) + " " + Math.floor(recordsCircleRdius * 1.2) + "," + Math.floor(recordsCircleRdius * 0.5) + " " + Math.floor(recordsCircleRdius * 1.6) + "," + Math.floor(recordsCircleRdius * 1.6) + " " + Math.floor(recordsCircleRdius * 0.5) + "," + Math.floor(recordsCircleRdius * 1)
-star.setAttribute("points", starPoints)
-// }
+var recordsFirstLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+recordsButton.appendChild(recordsFirstLine);
+recordsFirstLine.setAttribute("stroke-width", 4);
+recordsFirstLine.setAttribute("stroke", "black");
+recordsFirstLine.setAttribute("x1", recordsCircleRdius * 0.5);
+recordsFirstLine.setAttribute("y1", recordsCircleRdius * 0.6);
+recordsFirstLine.setAttribute("x2", recordsCircleRdius * 1.5);
+recordsFirstLine.setAttribute("y2", recordsCircleRdius * 0.6);
+recordsFirstLine.setAttribute("stroke-linecap", "round");
+recordsFirstLine.setAttribute("transform-origin", recordsCircleRdius);
+var recordsSecondLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+recordsButton.appendChild(recordsSecondLine);
+recordsSecondLine.setAttribute("stroke-width", 4);
+recordsSecondLine.setAttribute("stroke", "black");
+recordsSecondLine.setAttribute("x1", recordsCircleRdius * 0.5);
+recordsSecondLine.setAttribute("y1", recordsCircleRdius * 1.4);
+recordsSecondLine.setAttribute("x2", recordsCircleRdius * 1.5);
+recordsSecondLine.setAttribute("y2", recordsCircleRdius * 1.4);
+recordsSecondLine.setAttribute("stroke-linecap", "round");
+recordsSecondLine.setAttribute("transform-origin", recordsCircleRdius);
+var recordsThirdLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+recordsButton.appendChild(recordsThirdLine);
+recordsThirdLine.setAttribute("stroke-width", 4);
+recordsThirdLine.setAttribute("stroke", "black");
+recordsThirdLine.setAttribute("x1", recordsCircleRdius * 0.5);
+recordsThirdLine.setAttribute("y1", recordsCircleRdius * 1);
+recordsThirdLine.setAttribute("x2", recordsCircleRdius * 1.5);
+recordsThirdLine.setAttribute("y2", recordsCircleRdius * 1);
+recordsThirdLine.setAttribute("stroke-linecap", "round");
+recordsThirdLine.setAttribute("transform-origin", recordsCircleRdius);
+//}
 //recordsBtn()
 // function pouseBtn() { //  ПАУЗА
 var pouseBtn = document.getElementById("left");
 var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
-// pouseButton.style.position = "absolute";
-// pouseButton.style.width = heightGameWindow * 0.1;
-// pouseButton.style.height = heightGameWindow * 0.1;
-// pouseButton.style.right = "110px";
-// pouseButton.style.bottom = "5px";
-
 var pouseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 pouseCircle.setAttribute("fill", "sandybrown");
 var pouseCircleRdius = btnRadius
@@ -322,11 +332,6 @@ pouseSecondLine.setAttribute("transform-origin", pouseCircleRdius);
 var playBtn = document.getElementById("left");
 var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
-// playButton.style.position = "absolute";
-// playButton.style.width = heightGameWindow * 0.1;
-// playButton.style.height = heightGameWindow * 0.1;
-// playButton.style.right = "240px";
-// playButton.style.bottom = "5px";
 
 var playCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 playCircle.setAttribute("fill", "sandybrown");
@@ -383,47 +388,7 @@ function hhh() {
         playButton.style.height = heightGameWindow * 0.1;
         playButton.style.right = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
         playButton.style.bottom = "5px";
-        //  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
-        //  это будет видно только на десктопе
-        function createCanvasFon() {
-            var canvasDiv = document.getElementById("canvas");
-            var canvas = document.createElement("canvas")
-            var canvasContext = canvas.getContext("2d");
-            canvasDiv.appendChild(canvas)
-            canvasContext.width = canvasContext.offsetWidth;
-            canvasContext.height = canvasContext.offsetHeight;
-            canvas.style.position = "absolute"
-            canvas.left = 0;
-            canvas.top = 0;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            var height = window.getComputedStyle(canvas).height
-            var width = window.getComputedStyle(canvas).width;
-            height = parseFloat(height.replace(/[px]/g, ''));
-            width = parseFloat(width.replace(/[px]/g, ''));
-            var options = {
-                color: "rgba(247, 247, 119, opas)",
-                opas: 0.5,
-                lifeTime: 0.1,
-                size: 5,
-                maxSize: 100
-            }
-            function step() {
-                canvasContext.beginPath();
-                var randomSircle = Math.random() * options.maxSize;
-                var fillColor = "rgba(247, 247, 119," + options.opas + ")"
-                canvasContext.fillStyle = fillColor;
-                var x = Math.random() * width + 0.5;
-                var y = Math.random() * height + 0.5;
-                var radius = options.size + randomSircle
-                canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
-                canvasContext.fill();
-                canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
-                canvasContext.fillRect(0, 0, width, height);
-            }
-            setInterval(step, 700);
-        }
-        createCanvasFon()
+
     }
     if (screenPosition === 1) {
         mobileScreenWidth = window.screen.width;
@@ -510,6 +475,50 @@ function hhh() {
         playButton.style.top = screenHeight * 1.1 + "px";
     }
 }
+
+// if (screenPosition === 0) {
+//     //  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
+//     //  (это будет видно только на десктопе)
+//     function createCanvasFon() {
+//         var canvasDiv = document.getElementById("canvas");
+//         var canvas = document.createElement("canvas")
+//         var canvasContext = canvas.getContext("2d");
+//         canvasDiv.appendChild(canvas)
+//         canvasContext.width = canvasContext.offsetWidth;
+//         canvasContext.height = canvasContext.offsetHeight;
+//         canvas.style.position = "absolute"
+//         canvas.left = 0;
+//         canvas.top = 0;
+//         canvas.width = window.innerWidth;
+//         canvas.height = window.innerHeight;
+//         var height = window.getComputedStyle(canvas).height
+//         var width = window.getComputedStyle(canvas).width;
+//         height = parseFloat(height.replace(/[px]/g, ''));
+//         width = parseFloat(width.replace(/[px]/g, ''));
+//         var options = {
+//             color: "rgba(247, 247, 119, opas)",
+//             opas: 0.5,
+//             lifeTime: 0.1,
+//             size: 5,
+//             maxSize: 100
+//         }
+//         function step() {
+//             canvasContext.beginPath();
+//             var randomSircle = Math.random() * options.maxSize;
+//             var fillColor = "rgba(247, 247, 119," + options.opas + ")"
+//             canvasContext.fillStyle = fillColor;
+//             var x = Math.random() * width + 0.5;
+//             var y = Math.random() * height + 0.5;
+//             var radius = options.size + randomSircle
+//             canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
+//             canvasContext.fill();
+//             canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
+//             canvasContext.fillRect(0, 0, width, height);
+//         }
+//         setInterval(step, 700);
+//     }
+//     createCanvasFon()
+// }
 //hhh()
 ////////////////////
 function gggg() {
@@ -529,7 +538,7 @@ setTimeout(hhh, 2000);
 
 
 
-////////////////
+//////////////// ПЕРСОНАЖ
 var creatureDiv = document.createElement("div");
 gameWindow.appendChild(creatureDiv);
 creatureDiv.setAttribute("id", "sprite-container")
@@ -538,16 +547,26 @@ creatureDiv.appendChild(creature);
 creature.setAttribute("id", "sprite-img");
 var heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
 var widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
-console.log(widthGameWindow)
-//высота и ширина персонажа
-var widthCreature = parseFloat(window.getComputedStyle(creature).width.replace(/[px]/g, ''));
-var heightCreature = parseFloat(window.getComputedStyle(creature).height.replace(/[px]/g, ''));
-console.log(widthCreature)
+//console.log(widthGameWindow)
+////// высота и ширина персонажа
+var widthCreature = widthGameWindow * 0.08 ;
+var heightCreature = heightGameWindow * 0.2 ;
+// console.log(heightGameWindow)
+// console.log(widthGameWindow)
+// console.log(widthCreature)
+// console.log(heightCreature)
+creature.style.height = heightCreature+ "px";
+creature.style.width = widthCreature+ "px";
+creature.style.backgroundImage = 'url("../GAME/img/Fox.png")';
+//creature.style.backgroundPosition = "100%"
+creature.style.zIndex = 10;
+creature.style.position = "absolute"
+creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
+creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+console.log(heightGameWindow)
+console.log(btnRadius)
 console.log(heightCreature)
-//вертикальная коррдината персонажа
-var creatureTopPosition = parseFloat(window.getComputedStyle(infoHeight).height.replace(/[px]/g, '')) + (heightGameWindow * 0.95)
-var tOffset = creatureTopPosition - heightCreature;
-var lOffset = widthGameWindow / 2 - widthCreature;
-creatureDiv.style = "position: absolute; left:" + lOffset + "px; top:" + tOffset + "px;";// позиционирование персонажа
+////// вертикальная коррдината персонажа
 
 
+//heightGameWindow = widthGameWindow 
