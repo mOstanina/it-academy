@@ -530,4 +530,24 @@ setTimeout(hhh, 2000);
 
 
 ////////////////
+var creatureDiv = document.createElement("div");
+gameWindow.appendChild(creatureDiv);
+creatureDiv.setAttribute("id", "sprite-container")
+var creature = document.createElement("div");
+creatureDiv.appendChild(creature);
+creature.setAttribute("id", "sprite-img");
+var heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
+var widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
+console.log(widthGameWindow)
+//высота и ширина персонажа
+var widthCreature = parseFloat(window.getComputedStyle(creature).width.replace(/[px]/g, ''));
+var heightCreature = parseFloat(window.getComputedStyle(creature).height.replace(/[px]/g, ''));
+console.log(widthCreature)
+console.log(heightCreature)
+//вертикальная коррдината персонажа
+var creatureTopPosition = parseFloat(window.getComputedStyle(infoHeight).height.replace(/[px]/g, '')) + (heightGameWindow * 0.95)
+var tOffset = creatureTopPosition - heightCreature;
+var lOffset = widthGameWindow / 2 - widthCreature;
+creatureDiv.style = "position: absolute; left:" + lOffset + "px; top:" + tOffset + "px;";// позиционирование персонажа
+
 
