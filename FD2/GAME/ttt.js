@@ -37,7 +37,7 @@ function drowGame() {
                 //btnRadius = mobileScreenWidth * 0.5;
                 btnRadius = mobileScreenWidth * 0.05;//задаю радиус кнопки
                 console.log(btnRadius);
-                var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
+                //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
                 //console.log(mobileScreenWidth);
                 console.log(btnDistance);
 
@@ -383,6 +383,47 @@ function hhh() {
         playButton.style.height = heightGameWindow * 0.1;
         playButton.style.right = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
         playButton.style.bottom = "5px";
+        //  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
+        //  это будет видно только на десктопе
+        function createCanvasFon() {
+            var canvasDiv = document.getElementById("canvas");
+            var canvas = document.createElement("canvas")
+            var canvasContext = canvas.getContext("2d");
+            canvasDiv.appendChild(canvas)
+            canvasContext.width = canvasContext.offsetWidth;
+            canvasContext.height = canvasContext.offsetHeight;
+            canvas.style.position = "absolute"
+            canvas.left = 0;
+            canvas.top = 0;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            var height = window.getComputedStyle(canvas).height
+            var width = window.getComputedStyle(canvas).width;
+            height = parseFloat(height.replace(/[px]/g, ''));
+            width = parseFloat(width.replace(/[px]/g, ''));
+            var options = {
+                color: "rgba(247, 247, 119, opas)",
+                opas: 0.5,
+                lifeTime: 0.1,
+                size: 5,
+                maxSize: 100
+            }
+            function step() {
+                canvasContext.beginPath();
+                var randomSircle = Math.random() * options.maxSize;
+                var fillColor = "rgba(247, 247, 119," + options.opas + ")"
+                canvasContext.fillStyle = fillColor;
+                var x = Math.random() * width + 0.5;
+                var y = Math.random() * height + 0.5;
+                var radius = options.size + randomSircle
+                canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
+                canvasContext.fill();
+                canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
+                canvasContext.fillRect(0, 0, width, height);
+            }
+            setInterval(step, 700);
+        }
+        createCanvasFon()
     }
     if (screenPosition === 1) {
         mobileScreenWidth = window.screen.width;
@@ -427,6 +468,8 @@ function hhh() {
         playButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
     }
     if (screenPosition === 2) {
+        // gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
+        // gameWindow.setAttribute("style", "height:" + mobileScreenWidth * 0.66 + "px")
         // alert("2- мобильное утр-во вертикально;")
         mobileScreenWidth = window.screen.width;
         mobileScreenHeight = window.screen.height;
@@ -488,39 +531,3 @@ setTimeout(hhh, 2000);
 
 ////////////////
 
-//  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
-//  это будет видно только на десктопе и на мобильном в портретной ориентации
-var canvas = document.getElementById("canvas");
-var canvasContext = canvas.getContext("2d");
-canvasContext.width = canvasContext.offsetWidth;
-canvasContext.height = canvasContext.offsetHeight;
-canvas.style.position= "absolute"
-canvas.left = 0;
-canvas.top = 0;
-var w = canvas.width = window.innerWidth;
-var h = canvas.height = window.innerHeight;
-var height = window.getComputedStyle(canvas).height
-var width = window.getComputedStyle(canvas).width;
-height = parseFloat(height.replace(/[px]/g, ''));
-width = parseFloat(width.replace(/[px]/g, ''));
-var options = {
-    color: "rgba(247, 247, 119, opas)",
-    opas: 0.5,
-    lifeTime: 0.1,
-    size: 5,
-    maxSize: 100
-}
-function step() {
-    canvasContext.beginPath();
-    var randomSircle = Math.random() * options.maxSize;
-    var fillColor = "rgba(247, 247, 119," + options.opas + ")"
-    canvasContext.fillStyle = fillColor;
-    var x = Math.random() * width + 0.5;
-    var y = Math.random() * height + 0.5;
-    var radius = options.size + randomSircle
-    canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
-    canvasContext.fill();
-    canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
-    canvasContext.fillRect(0, 0, width, height);
-}
-setInterval(step, 700);
