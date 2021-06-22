@@ -1,3 +1,4 @@
+"use strict";
 // создаю фон для ирового поля
 
 var gameContainer = document.getElementById("container")//нахожу контейнер
@@ -10,7 +11,10 @@ var btnRadius;
 var heightGameWindow = 0;
 var mobileScreenWidth = 0;
 var mobileScreenHeight = 0;
+var screenHeight = 0;
 var btnDistance;
+
+
 //////////////// ЭКРАН
 var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во горизонтально; 2- мобильное утр-во вертикально;
 drowGame()
@@ -539,34 +543,45 @@ setTimeout(hhh, 2000);
 
 
 //////////////// ПЕРСОНАЖ
-var creatureDiv = document.createElement("div");
-gameWindow.appendChild(creatureDiv);
-creatureDiv.setAttribute("id", "sprite-container")
-var creature = document.createElement("div");
-creatureDiv.appendChild(creature);
-creature.setAttribute("id", "sprite-img");
-var heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
-var widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
-//console.log(widthGameWindow)
-////// высота и ширина персонажа
-var widthCreature = widthGameWindow * 0.08 ;
-var heightCreature = heightGameWindow * 0.2 ;
-// console.log(heightGameWindow)
-// console.log(widthGameWindow)
-// console.log(widthCreature)
-// console.log(heightCreature)
-creature.style.height = heightCreature+ "px";
-creature.style.width = widthCreature+ "px";
-creature.style.backgroundImage = 'url("../GAME/img/Fox.png")';
-//creature.style.backgroundPosition = "100%"
-creature.style.zIndex = 10;
-creature.style.position = "absolute"
-creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
-creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
-console.log(heightGameWindow)
-console.log(btnRadius)
-console.log(heightCreature)
-////// вертикальная коррдината персонажа
+function createFox() {
+    var creatureDiv = document.createElement("div");
+    gameWindow.appendChild(creatureDiv);
+    creatureDiv.setAttribute("id", "sprite-container")
+    var creature = document.createElement("div");
+    creatureDiv.appendChild(creature);
+    creature.setAttribute("id", "sprite-img");
+    heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
+    widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
+    //console.log(widthGameWindow)
+    ////// высота и ширина персонажа
+    var widthCreature = widthGameWindow * 0.08;
+    var heightCreature = heightGameWindow * 0.2;
+    // console.log(heightGameWindow)
+    // console.log(widthGameWindow)
+    // console.log(widthCreature)
+    // console.log(heightCreature)
+    creature.style.height = heightCreature + "px";
+    creature.style.width = widthCreature + "px";
+    creature.style.backgroundImage = 'url("../GAME/img/Fox.png")';
+    //creature.style.backgroundPosition = "100%"
+    creature.style.zIndex = 10;
+    creature.style.position = "absolute"
+    creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
+    creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+    console.log(heightGameWindow)
+    console.log(btnRadius)
+    console.log(heightCreature)
+    ////// вертикальная коррдината персонажа
+    //heightGameWindow = widthGameWindow   
+}
+function createFoxApdate() {
+    heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
+    widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
+}
+window.addEventListener("resize", createFoxApdate, false);
+window.addEventListener("load", createFoxApdate, false);
+window.addEventListener("orientationchange", createFoxApdate, false);
 
-
-//heightGameWindow = widthGameWindow 
+//window.addEventListener("resize", createFox, false);
+window.addEventListener("load", createFox, false);
+//window.addEventListener("orientationchange", createFox, false);
