@@ -40,7 +40,7 @@ function drowGame() {
                 btnRadius = mobileScreenWidth * 0.05;//задаю радиус кнопки
                 console.log(btnRadius);
                 var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
-                console.log(mobileScreenWidth);
+                //console.log(mobileScreenWidth);
                 console.log(btnDistance);
 
             } else {
@@ -50,7 +50,7 @@ function drowGame() {
                 gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
                 gameWindow.setAttribute("style", "height:" + mobileScreenHeight + "px");
                 btnRadius = mobileScreenHeight * 0.05;//задаю радиус кнопки
-                // console.log(btnRadius);
+                console.log(btnRadius);
                 //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
                 // console.log(mobileScreenWidth);
                 //console.log(btnDistance);
@@ -171,8 +171,8 @@ thirdLine.setAttribute("transform-origin", leftCircleRdius);
 var rightBtn = document.getElementById("left");
 var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
-rightButton.style.width = heightGameWindow * 0.1;
-rightButton.style.height = heightGameWindow * 0.1;
+// rightButton.style.width = heightGameWindow * 0.1;
+// rightButton.style.height = heightGameWindow * 0.1;
 rightButton.style.position = "absolute";
 
 // rightButton.style.right = "10px";
@@ -261,8 +261,8 @@ var recordsBtn = document.getElementById("left");
 var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
 recordsButton.style.position = "absolute";
-recordsButton.style.width = heightGameWindow * 0.1;
-recordsButton.style.height = heightGameWindow * 0.1;
+// recordsButton.style.width = heightGameWindow * 0.1;
+// recordsButton.style.height = heightGameWindow * 0.1;
 // recordsButton.style.right = "340px";
 // recordsButton.style.bottom = "5px";
 recordsButton.style.zIndex = 10;
@@ -283,130 +283,174 @@ var starPoints = "  " + Math.floor(recordsCircleRdius * 0.4) + "," + Math.floor(
 star.setAttribute("points", starPoints)
 // }
 //recordsBtn()
-function pouseBtn() { //  ПАУЗА
-    var pouseBtn = document.getElementById("left");
-    var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
-    pouseButton.style.width = heightGameWindow * 0.1;
-    pouseButton.style.height = heightGameWindow * 0.1;
-    pouseButton.style.position = "absolute";
-    pouseButton.style.right = "110px";
-    pouseButton.style.bottom = "5px";
+// function pouseBtn() { //  ПАУЗА
+var pouseBtn = document.getElementById("left");
+var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
+pouseButton.style.position = "absolute";
+// pouseButton.style.width = heightGameWindow * 0.1;
+// pouseButton.style.height = heightGameWindow * 0.1;
+// pouseButton.style.right = "110px";
+// pouseButton.style.bottom = "5px";
 
-    var pouseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    pouseCircle.setAttribute("fill", "sandybrown");
-    var pouseCircleRdius = btnRadius
-    pouseCircle.setAttribute("r", pouseCircleRdius);
-    pouseCircle.setAttribute("cx", pouseCircleRdius);
-    pouseCircle.setAttribute("cy", pouseCircleRdius);
-    pouseButton.appendChild(pouseCircle);
+var pouseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+pouseCircle.setAttribute("fill", "sandybrown");
+var pouseCircleRdius = btnRadius
+pouseCircle.setAttribute("r", pouseCircleRdius);
+pouseCircle.setAttribute("cx", pouseCircleRdius);
+pouseCircle.setAttribute("cy", pouseCircleRdius);
+pouseButton.appendChild(pouseCircle);
 
-    var pouseLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    pouseButton.appendChild(pouseLine);
-    pouseLine.setAttribute("stroke-width", 8);
-    pouseLine.setAttribute("stroke", "black");
-    pouseLine.setAttribute("x1", pouseCircleRdius * 1.3);
-    pouseLine.setAttribute("y1", pouseCircleRdius * 1.5);
-    pouseLine.setAttribute("x2", pouseCircleRdius * 1.3);
-    pouseLine.setAttribute("y2", pouseCircleRdius * 0.5);
-    pouseLine.setAttribute("stroke-linecap", "round");
-    pouseLine.setAttribute("transform-origin", pouseCircleRdius);
-    var pouseSecondLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    pouseButton.appendChild(pouseSecondLine);
-    pouseSecondLine.setAttribute("stroke-width", 8);
-    pouseSecondLine.setAttribute("stroke", "black");
-    pouseSecondLine.setAttribute("x1", pouseCircleRdius * 0.7);
-    pouseSecondLine.setAttribute("y1", pouseCircleRdius * 1.5);
-    pouseSecondLine.setAttribute("x2", pouseCircleRdius * 0.7);
-    pouseSecondLine.setAttribute("y2", pouseCircleRdius * 0.5);
-    pouseSecondLine.setAttribute("stroke-linecap", "round");
-    pouseSecondLine.setAttribute("transform-origin", pouseCircleRdius);
-}
+var pouseLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+pouseButton.appendChild(pouseLine);
+pouseLine.setAttribute("stroke-width", 8);
+pouseLine.setAttribute("stroke", "black");
+pouseLine.setAttribute("x1", pouseCircleRdius * 1.3);
+pouseLine.setAttribute("y1", pouseCircleRdius * 1.5);
+pouseLine.setAttribute("x2", pouseCircleRdius * 1.3);
+pouseLine.setAttribute("y2", pouseCircleRdius * 0.5);
+pouseLine.setAttribute("stroke-linecap", "round");
+pouseLine.setAttribute("transform-origin", pouseCircleRdius);
+var pouseSecondLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+pouseButton.appendChild(pouseSecondLine);
+pouseSecondLine.setAttribute("stroke-width", 8);
+pouseSecondLine.setAttribute("stroke", "black");
+pouseSecondLine.setAttribute("x1", pouseCircleRdius * 0.7);
+pouseSecondLine.setAttribute("y1", pouseCircleRdius * 1.5);
+pouseSecondLine.setAttribute("x2", pouseCircleRdius * 0.7);
+pouseSecondLine.setAttribute("y2", pouseCircleRdius * 0.5);
+pouseSecondLine.setAttribute("stroke-linecap", "round");
+pouseSecondLine.setAttribute("transform-origin", pouseCircleRdius);
+// }
 //pouseBtn()
-function playBtn() {//     ИГРАТЬ
-    var playBtn = document.getElementById("left");
-    var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
-    playButton.style.width = heightGameWindow * 0.1;
-    playButton.style.height = heightGameWindow * 0.1;
-    playButton.style.position = "absolute";
-    playButton.style.right = "240px";
-    playButton.style.bottom = "5px";
+// function playBtn() {//     ИГРАТЬ
+var playBtn = document.getElementById("left");
+var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
+playButton.style.position = "absolute";
+// playButton.style.width = heightGameWindow * 0.1;
+// playButton.style.height = heightGameWindow * 0.1;
+// playButton.style.right = "240px";
+// playButton.style.bottom = "5px";
 
-    var playCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    playCircle.setAttribute("fill", "sandybrown");
-    var playCircleRdius = btnRadius
-    playCircle.setAttribute("r", playCircleRdius);
-    playCircle.setAttribute("cx", playCircleRdius);
-    playCircle.setAttribute("cy", playCircleRdius);
-    playButton.appendChild(playCircle);
+var playCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+playCircle.setAttribute("fill", "sandybrown");
+var playCircleRdius = btnRadius
+playCircle.setAttribute("r", playCircleRdius);
+playCircle.setAttribute("cx", playCircleRdius);
+playCircle.setAttribute("cy", playCircleRdius);
+playButton.appendChild(playCircle);
 
-    var pous = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-    playButton.appendChild(pous);
-    pous.setAttribute("stroke-width", 1);
-    pous.setAttribute("fill", "black");
-    pous.setAttribute("stroke", "black");
-    var playPoints = "  " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 1.5) + " " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 0.5) + " " + Math.floor(playCircleRdius * 1.5) + "," + Math.floor(playCircleRdius * 1) + " "
-    pous.setAttribute("points", playPoints);
-    pous.setAttribute("fill", "black");
-}
+var pous = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+playButton.appendChild(pous);
+pous.setAttribute("stroke-width", 1);
+pous.setAttribute("fill", "black");
+pous.setAttribute("stroke", "black");
+var playPoints = "  " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 1.5) + " " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 0.5) + " " + Math.floor(playCircleRdius * 1.5) + "," + Math.floor(playCircleRdius * 1) + " "
+pous.setAttribute("points", playPoints);
+pous.setAttribute("fill", "black");
+// }
 //playBtn()
-
 function hhh() {
     if (screenPosition === 0) {
+        var btnRadiusNoPx = Math.floor(btnRadius)
+        console.log(btnRadiusNoPx)
+        //left
         leftButton.style.width = heightGameWindow * 0.1;
         leftButton.style.height = heightGameWindow * 0.1;
         console.log(widthGameWindow)
-        var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
-        leftButton.style.left = btnDistance;
+        var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;
+        btnDistance = Math.floor(rr);
+        leftButton.style.left = btnDistance + "px";
         leftButton.style.bottom = "5px";
-        //
-        rightButton.style.right = btnDistance;
+        //right
+        rightButton.style.width = heightGameWindow * 0.1;
+        rightButton.style.height = heightGameWindow * 0.1;
+        rightButton.style.right = btnDistance + "px";
         rightButton.style.bottom = "5px";
-        //
-        recordsButton.style.right = widthGameWindow / 2 + "px";
+        //records
+        recordsButton.style.width = heightGameWindow * 0.1;
+        recordsButton.style.height = heightGameWindow * 0.1;
+        recordsButton.style.left = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
         recordsButton.style.bottom = "5px";
-        //
+        //pouse
+        pouseButton.style.width = heightGameWindow * 0.1;
+        pouseButton.style.height = heightGameWindow * 0.1;
+        pouseButton.style.right = widthGameWindow / 2 - btnRadiusNoPx + "px";
+        pouseButton.style.bottom = "5px";
+        //play
+        playButton.style.width = heightGameWindow * 0.1;
+        playButton.style.height = heightGameWindow * 0.1;
+        playButton.style.right = btnDistance * 2 + btnRadiusNoPx * 2 + "px";
+        playButton.style.bottom = "5px";
     }
     if (screenPosition === 1) {
         //alert("1- мобильное утр-во горизонтально;")
-        console.log("!!!")
-        leftButton.style.width = mobileScreenWidth * 0.1;
-        leftButton.style.height = mobileScreenWidth * 0.1;
+        var btnRadiusNoPx = Math.floor(btnRadius)
+        console.log(btnRadiusNoPx)
+        //left
+        leftButton.style.width = btnRadius * 2;
+        leftButton.style.height = btnRadius * 2;
         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
-        // console.log(btnDistance)
-        leftButton.style.left = btnDistance;
+        btnDistance = Math.floor(rr);
+        leftButton.style.left = btnDistance + "px";
         leftButton.style.top = "50vh";
-        //
-        rightButton.style.width = mobileScreenWidth * 0.1;
-        rightButton.style.height = mobileScreenWidth * 0.1;
-        rightButton.style.right = "0px";
+        //right
+        rightButton.style.width = btnRadius * 2;
+        rightButton.style.height = btnRadius * 2;
+        rightButton.style.right = btnDistance + "px";
         rightButton.style.top = "50vh";
-        //
-        // recordsButton.style.width = mobileScreenWidth * 0.1;
-        // recordsButton.style.height = mobileScreenWidth * 0.1;
-        // recordsButton.style.right = btnDistance;
-        // recordsButton.style.top = "50vh";
+        //records
+        recordsButton.style.width = btnRadius * 2;
+        recordsButton.style.height = btnRadius * 2;
+        recordsButton.style.left = mobileScreenWidth / 3 - btnRadius + "px";
+        recordsButton.style.bottom = "1vh";
+        //pouse
+        pouseButton.style.width = btnRadius * 2;
+        pouseButton.style.height = btnRadius * 2;
+        pouseButton.style.right = mobileScreenWidth / 2 - btnRadius + "px";
+        pouseButton.style.bottom = "5px";
+        //play
+        playButton.style.width = btnRadius * 2;
+        playButton.style.height = btnRadius * 2;
+        playButton.style.right = mobileScreenWidth / 3 - btnRadius + "px";
+        playButton.style.bottom = "5px";
     }
     if (screenPosition === 2) {
         // alert("2- мобильное утр-во вертикально;")
-        // console.log("jjjjj")
-        leftButton.style.width = mobileScreenWidth * 0.1;
-        leftButton.style.height = mobileScreenWidth * 0.1;
-        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-        btnDistance = Math.floor(rr) + "px";
+        var screenHeight = window.getComputedStyle(gameWindow).height
         console.log(btnDistance)
-        leftButton.style.left = btnDistance;
-        leftButton.style.top = mobileScreenWidth * 0.66 + "px";
+        //left
+        leftButton.style.width = btnRadius * 2;
+        leftButton.style.height = btnRadius * 2;
+        var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
+        btnDistance = Math.floor(rr);
+        console.log(btnDistance)
+        leftButton.style.left = btnDistance + "px";
+        leftButton.style.top = screenHeight * 1.1 + "px";
         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
-        //
-        rightButton.style.width = mobileScreenWidth * 0.1;
-        rightButton.style.height = mobileScreenWidth * 0.1;
-        rightButton.style.right = btnDistance;
-        rightButton.style.top = mobileScreenWidth * 0.66 + "px";
-        //
+        //right
+        rightButton.style.width = btnRadius * 2;
+        rightButton.style.height = btnRadius * 2;
+        rightButton.style.right = btnDistance + "px";
+        rightButton.style.top =  screenHeight * 1.1 + "px";
+        //records
+        recordsButton.style.width = btnRadius * 2;
+        recordsButton.style.height = btnRadius * 2;
+        recordsButton.style.left = mobileScreenWidth / 3 - btnRadius + "px";
+        recordsButton.style.top =  screenHeight * 1.1 + "px";
+        console.log(mobileScreenWidth * 0.9)
+        //pouse
+        pouseButton.style.width = btnRadius * 2;
+        pouseButton.style.height = btnRadius * 2;
+        pouseButton.style.left = mobileScreenWidth / 2 - btnRadius + "px";
+        pouseButton.style.top =  screenHeight * 1.1 + "px";
+        console.log(mobileScreenWidth * 1.1)
+        //play
+        playButton.style.width = btnRadius * 2;
+        playButton.style.height = btnRadius * 2;
+        playButton.style.right = mobileScreenWidth / 3 - btnRadius + "px";
+        playButton.style.top = screenHeight * 1.1 + "px";
     }
 }
 //hhh()
@@ -421,7 +465,7 @@ setInterval(gggg, 1000);
 
 window.addEventListener("resize", hhh, false);
 window.addEventListener("load", hhh, false);
-
-// function loadTimer() {
-//     setTimeout(hhh, 1000);
-// }
+window.addEventListener("load", loadTimer, false);
+function loadTimer() {
+    setTimeout(hhh, 1000);
+}
