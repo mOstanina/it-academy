@@ -556,6 +556,9 @@ function createFox() {
     ////// высота и ширина персонажа
     var widthCreature = widthGameWindow * 0.08;
     var heightCreature = heightGameWindow * 0.2;
+    creature.style.borderColor = "black";
+    creature.style.borderWidth = "1px"
+    creature.style.borderStyle = "solid"
     // console.log(heightGameWindow)
     // console.log(widthGameWindow)
     // console.log(widthCreature)
@@ -566,9 +569,11 @@ function createFox() {
     //creature.style.backgroundPosition = "100%"
     creature.style.zIndex = 100;
     creature.style.position = "absolute"
-    creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
-    creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
-    creature.style.transform = "scale(1.5, 1.5)"
+    creature.style.top = "10px"//////////!!!!!!!!!
+    creature.style.left =  "10px"//////////!!!!!!!!!
+    // creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
+    // creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+    creature.style.transform = "scale(0.8, 0.8)"
     console.log(heightGameWindow)
     console.log(btnRadius)
     console.log(heightCreature)
