@@ -506,7 +506,7 @@ function hhh() {
         console.log(screenHeight)
           //поле для времени
           timeZone.style.position = "absolute";
-          timeZone.style.top = "300px"
+          timeZone.style.top = screenHeight * 1.5 + "px";
           timeZone.style.left = "10px"
           timeZone.style.width = mobileScreenWidth * 0.45 + "px"
           timeZone.style.height = mobileScreenHeight * 0.06 + "px"
@@ -520,7 +520,7 @@ function hhh() {
           timeZone.style.borderRadius = "10%"
           // поле для счёта
           scoreZone.style.position = "absolute";
-          scoreZone.style.top = "300px"
+          scoreZone.style.top = screenHeight * 1.5 + "px";
           scoreZone.style.right = "10px"
           scoreZone.style.width = mobileScreenWidth * 0.45 + "px"
           scoreZone.style.height = mobileScreenHeight * 0.06 + "px"
@@ -711,3 +711,4 @@ createFox()
 window.addEventListener("resize", creatureFoxApdate, false);
 window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
+
