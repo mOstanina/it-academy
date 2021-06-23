@@ -78,18 +78,18 @@
 
 @-webkit-keyframes walkToRight {
   from {
-    background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+    background: url("img/Fox.png") 0px 160px;
   }
   to {
-    background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+    background: url("img/Fox.png") -168px 160px;
   }
 }
 
 @keyframes walkToRight {
   from {
-    background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+    background: url("img/Fox.png") 0px 160px;
   }
   to {
-    background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+    background: url("img/Fox.png") -168px 160px;
   }
 }/*# sourceMappingURL=dd.css.map */
