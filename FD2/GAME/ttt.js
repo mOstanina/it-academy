@@ -52,7 +52,6 @@ function drowGame() {
                 gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
                 gameWindow.setAttribute("style", "height:" + mobileScreenHeight + "px");
                 btnRadius = mobileScreenHeight * 0.05;//задаю радиус кнопки
-                console.log(btnRadius);
                 //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
                 // console.log(mobileScreenWidth);
                 //console.log(btnDistance);
@@ -399,7 +398,6 @@ function hhh() {
         mobileScreenHeight = window.screen.height;
         screenHeight = window.getComputedStyle(gameWindow).height;
         screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
-        console.log(mobileScreenWidth)
         //alert("1- мобильное утр-во горизонтально;")
         var btnRadiusNoPx = Math.floor(btnRadius)
         //console.log(btnRadiusNoPx)
@@ -543,13 +541,14 @@ setTimeout(hhh, 2000);
 
 
 //////////////// ПЕРСОНАЖ
+var creatureDiv = document.createElement("div");
+gameWindow.appendChild(creatureDiv);
+creatureDiv.setAttribute("id", "sprite-container")
+var creature = document.createElement("div");
+creatureDiv.appendChild(creature);
+creature.setAttribute("id", "sprite-img");
 function createFox() {
-    var creatureDiv = document.createElement("div");
-    gameWindow.appendChild(creatureDiv);
-    creatureDiv.setAttribute("id", "sprite-container")
-    var creature = document.createElement("div");
     creatureDiv.appendChild(creature);
-    creature.setAttribute("id", "sprite-img");
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
     widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
     //console.log(widthGameWindow)
@@ -581,8 +580,9 @@ function createFox() {
     }
     if (screenPosition === 1) {// 1- мобильное утр-во горизонтально; 
         ////// высота и ширина персонажа
-        var widthCreature = widthGameWindow * 0.1;
-        var heightCreature = heightGameWindow * 0.22;
+        creatureDiv.appendChild(creature);
+        var widthCreature = mobileScreenWidth * 0.09;
+        var heightCreature = mobileScreenHeight * 0.22;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
@@ -592,17 +592,15 @@ function createFox() {
         creature.style.position = "absolute"
         //creature.style.top = "10px"//////////!!!!!!!!!
         //creature.style.left = "10px"//////////!!!!!!!!!
-        creature.style.top = heightGameWindow - heightCreature - btnRadius * 3 + "px"
-        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.top = mobileScreenHeight - heightCreature - btnRadius * 3 + "px"
+        creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.9, 0.9)"
-        console.log(heightGameWindow)
-        console.log(btnRadius)
-        console.log(heightCreature)
     }
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
+        creatureDiv.appendChild(creature);
         ////// высота и ширина персонажа
-        var widthCreature = widthGameWindow * 0.18;
-        var heightCreature = heightGameWindow * 0.33;
+        var widthCreature = mobileScreenWidth * 0.17;
+        var heightCreature = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) * 0.33;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
@@ -612,25 +610,35 @@ function createFox() {
         creature.style.position = "absolute"
         //creature.style.top = "10px"//////////!!!!!!!!!
         //creature.style.left = "10px"//////////!!!!!!!!!
-        creature.style.top = heightGameWindow - heightCreature - btnRadius + "px"
-        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.top = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
+        creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.6, 0.6)"
-        console.log(heightGameWindow)
+        var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''))
+        console.log(r)
         console.log(btnRadius)
         console.log(heightCreature)
     }
 
+    // mobileScreenWidth = window.screen.width;
+    // mobileScreenHeight = window.screen.height;
 }
-function createFoxApdate() {
+function creatureFoxApdate() {
+
+    creatureDiv.removeChild(creature);
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
     widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
-    console.log(btnRadius)
+    createFox()
+    // console.log(btnRadius)
 }
-window.addEventListener("resize", createFoxApdate, false);
-window.addEventListener("load", createFoxApdate, false);
-window.addEventListener("orientationchange", createFoxApdate, false);
-setTimeout(createFoxApdate, 500)
+createFox()
+window.addEventListener("resize", creatureFoxApdate, false);
+window.addEventListener("load", creatureFoxApdate, false);
+window.addEventListener("orientationchange", creatureFoxApdate, false);
+//setTimeout(createFox, 500)
 
 //window.addEventListener("resize", createFox, false);
-window.addEventListener("load", createFox, false);
+//window.addEventListener("load", createFox, false);
 //window.addEventListener("orientationchange", createFox, false);
+
+// mobileScreenWidth = window.screen.width;
+// mobileScreenHeight = window.screen.height;
