@@ -34,6 +34,7 @@
   padding: 0;
   position: relative;
   display: flex;
+  background-image: url(../GAME/img/fon.jpeg);
   background-color: yellowgreen;
   background-size: contain;
   background-repeat: repeat-x;

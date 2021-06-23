@@ -553,32 +553,73 @@ function createFox() {
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
     widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
     //console.log(widthGameWindow)
-    ////// высота и ширина персонажа
-    var widthCreature = widthGameWindow * 0.08;
-    var heightCreature = heightGameWindow * 0.2;
-    creature.style.borderColor = "black";
-    creature.style.borderWidth = "1px"
-    creature.style.borderStyle = "solid"
-    // console.log(heightGameWindow)
-    // console.log(widthGameWindow)
-    // console.log(widthCreature)
-    // console.log(heightCreature)
-    creature.style.height = heightCreature + "px";
-    creature.style.width = widthCreature + "px";
-    //////creature.style.backgroundImage = 'url("img/Fox.png")';
-    //creature.style.backgroundPosition = "100%"
-    creature.style.zIndex = 100;
-    creature.style.position = "absolute"
-    creature.style.top = "10px"//////////!!!!!!!!!
-    creature.style.left =  "10px"//////////!!!!!!!!!
-    // creature.style.top = heightGameWindow - heightCreature - btnRadius * 2 + "px"
-    // creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
-    creature.style.transform = "scale(0.8, 0.8)"
-    console.log(heightGameWindow)
-    console.log(btnRadius)
-    console.log(heightCreature)
-    ////// вертикальная коррдината персонажа
-    //heightGameWindow = widthGameWindow   
+    if (screenPosition === 0) {// 0- десктоп;
+        ////// высота и ширина персонажа
+        var widthCreature = widthGameWindow * 0.08;
+        var heightCreature = heightGameWindow * 0.15;
+        creature.style.borderColor = "black";
+        creature.style.borderWidth = "1px"
+        creature.style.borderStyle = "solid"
+        // console.log(heightGameWindow)
+        // console.log(widthGameWindow)
+        // console.log(widthCreature)
+        // console.log(heightCreature)
+        creature.style.height = heightCreature + "px";
+        creature.style.width = widthCreature + "px";
+        //////creature.style.backgroundImage = 'url("img/Fox.png")';
+        //creature.style.backgroundPosition = "100%"
+        creature.style.zIndex = 100;
+        creature.style.position = "absolute"
+        //creature.style.top = "10px"//////////!!!!!!!!!
+        //creature.style.left = "10px"//////////!!!!!!!!!
+        creature.style.top = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
+        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.transform = "scale(1.2, 1.2)"
+        console.log(heightGameWindow)
+        console.log(btnRadius)
+        console.log(heightCreature)
+    }
+    if (screenPosition === 1) {// 1- мобильное утр-во горизонтально; 
+        ////// высота и ширина персонажа
+        var widthCreature = widthGameWindow * 0.1;
+        var heightCreature = heightGameWindow * 0.22;
+        creature.style.borderColor = "black";
+        creature.style.borderWidth = "1px"
+        creature.style.borderStyle = "solid"
+        creature.style.height = heightCreature + "px";
+        creature.style.width = widthCreature + "px";
+        creature.style.zIndex = 100;
+        creature.style.position = "absolute"
+        //creature.style.top = "10px"//////////!!!!!!!!!
+        //creature.style.left = "10px"//////////!!!!!!!!!
+        creature.style.top = heightGameWindow - heightCreature - btnRadius * 3 + "px"
+        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.transform = "scale(0.9, 0.9)"
+        console.log(heightGameWindow)
+        console.log(btnRadius)
+        console.log(heightCreature)
+    }
+    if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
+        ////// высота и ширина персонажа
+        var widthCreature = widthGameWindow * 0.18;
+        var heightCreature = heightGameWindow * 0.33;
+        creature.style.borderColor = "black";
+        creature.style.borderWidth = "1px"
+        creature.style.borderStyle = "solid"
+        creature.style.height = heightCreature + "px";
+        creature.style.width = widthCreature + "px";
+        creature.style.zIndex = 100;
+        creature.style.position = "absolute"
+        //creature.style.top = "10px"//////////!!!!!!!!!
+        //creature.style.left = "10px"//////////!!!!!!!!!
+        creature.style.top = heightGameWindow - heightCreature - btnRadius + "px"
+        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.transform = "scale(0.6, 0.6)"
+        console.log(heightGameWindow)
+        console.log(btnRadius)
+        console.log(heightCreature)
+    }
+
 }
 function createFoxApdate() {
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
