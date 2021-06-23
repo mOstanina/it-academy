@@ -565,7 +565,7 @@ function createFox() {
     // console.log(heightCreature)
     creature.style.height = heightCreature + "px";
     creature.style.width = widthCreature + "px";
-    creature.style.backgroundImage = 'url("../GAME/img/Fox.png")';
+    creature.style.backgroundImage = 'url("../img/Fox.png")';
     //creature.style.backgroundPosition = "100%"
     creature.style.zIndex = 100;
     creature.style.position = "absolute"

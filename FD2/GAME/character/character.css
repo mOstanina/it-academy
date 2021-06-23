@@ -7,12 +7,13 @@
       width: 55px;
       height: 74px;
       animation: MyAnimation 0.8s steps(3) infinite;
+      border: black solid 1px;
     }
   @keyframes MyAnimation {
     from {
-      background: url("/FD2/GAME/img/Fox.png") 0px 160px;
+      background: url("../img/Fox.png") 0px 160px;
     }
     to {
-      background: url("/FD2/GAME/img/Fox.png") -168px 160px;
+      background: url("../img/Fox.png") -168px 160px;
     }
   }
