@@ -4,6 +4,7 @@
 var gameContainer = document.getElementById("container")//нахожу контейнер
 var gameScreen = document.getElementById("screen");// нахожу весь экран 
 var gameWindow = document.getElementById("gameWindow");//нахожу игровое пространство
+gameWindow.style.display = "flex"////////!!!!!!!!
 var infoHeight = document.getElementById("info");//нахожу область отображения счета
 var widthGameWindow = window.getComputedStyle(gameContainer).width;// определяю ширину игровой области
 widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''));
@@ -352,12 +353,44 @@ pous.setAttribute("stroke", "black");
 var playPoints = "  " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 1.5) + " " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 0.5) + " " + Math.floor(playCircleRdius * 1.5) + "," + Math.floor(playCircleRdius * 1) + " "
 pous.setAttribute("points", playPoints);
 pous.setAttribute("fill", "black");
+// поле для времени
+var timeZone = document.createElement("div")
+//gameContainer.appendChild(timeZone);
+// поле для счёта
+var scoreZone = document.createElement("div")
+//gameContainer.appendChild(scoreZone);
 // }
 //playBtn()
 function hhh() {
     if (screenPosition === 0) {
         var btnRadiusNoPx = Math.floor(btnRadius)
         //console.log(btnRadiusNoPx)
+        gameContainer.appendChild(timeZone);
+        gameContainer.appendChild(scoreZone);
+        //поле для времени
+        timeZone.style.position = "absolute";
+        timeZone.style.top = "10px"
+        timeZone.style.left = "10px"
+        timeZone.style.width = widthGameWindow * 0.2 + "px"
+        timeZone.style.height = heightGameWindow * 0.06 + "px"
+        timeZone.style.backgroundColor = "white";
+        timeZone.style.border = " black silid 1px 10%"
+        timeZone.style.borderWidth = "1px"
+        timeZone.style.borderColor = "black"
+        timeZone.style.borderStyle = "solid"
+        timeZone.style.borderRadius = "10%"
+        // поле для счёта
+        scoreZone.style.position = "absolute";
+        scoreZone.style.top = "10px"
+        scoreZone.style.right = "10px"
+        scoreZone.style.width = widthGameWindow * 0.2 + "px"
+        scoreZone.style.height = heightGameWindow * 0.06 + "px"
+        scoreZone.style.backgroundColor = "white";
+        scoreZone.style.border = " black silid 1px 10%"
+        scoreZone.style.borderWidth = "1px"
+        scoreZone.style.borderColor = "black"
+        scoreZone.style.borderStyle = "solid"
+        scoreZone.style.borderRadius = "10%"
         //left
         leftButton.style.position = "absolute"
         leftButton.style.width = heightGameWindow * 0.1;
@@ -394,6 +427,8 @@ function hhh() {
 
     }
     if (screenPosition === 1) {
+        gameContainer.appendChild(timeZone);
+        gameContainer.appendChild(scoreZone);
         mobileScreenWidth = window.screen.width;
         mobileScreenHeight = window.screen.height;
         screenHeight = window.getComputedStyle(gameWindow).height;
@@ -401,6 +436,30 @@ function hhh() {
         //alert("1- мобильное утр-во горизонтально;")
         var btnRadiusNoPx = Math.floor(btnRadius)
         //console.log(btnRadiusNoPx)
+        //поле для времени
+        timeZone.style.position = "absolute";
+        timeZone.style.top = "10px"
+        timeZone.style.left = "10px"
+        timeZone.style.width = mobileScreenWidth * 0.2 + "px"
+        timeZone.style.height = mobileScreenHeight * 0.06 + "px"
+        timeZone.style.backgroundColor = "white";
+        timeZone.style.border = " black silid 1px 10%"
+        timeZone.style.borderWidth = "1px"
+        timeZone.style.borderColor = "black"
+        timeZone.style.borderStyle = "solid"
+        timeZone.style.borderRadius = "10%"
+        // поле для счёта
+        scoreZone.style.position = "absolute";
+        scoreZone.style.top = "10px"
+        scoreZone.style.right = "10px"
+        scoreZone.style.width = mobileScreenWidth * 0.2 + "px"
+        scoreZone.style.height = mobileScreenHeight * 0.06 + "px"
+        scoreZone.style.backgroundColor = "white";
+        scoreZone.style.border = " black silid 1px 10%"
+        scoreZone.style.borderWidth = "1px"
+        scoreZone.style.borderColor = "black"
+        scoreZone.style.borderStyle = "solid"
+        scoreZone.style.borderRadius = "10%"
         //left
         leftButton.style.position = "absolute"
         leftButton.style.width = btnRadius * 2;
@@ -435,6 +494,8 @@ function hhh() {
         playButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
     }
     if (screenPosition === 2) {
+        gameContainer.appendChild(timeZone);
+        gameContainer.appendChild(scoreZone);
         // gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
         // gameWindow.setAttribute("style", "height:" + mobileScreenWidth * 0.66 + "px")
         // alert("2- мобильное утр-во вертикально;")
@@ -443,6 +504,34 @@ function hhh() {
         screenHeight = window.getComputedStyle(gameWindow).height;
         screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
         console.log(screenHeight)
+          //поле для времени
+          timeZone.style.position = "absolute";
+          timeZone.style.top = "300px"
+          timeZone.style.left = "10px"
+          timeZone.style.width = mobileScreenWidth * 0.45 + "px"
+          timeZone.style.height = mobileScreenHeight * 0.06 + "px"
+          timeZone.style.display = "flex"
+
+          timeZone.style.backgroundColor = "white";
+          timeZone.style.border = " black silid 1px 10%"
+          timeZone.style.borderWidth = "1px"
+          timeZone.style.borderColor = "black"
+          timeZone.style.borderStyle = "solid"
+          timeZone.style.borderRadius = "10%"
+          // поле для счёта
+          scoreZone.style.position = "absolute";
+          scoreZone.style.top = "300px"
+          scoreZone.style.right = "10px"
+          scoreZone.style.width = mobileScreenWidth * 0.45 + "px"
+          scoreZone.style.height = mobileScreenHeight * 0.06 + "px"
+          timeZone.style.display = "flex"
+          scoreZone.style.backgroundColor = "white";
+          scoreZone.style.border = " black silid 1px 10%"
+          scoreZone.style.borderWidth = "1px"
+          scoreZone.style.borderColor = "black"
+          scoreZone.style.borderStyle = "solid"
+          scoreZone.style.borderRadius = "10%"
+     
         //left
         leftButton.style.position = "absolute";
         leftButton.style.width = btnRadius * 2;
@@ -524,10 +613,15 @@ function hhh() {
 //hhh()
 ////////////////////
 function gggg() {
+    gameContainer.removeChild(timeZone);
+    gameContainer.removeChild(scoreZone);
+
     widthGameWindow = window.getComputedStyle(gameContainer).width;
     widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''));
-    mobileScreenWidth = window.screen.width;
-    mobileScreenHeight = window.screen.height;
+
+
+    gameContainer.appendChild(timeZone);
+    gameContainer.appendChild(scoreZone);
 }
 setInterval(gggg, 1000);
 ////////////////////
@@ -559,18 +653,10 @@ function createFox() {
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
-        // console.log(heightGameWindow)
-        // console.log(widthGameWindow)
-        // console.log(widthCreature)
-        // console.log(heightCreature)
         creature.style.height = heightCreature + "px";
         creature.style.width = widthCreature + "px";
-        //////creature.style.backgroundImage = 'url("img/Fox.png")';
-        //creature.style.backgroundPosition = "100%"
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        //creature.style.top = "10px"//////////!!!!!!!!!
-        //creature.style.left = "10px"//////////!!!!!!!!!
         creature.style.top = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
         creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(1.2, 1.2)"
@@ -590,9 +676,7 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        //creature.style.top = "10px"//////////!!!!!!!!!
-        //creature.style.left = "10px"//////////!!!!!!!!!
-        creature.style.top = mobileScreenHeight - heightCreature - btnRadius * 3 + "px"
+        creature.style.top = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
         creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.9, 0.9)"
     }
@@ -608,8 +692,6 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        //creature.style.top = "10px"//////////!!!!!!!!!
-        //creature.style.left = "10px"//////////!!!!!!!!!
         creature.style.top = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
         creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.6, 0.6)"
@@ -618,27 +700,14 @@ function createFox() {
         console.log(btnRadius)
         console.log(heightCreature)
     }
-
-    // mobileScreenWidth = window.screen.width;
-    // mobileScreenHeight = window.screen.height;
 }
 function creatureFoxApdate() {
-
     creatureDiv.removeChild(creature);
     heightGameWindow = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));//высота игровой области
     widthGameWindow = parseFloat(window.getComputedStyle(gameWindow).width.replace(/[px]/g, ''));//ширина игровой области
     createFox()
-    // console.log(btnRadius)
 }
 createFox()
 window.addEventListener("resize", creatureFoxApdate, false);
 window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
-//setTimeout(createFox, 500)
-
-//window.addEventListener("resize", createFox, false);
-//window.addEventListener("load", createFox, false);
-//window.addEventListener("orientationchange", createFox, false);
-
-// mobileScreenWidth = window.screen.width;
-// mobileScreenHeight = window.screen.height;
