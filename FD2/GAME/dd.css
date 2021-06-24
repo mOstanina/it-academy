@@ -73,24 +73,42 @@
 }
 
 #sprite-img {
-  -webkit-animation: walkToRight 0.8s steps(3) infinite;
-          animation: walkToRight 0.8s steps(3) infinite;
+  -webkit-animation: 0.5s steps(3) infinite;
+          animation: 0.5s steps(3) infinite;
+  -webkit-animation-name: stopFox;
+          animation-name: stopFox;
 }
 
 @-webkit-keyframes walkToRight {
   from {
-    background: url("img/Fox.png") 0px 160px;
+    background: url("img/Fox.png") 0px 157px;
   }
   to {
-    background: url("img/Fox.png") -168px 160px;
+    background: url("img/Fox.png") -168px 157px;
   }
 }
 
 @keyframes walkToRight {
   from {
-    background: url("img/Fox.png") 0px 160px;
+    background: url("img/Fox.png") 0px 157px;
   }
   to {
-    background: url("img/Fox.png") -168px 160px;
+    background: url("img/Fox.png") -168px 157px;
+  }
+}
+@-webkit-keyframes stopFox {
+  from {
+    background: url("img/Fox.png") 0px 705px;
+  }
+  to {
+    background: url("img/Fox.png") -168px 705px;
+  }
+}
+@keyframes stopFox {
+  from {
+    background: url("img/Fox.png") 0px 705px;
+  }
+  to {
+    background: url("img/Fox.png") -168px 705px;
   }
 }/*# sourceMappingURL=dd.css.map */

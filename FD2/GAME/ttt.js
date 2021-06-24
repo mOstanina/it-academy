@@ -15,6 +15,12 @@ var mobileScreenHeight = 0;
 var screenHeight = 0;
 var btnDistance = 0;
 
+var fox = {
+    posX: 0,
+    posY: 0,
+    speedX: 2,
+    animationName: "stopFox",
+}
 
 //////////////// ЭКРАН
 var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во горизонтально; 2- мобильное утр-во вертикально;
@@ -74,6 +80,7 @@ function drowGame() {
 // кнопка движения влево
 var leftBtn = document.getElementById("left");
 var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+leftButton.id = "leftButton"
 gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
 // leftButton.style.position = "absolute";
 // function hhh() {
@@ -504,34 +511,34 @@ function hhh() {
         screenHeight = window.getComputedStyle(gameWindow).height;
         screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
         console.log(screenHeight)
-          //поле для времени
-          timeZone.style.position = "absolute";
-          timeZone.style.top = screenHeight * 1.5 + "px";
-          timeZone.style.left = "10px"
-          timeZone.style.width = mobileScreenWidth * 0.45 + "px"
-          timeZone.style.height = mobileScreenHeight * 0.06 + "px"
-          timeZone.style.display = "flex"
+        //поле для времени
+        timeZone.style.position = "absolute";
+        timeZone.style.top = screenHeight * 1.5 + "px";
+        timeZone.style.left = "10px"
+        timeZone.style.width = mobileScreenWidth * 0.45 + "px"
+        timeZone.style.height = mobileScreenHeight * 0.06 + "px"
+        timeZone.style.display = "flex"
 
-          timeZone.style.backgroundColor = "white";
-          timeZone.style.border = " black silid 1px 10%"
-          timeZone.style.borderWidth = "1px"
-          timeZone.style.borderColor = "black"
-          timeZone.style.borderStyle = "solid"
-          timeZone.style.borderRadius = "10%"
-          // поле для счёта
-          scoreZone.style.position = "absolute";
-          scoreZone.style.top = screenHeight * 1.5 + "px";
-          scoreZone.style.right = "10px"
-          scoreZone.style.width = mobileScreenWidth * 0.45 + "px"
-          scoreZone.style.height = mobileScreenHeight * 0.06 + "px"
-          timeZone.style.display = "flex"
-          scoreZone.style.backgroundColor = "white";
-          scoreZone.style.border = " black silid 1px 10%"
-          scoreZone.style.borderWidth = "1px"
-          scoreZone.style.borderColor = "black"
-          scoreZone.style.borderStyle = "solid"
-          scoreZone.style.borderRadius = "10%"
-     
+        timeZone.style.backgroundColor = "white";
+        timeZone.style.border = " black silid 1px 10%"
+        timeZone.style.borderWidth = "1px"
+        timeZone.style.borderColor = "black"
+        timeZone.style.borderStyle = "solid"
+        timeZone.style.borderRadius = "10%"
+        // поле для счёта
+        scoreZone.style.position = "absolute";
+        scoreZone.style.top = screenHeight * 1.5 + "px";
+        scoreZone.style.right = "10px"
+        scoreZone.style.width = mobileScreenWidth * 0.45 + "px"
+        scoreZone.style.height = mobileScreenHeight * 0.06 + "px"
+        timeZone.style.display = "flex"
+        scoreZone.style.backgroundColor = "white";
+        scoreZone.style.border = " black silid 1px 10%"
+        scoreZone.style.borderWidth = "1px"
+        scoreZone.style.borderColor = "black"
+        scoreZone.style.borderStyle = "solid"
+        scoreZone.style.borderRadius = "10%"
+
         //left
         leftButton.style.position = "absolute";
         leftButton.style.width = btnRadius * 2;
@@ -657,12 +664,13 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
-        creature.style.left = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posX = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
+        creature.style.left = fox.posY = widthGameWindow / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(1.2, 1.2)"
-        console.log(heightGameWindow)
-        console.log(btnRadius)
-        console.log(heightCreature)
+        creature.style.animationName = fox.animationName;
+        //console.log(heightGameWindow)
+        //console.log(btnRadius)
+        //console.log(heightCreature)
     }
     if (screenPosition === 1) {// 1- мобильное утр-во горизонтально; 
         ////// высота и ширина персонажа
@@ -676,9 +684,10 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
-        creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posX = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
+        creature.style.left = fox.posY = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.9, 0.9)"
+        creature.style.animationName = fox.animationName;
     }
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
         creatureDiv.appendChild(creature);
@@ -692,10 +701,11 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
-        creature.style.left = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posX = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
+        creature.style.left = fox.posY = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.6, 0.6)"
-        var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''))
+        var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));
+        creature.style.animationName = fox.animationName;
         console.log(r)
         console.log(btnRadius)
         console.log(heightCreature)
@@ -711,4 +721,34 @@ createFox()
 window.addEventListener("resize", creatureFoxApdate, false);
 window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
+//события клавиатуры
+document.addEventListener("keydown", foxMove, false);
+document.addEventListener("keyup", foxStop, false);
+//события мыши
+leftButton.addEventListener("mousedown",moveLeft, false);
+leftButton.addEventListener("mouseup",foxStop, false);
+rightButton.addEventListener("mousedown",moveRight, false);
+rightButton.addEventListener("mouseup",foxStop, false);
 
+function moveRight(){
+    creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
+    creature.style.animationName = fox.animationName = "walkToRight"
+}
+function moveLeft(){
+    creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) - 10 + "px"
+    creature.style.animationName = fox.animationName = "walkToRight"
+}
+function foxMove(event) {
+    var keycode = event.keyCode;
+    console.log(keycode)
+    if (keycode === 39) {
+        moveRight()
+    }
+    if (keycode === 37) {
+        moveLeft()
+    }
+
+}
+function foxStop(event) {
+    creature.style.animationName = fox.animationName = "stopFox";
+}

@@ -72,16 +72,25 @@
   display: flex;
   align-items: center;
 }
- #sprite-img {
-//   width: 55px;
-//   height: 74px;
-  animation: walkToRight 0.8s steps(3) infinite;
+#sprite-img {
+  //   width: 55px;
+  //   height: 74px;
+  animation: 0.5s steps(3) infinite;
+  animation-name: stopFox;
 }
 @keyframes walkToRight {
   from {
-    background: url("img/Fox.png")0px 160px;
+    background: url("img/Fox.png") 0px 157px;
   }
   to {
-    background: url("img/Fox.png") -168px 160px;
+    background: url("img/Fox.png") -168px 157px;
+  }
+}
+@keyframes stopFox {
+  from {
+    background: url("img/Fox.png")  0px 705px;
+  }
+  to {
+    background: url("img/Fox.png") -168px 705px;
   }
 }
