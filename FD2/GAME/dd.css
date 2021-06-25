@@ -73,10 +73,12 @@
 }
 
 #sprite-img {
-  -webkit-animation: 0.5s steps(3) infinite;
-          animation: 0.5s steps(3) infinite;
+  -webkit-animation: steps(3) infinite;
+          animation: steps(3) infinite;
   -webkit-animation-name: stopFox;
           animation-name: stopFox;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 
 @-webkit-keyframes walkToRight {

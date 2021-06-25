@@ -75,8 +75,9 @@
 #sprite-img {
   //   width: 55px;
   //   height: 74px;
-  animation: 0.5s steps(3) infinite;
+  animation:  steps(3) infinite;
   animation-name: stopFox;
+  animation-duration: 0.5s;
 }
 @keyframes walkToRight {
   from {

@@ -20,6 +20,7 @@ var fox = {
     posY: 0,
     speedX: 2,
     animationName: "stopFox",
+    animationDuration: "0.5s",
 }
 
 //////////////// ЭКРАН
@@ -642,6 +643,7 @@ setTimeout(hhh, 2000);
 
 
 //////////////// ПЕРСОНАЖ
+var widthCreature;
 var creatureDiv = document.createElement("div");
 gameWindow.appendChild(creatureDiv);
 creatureDiv.setAttribute("id", "sprite-container")
@@ -655,7 +657,7 @@ function createFox() {
     //console.log(widthGameWindow)
     if (screenPosition === 0) {// 0- десктоп;
         ////// высота и ширина персонажа
-        var widthCreature = widthGameWindow * 0.08;
+        widthCreature = widthGameWindow * 0.08;
         var heightCreature = heightGameWindow * 0.15;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
@@ -675,7 +677,7 @@ function createFox() {
     if (screenPosition === 1) {// 1- мобильное утр-во горизонтально; 
         ////// высота и ширина персонажа
         creatureDiv.appendChild(creature);
-        var widthCreature = mobileScreenWidth * 0.09;
+        widthCreature = mobileScreenWidth * 0.09;
         var heightCreature = mobileScreenHeight * 0.22;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
@@ -692,7 +694,7 @@ function createFox() {
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
         creatureDiv.appendChild(creature);
         ////// высота и ширина персонажа
-        var widthCreature = mobileScreenWidth * 0.17;
+        widthCreature = mobileScreenWidth * 0.17;
         var heightCreature = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) * 0.33;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
@@ -723,20 +725,34 @@ window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
 //события клавиатуры
 document.addEventListener("keydown", foxMove, false);
+//document.addEventListener("keypress", , false);
 document.addEventListener("keyup", foxStop, false);
 //события мыши
-leftButton.addEventListener("mousedown",moveLeft, false);
-leftButton.addEventListener("mouseup",foxStop, false);
-rightButton.addEventListener("mousedown",moveRight, false);
-rightButton.addEventListener("mouseup",foxStop, false);
+leftButton.addEventListener("mousedown", moveLeft, false);
+leftButton.addEventListener("mouseup", foxStop, false);
+rightButton.addEventListener("mousedown", moveRight, false);
+rightButton.addEventListener("mouseup", foxStop, false);
+console.log(widthGameWindow)
 
-function moveRight(){
-    creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
-    creature.style.animationName = fox.animationName = "walkToRight"
+function moveRight() {
+    creature.style.animationDuration = fox.animationDuration = "0.5s";
+    creature.style.animationName = fox.animationName = "walkToRight";
+    if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature * 1.5 >= widthGameWindow) {
+        creature.style.left = fox.posX = widthGameWindow - widthCreature - 10 + "px";
+    } else {
+        console.log(fox.posX)
+        creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
+    }
+
 }
-function moveLeft(){
-    creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) - 10 + "px"
+function moveLeft() {
     creature.style.animationName = fox.animationName = "walkToRight"
+    creature.style.animationDuration = fox.animationDuration = "0.5s";
+    if (parseFloat(fox.posX.replace(/[px]/g, '')) <= widthCreature * 0.2) {
+        creature.style.left = fox.posX = widthCreature * 0.2 + "px";
+    } else {
+        creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) - 10 + "px"
+    }
 }
 function foxMove(event) {
     var keycode = event.keyCode;
@@ -747,8 +763,8 @@ function foxMove(event) {
     if (keycode === 37) {
         moveLeft()
     }
-
 }
 function foxStop(event) {
     creature.style.animationName = fox.animationName = "stopFox";
+    creature.style.animationDuration = fox.animationDuration = "0.8s";
 }
