@@ -511,7 +511,7 @@ function hhh() {
         mobileScreenHeight = window.screen.height;
         screenHeight = window.getComputedStyle(gameWindow).height;
         screenHeight = parseFloat(screenHeight.replace(/[px]/g, ''))
-        console.log(screenHeight)
+        // console.log(screenHeight)
         //поле для времени
         timeZone.style.position = "absolute";
         timeZone.style.top = screenHeight * 1.5 + "px";
@@ -666,8 +666,8 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posX = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
-        creature.style.left = fox.posY = widthGameWindow / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posY = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
+        creature.style.left = fox.posX = widthGameWindow / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(1.2, 1.2)"
         creature.style.animationName = fox.animationName;
         //console.log(heightGameWindow)
@@ -686,8 +686,9 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posX = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
-        creature.style.left = fox.posY = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posY = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
+        console.log(fox.posX)
+        creature.style.left = fox.posX = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.9, 0.9)"
         creature.style.animationName = fox.animationName;
     }
@@ -703,14 +704,14 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posX = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
-        creature.style.left = fox.posY = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        creature.style.top = fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
+        creature.style.left = fox.posX = mobileScreenWidth / 2 - widthCreature / 2 + "px"
         creature.style.transform = "scale(0.6, 0.6)"
         var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));
         creature.style.animationName = fox.animationName;
-        console.log(r)
-        console.log(btnRadius)
-        console.log(heightCreature)
+        // console.log(r)
+        // console.log(btnRadius)
+        // console.log(heightCreature)
     }
 }
 function creatureFoxApdate() {
@@ -725,7 +726,6 @@ window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
 //события клавиатуры
 document.addEventListener("keydown", foxMove, false);
-//document.addEventListener("keypress", , false);
 document.addEventListener("keyup", foxStop, false);
 //события мыши
 leftButton.addEventListener("mousedown", moveLeft, false);
@@ -740,10 +740,8 @@ function moveRight() {
     if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature * 1.5 >= widthGameWindow) {
         creature.style.left = fox.posX = widthGameWindow - widthCreature - 10 + "px";
     } else {
-        console.log(fox.posX)
         creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
     }
-
 }
 function moveLeft() {
     creature.style.animationName = fox.animationName = "walkToRight"
@@ -763,8 +761,39 @@ function foxMove(event) {
     if (keycode === 37) {
         moveLeft()
     }
+
+    console.log(fox.posX)
 }
 function foxStop(event) {
     creature.style.animationName = fox.animationName = "stopFox";
     creature.style.animationDuration = fox.animationDuration = "0.8s";
 }
+// console.log(widthGameWindow)
+// console.log(widthCreature)
+// console.log(fox.posX)
+
+
+document.addEventListener("mousemove", mouseMoveHandler, false)
+function mouseMoveHandler(e) {
+    var relativeX = e.clientX - gameContainer.offsetLeft;
+    if (relativeX > 0 && relativeX < widthGameWindow) {
+        creature.style.left = fox.posX = relativeX - widthCreature / 2 + "px";
+    }
+    
+
+}
+
+document.addEventListener("mousemove", mouseVector, false)
+var lastPoint = { x: 0,}
+
+function mouseVector(event){
+    if(event.clientX > lastPoint.x){
+        //console.log("right")
+        moveRight()
+    }else{
+        //console.log("left")
+        moveLeft()
+    }
+    lastPoint.x = event.clientX
+}
+
