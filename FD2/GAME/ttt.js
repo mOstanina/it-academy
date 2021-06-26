@@ -14,17 +14,20 @@ var mobileScreenWidth = 0;
 var mobileScreenHeight = 0;
 var screenHeight = 0;
 var btnDistance = 0;
-
+var transform
 var fox = {
     posX: 0,
-    posY: 0,
+    //posY: 0,
     speedX: 10,
     animationName: "stopFox",
     animationDuration: "0.5s",
+ transform: "scale(1.2)",
+
     update: function () {
         var foxElem = creature;
         foxElem.style.transform = "translate(" + fox.speedX + "px) translateZ(0)";// выношу в GPU-слой 
-        creature.style.transform = "scale(1.2)";
+        creature.style.transform = fox.transform;
+        console.log(transform)
         fox.posX+=fox.speedX
     }
 }
@@ -676,7 +679,8 @@ function createFox() {
         creature.style.top =  fox.posY + "px"
         fox.posX = widthGameWindow / 2 - widthCreature / 2
         creature.style.left = fox.posX  + "px"
-        creature.style.transform = "scale(1.2, 1.2)"
+       fox.transform =transform= "scale(1.2, 1.2)"
+        creature.style.transform = transform
         creature.style.animationName = fox.animationName;
         //console.log(heightGameWindow)
         //console.log(btnRadius)
@@ -699,7 +703,8 @@ function createFox() {
         console.log(fox.posX)
         fox.posX = mobileScreenWidth / 2 - widthCreature / 2
         creature.style.left = fox.posX + "px"
-        creature.style.transform = "scale(0.9, 0.9)"
+        fox.transform =transform=  "scale(0.9, 0.9)"
+        creature.style.transform = transform
         creature.style.animationName = fox.animationName;
     }
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
@@ -714,11 +719,12 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
+        fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius
         creature.style.top = fox.posY  + "px"
         fox.posX = mobileScreenWidth / 2 - widthCreature / 2 
         creature.style.left = fox.posX + "px"
-        creature.style.transform = "scale(0.6, 0.6)"
+        fox.transform =transform=  "scale(0.6, 0.6)"
+        creature.style.transform = transform
         var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));
         creature.style.animationName = fox.animationName;
         // console.log(r)
@@ -814,7 +820,7 @@ rightButton.addEventListener("mouseup", foxStop, false);
 ///////////////
 console.log(fox.posX)
 function keyMoveRight() {
-    creature.style.animationDuration = fox.animationDuration = "0.5s";
+    creature.style.animationDuration = fox.animationDuration = "0.3s";
     creature.style.animationName = fox.animationName = "walkToRight";
     //requestAnimationFrame(moveRightT);
     keyMoveRightT()
