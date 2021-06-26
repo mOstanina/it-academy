@@ -18,9 +18,15 @@ var btnDistance = 0;
 var fox = {
     posX: 0,
     posY: 0,
-    speedX: 2,
+    speedX: 10,
     animationName: "stopFox",
     animationDuration: "0.5s",
+    update: function () {
+        var foxElem = creature;
+        foxElem.style.transform = "translate(" + fox.speedX + "px) translateZ(0)";// выношу в GPU-слой 
+        creature.style.transform = "scale(1.2)";
+        fox.posX+=fox.speedX
+    }
 }
 
 //////////////// ЭКРАН
@@ -666,8 +672,10 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posY = heightGameWindow - heightCreature - btnRadius * 3.5 + "px"
-        creature.style.left = fox.posX = widthGameWindow / 2 - widthCreature / 2 + "px"
+        fox.posY = heightGameWindow - heightCreature - btnRadius * 3.5///////////////
+        creature.style.top =  fox.posY + "px"
+        fox.posX = widthGameWindow / 2 - widthCreature / 2
+        creature.style.left = fox.posX  + "px"
         creature.style.transform = "scale(1.2, 1.2)"
         creature.style.animationName = fox.animationName;
         //console.log(heightGameWindow)
@@ -686,9 +694,11 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posY = mobileScreenHeight - heightCreature - btnRadius * 2.8 + "px"
+        fox.posY = mobileScreenHeight - heightCreature - btnRadius * 2.8 
+        creature.style.top = fox.posY  + "px"
         console.log(fox.posX)
-        creature.style.left = fox.posX = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        fox.posX = mobileScreenWidth / 2 - widthCreature / 2
+        creature.style.left = fox.posX + "px"
         creature.style.transform = "scale(0.9, 0.9)"
         creature.style.animationName = fox.animationName;
     }
@@ -704,8 +714,10 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        creature.style.top = fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
-        creature.style.left = fox.posX = mobileScreenWidth / 2 - widthCreature / 2 + "px"
+        fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius + "px"
+        creature.style.top = fox.posY  + "px"
+        fox.posX = mobileScreenWidth / 2 - widthCreature / 2 
+        creature.style.left = fox.posX + "px"
         creature.style.transform = "scale(0.6, 0.6)"
         var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));
         creature.style.animationName = fox.animationName;
@@ -727,41 +739,117 @@ window.addEventListener("orientationchange", creatureFoxApdate, false);
 //события клавиатуры
 document.addEventListener("keydown", foxMove, false);
 document.addEventListener("keyup", foxStop, false);
-//события мыши
-leftButton.addEventListener("mousedown", moveLeft, false);
-leftButton.addEventListener("mouseup", foxStop, false);
-rightButton.addEventListener("mousedown", moveRight, false);
+// //события мыши
+// leftButton.addEventListener("mousedown", moveLeft, false);
+// leftButton.addEventListener("mouseup", foxStop, false);
+rightButton.addEventListener("mousedown", keyMoveRight, false);
 rightButton.addEventListener("mouseup", foxStop, false);
-console.log(widthGameWindow)
+// console.log(widthGameWindow)
 
-function moveRight() {
+
+// function moveRight() {
+//     creature.style.animationDuration = fox.animationDuration = "0.5s";
+//     creature.style.animationName = fox.animationName = "walkToRight";
+//     //requestAnimationFrame(moveRightT);
+// }
+// function moveRightT() {
+//    // fox.speedX += fox.accelX;
+//     fox.posX += fox.speedX;
+
+
+//     if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature >= widthGameWindow) {
+//         fox.speedY = 0;
+//     }
+//     creatureDiv.style.transform = "translateX(" + fox.posX + 10 + "px)";
+//     fox.update();
+//     requestAnimationFrame(moveRightT);
+//      console.log(fox.posX)
+// }
+// function moveLeft() {
+//     creature.style.animationName = fox.animationName = "walkToRight"
+//     creature.style.animationDuration = fox.animationDuration = "0.5s";
+//     requestAnimationFrame(moveLeftT);
+// }
+// function moveLeftT() {
+//     fox.posX += fox.speedX;
+//     if (parseFloat(fox.posX.replace(/[px]/g, '')) <= 0) {
+//         fox.speedX = 0;
+//     }
+//     fox.update();
+//     requestAnimationFrame(moveRightT);
+// }
+// document.addEventListener("mousemove", mouseMoveHandler, false)
+// function mouseMoveHandler(e) {
+//     var relativeX = e.clientX - gameContainer.offsetLeft;
+//     if (relativeX > 0 && relativeX < widthGameWindow) {
+//         creature.style.left = fox.posX = relativeX - widthCreature + "px";
+//         console.log(relativeX)
+//     }
+//     if (relativeX <= 0) {
+//         creature.style.left = fox.posX = "0px";
+//         console.log(relativeX)
+//     }
+// }
+
+// document.addEventListener("mousemove", mouseVector, false)
+// var lastPoint = { x: 0, }
+
+// function mouseVector(event) {
+//     if (event.clientX > lastPoint.x && widthGameWindow + widthCreature) {
+//         //console.log("right")
+//         moveRight()
+
+//     } else if (event.clientX < lastPoint.x) {
+//         //console.log("left")
+//         moveLeft()
+//     } else {
+//         foxStop()
+//     }
+//     lastPoint.x = event.clientX
+// }
+
+
+
+
+///////////////
+console.log(fox.posX)
+function keyMoveRight() {
     creature.style.animationDuration = fox.animationDuration = "0.5s";
     creature.style.animationName = fox.animationName = "walkToRight";
-    if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature * 1.5 >= widthGameWindow) {
-        creature.style.left = fox.posX = widthGameWindow - widthCreature - 10 + "px";
-    } else {
-        creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
-    }
+    //requestAnimationFrame(moveRightT);
+    keyMoveRightT()
 }
-function moveLeft() {
-    creature.style.animationName = fox.animationName = "walkToRight"
-    creature.style.animationDuration = fox.animationDuration = "0.5s";
-    if (parseFloat(fox.posX.replace(/[px]/g, '')) <= widthCreature * 0.2) {
-        creature.style.left = fox.posX = widthCreature * 0.2 + "px";
+function keyMoveRightT() {
+    // fox.speedX += fox.accelX;
+   // fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
+
+    console.log(fox.posX)
+    if (fox.posX + widthCreature >= widthGameWindow) {
+        console.log("111")
+        fox.posX = widthGameWindow;
     } else {
-        creature.style.left = fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) - 10 + "px"
+        console.log("222")
+        console.log(fox.posX)
+        creature.style.transform = "scale(1.2)";
+        fox.posX = fox.posX + 10;
+        console.log(fox.posX)
+        creature.style.transitionDuration='0.3s';
+        creature.style.left = fox.posX  + "px"
+        fox.update();
+        //requestAnimationFrame(moveRight);
+        console.log(fox.posX)
     }
+
 }
 function foxMove(event) {
     var keycode = event.keyCode;
     console.log(keycode)
     if (keycode === 39) {
-        moveRight()
+        keyMoveRight()
     }
     if (keycode === 37) {
         moveLeft()
     }
-
     console.log(fox.posX)
 }
 function foxStop(event) {
@@ -773,27 +861,5 @@ function foxStop(event) {
 // console.log(fox.posX)
 
 
-document.addEventListener("mousemove", mouseMoveHandler, false)
-function mouseMoveHandler(e) {
-    var relativeX = e.clientX - gameContainer.offsetLeft;
-    if (relativeX > 0 && relativeX < widthGameWindow) {
-        creature.style.left = fox.posX = relativeX - widthCreature / 2 + "px";
-    }
-    
 
-}
-
-document.addEventListener("mousemove", mouseVector, false)
-var lastPoint = { x: 0,}
-
-function mouseVector(event){
-    if(event.clientX > lastPoint.x){
-        //console.log("right")
-        moveRight()
-    }else{
-        //console.log("left")
-        moveLeft()
-    }
-    lastPoint.x = event.clientX
-}
 
