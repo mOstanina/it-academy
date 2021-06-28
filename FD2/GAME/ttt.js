@@ -18,20 +18,21 @@ var transform
 var fox = {
     posX: 0,
     //posY: 0,
-    speedX: 10,
+    speedX: 0,
     animationName: "stopFox",
     animationDuration: "0.5s",
- transform: "scale(1.2)",
-
+    transform: "scale(1.2)",
+    vector: "r",
     update: function () {
         var foxElem = creature;
-        foxElem.style.transform = "translate(" + fox.speedX + "px) translateZ(0)";// выношу в GPU-слой 
+        console.log(fox.posX)
+        fox.posX += fox.speedX
+        foxElem.style.transform = "translate(" + fox.posX + "px) translateZ(0)";// выношу в GPU-слой 
+        console.log(fox.posX)
         creature.style.transform = fox.transform;
         console.log(transform)
-        fox.posX+=fox.speedX
     }
 }
-
 //////////////// ЭКРАН
 var screenPosition = 0; // 0- десктоп;  1- мобильное утр-во горизонтально; 2- мобильное утр-во вертикально;
 drowGame()
@@ -676,10 +677,10 @@ function createFox() {
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
         fox.posY = heightGameWindow - heightCreature - btnRadius * 3.5///////////////
-        creature.style.top =  fox.posY + "px"
+        creature.style.top = fox.posY + "px"
         fox.posX = widthGameWindow / 2 - widthCreature / 2
-        creature.style.left = fox.posX  + "px"
-       fox.transform =transform= "scale(1.2, 1.2)"
+        creature.style.left = fox.posX + "px"
+        fox.transform = transform = "scale(1.2, 1.2)"
         creature.style.transform = transform
         creature.style.animationName = fox.animationName;
         //console.log(heightGameWindow)
@@ -698,12 +699,12 @@ function createFox() {
         creature.style.width = widthCreature + "px";
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
-        fox.posY = mobileScreenHeight - heightCreature - btnRadius * 2.8 
-        creature.style.top = fox.posY  + "px"
+        fox.posY = mobileScreenHeight - heightCreature - btnRadius * 2.8
+        creature.style.top = fox.posY + "px"
         console.log(fox.posX)
         fox.posX = mobileScreenWidth / 2 - widthCreature / 2
         creature.style.left = fox.posX + "px"
-        fox.transform =transform=  "scale(0.9, 0.9)"
+        fox.transform = transform = "scale(0.9, 0.9)"
         creature.style.transform = transform
         creature.style.animationName = fox.animationName;
     }
@@ -720,10 +721,10 @@ function createFox() {
         creature.style.zIndex = 100;
         creature.style.position = "absolute"
         fox.posY = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) - heightCreature - btnRadius
-        creature.style.top = fox.posY  + "px"
-        fox.posX = mobileScreenWidth / 2 - widthCreature / 2 
+        creature.style.top = fox.posY + "px"
+        fox.posX = mobileScreenWidth / 2 - widthCreature / 2
         creature.style.left = fox.posX + "px"
-        fox.transform =transform=  "scale(0.6, 0.6)"
+        fox.transform = transform = "scale(0.6, 0.6)"
         creature.style.transform = transform
         var r = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, ''));
         creature.style.animationName = fox.animationName;
@@ -739,6 +740,8 @@ function creatureFoxApdate() {
     createFox()
 }
 createFox()
+
+
 window.addEventListener("resize", creatureFoxApdate, false);
 window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
@@ -746,12 +749,10 @@ window.addEventListener("orientationchange", creatureFoxApdate, false);
 document.addEventListener("keydown", foxMove, false);
 document.addEventListener("keyup", foxStop, false);
 // //события мыши
-// leftButton.addEventListener("mousedown", moveLeft, false);
-// leftButton.addEventListener("mouseup", foxStop, false);
 rightButton.addEventListener("mousedown", keyMoveRight, false);
 rightButton.addEventListener("mouseup", foxStop, false);
-// console.log(widthGameWindow)
-
+leftButton.addEventListener("mousedown", keyMoveLeft, false);
+leftButton.addEventListener("mouseup", foxStop, false);
 
 // function moveRight() {
 //     creature.style.animationDuration = fox.animationDuration = "0.5s";
@@ -814,9 +815,6 @@ rightButton.addEventListener("mouseup", foxStop, false);
 //     lastPoint.x = event.clientX
 // }
 
-
-
-
 ///////////////
 console.log(fox.posX)
 function keyMoveRight() {
@@ -826,46 +824,147 @@ function keyMoveRight() {
     keyMoveRightT()
 }
 function keyMoveRightT() {
-    // fox.speedX += fox.accelX;
-   // fox.posX = parseFloat(fox.posX.replace(/[px]/g, '')) + 10 + "px";
-
-    console.log(fox.posX)
+    fox.vector = "r";
     if (fox.posX + widthCreature >= widthGameWindow) {
-        console.log("111")
-        fox.posX = widthGameWindow;
+        fox.speedX = 0
     } else {
-        console.log("222")
-        console.log(fox.posX)
-        creature.style.transform = "scale(1.2)";
         fox.posX = fox.posX + 10;
-        console.log(fox.posX)
-        creature.style.transitionDuration='0.3s';
-        creature.style.left = fox.posX  + "px"
-        fox.update();
-        //requestAnimationFrame(moveRight);
-        console.log(fox.posX)
+        creature.style.transitionDuration = '0.8s';
+        creature.style.left = fox.posX + "px"
     }
-
+    fox.update();
+    fox.speedX = 0
+}
+function keyMoveLeft() {
+    creature.style.animationDuration = fox.animationDuration = "0.3s";
+    creature.style.animationName = fox.animationName = "walkToLeft";
+    keyMoveLeftT()
+}
+function keyMoveLeftT() {
+    fox.vector = "l";
+    console.log(fox.posX)
+    if (fox.posX < 0) {
+        fox.speedX = 0
+    } else {
+        creature.style.transitionDuration = '0.8s';
+        creature.style.left = fox.posX + "px"
+    }
+    console.log(fox.speedX)
+    fox.update();
+    fox.speedX = 0
 }
 function foxMove(event) {
     var keycode = event.keyCode;
     console.log(keycode)
     if (keycode === 39) {
+        fox.speedX = 10
         keyMoveRight()
     }
     if (keycode === 37) {
-        moveLeft()
+        fox.speedX = -10
+        keyMoveLeft()
     }
     console.log(fox.posX)
 }
 function foxStop(event) {
-    creature.style.animationName = fox.animationName = "stopFox";
     creature.style.animationDuration = fox.animationDuration = "0.8s";
+    if (fox.vector === "l") {
+        creature.style.animationName = fox.animationName = "stopFoxLeft";
+    }
+    else {
+        creature.style.animationName = fox.animationName = "stopFox";
+    }
+    fox.speedX = 0
 }
-// console.log(widthGameWindow)
-// console.log(widthCreature)
-// console.log(fox.posX)
 
+////////////////////////////////////////////////////////////////////////////////////////////////
 
+//////////////// ЗВЕЗДЫ
+function Star(posX) {
+    var self = this;
+    self.height = widthGameWindow * 0.06;
+    self.width = widthGameWindow * 0.06;
+    self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+    console.log(widthGameWindow)
+    // console.log(self.posX)
+    self.rotate = 0;
+    self.posY = 0;
+    self.speedY = 0.9;
+    self.createSt = function () {
+        var star = document.createElement("div");
+        // star.setAttribute("class", "star")
+        gameWindow.appendChild(star);
+        star.style.position = "absolute";
+        star.style.height = self.height + "px";
+        star.style.width = self.width + "px";
+        star.style.top = self.posY + "px";
+        star.style.left = posX + "px";
+        star.style.zIndex = 200;
+        var starDiv = document.createElement("div");//////////
+        starDiv.setAttribute("class", "star")//////////
+        star.appendChild(starDiv);//////////
+        // starDiv.style.position = "relative";//////////
+        starDiv.style.height = self.height + "px";//////////
+        starDiv.style.width = self.width + "px";//////////
+        var nut = {
+            update: function () {
+                // star.style.left=this.posX+"px";
+                // star.style.top=this.posY+"px";
+                star.style.transform = "translateY(" + self.posY + "px) translateZ(0)";
+                // starDiv.style.transform = "rotateZ(" + self.rotate + "deg)"//////////
 
+            }
+        }
+        function rotateNut() {
+            star.style.transformOrigin = "rotate(1deg);"
+        }
+        requestAnimationFrame(rotateNut);
+        function start() {
+            requestAnimationFrame(tick);
+        }
+        function tick() {
+            self.rotate += self.speedY
+            self.posY += self.speedY;
+            // вылетел ли мяч ниже пола?
+            if (self.posY + self.height > heightGameWindow) {
+                self.speedY = -self.speedY;
+                self.posY = heightGameWindow - nut.height;
+            }
+            // console.log(self.posY)
+            // if (Math.round(self.posY) === heightGameWindow / 2) {
+            //     var star1 = new Star();
+            //     star1.createSt();
+            // }
+            nut.update();
+            requestAnimationFrame(tick);
 
+        }
+        nut.update();
+        start()
+
+    }
+
+}
+var star1 = new Star();
+///////////////////////star1.createSt();
+
+var acc = [];
+var iter = 0
+function createVar() {
+    
+    var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+    acc[iter] = new Star(posX);
+    console.log(acc[iter])
+  
+    acc[iter].createSt()
+
+    console.log((acc[iter]).posX)
+    if(acc[iter].posX===heightGameWindow/2){
+        posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+        console.log(acc[iter])
+        acc[iter] = new Star(posX);
+        acc[iter].createSt()
+    }
+    iter++
+}
+createVar()

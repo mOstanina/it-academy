@@ -81,6 +81,15 @@
           animation-duration: 0.5s;
 }
 
+.star {
+  background: url("img/gelud.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: red solid 1px;
+  transform-origin: 10%;
+}
+
 @-webkit-keyframes walkToRight {
   from {
     background: url("img/Fox.png") 0px 157px;
@@ -98,6 +107,22 @@
     background: url("img/Fox.png") -168px 157px;
   }
 }
+@-webkit-keyframes walkToLeft {
+  from {
+    background: url("img/Fox2.png") 0px 157px;
+  }
+  to {
+    background: url("img/Fox2.png") -168px 157px;
+  }
+}
+@keyframes walkToLeft {
+  from {
+    background: url("img/Fox2.png") 0px 157px;
+  }
+  to {
+    background: url("img/Fox2.png") -168px 157px;
+  }
+}
 @-webkit-keyframes stopFox {
   from {
     background: url("img/Fox.png") 0px 705px;
@@ -112,5 +137,21 @@
   }
   to {
     background: url("img/Fox.png") -168px 705px;
+  }
+}
+@-webkit-keyframes stopFoxLeft {
+  from {
+    background: url("img/Fox2.png") 0px 705px;
+  }
+  to {
+    background: url("img/Fox2.png") -168px 705px;
+  }
+}
+@keyframes stopFoxLeft {
+  from {
+    background: url("img/Fox2.png") 0px 705px;
+  }
+  to {
+    background: url("img/Fox2.png") -168px 705px;
   }
 }/*# sourceMappingURL=dd.css.map */
