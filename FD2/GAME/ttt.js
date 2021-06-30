@@ -25,12 +25,12 @@ var fox = {
     vector: "r",
     update: function () {
         var foxElem = creature;
-        console.log(fox.posX)
+        // console.log(fox.posX)
         fox.posX += fox.speedX
         foxElem.style.transform = "translate(" + fox.posX + "px) translateZ(0)";// выношу в GPU-слой 
-        console.log(fox.posX)
+        //  console.log(fox.posX)
         creature.style.transform = fox.transform;
-        console.log(transform)
+        //  console.log(transform)
     }
 }
 //////////////// ЭКРАН
@@ -832,7 +832,7 @@ function keyMoveLeft() {
 }
 function keyMoveLeftT() {
     fox.vector = "l";
-    console.log(fox.posX)
+    // console.log(fox.posX)
     if (fox.posX < 0) {
         fox.speedX = 0
     } else {
@@ -846,7 +846,7 @@ function keyMoveLeftT() {
 }
 function foxMove(event) {
     var keycode = event.keyCode;
-    console.log(keycode)
+    //console.log(keycode)
     if (keycode === 39) {
         fox.speedX = 10
         keyMoveRight()
@@ -855,7 +855,7 @@ function foxMove(event) {
         fox.speedX = -10
         keyMoveLeft()
     }
-    console.log(fox.posX)
+    // console.log(fox.posX)
 }
 function foxStop(event) {
     creature.style.animationDuration = fox.animationDuration = "0.8s";
@@ -876,18 +876,18 @@ function Acorn(posX) {
         self.height = widthGameWindow * 0.06;
         self.width = widthGameWindow * 0.06;
         //self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
-   // self.posX = Math.floor(Math.random() * widthGameWindow);
+        // self.posX = Math.floor(Math.random() * widthGameWindow);
     }
     if (screenPosition === 1) {// 1- мобильное утр-во горизонтально
         //var heightCreature = mobileScreenHeight * 0.22;
         self.height = mobileScreenWidth * 0.06;
         self.width = mobileScreenWidth * 0.06;
-     //   self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+        //   self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
     }
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
         self.height = mobileScreenWidth * 0.06;
         self.width = mobileScreenWidth * 0.06;
-      //  self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+        //  self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
     }
     self.id = acc.length;
     self.rotate = 0;
@@ -899,18 +899,19 @@ function Acorn(posX) {
         // acorn.setAttribute("class", "acorn")
         gameWindow.appendChild(acorn);
         acorn.setAttribute("id", `${self.id}`)
+        acorn.setAttribute("class", "star")//////////
         acorn.style.position = "absolute";
         acorn.style.height = self.height + "px";
         acorn.style.width = self.width + "px";
         acorn.style.top = self.posY + "px";
         acorn.style.left = posX + "px";
         acorn.style.zIndex = 200;
-        var acornDiv = document.createElement("div");//////////
-        acornDiv.setAttribute("class", "star")//////////
-        acorn.appendChild(acornDiv);//////////
-        // acornDiv.style.position = "relative";//////////
-        acornDiv.style.height = self.height + "px";//////////
-        acornDiv.style.width = self.width + "px";//////////
+        // var acornDiv = document.createElement("div");//////////
+        // acornDiv.setAttribute("class", "star")//////////
+        // acorn.appendChild(acornDiv);//////////
+        // // acornDiv.style.position = "relative";//////////
+        // acornDiv.style.height = self.height + "px";//////////
+        // acornDiv.style.width = self.width + "px";//////////
         var nut = {
             update: function () {
                 mobileScreenWidth = window.screen.width;
@@ -923,12 +924,19 @@ function Acorn(posX) {
 
                 if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
                     //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
-                    gameWindow.removeChild(acorn)
+                    // console.log(gameWindow)
+                    // console.log(self.id)
+                    // // acornDiv.removeChild(acorn)
+                    // // gameWindow.removeChild(acornDiv)
+                    var elt = document.getElementById(`${self.id}`)
+                    //  console.log(self.id)
+                    gameWindow.removeChild(elt)
+                    clickSound();
+                    vibro(true);
                     count += 1
                     scoreZone.innerHTML = count
                 }
-
-               // console.log(self.posX)
+                // console.log(self.posX)
                 //console.log(self.posY)
                 // console.log(fox.posX)
                 //console.log(fox.posY)
@@ -960,6 +968,8 @@ function Acorn(posX) {
             nut.deleteAcorn();
             requestAnimationFrame(tick);
         }
+
+
         nut.update();
         start()
     }
@@ -968,7 +978,7 @@ function Acorn(posX) {
 ///////////////////////star1.createSt();
 var iter = 0
 function createVar() {
-    var posX  = Math.floor(Math.random() * widthGameWindow*0.9);
+    var posX = Math.floor(Math.random() * widthGameWindow * 0.9);
     //var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
     var m = new Acorn(posX)
     acc.push(m)
@@ -977,7 +987,7 @@ function createVar() {
     // console.log((acc[iter]).posY)
     var id = acc.length - 1
     acc[iter].id = id
-    console.log(posX)
+    //console.log(posX)
     iter += 1
 }
 createVar()
@@ -991,4 +1001,47 @@ function coordinatsOfAcorn() {
     requestAnimationFrame(coordinatsOfAcorn)
 }
 coordinatsOfAcorn()
+// ЗВУК СТОЛКНОВЕНИЯ
+var clickAudio = new Audio;
+// результат canPlayType: "probably" - скорее всего, "maybe" - неизвестно, "" - нет
+console.log(clickAudio.canPlayType("audio/ogg; codecs=vorbis"));
+console.log(clickAudio.canPlayType("audio/mpeg"));
+if (clickAudio.canPlayType("audio/mpeg") == "probably")
+    clickAudio.src = "http://fe.it-academy.by/Examples/Sounds/button-16.mp3";
+else
+    clickAudio.src = "http://fe.it-academy.by/Examples/Sounds/button-16.ogg";
 
+// если поддержка формата точно известна, можно сразу так:
+//var clickAudio=new Audio("http://fe.it-academy.by/Examples/Sounds/button-16.mp3");
+var RAF = window.requestAnimationFrame;
+
+function clickSoundInit() {
+    clickAudio.play(); // запускаем звук
+    clickAudio.pause(); // и сразу останавливаем
+}
+
+function clickSound() {
+    clickAudio.currentTime = 0; // в секундах
+    clickAudio.play();
+}
+
+function startT() {
+    clickSound()
+    RAF(tickK);
+}
+function tickK() {
+
+    requestAnimationFrame(tickK);
+}
+
+
+playButton.addEventListener("mousedown", startT, false);
+//BИБРАЦИЯ
+function vibro(longFlag) {
+    if (navigator.vibrate) { // есть поддержка Vibration API?
+        if (!longFlag)
+            window.navigator.vibrate(100); // вибрация 100мс
+        else
+            window.navigator.vibrate([100, 50, 100, 50, 100]); // вибрация 3 раза по 100мс с паузами 50мс
+    }
+}
