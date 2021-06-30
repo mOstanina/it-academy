@@ -920,21 +920,19 @@ function Star(posX) {
                 star.style.transform = "translateY(" + self.posY + "px) translateZ(0)";
             },
             deleteAcorn: function () {
-                //   console.log(mobileScreenHeight)
                 mobileScreenHeight = window.screen.height
-                // console.log(Math.floor(fox.posX))
-                if ((Math.floor(self.posX) > Math.floor(fox.posX)) && (Math.floor(self.posX) < Math.floor(fox.posX + widthCreature))) {
-                    //console.log("555")
-
+                //ПОКА ТОЛЬКО ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
+                if ((Math.floor(self.posX) >= Math.floor(fox.posX)) && (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature))   ||   (Math.floor(self.posX+self.width) <= Math.floor(fox.posX+widthCreature)) && (Math.floor(self.posX+self.width) >= Math.floor(fox.posX))) {
                     if (Math.floor(self.posY + self.height) === Math.floor(fox.posY)) {
                         console.log("554566")
                         count += 1
                         scoreZone.innerHTML = count
+                        //.getBoundingClientRect().left
                        // console.log("999")
                         //console.log(Math.floor(fox.posX))
                     }
                 }
-                //console.log(Math.floor(widthCreature))
+               // console.log(self.posX)
                 //удаляет DOM-элемент при падении на пол
                 if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.8) || Math.floor(self.posY) === Math.floor(mobileScreenHeight * 0.9)) {
                     // console.log("!")
@@ -999,6 +997,7 @@ function coordinatsOfAcorn() {
     }
     var eeLeft = el.getBoundingClientRect().left;
     requestAnimationFrame(coordinatsOfAcorn)
+   
 }
 coordinatsOfAcorn()
 
