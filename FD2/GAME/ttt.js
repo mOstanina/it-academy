@@ -1,6 +1,5 @@
 "use strict";
 // создаю фон для ирового поля
-
 var gameContainer = document.getElementById("container")//нахожу контейнер
 var gameScreen = document.getElementById("screen");// нахожу весь экран 
 var gameWindow = document.getElementById("gameWindow");//нахожу игровое пространство
@@ -145,8 +144,6 @@ gameContainer.appendChild(leftButton);// прикрепляю кнопку к ga
 // function loadTimer() {
 //     setTimeout(hhh, 1000);
 // }
-
-
 var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 leftCircle.setAttribute("fill", "sandybrown");
 var leftCircleRdius = btnRadius
@@ -372,10 +369,10 @@ pous.setAttribute("stroke", "black");
 var playPoints = "  " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 1.5) + " " + Math.floor(playCircleRdius * 0.7) + "," + Math.floor(playCircleRdius * 0.5) + " " + Math.floor(playCircleRdius * 1.5) + "," + Math.floor(playCircleRdius * 1) + " "
 pous.setAttribute("points", playPoints);
 pous.setAttribute("fill", "black");
-// поле для времени
+/////////////////////////////////////////////// поле для времени
 var timeZone = document.createElement("div")
 //gameContainer.appendChild(timeZone);
-// поле для счёта
+/////////////////////////////////////////////// поле для счёта
 var scoreZone = document.createElement("div")
 scoreZone.innerHTML = count
 //gameContainer.appendChild(scoreZone);
@@ -639,10 +636,10 @@ function gggg() {
     widthGameWindow = window.getComputedStyle(gameContainer).width;
     widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''));
 
-
     gameContainer.appendChild(timeZone);
     gameContainer.appendChild(scoreZone);
 }
+//requestAnimationFrame(gggg)
 setInterval(gggg, 1000);
 ////////////////////
 window.addEventListener("resize", hhh, false);
@@ -651,9 +648,7 @@ window.addEventListener("load", hhh, false);
 // window.addEventListener("orientationchange", gggg, false);
 window.addEventListener("orientationchange", hhh, false);
 setTimeout(hhh, 2000);
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////// ПЕРСОНАЖ
 var widthCreature;
 var creatureDiv = document.createElement("div");
@@ -872,9 +867,9 @@ function foxStop(event) {
     fox.speedX = 0
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////// ЗВЕЗДЫ
+//////////////// ЖЕЛУДИ
 var acc = [];
-function Star(posX) {
+function Acorn(posX) {
     var self = this;
     if (screenPosition === 0) {
         self.height = widthGameWindow * 0.06;
@@ -897,31 +892,31 @@ function Star(posX) {
     self.posY = 0;
     self.speedY = 0.9;
     self.createSt = function () {
-        var star = document.createElement("div");
-        // star.setAttribute("class", "star")
-        gameWindow.appendChild(star);
-        star.setAttribute("id", `${self.id}`)
-        star.style.position = "absolute";
-        star.style.height = self.height + "px";
-        star.style.width = self.width + "px";
-        star.style.top = self.posY + "px";
-        star.style.left = posX + "px";
-        star.style.zIndex = 200;
-        var starDiv = document.createElement("div");//////////
-        starDiv.setAttribute("class", "star")//////////
-        star.appendChild(starDiv);//////////
-        // starDiv.style.position = "relative";//////////
-        starDiv.style.height = self.height + "px";//////////
-        starDiv.style.width = self.width + "px";//////////
+        var acorn = document.createElement("div");
+        // acorn.setAttribute("class", "acorn")
+        gameWindow.appendChild(acorn);
+        acorn.setAttribute("id", `${self.id}`)
+        acorn.style.position = "absolute";
+        acorn.style.height = self.height + "px";
+        acorn.style.width = self.width + "px";
+        acorn.style.top = self.posY + "px";
+        acorn.style.left = posX + "px";
+        acorn.style.zIndex = 200;
+        var acornDiv = document.createElement("div");//////////
+        acornDiv.setAttribute("class", "star")//////////
+        acorn.appendChild(acornDiv);//////////
+        // acornDiv.style.position = "relative";//////////
+        acornDiv.style.height = self.height + "px";//////////
+        acornDiv.style.width = self.width + "px";//////////
         var nut = {
             update: function () {
                 mobileScreenWidth = window.screen.width;
                 mobileScreenHeight = window.screen.height
-                star.style.transform = "translateY(" + self.posY + "px) translateZ(0)";
+                acorn.style.transform = "translateY(" + self.posY + "px) translateZ(0)";
             },
             deleteAcorn: function () {
                 mobileScreenHeight = window.screen.height
-                //ПОКА ТОЛЬКО ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
+                //ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
                 if ((Math.floor(self.posX) >= Math.floor(fox.posX)) && (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature))   ||   (Math.floor(self.posX+self.width) <= Math.floor(fox.posX+widthCreature)) && (Math.floor(self.posX+self.width) >= Math.floor(fox.posX))) {
                     if (Math.floor(self.posY + self.height) === Math.floor(fox.posY)) {
                         console.log("554566")
@@ -932,16 +927,15 @@ function Star(posX) {
                         //console.log(Math.floor(fox.posX))
                     }
                 }
-               // console.log(self.posX)
                 //удаляет DOM-элемент при падении на пол
                 if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.8) || Math.floor(self.posY) === Math.floor(mobileScreenHeight * 0.9)) {
                     // console.log("!")
-                    gameWindow.removeChild(star)
+                    gameWindow.removeChild(acorn)
                 }
             },
         }
         function rotateNut() {
-            star.style.transformOrigin = "rotate(1deg);"
+            acorn.style.transformOrigin = "rotate(1deg);"
         }
         requestAnimationFrame(rotateNut);
         function start() {
@@ -962,12 +956,12 @@ function Star(posX) {
         start()
     }
 }
-var star1 = new Star();
+var acorn1 = new Acorn();
 ///////////////////////star1.createSt();
 var iter = 0
 function createVar() {
     var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
-    var m = new Star(posX)
+    var m = new Acorn(posX)
     acc.push(m)
     // console.log(acc[iter])
     acc[iter].createSt()
@@ -980,7 +974,7 @@ function createVar() {
     // if (acc[iter].posX === heightGameWindow / 2) {
     //     posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
     //     console.log(acc[iter])
-    //     acc[iter] = new Star(posX);
+    //     acc[iter] = new Acorn(posX);
     //     acc[iter].createSt()
     // }
     iter += 1
@@ -988,19 +982,12 @@ function createVar() {
 createVar()
 function coordinatsOfAcorn() {
     var el = document.getElementById(`${acc.length - 1}`)
-    //console.log(el)
     var ee = el.getBoundingClientRect().top;
-    //console.log(ee)
     if (Math.floor(ee) === Math.floor(heightGameWindow / 2)) {
         createVar()
-
     }
     var eeLeft = el.getBoundingClientRect().left;
     requestAnimationFrame(coordinatsOfAcorn)
-   
 }
 coordinatsOfAcorn()
-
-//ловим желуди
-
 
