@@ -651,6 +651,7 @@ setTimeout(hhh, 2000);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////// ПЕРСОНАЖ
 var widthCreature;
+var heightCreature;
 var creatureDiv = document.createElement("div");
 gameWindow.appendChild(creatureDiv);
 creatureDiv.setAttribute("id", "sprite-container")
@@ -665,7 +666,7 @@ function createFox() {
     if (screenPosition === 0) {// 0- десктоп;
         ////// высота и ширина персонажа
         widthCreature = widthGameWindow * 0.08;
-        var heightCreature = heightGameWindow * 0.15;
+        heightCreature = heightGameWindow * 0.15;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
@@ -688,7 +689,7 @@ function createFox() {
         ////// высота и ширина персонажа
         creatureDiv.appendChild(creature);
         widthCreature = mobileScreenWidth * 0.09;
-        var heightCreature = mobileScreenHeight * 0.22;
+        heightCreature = mobileScreenHeight * 0.22;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
@@ -709,7 +710,7 @@ function createFox() {
         creatureDiv.appendChild(creature);
         ////// высота и ширина персонажа
         widthCreature = mobileScreenWidth * 0.17;
-        var heightCreature = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) * 0.33;
+        heightCreature = parseFloat(window.getComputedStyle(gameWindow).height.replace(/[px]/g, '')) * 0.33;
         creature.style.borderColor = "black";
         creature.style.borderWidth = "1px"
         creature.style.borderStyle = "solid"
@@ -874,21 +875,23 @@ function Acorn(posX) {
     if (screenPosition === 0) {
         self.height = widthGameWindow * 0.06;
         self.width = widthGameWindow * 0.06;
-        self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+        //self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+   // self.posX = Math.floor(Math.random() * widthGameWindow);
     }
     if (screenPosition === 1) {// 1- мобильное утр-во горизонтально
         //var heightCreature = mobileScreenHeight * 0.22;
         self.height = mobileScreenWidth * 0.06;
         self.width = mobileScreenWidth * 0.06;
-        self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+     //   self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
     }
     if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
         self.height = mobileScreenWidth * 0.06;
         self.width = mobileScreenWidth * 0.06;
-        self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+      //  self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
     }
     self.id = acc.length;
     self.rotate = 0;
+    self.posX = posX;
     self.posY = 0;
     self.speedY = 0.9;
     self.createSt = function () {
@@ -917,16 +920,21 @@ function Acorn(posX) {
             deleteAcorn: function () {
                 mobileScreenHeight = window.screen.height
                 //ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
-                if ((Math.floor(self.posX) >= Math.floor(fox.posX)) && (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature))   ||   (Math.floor(self.posX+self.width) <= Math.floor(fox.posX+widthCreature)) && (Math.floor(self.posX+self.width) >= Math.floor(fox.posX))) {
-                    if (Math.floor(self.posY + self.height) === Math.floor(fox.posY)) {
-                        console.log("554566")
-                        count += 1
-                        scoreZone.innerHTML = count
-                        //.getBoundingClientRect().left
-                       // console.log("999")
-                        //console.log(Math.floor(fox.posX))
-                    }
+
+                if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
+                    //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
+                    gameWindow.removeChild(acorn)
+                    count += 1
+                    scoreZone.innerHTML = count
                 }
+
+               // console.log(self.posX)
+                //console.log(self.posY)
+                // console.log(fox.posX)
+                //console.log(fox.posY)
+                //console.log(widthCreature)
+                //console.log(heightCreature)
+
                 //удаляет DOM-элемент при падении на пол
                 if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.8) || Math.floor(self.posY) === Math.floor(mobileScreenHeight * 0.9)) {
                     // console.log("!")
@@ -956,11 +964,12 @@ function Acorn(posX) {
         start()
     }
 }
-var acorn1 = new Acorn();
+//var acorn1 = new Acorn(widthGameWindow/2);
 ///////////////////////star1.createSt();
 var iter = 0
 function createVar() {
-    var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+    var posX  = Math.floor(Math.random() * widthGameWindow*0.9);
+    //var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
     var m = new Acorn(posX)
     acc.push(m)
     // console.log(acc[iter])
@@ -968,15 +977,7 @@ function createVar() {
     // console.log((acc[iter]).posY)
     var id = acc.length - 1
     acc[iter].id = id
-    // console.log(acc.length - 1)
-    //нахожу момент когда жулудь пройдет половину экрана чтобы добавить новый
-    //console.log(acc[acc.length - 1])
-    // if (acc[iter].posX === heightGameWindow / 2) {
-    //     posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
-    //     console.log(acc[iter])
-    //     acc[iter] = new Acorn(posX);
-    //     acc[iter].createSt()
-    // }
+    console.log(posX)
     iter += 1
 }
 createVar()
