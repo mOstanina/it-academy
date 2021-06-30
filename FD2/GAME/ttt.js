@@ -14,7 +14,8 @@ var mobileScreenWidth = 0;
 var mobileScreenHeight = 0;
 var screenHeight = 0;
 var btnDistance = 0;
-var transform
+var transform;
+var count = 0;
 var fox = {
     posX: 0,
     //posY: 0,
@@ -376,6 +377,7 @@ var timeZone = document.createElement("div")
 //gameContainer.appendChild(timeZone);
 // поле для счёта
 var scoreZone = document.createElement("div")
+scoreZone.innerHTML = count
 //gameContainer.appendChild(scoreZone);
 // }
 //playBtn()
@@ -741,8 +743,6 @@ function creatureFoxApdate() {
     createFox()
 }
 createFox()
-
-
 window.addEventListener("resize", creatureFoxApdate, false);
 window.addEventListener("load", creatureFoxApdate, false);
 window.addEventListener("orientationchange", creatureFoxApdate, false);
@@ -754,7 +754,6 @@ rightButton.addEventListener("mousedown", keyMoveRight, false);
 rightButton.addEventListener("mouseup", foxStop, false);
 leftButton.addEventListener("mousedown", keyMoveLeft, false);
 leftButton.addEventListener("mouseup", foxStop, false);
-
 // function moveRight() {
 //     creature.style.animationDuration = fox.animationDuration = "0.5s";
 //     creature.style.animationName = fox.animationName = "walkToRight";
@@ -763,8 +762,6 @@ leftButton.addEventListener("mouseup", foxStop, false);
 // function moveRightT() {
 //    // fox.speedX += fox.accelX;
 //     fox.posX += fox.speedX;
-
-
 //     if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature >= widthGameWindow) {
 //         fox.speedY = 0;
 //     }
@@ -798,15 +795,12 @@ leftButton.addEventListener("mouseup", foxStop, false);
 //         console.log(relativeX)
 //     }
 // }
-
 // document.addEventListener("mousemove", mouseVector, false)
 // var lastPoint = { x: 0, }
-
 // function mouseVector(event) {
 //     if (event.clientX > lastPoint.x && widthGameWindow + widthCreature) {
 //         //console.log("right")
 //         moveRight()
-
 //     } else if (event.clientX < lastPoint.x) {
 //         //console.log("left")
 //         moveLeft()
@@ -815,7 +809,6 @@ leftButton.addEventListener("mouseup", foxStop, false);
 //     }
 //     lastPoint.x = event.clientX
 // }
-
 ///////////////
 console.log(fox.posX)
 function keyMoveRight() {
@@ -847,10 +840,11 @@ function keyMoveLeftT() {
     if (fox.posX < 0) {
         fox.speedX = 0
     } else {
+        fox.posX = fox.posX - 10;
         creature.style.transitionDuration = '0.8s';
         creature.style.left = fox.posX + "px"
     }
-    console.log(fox.speedX)
+    // console.log(fox.speedX)
     fox.update();
     fox.speedX = 0
 }
@@ -877,18 +871,27 @@ function foxStop(event) {
     }
     fox.speedX = 0
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
 //////////////// ЗВЕЗДЫ
 var acc = [];
 function Star(posX) {
     var self = this;
-    self.height = widthGameWindow * 0.06;
-    self.width = widthGameWindow * 0.06;
-    self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
-    // console.log(widthGameWindow)
-    // console.log(self.posX)
+    if (screenPosition === 0) {
+        self.height = widthGameWindow * 0.06;
+        self.width = widthGameWindow * 0.06;
+        self.posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
+    }
+    if (screenPosition === 1) {// 1- мобильное утр-во горизонтально
+        //var heightCreature = mobileScreenHeight * 0.22;
+        self.height = mobileScreenWidth * 0.06;
+        self.width = mobileScreenWidth * 0.06;
+        self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+    }
+    if (screenPosition === 2) {// 2- мобильное утр-во вертикально;
+        self.height = mobileScreenWidth * 0.06;
+        self.width = mobileScreenWidth * 0.06;
+        self.posX = Math.floor(Math.random() * (Math.floor(mobileScreenWidth - mobileScreenWidth * 0.06) - Math.ceil(mobileScreenWidth * 0.06))) + Math.ceil(mobileScreenWidth * 0.06)
+    }
     self.id = acc.length;
     self.rotate = 0;
     self.posY = 0;
@@ -912,19 +915,32 @@ function Star(posX) {
         starDiv.style.width = self.width + "px";//////////
         var nut = {
             update: function () {
-                // star.style.left=this.posX+"px";
-                // star.style.top=this.posY+"px";
+                mobileScreenWidth = window.screen.width;
+                mobileScreenHeight = window.screen.height
                 star.style.transform = "translateY(" + self.posY + "px) translateZ(0)";
-                // starDiv.style.transform = "rotateZ(" + self.rotate + "deg)"//////////
             },
             deleteAcorn: function () {
+                //   console.log(mobileScreenHeight)
+                mobileScreenHeight = window.screen.height
+                // console.log(Math.floor(fox.posX))
+                if ((Math.floor(self.posX) > Math.floor(fox.posX)) && (Math.floor(self.posX) < Math.floor(fox.posX + widthCreature))) {
+                    //console.log("555")
 
-                if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.9)) {
-                    console.log("!")
-                   // gameWindow.removeChild(star)
-                    star.style.display="none"
+                    if (Math.floor(self.posY + self.height) === Math.floor(fox.posY)) {
+                        console.log("554566")
+                        count += 1
+                        scoreZone.innerHTML = count
+                       // console.log("999")
+                        //console.log(Math.floor(fox.posX))
+                    }
                 }
-            }
+                //console.log(Math.floor(widthCreature))
+                //удаляет DOM-элемент при падении на пол
+                if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.8) || Math.floor(self.posY) === Math.floor(mobileScreenHeight * 0.9)) {
+                    // console.log("!")
+                    gameWindow.removeChild(star)
+                }
+            },
         }
         function rotateNut() {
             star.style.transformOrigin = "rotate(1deg);"
@@ -936,34 +952,22 @@ function Star(posX) {
         function tick() {
             self.rotate += self.speedY
             self.posY += self.speedY;
-            // вылетел ли мяч ниже пола?
+            // вылетел ли желудь ниже пола?
             if (self.posY + self.height > heightGameWindow) {
-                self.speedY = -self.speedY;
                 self.posY = heightGameWindow - nut.height;
             }
-            // console.log(self.posY)
-            // if (Math.round(self.posY) === heightGameWindow / 2) {
-            //     var star1 = new Star();
-            //     star1.createSt();
-            // }
             nut.update();
             nut.deleteAcorn();
             requestAnimationFrame(tick);
-
         }
         nut.update();
         start()
-
     }
-
 }
 var star1 = new Star();
 ///////////////////////star1.createSt();
-
-
 var iter = 0
 function createVar() {
-
     var posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
     var m = new Star(posX)
     acc.push(m)
@@ -974,9 +978,7 @@ function createVar() {
     acc[iter].id = id
     // console.log(acc.length - 1)
     //нахожу момент когда жулудь пройдет половину экрана чтобы добавить новый
-
     //console.log(acc[acc.length - 1])
-
     // if (acc[iter].posX === heightGameWindow / 2) {
     //     posX = Math.floor(Math.random() * (Math.floor(widthGameWindow - widthGameWindow * 0.06) - Math.ceil(widthGameWindow * 0.06))) + Math.ceil(widthGameWindow * 0.06)
     //     console.log(acc[iter])
@@ -984,9 +986,7 @@ function createVar() {
     //     acc[iter].createSt()
     // }
     iter += 1
-    // console.log(acc)
 }
-//console.log(acc)
 createVar()
 function coordinatsOfAcorn() {
     var el = document.getElementById(`${acc.length - 1}`)
@@ -997,30 +997,11 @@ function coordinatsOfAcorn() {
         createVar()
 
     }
-    // if (acc.length > 1) {
-    //     var ell = document.getElementById(`${acc.length - 2}`)
-    //     //console.log(ell)
-    //     var eeE = ell.getBoundingClientRect().top;
-    //     if (Math.floor(eeE) === Math.floor(heightGameWindow*0.9)) {
-    //          console.log("!")
-    //         gameWindow.removeChild(ell)
-    //         // console.log(eeE)
-    //         // console.log(heightGameWindow)
-    //     }
-    // }
-
-
     var eeLeft = el.getBoundingClientRect().left;
-
     requestAnimationFrame(coordinatsOfAcorn)
 }
 coordinatsOfAcorn()
 
-function app() {
-    // console.log(fox.posX)
-    // console.log(fox.posY)
-    requestAnimationFrame(app)
-}
-requestAnimationFrame(app)
+//ловим желуди
 
 
