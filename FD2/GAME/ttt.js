@@ -869,6 +869,7 @@ function foxStop(event) {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////// ЖЕЛУДИ
+var scorearr=[]
 var acc = [];
 function Acorn(posX) {
     var self = this;
@@ -929,14 +930,21 @@ function Acorn(posX) {
                 if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
                     //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
                     // console.log(gameWindow)
-                     console.log(self.id)
+                   //  console.log(self.id)
                     // // acornDiv.removeChild(acorn)
                     // // gameWindow.removeChild(acornDiv)
-                    console.log(acorn)
-                    gameWindow.removeChild(acorn)
-                    clickSound();
-                    vibro(true);
-                    count += 1
+                    //console.log(acorn)
+                    //gameWindow.removeChild(acorn)
+                    acorn.setAttribute("class", "invisible")
+                    var acornId=self.id
+                    if (scorearr.indexOf(acornId) ===(-1)){
+                        scorearr.push(acornId)
+                       clickSound();
+                       vibro(true);
+                    }
+                    // console.log(acornId)
+                    // console.log(scorearr[acornId])
+                    count = scorearr.length
                     scoreZone.innerHTML = count
                 }
                 //.invisible
@@ -1037,7 +1045,6 @@ function startT() {
     RAF(tickK);
 }
 function tickK() {
-
     requestAnimationFrame(tickK);
 }
 
