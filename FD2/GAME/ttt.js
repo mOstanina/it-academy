@@ -920,34 +920,26 @@ function Acorn(posX) {
             },
             deleteAcorn: function () {
                 mobileScreenHeight = window.screen.height
-                //ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
-
-                if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
-                    //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
-                    // console.log(gameWindow)
-                    // console.log(self.id)
-                    // // acornDiv.removeChild(acorn)
-                    // // gameWindow.removeChild(acornDiv)
-                    var elt = document.getElementById(`${self.id}`)
-                    //  console.log(self.id)
-                    gameWindow.removeChild(elt)
-                    clickSound();
-                    vibro(true);
-                    count += 1
-                    scoreZone.innerHTML = count
-                }
-                // console.log(self.posX)
-                //console.log(self.posY)
-                // console.log(fox.posX)
-                //console.log(fox.posY)
-                //console.log(widthCreature)
-                //console.log(heightCreature)
-
                 //удаляет DOM-элемент при падении на пол
                 if (Math.floor(self.posY) === Math.floor(heightGameWindow * 0.8) || Math.floor(self.posY) === Math.floor(mobileScreenHeight * 0.9)) {
                     // console.log("!")
                     gameWindow.removeChild(acorn)
                 }
+                //ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
+                if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
+                    //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
+                    // console.log(gameWindow)
+                     console.log(self.id)
+                    // // acornDiv.removeChild(acorn)
+                    // // gameWindow.removeChild(acornDiv)
+                    console.log(acorn)
+                    gameWindow.removeChild(acorn)
+                    clickSound();
+                    vibro(true);
+                    count += 1
+                    scoreZone.innerHTML = count
+                }
+                //.invisible
             },
         }
         function rotateNut() {
@@ -968,7 +960,6 @@ function Acorn(posX) {
             nut.deleteAcorn();
             requestAnimationFrame(tick);
         }
-
 
         nut.update();
         start()
@@ -1001,16 +992,32 @@ function coordinatsOfAcorn() {
     requestAnimationFrame(coordinatsOfAcorn)
 }
 coordinatsOfAcorn()
+//  ФОНОВЫЙ ЗВУК
+var fonAudio=new Audio("forest.mp3");
+var RAFf = window.requestAnimationFrame;
+
+function clickSoundf() {
+    fonAudio.currentTime = 0; // в секундах
+    fonAudio.play();
+}
+function startTf() {
+    clickSoundf()
+    RAFf(tickKf);
+}
+function tickKf() {
+    requestAnimationFrame(tickKf);
+}
+playButton.addEventListener("mousedown", startTf, false);
+
 // ЗВУК СТОЛКНОВЕНИЯ
 var clickAudio = new Audio;
 // результат canPlayType: "probably" - скорее всего, "maybe" - неизвестно, "" - нет
-console.log(clickAudio.canPlayType("audio/ogg; codecs=vorbis"));
-console.log(clickAudio.canPlayType("audio/mpeg"));
+// console.log(clickAudio.canPlayType("audio/ogg; codecs=vorbis"));
+// console.log(clickAudio.canPlayType("audio/mpeg"));
 if (clickAudio.canPlayType("audio/mpeg") == "probably")
     clickAudio.src = "http://fe.it-academy.by/Examples/Sounds/button-16.mp3";
 else
     clickAudio.src = "http://fe.it-academy.by/Examples/Sounds/button-16.ogg";
-
 // если поддержка формата точно известна, можно сразу так:
 //var clickAudio=new Audio("http://fe.it-academy.by/Examples/Sounds/button-16.mp3");
 var RAF = window.requestAnimationFrame;
