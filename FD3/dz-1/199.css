@@ -1,0 +1,37 @@
+.iShop {
+  border: double gray 3px;
+  width: 450px;
+  padding: 3px 7px;
+  background-color: #f0f0f0;
+}
+
+.iShop .ProductName {
+  font-weight: bold;
+}
+
+.iShop .Products {
+  padding-top: 5px;
+}
+
+.iShop .Products .Answer {
+  padding: 2px 0;
+}
+
+.iShop .Products .Product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.iShop .Products .Product .Count {
+  /* float: right; */
+  width: 30px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.iShop .Products .Product .productName {
+  margin-right: 30px;
+}
+.iShop .Products .Product .ProductImg {
+  height: 60px;
+}

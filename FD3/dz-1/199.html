@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="199.js"></script>
+    <link rel="stylesheet" type="text/css" href="199.css" />
+
+    <script>
+      var shopName = "iShop";
+      var productsArr = [
+        { productName: "корм для собак", code: 1, count: 144, productImg: "https://e-zoo.by/files/products/215691_1600x1600.600x600.jpg"},
+        { productName: "корм для котов", code: 2, count: 86, productImg: "https://e-zoo.by/files/products/screenshot_9_45.600x600.jpg"},
+        { productName: "корм для грызунов", code: 3, count: 38,  productImg: "https://e-zoo.by/files/products/screenshot_4_14.600x600.png"},
+      ];
+
+      ReactDOM.render(
+        React.createElement(iShop, {
+          shop: shopName,
+          products: productsArr,
+        }),
+        document.getElementById("container")
+      );
+    </script>
+  </body>
+</html>

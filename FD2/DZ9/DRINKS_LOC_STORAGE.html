@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input type=button value='ввод информации о напитке' onclick='drinkStorage.addDrink()'>
-    <input type=button value='получение информации о напитке' onclick='drinkStorage.infoAboutDrink()'>
-    <input type=button value='удаление информации о напитке' onclick='drinkStorage.deleteDrink()'>
-    <input type=button value='перечень всех напитков' onclick='drinkStorage.sowAllDrinks()'>
-    <br>
-    <br>
-    <hr>
-    <br>
-    <input type=button value='ввод информации о блюде' onclick='drinkStorage.addFood()'>
-    <input type=button value='получение информации о блюде' onclick='drinkStorage.infoAboutFood()'>
-    <input type=button value='удаление информации о блюде' onclick='drinkStorage.deleteFood()'>
-    <input type=button value='перечень всех блюд' onclick='drinkStorage.sowAllFood()'>
+  </head>
+  <body>
+    <input
+      type="button"
+      value="ввод информации о напитке"
+      onclick="addDrink()"
+    />
+    <input
+      type="button"
+      value="получение информации о напитке"
+      onclick="infoAboutDrink()"
+    />
+    <input
+      type="button"
+      value="удаление информации о напитке"
+      onclick="deleteDrink()"
+    />
+    <input
+      type="button"
+      value="перечень всех напитков"
+      onclick="sowAllDrinks()"
+    />
+
+    <hr />
+    <input type="button" value="ввод информации о блюде" onclick="addDish()" />
+    <input
+      type="button"
+      value="получение информации о блюде"
+      onclick="infoAboutDishes()"
+    />
+    <input
+      type="button"
+      value="удаление информации о блюде"
+      onclick="deleteDishes()"
+    />
+    <input type="button" value="перечень всех блюд" onclick="sowAllDishes()" />
+
     <script src="LocStorage.js"></script>
-</body>
+  </body>
 </html>
