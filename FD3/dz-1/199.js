@@ -25,4 +25,31 @@ var iShop = React.createClass({
             React.DOM.div({ className: 'Products' }, productsCode),
         );
     },
+
+
+
+
+
+
+
+
+
+    // render: function () {
+    //     var productsCode = [];
+    //     for (var a = 0; a < this.props.products.length; a++) {
+    //         var product = this.props.products[a];
+    //         var productCode =
+    //             React.DOM.div({ key: product.code, className: 'Product' },
+    //                 React.DOM.span({ className: 'Count' }, product.count),
+    //                 React.DOM.span({ className: 'ProductName' }, product.productName),
+    //                // React.DOM.img({ className: 'ProductImg' }, product.productImg),
+    //             );
+    //         productsCode.push(productCode);
+    //     }
+    //     return React.DOM.div({ className: 'iShop' },
+    //         React.DOM.div({ className: 'ShopName' }, this.props.shop),
+    //         React.DOM.div({ className: 'Products' }, productsCode),
+    //     );
+    // },
+
 });
