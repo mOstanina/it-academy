@@ -1,29 +1,18 @@
 "use strict"
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
 var updatePassword;
-var stringName = "OSTANINA_DRINKS_AJAX_STORAGE"
+var stringName = "OSTANINA_DRINKS_AJAX_STORA"
 
-function addInfo(storage) {
-    //// updatePassword = Math.random();
-    $.ajax({
-        url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
-        data: { f: "INSERT", n: stringName, v: JSON.stringify(storage) },
-        success: lockGetReady, error: errorHandler
-    }
-    );
-}
-
-function storeInfo(storage) {
+function storeInfo() {
     updatePassword = Math.random();
     $.ajax({
         url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
         data: { f: 'LOCKGET', n: stringName, p: updatePassword },
         success: lockGetReady, error: errorHandler
-    }
-    );
+    });
 }
-
-function lockGetReady(callresult, storage) {
+var storage;
+function lockGetReady(callresult) {
     if (callresult.error != undefined)
         alert(callresult.error);
     else {
@@ -31,24 +20,22 @@ function lockGetReady(callresult, storage) {
             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
             data: { f: 'UPDATE', n: stringName, v: JSON.stringify(storage), p: updatePassword },
             success: updateReady, error: errorHandler
-        }
-        );
+        });
     }
 }
 
 function updateReady(callresult) {
-    if (callresult.error != undefined)
+    if (callresult.error != undefined) {
         alert(callresult.error);
+    }
 }
 
 function restoreInfo() {
-    $.ajax(
-        {
-            url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
-            data: { f: 'READ', n: stringName },
-            success: readReady, error: errorHandler
-        }
-    );
+    $.ajax({
+        url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
+        data: { f: 'READ', n: stringName },
+        success: readReady, error: errorHandler
+    });
 }
 
 function readReady(callresult) {
@@ -66,9 +53,10 @@ function errorHandler(jqXHR, statusStr, errorStr) {
 
 function AJAXStorage() {
     var self = this;
-    self.storage = {};
-    addInfo(self.storage)
+    storage = self.storage = {};
 
+    // addInfo(self.storage)
+    //  restoreInfo()
 
     self.addValue = function (key, value) {
 
