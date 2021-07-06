@@ -1,48 +1,3 @@
-// "use strict";
-// var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
-// var updatePassword;
-
-// var stringNameFormDef1 = "OSTANINA_DYN_FORM_AJAX_FormDef1"
-// var formDef1 = [{ label: 'Название сайта:', kind: 'longtext', name: 'sitename' },
-// { label: 'URL сайта:', kind: 'longtext', name: 'siteurl' },
-// { label: 'Посетителей в сутки:', kind: 'number', name: 'visitors' },
-// { label: 'E-mail для связи:', kind: 'shorttext', name: 'email' },
-// { label: 'Рубрика каталога:', kind: 'combo', name: 'division', variants: [{ text: 'здоровье', value: 1 }, { text: 'домашний уют', value: 2 }, { text: 'бытовая техника', value: 3 }] },
-// { label: 'Размещение:', kind: 'radio', name: 'payment', variants: [{ text: 'бесплатное', value: 1 }, { text: 'платное', value: 2 }, { text: 'VIP', value: 3 }] },
-// { label: 'Разрешить отзывы:', kind: 'check', name: 'votes' },
-// { label: 'Описание сайта:', kind: 'memo', name: 'description' },
-// { label: 'Опубликовать:', kind: 'submit' },];
-
-// var stringNameFormDef2 = "OSTANINA_DYN_FORM_AJAX_FormDef2"
-// var formDef2 = [{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' },
-// { label: 'Имя:', kind: 'longtext', name: 'firstname' },
-// { label: 'Возраст:', kind: 'number', name: 'age' },
-// { label: 'Зарегистрироваться:', kind: 'submit' },];
-
-// function storeInfo(stringName, form) {
-//     updatePassword = Math.random();
-//     $.ajax({
-//         url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
-//         data: { f: "INSERT", n: stringName, v: JSON.stringify(form) },
-//         success: lockGetReady, error: errorHandler
-//     }
-//     );
-// }
-
-// function lockGetReady(callresult) {
-//     if (callresult.error != undefined)
-//         alert(callresult.error);
-//     else {
-//         alert("!")
-//     }
-// }
-// function errorHandler(jqXHR, statusStr, errorStr) {
-//     alert(statusStr + ' ' + errorStr);
-// }
-
-// storeInfo("OSTANINA_DYN_FORM_AJAX_FormDef1", formDef1)
-// storeInfo("OSTANINA_DYN_FORM_AJAX_FormDef2", formDef2)
-
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
 function restoreInfo(stringName) {
     $.ajax(
@@ -58,13 +13,14 @@ function readReady(callresult) {
     if (callresult.error != undefined)
         alert(callresult.error);
     else if (callresult.result != "") {
-        console.log(JSON.parse(callresult.result))
+        //console.log(JSON.parse(callresult.result))
         return dunForm("form", JSON.parse(callresult.result)); 
     }
 }
 
-var formDef11 = restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef1")
-var formDef22=restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef2")
+restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef1")
+restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef2")
+
 // ///////////////////////////////////////////////////////////////////////////////
 function dunForm(tag, content) {
     // while (content=== undefined){
@@ -147,5 +103,3 @@ function dunForm(tag, content) {
     }
     str += createTag("hr", "")
 }
-// dunForm("form", formDef11);
-// dunForm("form", formDef22);

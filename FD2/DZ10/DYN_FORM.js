@@ -1,6 +1,6 @@
 "use strict";
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
-var updatePassword;
+//var updatePassword;
 
 var stringNameFormDef1 = "OSTANINA_DYN_FORM_AJAX_FormDef1"
 var formDef1 = [{ label: 'Название сайта:', kind: 'longtext', name: 'sitename' },
@@ -20,7 +20,7 @@ var formDef2 = [{ label: 'Фамилия:', kind: 'longtext', name: 'lastname' }
 { label: 'Зарегистрироваться:', kind: 'submit' },];
 
 function storeInfo(stringName, form) {
-    updatePassword = Math.random();
+   //// updatePassword = Math.random();
     $.ajax({
         url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
         data: { f: "INSERT", n: stringName, v: JSON.stringify(form) },
@@ -30,10 +30,8 @@ function storeInfo(stringName, form) {
 }
 
 function lockGetReady(callresult) {
-    if (callresult.error != undefined)
+    if (callresult.error != undefined) {
         alert(callresult.error);
-    else {
-        alert("!")
     }
 }
 function errorHandler(jqXHR, statusStr, errorStr) {
