@@ -43,28 +43,28 @@ function errorHandler(jqXHR, statusStr, errorStr) {
 storeInfo("OSTANINA_DYN_FORM_AJAX_FormDef1", formDef1)
 storeInfo("OSTANINA_DYN_FORM_AJAX_FormDef2", formDef2)
 
-function restoreInfo(stringName) {
-    $.ajax(
-        {
-            url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
-            data: { f: "READ", n: stringName },
-            success: readReady, error: errorHandler
-        }
-    );
-}
+// function restoreInfo(stringName) {
+//     $.ajax(
+//         {
+//             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
+//             data: { f: "READ", n: stringName },
+//             success: readReady, error: errorHandler
+//         }
+//     );
+// }
 
-function readReady(callresult) {
-    if (callresult.error != undefined)
-        alert(callresult.error);
-    else if (callresult.result != "") {
-        console.log(JSON.parse(callresult.result))
-        return JSON.parse(callresult.result);
+// function readReady(callresult) {
+//     if (callresult.error != undefined)
+//         alert(callresult.error);
+//     else if (callresult.result != "") {
+//         console.log(JSON.parse(callresult.result))
+//         return JSON.parse(callresult.result);
 
-    }
-}
+//     }
+// }
 
-var formDef11 = restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef1")
-var formDef22=restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef2")
+// var formDef11 = restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef1")
+// var formDef22=restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef2")
 // ///////////////////////////////////////////////////////////////////////////////
 // function dunForm(tag, content) {
 //     // while (content=== undefined){
