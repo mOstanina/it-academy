@@ -1,37 +1,9 @@
-var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
-function restoreInfo(stringName) {
-    $.ajax(
-        {
-            url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
-            data: { f: "READ", n: stringName },
-            success: readReady, error: errorHandler
-        }
-    );
-}
-
-function readReady(callresult) {
-    if (callresult.error != undefined)
-        alert(callresult.error);
-    else if (callresult.result != "") {
-        //console.log(JSON.parse(callresult.result))
-        return dunForm("form", JSON.parse(callresult.result)); 
-    }
-}
-
-restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef1")
-restoreInfo("OSTANINA_DYN_FORM_AJAX_FormDef2")
-
-// ///////////////////////////////////////////////////////////////////////////////
 function dunForm(tag, content) {
-    // while (content=== undefined){
-    //     console.log("1")
-    // }
     var str = "";
     var contElem = document.getElementById("foForm");
     var newForm = document.createElement(tag);
     contElem.appendChild(newForm);
     newForm.setAttribute("action", "https://fe.it-academy.by/TestForm.php");
-
     function createTag(tagName, con) {
         var newTaginForm = document.createElement(tagName);//создаю новый тег внутри формы
         //   console.log(newTaginForm);
@@ -103,3 +75,36 @@ function dunForm(tag, content) {
     }
     str += createTag("hr", "")
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
+var stringNameFormDef1 = "OSTANINA_DYN_FORM_AJAX_FormDef1";
+var stringNameFormDef2 = "OSTANINA_DYN_FORM_AJAX_FormDef2";
+var stringNamesFofmsArray = [stringNameFormDef1, stringNameFormDef2]
+var count = 0;
+function restoreInfo() {
+    if (count < stringNamesFofmsArray.length) {
+        $.ajax(
+            {
+                url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
+                data: { f: "READ", n: stringNamesFofmsArray[count] },
+                success: readReady, error: errorHandler
+            }
+        );
+        count++
+        restoreInfo()
+    }
+}
+
+function readReady(callresult) {
+    if (callresult.error != undefined)
+        alert(callresult.error);
+    else if (callresult.result != "") {
+        //console.log(JSON.parse(callresult.result))
+        return dunForm("form", JSON.parse(callresult.result));
+    }
+}
+function errorHandler(jqXHR, statusStr, errorStr) {
+    alert(statusStr + ' ' + errorStr);
+}
+
+restoreInfo()
