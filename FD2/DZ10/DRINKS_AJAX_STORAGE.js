@@ -1,12 +1,11 @@
 "use strict"
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
 var updatePassword;
-function AJAXStorage() {
+function AJAXStorage(stringName) {
     var self = this;
-    self.stringName = stringName
     self.storage;
     // addInfo(self.storage)
-    self.restoreInfo = function (stringName) {
+    self.restoreInfo = function () {
         $.ajax({
             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
             data: { f: 'READ', n: stringName },
@@ -22,7 +21,7 @@ function AJAXStorage() {
             //storage = self.storage
         }
     }
-    self.storeInfo = function (stringName) {
+    self.storeInfo = function () {
         updatePassword = Math.random();
         $.ajax({
             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
@@ -41,7 +40,6 @@ function AJAXStorage() {
             });
         }
     }
-    
     function updateReady(callresult) {
         if (callresult.error != undefined) {
             alert(callresult.error);
@@ -52,6 +50,7 @@ function AJAXStorage() {
     }
     self.addValue = function (key, value) {
         self.storage[key] = value;
+        self.storeInfo()
     };
     self.getValue = function (key) {
         return (self.storage[key]);
@@ -59,6 +58,7 @@ function AJAXStorage() {
     self.deleteValue = function (key) {
         if (key in self.storage) {
             delete self.storage[key];
+            self.storeInfo()
             return true;
         } else {
             return false;
@@ -68,29 +68,21 @@ function AJAXStorage() {
         var claearArrayOfKeys = Object.keys(self.storage);
         return claearArrayOfKeys;
     };
+    self.restoreInfo()
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-var drinkStorage = new AJAXStorage();
-var stringName = "OSTANINA_DRINKS_AJAX_STORA"
+var drinkStorage = new AJAXStorage("OSTANINA_DRINKS_AJAX_STORA");
 var alco;
 var recipe;
 var nameDrink;
-///
-var a;
-var c;
-var b;
-var hash = { alco: c, recipe: b }
-///
-window.onload = drinkStorage.restoreInfo(stringName)
 
 function addDrink() {
     nameDrink = prompt("введите название напитка");
-    a = confirm("напиток алкогольный?");
-    c = (a == true) ? "да" : "нет";
-    b = prompt("введите рецепт напитка");
-    hash = { alco: c, recipe: b }
+    var a = confirm("напиток алкогольный?");
+    var c = (a == true) ? "да" : "нет";
+    var b = prompt("введите рецепт напитка");
+    var hash = { alco: c, recipe: b }
     drinkStorage.addValue(nameDrink, hash);
-    drinkStorage.storeInfo(stringName);
 };
 function infoAboutDrink() {
     var nameOfDrink = prompt("введите название напитка");
@@ -104,7 +96,6 @@ function infoAboutDrink() {
 function deleteDrink() {
     var presenceInList = drinkStorage.deleteValue((prompt("введите название напитка, который хотите удалить")));
     (presenceInList) ? alert("напиток удален") : alert("такого напитка нет в перечне");
-    drinkStorage.storeInfo(stringName);
 };
 function sowAllDrinks() {
     alert(drinkStorage.getKeys());
