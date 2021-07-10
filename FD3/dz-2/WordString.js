@@ -13,7 +13,7 @@ var WordString = React.createClass({
     render: function () {
 
 
-        return React.DOM.option(null, this.props.text);
+        return React.DOM.li(null, this.props.text);
 
     },
 });

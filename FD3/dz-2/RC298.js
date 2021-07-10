@@ -22,8 +22,11 @@ var WordsFilter = React.createClass({
     processList: function () {
         let resultWords = this.props.words;
         if (this.state.filtered) {
-            resultWords = resultWords.filter((string) => string.indexOf != -1);
+            console.log("11")
+            console.log(resultWords)
+            resultWords = resultWords.filter((r) => r.indexOf(this.state.filtered) != -1);
         } else {
+            console.log("22")
             resultWords = this.props.words.slice();
         }
         if (this.state.sorted) {
@@ -37,24 +40,27 @@ var WordsFilter = React.createClass({
     },
 
     filteredString: function (EO) {
-        this.setState({ filtered: EO.target.value });
+        console.log("33")
+        this.setState({ filtered: EO.target.value },this.processList);
+        console.log(EO.target.value)
     },
 
     clear: function (EO) {
         this.setState({ sorted: false, filtered: "" });
     },
     render: function () {
-        var wordCode = this.props.words.map(v =>
+        console.log(this.state.processedWords)
+        var wordCode = this.state.processedWords.map(v =>
             React.createElement(WordString, {
-                key: v.value,
-                text: v.text,
+                key: v,
+                text: v,
             })
         );
         return React.DOM.div({ className: "ConditionsBlock" },
             React.DOM.input({ type: "checkbox", onClick: this.checkboxChange }),
             React.DOM.input({ type: "text", value: this.state.filtered, onChange: this.filteredString }),
             React.DOM.input({ type: "button", value: "сброс", onClick: this.clear }),
-            React.DOM.div({ className: "WordsBlock" }, React.DOM.select({ className: 'WordsArea' }, wordCode)),
+            React.DOM.div({ className: "WordsBlock" }, React.DOM.ul({ className: 'WordsArea' }, wordCode)),
         )
     },
 });
