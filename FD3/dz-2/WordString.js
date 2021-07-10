@@ -6,12 +6,14 @@ var WordString = React.createClass({
         text: React.PropTypes.string
     },
 
+   
+
+
+
     render: function () {
 
 
         return React.DOM.option(null, this.props.text);
-
-
 
     },
 });

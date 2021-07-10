@@ -15,19 +15,16 @@
     <script src="WordString.js"></script>
 
     <script>
-      var stingsArray = [
+      var stringsArray = [
         { value: 0, text: "частнопредпринимательский" },
         { value: 1, text: "субстанционализироваться" },
         { value: 2, text: "высокопревосходительство" },
         { value: 3, text: "одиннадцатиклассница" },
       ];
 
-      var checkboxState = null;
-
       ReactDOM.render(
         React.createElement(WordsFilter, {
-          checkbox: checkboxState,
-          words: stingsArray,
+          words: stringsArray,
         }),
         document.getElementById("container")
       );
