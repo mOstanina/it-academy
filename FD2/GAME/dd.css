@@ -9,6 +9,7 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
+  border: brown solid 1px;
 }
 
 #screen {
@@ -17,6 +18,99 @@
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+#IPage {
+  max-width: 712px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+#containerMain {
+  max-width: 712px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  border: brown solid 1px;
+}
+
+#startDiv {
+  max-width: 712px;
+  height: 100vh;
+  padding-top: 150px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url(../GAME/img/fon.jpeg);
+  background-repeat: repeat-x;
+  border: brown solid 5px;
+}
+
+#nameDiv {
+  width: 300px;
+  height: 40px;
+  border-radius: 7%;
+  background-color: white;
+  background: rgba(255, 254, 254, 0.6);
+}
+
+#playDiv {
+  width: 100px;
+  height: 100px;
+  background: url(../GAME/img/pngwing.com.png);
+  background-image: url(../GAME/img/ergrthhy.svg);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#screenMain {
+  height: 100vh;
+  padding-top: 150px;
+  position: relative;
+  display: flex;
+  background-image: url(../GAME/img/fon.jpeg);
+  background-repeat: repeat-x;
+}
+
+.buttonMain {
+  cursor: pointer;
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  background-color: white;
+  border-radius: 10%;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.buttonMain:after {
+  content: "";
+  background-color: rgba(189, 238, 55, 0.801);
+  border-radius: 50%;
+  transition: width 1s ease, height 1s ease;
+  position: absolute;
+  top: -70px;
+  left: -30px;
+  transition: translate(-50%, -50%);
+  height: 0px;
+  width: 0px;
+  z-index: 1;
+}
+.buttonMain p {
+  margin: auto;
+  font-size: 25px;
+  z-index: 10;
+}
+
+.buttonMain:hover:after {
+  height: 250px;
+  width: 250px;
 }
 
 #info {

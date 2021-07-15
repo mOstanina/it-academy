@@ -4,7 +4,7 @@ var updatePassword;
 function AJAXStorage(stringName) {
     var self = this;
     self.storage;
-    // addInfo(self.storage)
+    addInfo(self.storage)
     self.restoreInfo = function () {
         $.ajax({
             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
