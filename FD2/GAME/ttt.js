@@ -77,6 +77,76 @@ var gameStorage = new AJAXStorage("OSTANINA_DRINKS_AJAX_STORA");
 // var alco;
 // var recipe;
 console.log(gameStorage)
+
+// var IPage = document.getElementById("IPage")
+// IPage.removeChild(startDiv);
+
+drowMainMenu()
+function drowMainMenu() {
+    var containerMain = document.getElementById("containerMain")//нахожу контейнер главного меню
+    var screenMain = document.getElementById("screenMain");// нахожу весь экран 
+    console.log(screenMain)
+    var widthscreenMain = window.getComputedStyle(screenMain).width;// определяю ширину игровой области
+    console.log(widthscreenMain)
+    widthscreenMain = parseFloat(widthscreenMain.replace(/[px]/g, ''));
+    var btnRadius;
+    var heightGameWindow = 0;
+    var mobileScreenWidth = 0;
+    var mobileScreenHeight = 0;
+    var screenPosition;
+
+    //startDiv
+
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        console.log("Вы используете мобильное устройство (телефон или планшет).")
+        mobileScreenHeight = window.screen.height//определяю высоту экрана устройства
+        console.log("высота устройства " + mobileScreenHeight)
+        mobileScreenWidth = window.screen.width//определяю ширину экрана устройства
+        console.log("ширина устройства " + mobileScreenWidth)
+        function sizeMobile() {
+            screenMain.setAttribute("style", "width:" + mobileScreenWidth + "px")
+            screenMain.setAttribute("style", "height:" + mobileScreenHeight + "px")
+        }
+        sizeMobile();
+        function rotateMain() {
+            if (mobileScreenHeight > mobileScreenWidth) {
+                //alert("2- мобильное утр-во вертикально;")
+                console.log("vert");
+                screenPosition = 2;
+                screenMain.setAttribute("style", "width:" + mobileScreenWidth + "px")
+                screenMain.setAttribute("style", "height:" + mobileScreenHeight + "px")
+                var rules = document.getElementById("rules")
+                var startToPlayGame = document.getElementById("startToPlayGame")
+                rules.setAttribute("style", "width:" + mobileScreenWidth * 0.8 + "px")
+
+            } else {
+                console.log("gorizont");
+                // alert("1- мобильное утр-во горизонтально;")
+                screenPosition = 1;
+                screenMain.setAttribute("style", "width:" + mobileScreenWidth + "px")
+                screenMain.setAttribute("style", "height:" + mobileScreenHeight + "px");
+                //btnRadius = mobileScreenHeight * 0.05;//задаю радиус кнопки
+                //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
+                // console.log(mobileScreenWidth);
+                //console.log(btnDistance);
+            }
+        }
+        rotateMain()
+
+    } else {
+        screenPosition = 0;
+        console.log("Вы используете ПК.")
+        heightGameWindow = widthscreenMain * 0.66;
+        screenMain.setAttribute("style", "height:" + heightGameWindow + "px");
+
+        // btnRadius = heightGameWindow * 0.05;//задаю радиус кнопки
+    }
+}
+
+
+window.addEventListener("resize", drowMainMenu, false);
+window.addEventListener("load", drowMainMenu, false);
 var nameOfGamer;
 var count = 0
 function addName() {
@@ -113,7 +183,7 @@ function addName() {
 // function deleteName() {
 //     var presenceInList = gameStorage.deleteValue((prompt("введите имя, которое хотите удалить")));
 //     (presenceInList) ? alert("имя удалено") : alert("такого имени нет в перечне");
-// };
+// }
 
 
 function game() {// создаю фон для ирового поля
@@ -760,14 +830,14 @@ function game() {// создаю фон для ирового поля
         gameContainer.appendChild(scoreZone);
     }
     //requestAnimationFrame(gggg)
-    setInterval(gggg, 1000);
+    setInterval(gggg, 500);
     ////////////////////
     window.addEventListener("resize", hhh, false);
     window.addEventListener("load", hhh, false);
     // //window.addEventListener("load", loadTimer, false);
     // window.addEventListener("orientationchange", gggg, false);
     window.addEventListener("orientationchange", hhh, false);
-    setTimeout(hhh, 2000);
+    setTimeout(hhh, 40);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////// ПЕРСОНАЖ
     var widthCreature;

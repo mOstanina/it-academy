@@ -26,6 +26,7 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
+  background-image: url(../GAME/img/ffffon.jpeg);
 }
 
 #containerMain {
@@ -44,8 +45,6 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  background-image: url(../GAME/img/fon.jpeg);
-  background-repeat: repeat-x;
   border: brown solid 5px;
 }
 
@@ -60,10 +59,13 @@
 #playDiv {
   width: 100px;
   height: 100px;
-  background: url(../GAME/img/pngwing.com.png);
   background-image: url(../GAME/img/ergrthhy.svg);
   border-radius: 50%;
   z-index: 2;
+  transition: transform 0.5s;
+}
+#playDiv:hover {
+  transform: scale(1.2);
 }
 
 #screenMain {
@@ -71,8 +73,7 @@
   padding-top: 150px;
   position: relative;
   display: flex;
-  background-image: url(../GAME/img/fon.jpeg);
-  background-repeat: repeat-x;
+  flex-wrap: wrap;
 }
 
 .buttonMain {
@@ -86,6 +87,7 @@
   border-radius: 10%;
   text-align: center;
   align-items: center;
+  border: green solid 2px;
   position: relative;
   overflow: hidden;
 }

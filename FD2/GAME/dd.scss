@@ -24,6 +24,7 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
+  background-image: url(../GAME/img/ffffon.jpeg);
 }
 #containerMain {
   max-width: 712px;
@@ -40,8 +41,9 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  background-image: url(../GAME/img/fon.jpeg);
-  background-repeat: repeat-x;
+  //background-image: url(../GAME/img/ffffon.jpeg);
+  //background-repeat: repeat-x;
+  //background-repeat: round;
   border: brown solid 5px;
 }
 #nameDiv {
@@ -54,10 +56,14 @@
 #playDiv {
   width: 100px;
   height: 100px;
-  background: url(../GAME/img/pngwing.com.png);
+  //background: url(../GAME/img/pngwing.com.png);
   background-image: url(../GAME/img/ergrthhy.svg);
   border-radius: 50%;
   z-index: 2;
+  transition: transform 0.5s;
+  &:hover{
+    transform: scale(1.2);
+  }
 }
 #screenMain {
   //width: 100%;
@@ -65,8 +71,8 @@
   padding-top: 150px;
   position: relative;
   display: flex;
-  background-image: url(../GAME/img/fon.jpeg);
-  background-repeat: repeat-x;
+  flex-wrap: wrap;
+  // background-image: url(../GAME/img/ffffon.jpeg);
 }
 .buttonMain {
   cursor: pointer;
@@ -79,7 +85,7 @@
   border-radius: 10%;
   text-align: center;
   align-items: center;
-
+  border: green solid 2px;
   position: relative;
   overflow: hidden;
   &:after {
