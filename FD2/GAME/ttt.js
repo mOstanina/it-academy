@@ -270,6 +270,7 @@ function game() {// создаю фон для ирового поля
     addEventListener("popstate", function (e) {
         fonAudio.pause(); 
         clickAudio.src = ""
+        clearInterval(game)
         alert("Вы покидаете страницу с игрой");
     }, false)
 
