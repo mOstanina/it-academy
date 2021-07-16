@@ -190,6 +190,64 @@
   visibility: hidden;
 }
 
+#recordeTableConyainer {
+  position: relative;
+  display: flex;
+}
+
+#recordeTable {
+  background-color: honeydew;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: red solid 1px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+#recordsHead {
+  font-size: 25px;
+  color: #537244;
+  font-family: sans-serif;
+  padding-bottom: 20px;
+}
+
+#recordsHash {
+  font-size: 25px;
+  color: #395e5dd1;
+  font-family: cursive;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.recordString {
+  display: flex;
+  width: 70%;
+}
+
+.divForRecordName {
+  width: 100%;
+  margin: auto;
+}
+
+.divForRecordCount {
+  width: 30%;
+  margin: 0 auto;
+}
+
+#btnBackToMainMenu {
+  width: 25%;
+  padding: 10px;
+  background: #dee1d5;
+  text-align: center;
+  /* margin-top: 10px; */
+  border-radius: 10%;
+  /* padding: 20px; */
+  margin: auto;
+  align-items: center;
+}
+
 @-webkit-keyframes walkToRight {
   from {
     background: url("img/Fox.png") 0px 157px;

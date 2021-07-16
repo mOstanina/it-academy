@@ -1,5 +1,6 @@
 "use strict";
 /////
+var gameNotEnded = false
 var ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
 var updatePassword;
 function AJAXStorage(stringName) {
@@ -80,7 +81,8 @@ console.log(gameStorage)
 
 // var IPage = document.getElementById("IPage")
 // IPage.removeChild(startDiv);
-
+var fonAudio = new Audio("forest.mp3");//объявляю глобальные переменные для звуков фона и столкновения чтобы можно быор остановть звук
+var clickAudio = new Audio;
 drowMainMenu()
 function drowMainMenu() {
     var containerMain = document.getElementById("containerMain")//нахожу контейнер главного меню
@@ -89,14 +91,12 @@ function drowMainMenu() {
     var widthscreenMain = window.getComputedStyle(screenMain).width;// определяю ширину игровой области
     console.log(widthscreenMain)
     widthscreenMain = parseFloat(widthscreenMain.replace(/[px]/g, ''));
+    console.log(widthscreenMain)
     var btnRadius;
     var heightGameWindow = 0;
     var mobileScreenWidth = 0;
     var mobileScreenHeight = 0;
     var screenPosition;
-
-    //startDiv
-
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
         console.log("Вы используете мобильное устройство (телефон или планшет).")
@@ -149,6 +149,25 @@ window.addEventListener("resize", drowMainMenu, false);
 window.addEventListener("load", drowMainMenu, false);
 var nameOfGamer;
 var count = 0
+
+//  ФОНОВЫЙ ЗВУК
+// var fonAudio = new Audio("forest.mp3");
+var RAFf = window.requestAnimationFrame;
+
+function clickSoundf() {
+    fonAudio.currentTime = 0; // в секундах
+    fonAudio.play();
+}
+function startTf() {
+    clickSoundf()
+    RAFf(tickKf);
+}
+function tickKf() {
+    requestAnimationFrame(tickKf);
+}
+// playDiv.addEventListener("mousedown", startTf, false);
+
+
 function addName() {
     nameOfGamer = document.getElementById("nameDiv").value
     console.log(nameOfGamer)
@@ -162,31 +181,111 @@ function addName() {
         alert("введите ваше имя!")
     } else {
         //gameStorage.addValue(nameOfGamer, count);
+        startTf()
         game()
-        setTimeout(function () {
 
+        setTimeout(function () {
+            fonAudio.pause();  //уcтанавливаю фоновую музыку
+            clickAudio.src = ""
             var IPage = document.getElementById("IPage")
             var container = document.getElementById("container")
-            IPage.removeChild(container);
+            IPage.removeChild(container);  //удаляю вообще с экрана игровое поле
             alert("!!!")
             gameStorage.addValue(nameOfGamer, count);
+            // div для всего окна с рекордами
+            var recordeTableConyainer = document.createElement("div");
+            IPage.appendChild(recordeTableConyainer);
+            recordeTableConyainer.setAttribute("id", "recordeTableConyainer")
+            var recordeTable = document.createElement("div");
+            recordeTableConyainer.appendChild(recordeTable);
+            // var ddd=document.getComputedStyle(IPage).width
+            // console.log(ddd)
+            // recordeTable.setAttribute("style", "width:" + 100 + "px")
+            // recordeTable.setAttribute("style", "height:" + 300 + "px")
+            recordeTable.setAttribute("id", "recordeTable")
+            //
+            var recordsOfPlay;
+            function returnGamePlayersHahs() {
+                recordsOfPlay = gameStorage.getKeys();
+            };
+            returnGamePlayersHahs()
 
+            // div для заголовка таблицы
+            var recordsHead = document.createElement("div");
+            recordsHead.setAttribute("id", "recordsHead")
+            recordeTable.appendChild(recordsHead);
+            //  recordsHead.setAttribute("height", "100vh")
+            recordsHead.innerHTML = "РЕЗУЛЬТАТЫ НАШИХ ИГРОКОВ"
+            // div для таблички с игровами и очками
+            var recordsHash = document.createElement("div");
+            recordsHash.setAttribute("id", "recordsHash")
+            recordeTable.appendChild(recordsHash);
 
+            function ctreateString(a, b, c) {
+                recordsHash = document.getElementById("recordsHash")
+                var divForRecordString = document.createElement("div");
+                recordsHash.appendChild(divForRecordString);
+                divForRecordString.setAttribute("id", a);
+                divForRecordString.setAttribute("class", "recordString");
 
+                var divForRecordName = document.createElement("div");
+                divForRecordString.appendChild(divForRecordName);
+                divForRecordName.setAttribute("id", b);
+                divForRecordName.setAttribute("class", "divForRecordName");
+                divForRecordName.innerHTML = b
 
-        }, 6000)
+                var divForRecordCount = document.createElement("div");
+                divForRecordString.appendChild(divForRecordCount);
+                divForRecordCount.setAttribute("id", c);
+                divForRecordCount.setAttribute("class", "divForRecordCount");
+                divForRecordCount.innerHTML = c
+            }
+            for (var i = 0; i < recordsOfPlay.length; i++) {
+                var e = recordsOfPlay[i]
+                console.log(e)
+                var u = gameStorage.getValue(e)
+                console.log(u)
+                ctreateString(i, e, u)
+            }
+            var btnBackToMainMenu = document.createElement("div");
+            btnBackToMainMenu.setAttribute("id", "btnBackToMainMenu")
+            recordeTable.appendChild(btnBackToMainMenu);
+            btnBackToMainMenu.innerHTML = "OK"
+            btnBackToMainMenu.addEventListener("mousedown", switchToMainPage, false);
 
+            // show delete buttons on swipe
+            // $('#btnBackToMainMenu').swipe(function () {
+            //     $('.delete').hide()
+            //     $('.delete', this).show()
+            // })
+
+            gameNotEnded = false;
+
+            //switchToMainPage()
+        }, 60000)
     }
-
-
 };
 // function deleteName() {
 //     var presenceInList = gameStorage.deleteValue((prompt("введите имя, которое хотите удалить")));
 //     (presenceInList) ? alert("имя удалено") : alert("такого имени нет в перечне");
 // }
-
-
 function game() {// создаю фон для ирового поля
+    gameNotEnded = true;
+    window.onbeforeunload = befUnload;
+   
+    addEventListener("popstate", function (e) {
+        var a = confirm("Вы уверены, что хотите покинуть страницу?");
+        var c = (a == true) ? "да" : "нет";
+    }, false)
+
+    function befUnload(EO) {
+        EO = EO || window.event;
+        // если текст изменён, попросим браузер задать вопрос пользователю
+        if (gameNotEnded)
+            EO.returnValue = 'А у вас есть несохранённые изменения!';
+    };
+
+    ///////
     var IPage = document.getElementById("IPage")
     IPage.removeChild(startDiv);
     var gameContainer = document.getElementById("container")//нахожу контейнер
@@ -564,6 +663,7 @@ function game() {// создаю фон для ирового поля
     //gameContainer.appendChild(timeZone);
     /////////////////////////////////////////////// поле для счёта
     var scoreZone = document.createElement("div")
+    count = 0;
     scoreZone.innerHTML = count
     //gameContainer.appendChild(scoreZone);
     // }
@@ -1190,25 +1290,25 @@ function game() {// создаю фон для ирового поля
         requestAnimationFrame(coordinatsOfAcorn)
     }
     coordinatsOfAcorn()
-    //  ФОНОВЫЙ ЗВУК
-    var fonAudio = new Audio("forest.mp3");
-    var RAFf = window.requestAnimationFrame;
+    // //  ФОНОВЫЙ ЗВУК
+    // // var fonAudio = new Audio("forest.mp3");
+    // var RAFf = window.requestAnimationFrame;
 
-    function clickSoundf() {
-        fonAudio.currentTime = 0; // в секундах
-        fonAudio.play();
-    }
-    function startTf() {
-        clickSoundf()
-        RAFf(tickKf);
-    }
-    function tickKf() {
-        requestAnimationFrame(tickKf);
-    }
-    playButton.addEventListener("mousedown", startTf, false);
+    // function clickSoundf() {
+    //     fonAudio.currentTime = 0; // в секундах
+    //     fonAudio.play();
+    // }
+    // function startTf() {
+    //     clickSoundf()
+    //     RAFf(tickKf);
+    // }
+    // function tickKf() {
+    //     requestAnimationFrame(tickKf);
+    // }
+    // playButton.addEventListener("mousedown", startTf, false);
 
     // ЗВУК СТОЛКНОВЕНИЯ
-    var clickAudio = new Audio;
+    // var clickAudio = new Audio;
     // результат canPlayType: "probably" - скорее всего, "maybe" - неизвестно, "" - нет
     // console.log(clickAudio.canPlayType("audio/ogg; codecs=vorbis"));
     // console.log(clickAudio.canPlayType("audio/mpeg"));
