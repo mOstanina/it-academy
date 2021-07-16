@@ -55,7 +55,9 @@
               '<div id="containerMain"><div id="screenMain"><div class="buttonMain" id="rules" onclick="switchToRulesPage()"><p>Правила игры</p></div><div class="buttonMain" id="startToPlayGame" onclick="switchToGamePage()"><p>Начать игру</p></div></div></div>';
             break;
           case "Rules":
-            pageHTML += "<h3>Фото</h3>";
+            pageHTML +=
+              "<div id='containerRules'><div><h3>Правила</h3><p>Цель игры - за 1 минуту собрать максимальное количество желудей.</p></div></div>";
+
             break;
           case "Game":
             pageHTML +=
@@ -96,7 +98,6 @@
 
       function switchToGamePage() {
         switchToState({ pagename: "Game" });
-        
       }
 
       // переключаемся в состояние, которое сейчас прописано в закладке УРЛ

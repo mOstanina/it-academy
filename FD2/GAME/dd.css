@@ -9,7 +9,6 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
-  border: brown solid 1px;
 }
 
 #screen {
@@ -35,7 +34,6 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
-  border: brown solid 1px;
 }
 
 #startDiv {
@@ -45,7 +43,6 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  border: brown solid 5px;
 }
 
 #nameDiv {
@@ -182,7 +179,6 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: red solid 1px;
   transform-origin: 10%;
 }
 
@@ -200,7 +196,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border: red solid 1px;
   padding: 25px;
   margin-top: 30px;
 }
@@ -246,6 +241,29 @@
   /* padding: 20px; */
   margin: auto;
   align-items: center;
+}
+
+#containerRules {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  width: 70%;
+  padding-bottom: 40px;
+}
+#containerRules div {
+  background-color: honeydew;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+#containerRules h3 {
+  font-size: 35px;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+#containerRules p {
+  font-size: 25px;
+  text-align: center;
 }
 
 @-webkit-keyframes walkToRight {

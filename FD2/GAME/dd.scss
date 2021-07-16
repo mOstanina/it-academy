@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
-  border: brown solid 1px;
+ // border: brown solid 1px;
 }
 #screen {
   //width: 100%;
@@ -32,7 +32,7 @@
   margin: 0 auto;
   padding: 0;
   position: relative;
-  border: brown solid 1px;
+  //border: brown solid 1px;
 }
 #startDiv {
   max-width: 712px;
@@ -44,7 +44,7 @@
   //background-image: url(../GAME/img/ffffon.jpeg);
   //background-repeat: repeat-x;
   //background-repeat: round;
-  border: brown solid 5px;
+ // border: brown solid 5px;
 }
 #nameDiv {
   width: 300px;
@@ -61,7 +61,7 @@
   border-radius: 50%;
   z-index: 2;
   transition: transform 0.5s;
-  &:hover{
+  &:hover {
     transform: scale(1.2);
   }
 }
@@ -176,33 +176,33 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border: red solid 1px;
+  //border: red solid 1px;
   transform-origin: 10%;
 }
 .invisible {
   visibility: hidden;
 }
 ///// таблица результатов
-#recordeTableConyainer{
+#recordeTableConyainer {
   position: relative;
   display: flex;
 }
-#recordeTable{
+#recordeTable {
   background-color: honeydew;
   position: relative;
   display: flex;
   flex-direction: column;
-  border: red solid 1px;
+  //border: red solid 1px;
   padding: 25px;
   margin-top: 30px;
 }
-#recordsHead{
+#recordsHead {
   font-size: 25px;
   color: #537244;
   font-family: sans-serif;
   padding-bottom: 20px;
 }
-#recordsHash{
+#recordsHash {
   font-size: 25px;
   color: #395e5dd1;
   font-family: cursive;
@@ -210,20 +210,20 @@
   flex-direction: column;
   width: 100%;
 }
-.recordString{
+.recordString {
   display: flex;
   // width: 300px;
   width: 70%;
 }
-.divForRecordName{
+.divForRecordName {
   width: 100%;
   margin: auto;
 }
-.divForRecordCount{
+.divForRecordCount {
   width: 30%;
   margin: 0 auto;
 }
-#btnBackToMainMenu{
+#btnBackToMainMenu {
   width: 25%;
   padding: 10px;
   //height: 20px;
@@ -234,6 +234,28 @@
   /* padding: 20px; */
   margin: auto;
   align-items: center;
+}
+#containerRules {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  width: 70%;
+  padding-bottom: 40px;
+  div {
+    background-color: honeydew;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+  h3 {
+    font-size: 35px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+  }
+  p {
+    font-size: 25px;
+    text-align: center;
+  }
 }
 //////////////////
 @keyframes walkToRight {

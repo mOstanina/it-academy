@@ -77,6 +77,8 @@ var gameStorage = new AJAXStorage("OSTANINA_DRINKS_AJAX_STORA");
 //gameStorage.addInfo(self.storage)
 // var alco;
 // var recipe;
+console.log(gameStorage)
+
 // var IPage = document.getElementById("IPage")
 // IPage.removeChild(startDiv);
 var fonAudio = new Audio("forest.mp3");//объявляю глобальные переменные для звуков фона и столкновения чтобы можно быор остановть звук
@@ -85,8 +87,11 @@ drowMainMenu()
 function drowMainMenu() {
     var containerMain = document.getElementById("containerMain")//нахожу контейнер главного меню
     var screenMain = document.getElementById("screenMain");// нахожу весь экран 
+    console.log(screenMain)
     var widthscreenMain = window.getComputedStyle(screenMain).width;// определяю ширину игровой области
+    console.log(widthscreenMain)
     widthscreenMain = parseFloat(widthscreenMain.replace(/[px]/g, ''));
+    console.log(widthscreenMain)
     var btnRadius;
     var heightGameWindow = 0;
     var mobileScreenWidth = 0;
@@ -162,84 +167,7 @@ function tickKf() {
 }
 // playDiv.addEventListener("mousedown", startTf, false);
 
-function createMenuGame() {
-    fonAudio.pause();  //уcтанавливаю фоновую музыку
-    clickAudio.src = ""
-    var IPage = document.getElementById("IPage")
-    var container = document.getElementById("container")
-    IPage.removeChild(container);  //удаляю вообще с экрана игровое поле
-    gameStorage.addValue(nameOfGamer, count);
-    // div для всего окна с рекордами
-    var recordeTableConyainer = document.createElement("div");
-    IPage.appendChild(recordeTableConyainer);
-    recordeTableConyainer.setAttribute("id", "recordeTableConyainer")
-    var recordeTable = document.createElement("div");
-    recordeTableConyainer.appendChild(recordeTable);
-    // var ddd=document.getComputedStyle(IPage).width
-    // console.log(ddd)
-    // recordeTable.setAttribute("style", "width:" + 100 + "px")
-    // recordeTable.setAttribute("style", "height:" + 300 + "px")
-    recordeTable.setAttribute("id", "recordeTable")
-    //
-    var recordsOfPlay;
-    function returnGamePlayersHahs() {
-        recordsOfPlay = gameStorage.getKeys();
-    };
-    returnGamePlayersHahs()
 
-    // div для заголовка таблицы
-    var recordsHead = document.createElement("div");
-    recordsHead.setAttribute("id", "recordsHead")
-    recordeTable.appendChild(recordsHead);
-    //  recordsHead.setAttribute("height", "100vh")
-    recordsHead.innerHTML = "РЕЗУЛЬТАТЫ НАШИХ ИГРОКОВ"
-    // div для таблички с игровами и очками
-    var recordsHash = document.createElement("div");
-    recordsHash.setAttribute("id", "recordsHash")
-    recordeTable.appendChild(recordsHash);
-
-    function ctreateString(a, b, c) {
-        recordsHash = document.getElementById("recordsHash")
-        var divForRecordString = document.createElement("div");
-        recordsHash.appendChild(divForRecordString);
-        divForRecordString.setAttribute("id", a);
-        divForRecordString.setAttribute("class", "recordString");
-
-        var divForRecordName = document.createElement("div");
-        divForRecordString.appendChild(divForRecordName);
-        divForRecordName.setAttribute("id", b);
-        divForRecordName.setAttribute("class", "divForRecordName");
-        divForRecordName.innerHTML = b
-
-        var divForRecordCount = document.createElement("div");
-        divForRecordString.appendChild(divForRecordCount);
-        divForRecordCount.setAttribute("id", c);
-        divForRecordCount.setAttribute("class", "divForRecordCount");
-        divForRecordCount.innerHTML = c
-    }
-    for (var i = 0; i < recordsOfPlay.length; i++) {
-        var e = recordsOfPlay[i]
-        console.log(e)
-        var u = gameStorage.getValue(e)
-        console.log(u)
-        ctreateString(i, e, u)
-    }
-    var btnBackToMainMenu = document.createElement("div");
-    btnBackToMainMenu.setAttribute("id", "btnBackToMainMenu")
-    recordeTable.appendChild(btnBackToMainMenu);
-    btnBackToMainMenu.innerHTML = "OK"
-    btnBackToMainMenu.addEventListener("mousedown", switchToMainPage, false);
-
-    // show delete buttons on swipe
-    // $('#btnBackToMainMenu').swipe(function () {
-    //     $('.delete').hide()
-    //     $('.delete', this).show()
-    // })
-
-    gameNotEnded = false;
-
-    //switchToMainPage()
-}
 function addName() {
     nameOfGamer = document.getElementById("nameDiv").value
     console.log(nameOfGamer)
@@ -256,7 +184,85 @@ function addName() {
         startTf()
         game()
 
-        setTimeout(createMenuGame, 60000)
+        setTimeout(function () {
+            fonAudio.pause();  //уcтанавливаю фоновую музыку
+            clickAudio.src = ""
+            var IPage = document.getElementById("IPage")
+            var container = document.getElementById("container")
+            IPage.removeChild(container);  //удаляю вообще с экрана игровое поле
+            alert("!!!")
+            gameStorage.addValue(nameOfGamer, count);
+            // div для всего окна с рекордами
+            var recordeTableConyainer = document.createElement("div");
+            IPage.appendChild(recordeTableConyainer);
+            recordeTableConyainer.setAttribute("id", "recordeTableConyainer")
+            var recordeTable = document.createElement("div");
+            recordeTableConyainer.appendChild(recordeTable);
+            // var ddd=document.getComputedStyle(IPage).width
+            // console.log(ddd)
+            // recordeTable.setAttribute("style", "width:" + 100 + "px")
+            // recordeTable.setAttribute("style", "height:" + 300 + "px")
+            recordeTable.setAttribute("id", "recordeTable")
+            //
+            var recordsOfPlay;
+            function returnGamePlayersHahs() {
+                recordsOfPlay = gameStorage.getKeys();
+            };
+            returnGamePlayersHahs()
+
+            // div для заголовка таблицы
+            var recordsHead = document.createElement("div");
+            recordsHead.setAttribute("id", "recordsHead")
+            recordeTable.appendChild(recordsHead);
+            //  recordsHead.setAttribute("height", "100vh")
+            recordsHead.innerHTML = "РЕЗУЛЬТАТЫ НАШИХ ИГРОКОВ"
+            // div для таблички с игровами и очками
+            var recordsHash = document.createElement("div");
+            recordsHash.setAttribute("id", "recordsHash")
+            recordeTable.appendChild(recordsHash);
+
+            function ctreateString(a, b, c) {
+                recordsHash = document.getElementById("recordsHash")
+                var divForRecordString = document.createElement("div");
+                recordsHash.appendChild(divForRecordString);
+                divForRecordString.setAttribute("id", a);
+                divForRecordString.setAttribute("class", "recordString");
+
+                var divForRecordName = document.createElement("div");
+                divForRecordString.appendChild(divForRecordName);
+                divForRecordName.setAttribute("id", b);
+                divForRecordName.setAttribute("class", "divForRecordName");
+                divForRecordName.innerHTML = b
+
+                var divForRecordCount = document.createElement("div");
+                divForRecordString.appendChild(divForRecordCount);
+                divForRecordCount.setAttribute("id", c);
+                divForRecordCount.setAttribute("class", "divForRecordCount");
+                divForRecordCount.innerHTML = c
+            }
+            for (var i = 0; i < recordsOfPlay.length; i++) {
+                var e = recordsOfPlay[i]
+                console.log(e)
+                var u = gameStorage.getValue(e)
+                console.log(u)
+                ctreateString(i, e, u)
+            }
+            var btnBackToMainMenu = document.createElement("div");
+            btnBackToMainMenu.setAttribute("id", "btnBackToMainMenu")
+            recordeTable.appendChild(btnBackToMainMenu);
+            btnBackToMainMenu.innerHTML = "OK"
+            btnBackToMainMenu.addEventListener("mousedown", switchToMainPage, false);
+
+            // show delete buttons on swipe
+            // $('#btnBackToMainMenu').swipe(function () {
+            //     $('.delete').hide()
+            //     $('.delete', this).show()
+            // })
+
+            gameNotEnded = false;
+
+            //switchToMainPage()
+        }, 60000)
     }
 };
 // function deleteName() {
@@ -268,16 +274,15 @@ function game() {// создаю фон для ирового поля
     window.onbeforeunload = befUnload;
    
     addEventListener("popstate", function (e) {
-        fonAudio.pause(); 
-        clickAudio.src = ""
-        alert("Вы покидаете страницу с игрой");
+        var a = confirm("Вы уверены, что хотите покинуть страницу?");
+        var c = (a == true) ? "да" : "нет";
     }, false)
 
     function befUnload(EO) {
         EO = EO || window.event;
         // если текст изменён, попросим браузер задать вопрос пользователю
         if (gameNotEnded)
-            EO.returnValue = 'У Вас есть несохранённые изменения';
+            EO.returnValue = 'А у вас есть несохранённые изменения!';
     };
 
     ///////
@@ -557,7 +562,7 @@ function game() {// создаю фон для ирового поля
     // кнопка рекордов
     var recordsBtn = document.getElementById("left");
     var recordsButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-   // gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
+    gameContainer.appendChild(recordsButton);// прикрепляю кнопку к gameContainer
     recordsButton.style.zIndex = 10;
     var recordsCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     recordsCircle.setAttribute("fill", "sandybrown");
@@ -601,7 +606,7 @@ function game() {// создаю фон для ирового поля
     // function pouseBtn() { //  ПАУЗА
     var pouseBtn = document.getElementById("left");
     var pouseButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-   // gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
+    gameContainer.appendChild(pouseButton);// прикрепляю кнопку к gameContainer
     var pouseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     pouseCircle.setAttribute("fill", "sandybrown");
     var pouseCircleRdius = btnRadius
@@ -635,7 +640,7 @@ function game() {// создаю фон для ирового поля
     // function playBtn() {//     ИГРАТЬ
     var playBtn = document.getElementById("left");
     var playButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-   // gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
+    gameContainer.appendChild(playButton);// прикрепляю кнопку к gameContainer
 
     var playCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     playCircle.setAttribute("fill", "sandybrown");
@@ -667,7 +672,7 @@ function game() {// создаю фон для ирового поля
         if (screenPosition === 0) {
             var btnRadiusNoPx = Math.floor(btnRadius)
             //console.log(btnRadiusNoPx)
-           // gameContainer.appendChild(timeZone);
+            gameContainer.appendChild(timeZone);
             gameContainer.appendChild(scoreZone);
             //поле для времени
             timeZone.style.position = "absolute";
@@ -729,7 +734,7 @@ function game() {// создаю фон для ирового поля
 
         }
         if (screenPosition === 1) {
-           // gameContainer.appendChild(timeZone);
+            gameContainer.appendChild(timeZone);
             gameContainer.appendChild(scoreZone);
             mobileScreenWidth = window.screen.width;
             mobileScreenHeight = window.screen.height;
@@ -796,7 +801,7 @@ function game() {// создаю фон для ирового поля
             playButton.style.top = mobileScreenHeight - btnRadius * 2.5 + "px";
         }
         if (screenPosition === 2) {
-            //gameContainer.appendChild(timeZone);
+            gameContainer.appendChild(timeZone);
             gameContainer.appendChild(scoreZone);
             // gameWindow.setAttribute("style", "width:" + mobileScreenWidth + "px")
             // gameWindow.setAttribute("style", "height:" + mobileScreenWidth * 0.66 + "px")
@@ -952,9 +957,9 @@ function game() {// создаю фон для ирового поля
             ////// высота и ширина персонажа
             widthCreature = widthGameWindow * 0.08;
             heightCreature = heightGameWindow * 0.15;
-            // creature.style.borderColor = "black";
-            // creature.style.borderWidth = "1px"
-            // creature.style.borderStyle = "solid"
+            creature.style.borderColor = "black";
+            creature.style.borderWidth = "1px"
+            creature.style.borderStyle = "solid"
             creature.style.height = heightCreature + "px";
             creature.style.width = widthCreature + "px";
             creature.style.zIndex = 100;
@@ -1152,7 +1157,6 @@ function game() {// создаю фон для ирового поля
         }
         fox.speedX = 0
     }
-
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////// ЖЕЛУДИ
     var scorearr = []
@@ -1320,7 +1324,7 @@ function game() {// создаю фон для ирового поля
         clickAudio.play(); // запускаем звук
         clickAudio.pause(); // и сразу останавливаем
     }
-    
+
     function clickSound() {
         clickAudio.currentTime = 0; // в секундах
         clickAudio.play();
