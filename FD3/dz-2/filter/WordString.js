@@ -5,11 +5,7 @@ var WordString = React.createClass({
         value: React.PropTypes.number,
         text: React.PropTypes.string
     },
-
-   
-
-
-
+    
     render: function () {
 
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="shop.js"></script>
+    <script src="goods.js"></script>
+    <link rel="stylesheet" type="text/css" href="ishop2.css" />
+
+    <script>
+      var shopName = "iShop2";
+
+      var productsArr = [
+        { productName: "product1", code: 1, price:30, url:"http://aaa.com", count: 20,},
+        { productName: "product2", code: 2, price:40, url:"http://bbb.com", count: 15,},
+        { productName: "product3", code: 3, price:80, url:"http://ccc.com", count: 49,},
+        { productName: "product4", code: 4, price:40, url:"http://ddd.com", count: 8,},
+        { productName: "product5", code: 5, price:76, url:"http://eee.com", count: 22,},
+        { productName: "product6", code: 6, price:11, url:"http://fff.com", count: 3,},
+      ];
+
+      ReactDOM.render(
+        React.createElement(iShop2, {
+          products: productsArr,
+        }),
+        document.getElementById("container")
+      );
+    </script>
+  </body>
+</html>
