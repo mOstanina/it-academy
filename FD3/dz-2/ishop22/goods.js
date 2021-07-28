@@ -17,26 +17,14 @@ var ProductInfo = React.createClass({
         cssClassSelect: React.PropTypes.string.isRequired,
     },
 
-    getInitialState: function () {
-        return {
-            // isClicked: false,
-            // className: this.props.className,
-            // cssClass:'Product',
-        };
-    },
-
     productClickedForDelete: function (EO) {
         this.props.cbDelete(this.props.code);
     },
     productClicked: function (EO) {
         this.props.cbClicked(this.props.code);
-        //this.setState({cssClass:'Product red'})
-        //this.state.isClicked = true;
     },
 
     render: function () {
-
-        // if (this.prpos.code !== this.props.clickedProduct) {
             return (this.props.code!==this.props.clickedProduct)? React.DOM.div({ className: this.props.cssClassNotSelect, onClick: this.productClicked },
                 React.DOM.div({ className: 'ProductName' }, this.props.productName),
                 React.DOM.div({ className: 'price' }, this.props.price),

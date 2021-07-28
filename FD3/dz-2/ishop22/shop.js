@@ -30,12 +30,15 @@ var iShop2 = React.createClass({
     },
 
     productClicked: function (code) {
-        console.log('выбран товар с кодом ' + code);
-        this.setState({ selectedProductCod: code });
-        console.log(this.state.productsArray[code - 1])
+       // if (selectedProductCod === code) {
+            console.log('выбран товар с кодом ' + code);
+            this.setState({ selectedProductCod: code });
+            console.log(this.state.productsArray[code - 1])
 
-        // this.state.productsArray.map(h => this.setState({ classNameForClick: 'Product' }))
-        // this.setState({ classNameForClick: 'Product red' });
+        // } else {
+        //     e.stopPropagation()
+        // }
+
     },
 
     render: function () {
@@ -47,7 +50,6 @@ var iShop2 = React.createClass({
                 code: v.code,
                 url: v.url,
                 count: v.count,
-                //selectedProductCode: this.state.selectedAnswerCod,
                 cbDelete: this.productSelectedForDelete,
                 clickedProduct: this.state.selectedProductCod,
                 cbClicked: this.productClicked,
