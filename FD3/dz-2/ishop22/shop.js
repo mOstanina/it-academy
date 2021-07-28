@@ -14,18 +14,18 @@ var iShop2 = React.createClass({
     },
     getInitialState: function () {
         return {
+            selectedProductCodToDelete: null,
             selectedProductCod: null,
             productsArray: this.props.products,
             className: 'ProductName',
             classNameForClick: 'Product red',
             classNameWithoutClick: 'Product',
-
         };
     },
 
     productSelectedForDelete: function (code) {
         console.log('удален товар с кодом ' + code);
-        this.setState({ selectedProductCod: code });
+        this.setState({ selectedProductCodToDelete: code });
         delete this.state.productsArray[code - 1];
     },
 
@@ -34,10 +34,8 @@ var iShop2 = React.createClass({
         this.setState({ selectedProductCod: code });
         console.log(this.state.productsArray[code - 1])
 
-        this.state.productsArray.map(h => this.setState({ classNameForClick: 'Product' }))
-
-        this.setState({ classNameForClick: 'Product red' });
-
+        // this.state.productsArray.map(h => this.setState({ classNameForClick: 'Product' }))
+        // this.setState({ classNameForClick: 'Product red' });
     },
 
     render: function () {
@@ -51,12 +49,11 @@ var iShop2 = React.createClass({
                 count: v.count,
                 //selectedProductCode: this.state.selectedAnswerCod,
                 cbDelete: this.productSelectedForDelete,
-                //isClicked: false,
-                // isClicked: (v.code === this.state.selectedAnswerCod),
-                // cssClass: 'Product',
+                clickedProduct: this.state.selectedProductCod,
                 cbClicked: this.productClicked,
                 className: this.state.className,
-
+                cssClassNotSelect: 'Product',
+                cssClassSelect: 'Product red',
             })
         );
 
