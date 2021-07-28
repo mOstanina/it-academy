@@ -12,16 +12,23 @@ var ProductInfo = React.createClass({
                 count: React.PropTypes.number.isRequired,
             })
         ),
-        
+        cbSelected: React.PropTypes.func.isRequired,
+        selectedProductCode: React.PropTypes.number,
+        isChecked: React.PropTypes.bool,
     },
     productClicked: function (EO) {
         this.props.cbSelected(this.props.code);
     },
 
+    answerClicked: function (EO) {
+        this.props.cbSelected(this.props.code);
+    },
+
+
+
     render: function () {
         var productsCode = [];
         var propsProducts = this.props.arrayOfProducts;
-        console.log(propsProducts)
         propsProducts.forEach(function (item, i, propsProducts) {
             var product = propsProducts[i];
             var productCode =

@@ -26,7 +26,17 @@ var iShop2 = React.createClass({
     },
 
     render: function () {
-
+        var productsCode = this.state.productsArray.map(v =>
+            React.createElement(ProductInfo, {
+                key: v.code,
+                productName: v.productName,
+                price: v.price,
+                code: v.code,
+                url: v.url,
+                count: v.count,
+            })
+        );
+       
         return React.DOM.div({ className: 'iShop' },
             React.DOM.div({ className: 'Product' },
                 React.DOM.div({ className: 'ProductName' }, 'ProductName'),
@@ -35,7 +45,7 @@ var iShop2 = React.createClass({
                 React.DOM.div({ className: 'Count' }, 'Quality'),
                 React.DOM.div({ className: 'control' }, 'Control'),
             ),
-            React.createElement(ProductInfo, { arrayOfProducts: this.state.productsArray }),
+            React.DOM.div({ className: 'Products' }, productsCode ),
         );
     },
 
