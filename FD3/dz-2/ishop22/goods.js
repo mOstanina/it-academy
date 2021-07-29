@@ -18,6 +18,7 @@ var ProductInfo = React.createClass({
     },
 
     productClickedForDelete: function (EO) {
+        EO.stopPropagation();
         this.props.cbDelete(this.props.code);
     },
     productClicked: function (EO) {
@@ -25,19 +26,19 @@ var ProductInfo = React.createClass({
     },
 
     render: function () {
-            return (this.props.code!==this.props.clickedProduct)? React.DOM.div({ className: this.props.cssClassNotSelect, onClick: this.productClicked },
-                React.DOM.div({ className: 'ProductName' }, this.props.productName),
-                React.DOM.div({ className: 'price' }, this.props.price),
-                React.DOM.div({ className: 'url' }, this.props.url),
-                React.DOM.div({ className: 'Count' }, this.props.count),
-                React.DOM.input({ type: 'button', value: 'delete', onClick: this.productClickedForDelete }),
-            ): React.DOM.div({ className: this.props.cssClassSelect, onClick: this.productClicked },
-                React.DOM.div({ className: 'ProductName' }, this.props.productName),
-                React.DOM.div({ className: 'price' }, this.props.price),
-                React.DOM.div({ className: 'url' }, this.props.url),
-                React.DOM.div({ className: 'Count' }, this.props.count),
-                React.DOM.input({ type: 'button', value: 'delete', onClick: this.productClickedForDelete }),
-            );
-        
+        return (this.props.code !== this.props.clickedProduct) ? React.DOM.div({ className: this.props.cssClassNotSelect, onClick: this.productClicked },
+            React.DOM.div({ className: 'ProductName' }, this.props.productName),
+            React.DOM.div({ className: 'price' }, this.props.price),
+            React.DOM.div({ className: 'url' }, this.props.url),
+            React.DOM.div({ className: 'Count' }, this.props.count),
+            React.DOM.input({ type: 'button', value: 'delete', onClick: this.productClickedForDelete }),
+        ) : React.DOM.div({ className: this.props.cssClassSelect, onClick: this.productClicked },
+            React.DOM.div({ className: 'ProductName' }, this.props.productName),
+            React.DOM.div({ className: 'price' }, this.props.price),
+            React.DOM.div({ className: 'url' }, this.props.url),
+            React.DOM.div({ className: 'Count' }, this.props.count),
+            React.DOM.input({ type: 'button', value: 'delete', onClick: this.productClickedForDelete }),
+        );
+
     },
 })
