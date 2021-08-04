@@ -25,23 +25,23 @@ var iShop2 = React.createClass({
 
     productSelectedForDelete: function (code) {
         console.log('удален товар с кодом ' + code);
-        this.setState({ selectedProductCodToDelete: code }, function () {
-            var prodArray = this.state.productsArray
+        // this.setState({ selectedProductCodToDelete: code }, function () {
+        //     var prodArray = this.state.productsArray
 
-            var seaechProd = code;
-            var seaechProdInd = prodArray.find(prod => prod.code === seaechProd)
+        //     var seaechProd = code;
+        //     var seaechProdInd = prodArray.find(prod => prod.code === seaechProd)
           
-            var r = prodArray.indexOf(seaechProdInd)
-            // console.log(r)
-            // console.log(prodArray)
-            var prodArray2 = prodArray.filter(function (n) { return n !== prodArray[r] })
-            this.setState({ productsArray: prodArray2 }, function () {
-               // console.log(this.state.productsArray)
-            });
+        //     var r = prodArray.indexOf(seaechProdInd)
+        //     // console.log(r)
+        //     // console.log(prodArray)
+        //     var prodArray2 = prodArray.filter(function (n) { return n !== prodArray[r] })
+        //     this.setState({ productsArray: prodArray2 }, function () {
+        //        // console.log(this.state.productsArray)
+        //     });
 
-        });
+        // });
 
-
+        this.setState({ productsArray: this.state.productsArray.filter(product => product.code !== code) });
 
     },
 
