@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ishop3.css';
 import Products from './Products';
+import Card from './Card';
 
 class Shop extends React.Component {
 
@@ -29,13 +30,13 @@ class Shop extends React.Component {
     productClicked = (code) => {
         console.log('выбран ответ с кодом ' + code);
         this.setState({ selectedProductCod: code });
-        console.log(this.state.productsArray);
+       // console.log(this.state.productsArray);
     }
 
     productSelectedForDelete = (code) => {
         console.log('удален товар с кодом ' + code);
-        this.setState({ 
-            productsArray: this.state.productsArray.filter(product => product.code !== code) 
+        this.setState({
+            productsArray: this.state.productsArray.filter(product => product.code !== code)
         });
     }
 
@@ -55,18 +56,49 @@ class Shop extends React.Component {
                 cssClassSelect='Product red'
             />
         );
-        return (
-            <div className='iShop'>
-                <div className='Product'>
-                    <div className='ProductName'>ProductName</div>
-                    <div className='price'>Price</div>
-                    <div className='url'>URL</div>
-                    <div className='Count'>Quality</div>
-                    <div className='control'>Control</div>
+        if (this.state.selectedProductCod === null) {
+            return (
+                <div className='iShop'>
+                    <div className='Product'>
+                        <div className='ProductName'>ProductName</div>
+                        <div className='price'>Price</div>
+                        <div className='url'>URL</div>
+                        <div className='Count'>Quality</div>
+                        <div className='control'>Control</div>
+                    </div>
+                    <div className='Products'>{productsCode}</div>
                 </div>
-                <div className='Products'>{productsCode}</div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div>
+                    <div className='iShop'>
+                        <div className='Product'>
+                            <div className='ProductName'>ProductName</div>
+                            <div className='price'>Price</div>
+                            <div className='url'>URL</div>
+                            <div className='Count'>Quality</div>
+                            <div className='control'>Control</div>
+                        </div>
+                        <div className='Products'>{productsCode}</div>
+                    </div>
+                    <Card key={this.state.selectedProductCod}
+                        // productName={this.props.products.productName}
+                        productName={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].productName}
+                        //price={this.props.products.price}
+                        price={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].price}
+                        //code={this.props.products.code}
+                        code={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].code}
+                        //url={this.props.products.url}
+                        url={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].url}
+                        //count={this.props.products.count} 
+                        count={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].count}
+                        />
+
+                </div>
+            );
+        }
+
     }
 }
 
