@@ -15,7 +15,7 @@ class Products extends React.Component {
         clickedProduct: PropTypes.number,
         cssClassNotSelect: PropTypes.string.isRequired,
         cssClassSelect: PropTypes.string.isRequired,
-        cbClickedEdit: PropTypes.func.isRequired,
+        cbClickedEdit: PropTypes.func.isRequired,// колбэк для изменения продукта
     };
     productClickedForDelete = (EO) => {
         EO.stopPropagation();

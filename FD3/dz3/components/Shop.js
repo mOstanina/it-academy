@@ -28,45 +28,44 @@ class Shop extends React.Component {
         workMode: null,
     }
 
-    productClicked = (code) => {
+    productClicked = (code) => {//колбэк клика по строке с товаром, подсвечивается строка и отображается карточка товара
         console.log('выбран ответ с кодом ' + code);
         this.setState({ selectedProductCod: code });
         if (this.state.workMode === null) {
-            this.setState({ workMode: 1 });
+            this.setState({ workMode: 1 });//карточка переходит в режим просмотра
         }
         if (this.state.workMode === 2) {
-            this.setState({ workMode: 1 });
+            this.setState({ workMode: 1 });//карточка переходит в режим просмотра если вдруг до этого был режим редактирования
         }
-        console.log(this.state.workMode);
     }
 
-    productSelectedForDelete = (code) => {
+    productSelectedForDelete = (code) => {// колбэк удаления товара
         console.log('удален товар с кодом ' + code);
         if (code === this.state.selectedProductCod) {
             this.setState({ selectedProductCod: null });
             this.setState({ workMode: null });
         }
         this.setState({
-            productsArray: this.state.productsArray.filter(product => product.code !== code)
+            productsArray: this.state.productsArray.filter(product => product.code !== code)// фильтрую список товара без товара с удаляемым кодом
         });
     }
-    editClicked = (code) => {
+    editClicked = (code) => {// колбэк редактрования товараб при клике на edit карточка переходит в режим редактирования
         console.log(this.state.workMode);
         console.log('изменеинию подлежит товар с кодом:  ' + code);
         this.setState({ selectedProductCod: code });
-        this.setState({ workMode: 2 });
+        this.setState({ workMode: 2 });//карточка переходит в режим редактирования
         console.log(this.state.workMode);
     }
-    productCangeInfo = (code, returnArray) => {
+    productCangeInfo = (code, returnArray) => { // колбэк редактрорования товара
         console.log('изменеинию подлежит товар с1 кодом:  ' + code);
         console.log(this.state.productsArray);
         var arr = this.state.productsArray;
         var newArr=[];
-        arr.forEach(function (item, i, arr) {
+        arr.forEach(function (item, i, arr) {  // формирую новый массив с товарами
             if (item.code !== code) {
-                newArr.push(item)
+                newArr.push(item)    // если код товара не совпадает просто добавляю его в новый массив
             }else{
-                newArr.push(returnArray)
+                newArr.push(returnArray) // если код товара совпадает  добавляю новый товар в новый массив
             }
         })
         this.setState({

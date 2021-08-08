@@ -36,4 +36,12 @@
 }
 .cssClassSelectEdit .prodInfo input {
   width: 150px;
+}
+.cssClassSelectEdit .error {
+  color: red;
+}
+
+.transparent {
+  color: transparent;
+  font-size: 0px;
 }/*# sourceMappingURL=card.css.map */
