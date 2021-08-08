@@ -57,6 +57,22 @@ class Shop extends React.Component {
         this.setState({ workMode: 2 });
         console.log(this.state.workMode);
     }
+    productCangeInfo = (code, returnArray) => {
+        console.log('изменеинию подлежит товар с1 кодом:  ' + code);
+        console.log(this.state.productsArray);
+        var arr = this.state.productsArray;
+        var newArr=[];
+        arr.forEach(function (item, i, arr) {
+            if (item.code !== code) {
+                newArr.push(item)
+            }else{
+                newArr.push(returnArray)
+            }
+        })
+        this.setState({
+            productsArray: newArr
+        });
+    }
 
     render() {
         var productsCode = this.state.productsArray.map(v =>
@@ -109,6 +125,7 @@ class Shop extends React.Component {
                         code={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].code}
                         url={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].url}
                         count={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].count}
+                        cbChangeProductInfo={this.productCangeInfo}
                     />
                 </div>
             );

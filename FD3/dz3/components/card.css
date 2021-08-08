@@ -22,8 +22,14 @@
   background-color: #f5eaea;
   padding: 10px;
 }
+.cssClassSelectEdit .titleOfCard {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
 .cssClassSelectEdit .prodInfo {
   display: flex;
+  margin: 5px 0;
 }
 .cssClassSelectEdit .prodInfo .title {
   width: 50px;
