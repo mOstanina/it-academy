@@ -13,4 +13,21 @@
 }
 .cssClassSelectNotEdit div {
   text-align: left;
+}
+
+.cssClassSelectEdit {
+  width: 500px;
+  height: 200px;
+  border: 2px solid green;
+  background-color: #f5eaea;
+  padding: 10px;
+}
+.cssClassSelectEdit .prodInfo {
+  display: flex;
+}
+.cssClassSelectEdit .prodInfo .title {
+  width: 50px;
+}
+.cssClassSelectEdit .prodInfo input {
+  width: 150px;
 }/*# sourceMappingURL=card.css.map */

@@ -15,6 +15,7 @@ class Products extends React.Component {
         clickedProduct: PropTypes.number,
         cssClassNotSelect: PropTypes.string.isRequired,
         cssClassSelect: PropTypes.string.isRequired,
+        cbClickedEdit: PropTypes.func.isRequired,
     };
     productClickedForDelete = (EO) => {
         EO.stopPropagation();
@@ -22,6 +23,10 @@ class Products extends React.Component {
     }
     productClicked = (EO) => {
         this.props.cbClicked(this.props.code);
+    }
+    editClicked = (EO) => {
+        EO.stopPropagation();
+        this.props.cbClickedEdit(this.props.code);
     }
     render() {
         if (this.props.code !== this.props.clickedProduct) {
@@ -31,7 +36,7 @@ class Products extends React.Component {
                     <div className='price'>{this.props.price}</div>
                     <div className='url'>{this.props.url}</div>
                     <div className='Count'>{this.props.count}</div>
-                    <input type='button' value='edit' onClick={this.productClickedForDelete} />
+                    <input type='button' value='edit' onClick={this.editClicked} />
                     <input type='button' value='delete' onClick={this.productClickedForDelete} />
                 </div>
             )
@@ -42,7 +47,7 @@ class Products extends React.Component {
                     <div className='price'>{this.props.price}</div>
                     <div className='url'>{this.props.url}</div>
                     <div className='Count'>{this.props.count}</div>
-                    <input type='button' value='edit' onClick={this.productClickedForDelete} />
+                    <input type='button' value='edit' onClick={this.editClicked} />
                     <input type='button' value='delete' onClick={this.productClickedForDelete} />
                 </div>
             );

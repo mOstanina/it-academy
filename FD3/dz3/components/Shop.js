@@ -25,24 +25,43 @@ class Shop extends React.Component {
         className: 'ProductName',
         classNameForClick: 'Product red',
         classNameWithoutClick: 'Product',
+        workMode: null,
     }
 
     productClicked = (code) => {
         console.log('выбран ответ с кодом ' + code);
         this.setState({ selectedProductCod: code });
-       // console.log(this.state.productsArray);
+        if (this.state.workMode === null) {
+            this.setState({ workMode: 1 });
+        }
+        if (this.state.workMode === 2) {
+            this.setState({ workMode: 1 });
+        }
+        console.log(this.state.workMode);
     }
 
     productSelectedForDelete = (code) => {
         console.log('удален товар с кодом ' + code);
+        if (code === this.state.selectedProductCod) {
+            this.setState({ selectedProductCod: null });
+            this.setState({ workMode: null });
+        }
         this.setState({
             productsArray: this.state.productsArray.filter(product => product.code !== code)
         });
     }
+    editClicked = (code) => {
+        console.log(this.state.workMode);
+        console.log('изменеинию подлежит товар с кодом:  ' + code);
+        this.setState({ selectedProductCod: code });
+        this.setState({ workMode: 2 });
+        console.log(this.state.workMode);
+    }
 
     render() {
         var productsCode = this.state.productsArray.map(v =>
-            <Products key={v.code}
+            <Products
+                key={v.code}
                 productName={v.productName}
                 price={v.price}
                 code={v.code}
@@ -54,6 +73,7 @@ class Shop extends React.Component {
                 className={this.state.className}
                 cssClassNotSelect='Product'
                 cssClassSelect='Product red'
+                cbClickedEdit={this.editClicked}
             />
         );
         if (this.state.selectedProductCod === null) {
@@ -82,23 +102,17 @@ class Shop extends React.Component {
                         </div>
                         <div className='Products'>{productsCode}</div>
                     </div>
-                    <Card key={this.state.selectedProductCod}
-                        // productName={this.props.products.productName}
+                    <Card workMode={this.state.workMode}
+                        key={this.state.selectedProductCod}
                         productName={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].productName}
-                        //price={this.props.products.price}
                         price={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].price}
-                        //code={this.props.products.code}
                         code={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].code}
-                        //url={this.props.products.url}
                         url={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].url}
-                        //count={this.props.products.count} 
                         count={(this.state.productsArray.filter(product => product.code === this.state.selectedProductCod))[0].count}
-                        />
-
+                    />
                 </div>
             );
         }
-
     }
 }
 
