@@ -47,8 +47,8 @@ class Products extends React.Component {
                     <div className='price'>{this.props.price}</div>
                     <div className='url'>{this.props.url}</div>
                     <div className='Count'>{this.props.count}</div>
-                    <input type='button' value='edit' onClick={this.editClicked} />
-                    <input type='button' value='delete' onClick={this.productClickedForDelete} />
+                    <input type='button' value='edit' onClick={this.editClicked} disabled={this.props.isProductCardChanged}/>
+                    <input type='button' value='delete' onClick={this.productClickedForDelete} disabled={this.props.isProductCardChanged}/>
                 </div>
             )
         } else {
@@ -58,7 +58,7 @@ class Products extends React.Component {
                     <div className='price'>{this.props.price}</div>
                     <div className='url'>{this.props.url}</div>
                     <div className='Count'>{this.props.count}</div>
-                    <input type='button' value='edit' onClick={this.editClicked} />
+                    <input type='button' value='edit' onClick={this.editClicked} disabled={this.props.isProductCardChanged}/>
                     <input type='button' value='delete' onClick={this.productClickedForDelete} disabled={this.props.isProductCardChanged} />
                 </div>
             );

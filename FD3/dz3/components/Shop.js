@@ -166,7 +166,7 @@ class Shop extends React.Component {
                         <div className='Products'>{productsCode}</div>
                         <div className={this.state.btnView}>
                             <input type='button' value='new product' onClick={this.addNewProd} />
-                        </div>
+                        </div> 
                     </div>
                     <Card workMode={this.state.workMode}
                         cbIsProductCardChanged={this.isProductCardChangedFunc}
@@ -201,10 +201,10 @@ class Shop extends React.Component {
                     <Card workMode={3}
                         cbIsProductCardChanged={this.isProductCardChangedFunc}
                         cbChangeWorkMode={this.changeWorkMode}
-                        key={(this.props.products).length + 1}
+                        key={this.state.productsArray[this.state.productsArray.length-1].code + 1}
                         productName={""}
                         price={0}
-                        code={this.props.products.length + 1}
+                        code={this.state.productsArray[this.state.productsArray.length-1].code + 1}
                         url={""}
                         count={0}
                         cbChangeProductInfo={this.productCangeInfo}

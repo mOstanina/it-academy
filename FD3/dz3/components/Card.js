@@ -61,7 +61,7 @@ class Card extends React.Component {
         this.props.cbIsProductCardChanged()
     }
     priceChange(EO) {
-        this.setState({ price: EO.target.value });
+        this.setState({ price: Number(EO.target.value) });
         if (EO.target.value === "" || EO.target.value === " ") {
             this.setState({ errorInputPrice: "error" })
         } else {
@@ -77,7 +77,7 @@ class Card extends React.Component {
         }
     }
     countChange(EO) {
-        this.setState({ count: EO.target.value });
+        this.setState({ count: Number(EO.target.value) });
         if (EO.target.value === "" || EO.target.value === " ") {
             this.setState({ errorInputCount: "error" })
         } else {
