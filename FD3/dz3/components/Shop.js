@@ -87,7 +87,7 @@ class Shop extends React.Component {
                 newArr.push(returnArray) // если код товара совпадает  добавляю новый товар в новый массив
             }
         })
-        if (code > this.state.productsArray.length) {
+        if (code > this.state.productsArray[this.state.productsArray.length-1].code) {
             newArr.push(returnArray)
         }
         console.log(this.state.productsArray)
@@ -95,6 +95,7 @@ class Shop extends React.Component {
             productsArray: newArr,
             isProductCardChanged: false, // разблокирую клики по строчкам и кнопкам delete и edit
             workMode: null,
+            selectedProductCod: null,
             btnView: "btnNewProduct" // "возвращаю" с помощью CSS-каласса кнопку добавления нового товара
         });
     }

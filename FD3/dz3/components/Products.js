@@ -21,11 +21,14 @@ class Products extends React.Component {
     };
     state = {
         isCardChanged: this.props.isProductCardChanged,
+        isBtnDisabled:false
     }
     productClickedForDelete = (EO) => {
         EO.stopPropagation();
         if (this.props.isProductCardChanged === false && this.props.workMode !== 3) {//если в форму бвли внесены изменения, клик не будет выполнятся
             this.props.cbDelete(this.props.code);
+        }else{
+            this.setState({ isBtnDisabled:true })
         }
     }
     productClicked = (EO) => {
@@ -37,20 +40,37 @@ class Products extends React.Component {
         EO.stopPropagation();
         if (this.props.isProductCardChanged === false && this.props.workMode !== 3) {//если в форму бвли внесены изменения, клик не будет выполнятся
             this.props.cbClickedEdit(this.props.code);
+        }else{
+            this.setState({ isBtnDisabled:true })
         }
     }
+
+   
     render() {
-        if (this.props.code !== this.props.clickedProduct) {
+        if ((this.props.code !== this.props.clickedProduct)&&this.props.workMode!==3) {
             return (
                 <div className={this.props.cssClassNotSelect} onClick={this.productClicked}>
                     <div className='ProductName'>{this.props.productName}</div>
                     <div className='price'>{this.props.price}</div>
                     <div className='url'>{this.props.url}</div>
                     <div className='Count'>{this.props.count}</div>
+                    {/* <input type='button' value='edit' onClick={this.editClicked} disabled={this.props.isProductCardChanged}/>
+                    <input type='button' value='delete' onClick={this.productClickedForDelete} disabled={this.props.isProductCardChanged}/> */}
                     <input type='button' value='edit' onClick={this.editClicked} disabled={this.props.isProductCardChanged}/>
                     <input type='button' value='delete' onClick={this.productClickedForDelete} disabled={this.props.isProductCardChanged}/>
                 </div>
             )
+        } else if(this.props.workMode===3) {
+            return (
+                <div className={this.props.cssClassNotSelect} onClick={this.productClicked}>
+                    <div className='ProductName'>{this.props.productName}</div>
+                    <div className='price'>{this.props.price}</div>
+                    <div className='url'>{this.props.url}</div>
+                    <div className='Count'>{this.props.count}</div>
+                    <input type='button' value='edit' onClick={this.editClicked} disabled/>
+                    <input type='button' value='delete' onClick={this.productClickedForDelete} disabled />
+                </div>
+            );
         } else {
             return (
                 <div className={this.props.cssClassSelect} onClick={this.productClicked}>
