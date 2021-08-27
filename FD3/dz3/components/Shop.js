@@ -103,7 +103,7 @@ class Shop extends React.Component {
         this.setState({
             workMode: 1,
             isProductCardChanged: false,
-            btnView: "btnNewProduct" // "возвращаю" с помощью CSS-каласса кнопку добавления нового товара  (!!!!!!!)
+            btnView: "btnNewProduct" // "возвращаю"  с помощью CSS-каласса кнопку добавления нового товара  (!!!!!!!)
         });
     }
 
