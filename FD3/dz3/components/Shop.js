@@ -73,7 +73,7 @@ class Shop extends React.Component {
             workMode: 3,   //карточка переходит в режим редактирования
             selectedProductCodToDelete: null,
             selectedProductCod: null,
-            btnView: "btnNotView" // "скрываю" с помощью CSS-каласса кнопку добавления нового товара
+            btnView: "btnNotView" // "скрываю"   с помощью CSS-каласса кнопку добавления нового товара
         });
     }
     productCangeInfo = (code, returnArray) => { // колбэк добавления товара по кнопке "save"
