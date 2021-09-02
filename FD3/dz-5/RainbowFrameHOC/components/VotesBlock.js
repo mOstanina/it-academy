@@ -6,7 +6,10 @@ import './VotesBlock.css';
 import DobleButton from './DobleButton';
 import { withRainbowFrame } from './withRainbowFrame';
 
-
+let colors = ['red', 'orange', 'yellow', 'green', '#00BFFF', 'blue', 'purple'];
+let captionA = "hello!";
+let captionB = "hi!";
+let FramedDoubleButton = withRainbowFrame(colors)(DobleButton);
 class VotesBlock extends React.Component {
 
   presseed = (v) => {
@@ -14,10 +17,7 @@ class VotesBlock extends React.Component {
   }
 
   render() {
-    let colors = ['red'];
-    let captionA = "hello!";
-    let captionB = "hi!";
-    let FramedDoubleButton = withRainbowFrame(colors)(DobleButton);
+
     return (
       <div>
         <DobleButton caption1={captionA}

@@ -1,35 +1,26 @@
 import React from 'react';
-
 function withRainbowFrame(colors) {
-  if (colors.length === 0) {
-    return function (Component) {
-      return props => (
-        <Component {...props} />
-      );
-    };
-  } else {
-    var el = colors.shift();
-    <div style={{ border: "solid 3px " + el, padding: "10px" }}> {withRainbowFrame(colors)}</div>
+
+  class RainbowFrame extends React.Component {
+
+    render() {
+      console.log(colors)
+      let code = this.props.children
+      colors.forEach(element =>
+        code = <div style={{ border: "solid 3px " + element, padding: "10px" }} >{code}</div>)
+
+      return code
+
+    }
   }
 
-  // let code = function (Component) {
-  //   return props => (
-  //     <Component {...props} />
-  //   );
-  // };
-  // let fr;
-  // colors.forEach(element =>
-  //   fr = <div style={{ border: "solid 3px " + element, padding: "10px" }} >{code}</div>)
+  return function (Component) {
+    return props => (
+      <RainbowFrame>
+        <Component {...props} />
+      </RainbowFrame>
+    );
+  };
 
-  // return fr
-
-
-  // return function (Component) {
-   
-  //     colors.forEach(element =>
-  //       fr = <div style={{ border: "solid 3px " + element, padding: "10px" }} >{<Component {...props} />}</div>)
-
-  // };
 }
-
 export { withRainbowFrame };
