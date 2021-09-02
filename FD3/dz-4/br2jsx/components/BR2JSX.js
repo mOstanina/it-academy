@@ -9,7 +9,7 @@ class BR2JSX extends React.Component {
 
     render() {
         let wordsArray = this.props.text.split(/<br *\/?>/g)
-       // console.log(wordsArray);
+       //  console.log(wordsArray);
         let newString = [];
         wordsArray.forEach((element, i) => {
             if (i) {
