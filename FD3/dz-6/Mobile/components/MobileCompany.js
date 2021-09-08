@@ -56,7 +56,6 @@ class MobileCompany extends React.PureComponent {
         newClients.splice(i, 1);
       }
     });
-    console.log(newClients)
     this.setState({ clientsForRender: newClients });
     this.setState({ workMode: 2 });
   }
