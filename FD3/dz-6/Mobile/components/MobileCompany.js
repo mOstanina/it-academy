@@ -33,31 +33,33 @@ class MobileCompany extends React.PureComponent {
   setName2 = () => {
     this.setState({ name: 'Velcom' });
   };
+
   setAll = () => {     // выбраны все клиенты
     let newClients = this.state.clients; // копия самого массива клиентов
     this.setState({ clientsForRender: newClients });
     this.setState({ workMode: 0 });
   };
   setActive = () => {     // выбраны только активные клиенты
-    let newClients = [...this.state.clients]; // копия самого массива клиентов
-    let newClientsForRender=[];
-    newClients.forEach(c => {
-      if (c.balance >=0) {
-        newClientsForRender.push(c)
-      }
-    });
-    this.setState({ clientsForRender: newClientsForRender });
+    // let newClients = [...this.state.clients]; // копия самого массива клиентов
+    // let newClientsForRender=[];
+    // newClients.forEach((c,i) => {
+    //   if (c.balance >=0) {
+    //     //newClientsForRender.push(c)
+    //     newClients.splice(i,1,false);
+    //   }
+    // });
+    // this.setState({ clientsForRender: newClientsForRender });
     this.setState({ workMode: 1 });
   };
   setBlocked = () => {     // выбраны только заблокированные клиенты
-    let newClients = [...this.state.clients]; // копия самого массива клиентов
-    let newClientsForRender=[];
-    newClients.forEach(c => {
-      if (c.balance <0) {
-        newClientsForRender.push(c)
-      }
-    });
-    this.setState({ clientsForRender: newClientsForRender });
+    // let newClients = [...this.state.clients]; // копия самого массива клиентов
+    // let newClientsForRender=[];
+    // newClients.forEach(c => {
+    //   if (c.balance <0) {
+    //     newClientsForRender.push(c)
+    //   }
+    // });
+    // this.setState({ clientsForRender: newClientsForRender });
     this.setState({ workMode: 2 });
   }
 
@@ -67,7 +69,7 @@ class MobileCompany extends React.PureComponent {
     console.log("MobileCompany render");
 
     var clientsCode = this.state.clientsForRender.map(client => {
-      return <MobileClient key={client.id} id={client.id} workMode={this.state.workMode} clients={this.state.clientsForRender} />;
+      return <MobileClient key={client.id} id={client.id}  workMode={this.state.workMode} clients={this.state.clientsForRender} />;
     }
     );
 
