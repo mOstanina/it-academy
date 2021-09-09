@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-
+import {mobileEvents} from './events';
 import './MobileClient.css';
 
 class MobileClient extends React.PureComponent {
@@ -20,10 +20,13 @@ class MobileClient extends React.PureComponent {
     im: this.props.info.im,
     otch: this.props.info.otch,
     balance: this.props.info.balance,
-    isBlocked: null,
-    isBlockedText: null,
-    display: true,
   };
+  changeInfo = (EO) => {
+    mobileEvents.emit('ChangeInfoClicked',this.props.info);
+  }
+  deleteClient= (EO) => {
+    mobileEvents.emit('DeleteClient',this.props.info);
+  }
 
   componentWillReceiveProps = (newProps) => {
     //console.log("MobileClient id=" + this.props.id + " componentWillReceiveProps");
@@ -48,8 +51,8 @@ class MobileClient extends React.PureComponent {
           <div className='MobileClientBalance'>{this.state.balance}</div>
           {this.state.balance >= 0 && <div className='MobileClientIsBlocked' className={"MobileClientIsBlockedfalse"} >{"активен"}</div>}
           {this.state.balance < 0 && <div className='MobileClientIsBlocked' className={"MobileClientIsBlockedtrue"} >{"заблокирован"}</div>}
-          <input type="button" value="редактировать" />
-          <input type="button" value="Удалить" />
+          <input type="button" value="редактировать"  onClick={this.changeInfo}/>
+          <input type="button" value="Удалить" onClick={this.deleteClient} />
         </div>
       </div>
     );
