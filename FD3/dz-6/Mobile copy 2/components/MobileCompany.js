@@ -41,19 +41,21 @@ class MobileCompany extends React.PureComponent {
   };
   setActive = () => {     // выбраны только активные клиенты
     let newClients = [...this.state.clients]; // копия самого массива клиентов
-    newClients = newClients.filter(function (i) {
-      //console.log(i)
-      return i.balance >= 0
-    })
+    newClients.forEach((c, i) => {
+      if (c.balance < 0) {
+        newClients.splice(i, 1);
+      }
+    });
     this.setState({ clientsForRender: newClients });
     this.setState({ workMode: 1 });
   };
   setBlocked = () => {     // выбраны только заблокированные клиенты
     let newClients = [...this.state.clients]; // копия самого массива клиентов
-    newClients = newClients.filter(function (i) {
-      //console.log(i)
-      return i.balance < 0
-    })
+    newClients.forEach((c, i) => {
+      if (c.balance >= 0) {
+        newClients.splice(i, 1);
+      }
+    });
     this.setState({ clientsForRender: newClients });
     this.setState({ workMode: 2 });
   }
@@ -62,7 +64,7 @@ class MobileCompany extends React.PureComponent {
     console.log("MobileCompany render");
 
     var clientsCode = this.state.clientsForRender.map(client => {
-      return <MobileClient key={client.id} id={client.id} info={client} />;
+      return <MobileClient key={client.id} id={client.id} clients={this.state.clientsForRender} />;
     }
     );
 
