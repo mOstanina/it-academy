@@ -143,7 +143,7 @@ class MobileCompany extends React.PureComponent {
           {clientsCode}
         </div>
         {this.state.workMode === 0 && <input type="button" value="добавить нового клиента" onClick={this.addClient} />}
-        {this.state.workMode === 1 && <Card workMode={1} info={this.state.cardInfo} />}
+        {this.state.workMode === 1 && <Card workMode={1} info={this.state.cardInfo} key={this.state.cardInfo.id}/>}
         {this.state.workMode === 2 && <Card workMode={2} info={{ fam: null, im: null, otch: null, balance: null }} />}
       </div>
     );
