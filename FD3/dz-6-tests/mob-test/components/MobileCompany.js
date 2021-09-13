@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
 
-import MobileClient from './MobileClient';
-import Card from './Card';
-
+// import MobileClient from './MobileClient';
+// import Card from './Card';
+import MobileClientRender from './MobileClientRender';
 import './MobileCompany.css';
 import { mobileEvents } from './events';
 
@@ -90,32 +90,19 @@ class MobileCompany extends React.PureComponent {
     this.setState({ clientsForRender: newClients });
     this.setState({ workMode: 0 });
   }
+
   render() {
-
-    console.log("MobileCompany render");
-
-    var clientsCode = this.state.clientsForRender.map(client => {
-      return <MobileClient key={client.id} id={client.id} info={client} />;
-    }
-    );
-
-    return (
-      <div className='MobileCompany'>
-        <div className='MobileCompanyName'>Компания &laquo;{this.state.name}&raquo;</div>
-        <div className='btn'>
-          <input type="button" value="все" onClick={this.setAll} />
-          <input type="button" value="активные" onClick={this.setActiv} />
-          <input type="button" value="заблокированные" onClick={this.setBlock} />
-        </div>
-        <div className='MobileCompanyClients'>
-          {clientsCode}
-        </div>
-        {this.state.workMode === 0 && <input type="button" value="добавить нового клиента" onClick={this.addClient} />}
-        {this.state.workMode === 1 && <Card workMode={1} info={this.state.cardInfo} key={this.state.cardInfo.id} />}
-        {this.state.workMode === 2 && <Card workMode={2} info={{ fam: null, im: null, otch: null, balance: null }} />}
-      </div>
-    );
+    return  <MobileClientRender
+    clientsForRender={this.state.clientsForRender}
+    toSetAll={this.setAll}
+    toSetActiv={this.setActiv}
+    toSetBlock={this.setBlock}
+    toAaddClient={this.addClient}
+    workMode={this.state.workMode}
+    cardInfo={this.state.cardInfo}
+  />
   }
+  
 }
 
 export default MobileCompany;
