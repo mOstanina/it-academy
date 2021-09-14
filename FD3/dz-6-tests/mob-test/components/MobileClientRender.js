@@ -17,11 +17,11 @@ class MobileClientRender extends React.PureComponent {
                 balance: PropTypes.number.isRequired,
             })
         ),
-        toSetAll: PropTypes.func.isRequired,
-        toSetActiv: PropTypes.func.isRequired,
-        toSetBlock: PropTypes.func.isRequired,
-        toAaddClient: PropTypes.func.isRequired,
-        workMode:PropTypes.number.isRequired,
+        toSetAll: PropTypes.func,
+        toSetActiv: PropTypes.func,
+        toSetBlock: PropTypes.func,
+        toAaddClient: PropTypes.func,
+        workMode:PropTypes.number,
         cardInfo:PropTypes.object
     };
     render() {
