@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  font-size: 14px;
+}
+
+.pageContainer {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #a9cea9;
+}
+.pageContainer .PageLink, .pageContainer span {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.ActivePageLink {
+  font-weight: bold;
+}/*# sourceMappingURL=PagesLinks.css.map */

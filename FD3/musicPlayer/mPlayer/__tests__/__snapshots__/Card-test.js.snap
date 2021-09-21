@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Card 1`] = `
+<div
+  className="cssClassSelectEdit"
+>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      фамилия: 
+    </div>
+    <input
+      defaultValue="Иванов"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      имя: 
+    </div>
+    <input
+      defaultValue="Иван"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      отчество: 
+    </div>
+    <input
+      defaultValue="Иванович"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      баланс: 
+    </div>
+    <input
+      defaultValue={200}
+      type="text"
+    />
+  </div>
+  <input
+    onClick={[Function]}
+    type="button"
+    value="save"
+  />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="cancel"
+  />
+</div>
+`;
+
+exports[`работа Card 2`] = `
+<div
+  className="cssClassSelectEdit"
+>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      фамилия: 
+    </div>
+    <input
+      defaultValue="Петров"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      имя: 
+    </div>
+    <input
+      defaultValue="Пётр"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      отчество: 
+    </div>
+    <input
+      defaultValue="Петрович"
+      type="text"
+    />
+  </div>
+  <div
+    className="prodInfo"
+  >
+    <div
+      className="title"
+    >
+      баланс: 
+    </div>
+    <input
+      defaultValue={180}
+      type="text"
+    />
+  </div>
+  <input
+    onClick={[Function]}
+    type="button"
+    value="save"
+  />
+  <input
+    onClick={[Function]}
+    type="button"
+    value="cancel"
+  />
+</div>
+`;
