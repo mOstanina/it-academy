@@ -1,0 +1,30 @@
+.songName_track {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.for_span_track{
+    width: 35%;
+}
+.for_audio_track {
+  width: 55%;
+}
+.for_input_track {
+  width: 10%;
+}
+.for_input_track > input {
+  display: flex;
+  align-items: flex-end;
+}
+.for_span_track,
+.for_audio_track,
+.for_input_track {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

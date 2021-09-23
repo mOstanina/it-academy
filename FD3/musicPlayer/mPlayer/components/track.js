@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { mobileEvents } from './events';
 
+import './track.css';
+
 class Track extends React.PureComponent {
     static propTypes = {
         // workMode: PropTypes.number.isRequired, //передаю режим отображения крточки: редактирование / добавление
@@ -51,11 +53,13 @@ class Track extends React.PureComponent {
         console.log("Track is render");
         return (
             <div>
-                <div className="songName"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> 
-                    <audio
+                <div className="songName_track"> 
+                <div className="for_span_track"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> </div>
+                <div className="for_audio_track"> <audio
                         controls
                         src={this.props.info.url}>
-                    </audio>
+                    </audio></div>
+                    <div className="for_input_track"> <input type="button" value="add to my play-list" /></div>
                 </div>
 
             </div>

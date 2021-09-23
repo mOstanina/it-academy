@@ -1,4 +1,5 @@
-[
+{ 
+    "playlist":[
     {"code": 1, "isInList":true, "groupName": "4 Non Blondes","songName": "What's Up",  "url":"../songs/4 Non Blondes - What's Up.mp3"},
     {"code": 2, "isInList":true, "groupName": "Aerosmith","songName": "Amazing",  "url":"../songs/Aerosmith - Amazing.mp3"},
     {"code": 3, "isInList":true, "groupName": "Aerosmith","songName": "Pink",  "url":"../songs/Aerosmith - Pink.mp3"},
@@ -55,3 +56,4 @@
     {"code": 55, "isInList":true, "groupName": "Ufo","songName": "Belladonna",  "url":"../songs/Ufo - Belladonna.mp3"},
     {"code": 56, "isInList":true, "groupName": "Van Halen","songName": "Can't stop lovin you",  "url":"../songs/Van Halen - Can't stop lovin you.mp3"}
 ]
+}
