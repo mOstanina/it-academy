@@ -7,6 +7,7 @@ import React from 'react';
 class Your_PlayList extends React.PureComponent {
 
     render() {
+        console.log("Page_Your_PlayLis is render");
         return (
             <div className="pageContainerOfMainPage">
                 <ul>

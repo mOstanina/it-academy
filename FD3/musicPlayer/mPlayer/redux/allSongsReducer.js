@@ -7,7 +7,7 @@ const initState={
 
 }
 
-function allSongsReducer(state=initState,action) {
+function allSongsLoadReducer(state=initState,action) {
   switch (action.type) {
 
     case ALL_SONGS_LOADING: {
@@ -29,7 +29,7 @@ function allSongsReducer(state=initState,action) {
     case ALL_SONGS_SET: {
       let newState={
         status:3,
-        data:action.countries,
+        data:action.allSongs,
       };
       return newState;
     }
@@ -39,4 +39,4 @@ function allSongsReducer(state=initState,action) {
   }
 }
 
-export default allSongsReducer;
+export default allSongsLoadReducer;

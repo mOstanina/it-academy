@@ -4,7 +4,7 @@ import './Page_About.css';
 class Page_About extends React.PureComponent {
           
   render() {
-
+    console.log("Page_About is render");
     return (
       <div className="pageContainerOfMainPage">
         <h1>музыкальный сайт. создай свой плей-лист!</h1>

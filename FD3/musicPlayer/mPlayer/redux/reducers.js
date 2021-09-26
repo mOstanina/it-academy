@@ -1,9 +1,9 @@
 ﻿import { combineReducers } from 'redux';
 
-import allSongsReducer from "./allSongsReducer";
+import allSongsLoadReducer from "./allSongsReducer";
 
-let combinedReducer=combineReducers({
-    allSongs: allSongsReducer, // редьюсер allSongsReducer отвечает за раздел state под именем allSongs
+let combinedReducer = combineReducers({
+    allSongs: allSongsLoadReducer, // редьюсер allSongsReducer отвечает за раздел state под именем allSongs
     // + другие редьюсеры
 });
 
