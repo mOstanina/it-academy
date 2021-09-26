@@ -20,7 +20,7 @@ let store = createStore(combinedReducer, compose(applyMiddleware(thunk), window.
 class MainComponent extends React.PureComponent {
 
     componentDidMount() {
-
+        console.log("!!!")
         this.props.dispatch(allSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
 
         isoFetch("http://localhost:3000/playlist", {
@@ -58,7 +58,7 @@ class MainComponent extends React.PureComponent {
                         <PagesRouter />
                     </div>
                 </BrowserRouter>
-            </Provider>
+                </Provider>
         );
 
     }

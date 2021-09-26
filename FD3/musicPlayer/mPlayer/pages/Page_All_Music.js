@@ -12,7 +12,7 @@ import songsThunkAC from '../redux/fetchThunk'
 class All_Music extends React.PureComponent {
 
   static propTypes = {
-    playlist: PropTypes.object.isRequired,
+    allSongs: PropTypes.object.isRequired,
   };
 
   // componentDidMount() {
@@ -22,13 +22,8 @@ class All_Music extends React.PureComponent {
 
 
   render() {
-    if (this.props.playlist.status <= 1)
-      return "загрузка...";
-
-    if (this.props.playlist.status === 2)
-      return "ошибка загрузки данных";
-
-    let listOfAllSongs = this.props.allSongs.map((song, i) => {
+   console.log(this.props.allSongs)
+    let listOfAllSongs = this.props.allSongs.data.map((song, i) => {
       return <Track key={song.code} info={song} />
     })
     return (
@@ -59,7 +54,7 @@ class All_Music extends React.PureComponent {
 const mapStateToProps = function (state) {
   console.log(state)
   return {
-    playlist: state.playlist
+    allSongs: state.allSongs
   };
 };
 
