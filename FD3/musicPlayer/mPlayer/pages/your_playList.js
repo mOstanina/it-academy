@@ -1,34 +1,52 @@
 import React from 'react';
+import PropTypes, { func } from 'prop-types';
+import { connect } from 'react-redux';
 
-//import MobileClientInfo from '../components/MobileClientInfo';
 
-//import appData from '../appData';
+import Track from '../components/track';
+
+//"isInList":true,
 
 class Your_PlayList extends React.PureComponent {
-
+    static propTypes = {
+        songs: PropTypes.array,
+        status: PropTypes.number.isRequired
+    };
     render() {
-        console.log("Page_Your_PlayLis is render");
-        return (
-            <div className="pageContainerOfMainPage">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-
-                </ul>
-                <audio
-                    controls
-                    src="../songs/The Beatles - Let It Be.mp3">
-                </audio>
+        if (this.props.status !== 3) {
+            return <div>крутёлка с загрузкой</div>
+        } else {
 
 
 
-            </div>
-        );
+            let listOfAllSongs = [...this.props.songs]; // копия самого массива клиентов
+            let newListOfAllSongs = listOfAllSongs.filter(function (i) {
+               // console.log(i.isInList)
+                return i.isInList === true
+            })
 
-
-    }
-
+            newListOfAllSongs = this.props.songs.map((song, i) => {
+                //console.log(newListOfAllSongs)
+                return (
+                <Track key={song.code} info={song} />
+                )
+            })
+            return (
+                <div className="pageContainerOfMainPage">
+                    {newListOfAllSongs}
+                </div>
+            );
+        }
+    };
 }
 
-export default Your_PlayList;
+const mapStateToProps = function (state) {
+
+    return {
+        songs: state.allSongs.data,
+        status: state.allSongs.status
+    };
+};
+
+
+export default connect(mapStateToProps)(Your_PlayList);

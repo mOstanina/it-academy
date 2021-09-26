@@ -12,6 +12,7 @@ class Track extends React.PureComponent {
             groupName: PropTypes.string,
             songName: PropTypes.string,
             url: PropTypes.string,
+            isInList: PropTypes.bool,
         })
     };
 
@@ -49,21 +50,26 @@ class Track extends React.PureComponent {
     //     mobileEvents.emit('Cancel');
     // }
 
+// {this.props.isInList === true && <input type="button" value="добавить нового клиента" onClick={this.addClient} />}
     render() {
         console.log("Track is render");
-        return (
-            <div>
-                <div className="songName_track"> 
-                <div className="for_span_track"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> </div>
-                <div className="for_audio_track"> <audio
-                        controls
-                        src={this.props.info.url}>
-                    </audio></div>
-                    <div className="for_input_track"> <input type="button" value="add to my play-list" /></div>
-                </div>
+     
+            return (
+                
+                 <div>
+                   <div className="songName_track">
+                        <div className="for_span_track"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> </div>
+                        <div className="for_audio_track"> <audio
+                            controls
+                            src={this.props.info.url}>
+                        </audio></div>
+                        <div className="for_input_track"> <input type="button" value="add to my play-list" /></div>
+                    </div>
 
-            </div>
-        )
+                </div>
+            )
+        
+
 
     }
 }

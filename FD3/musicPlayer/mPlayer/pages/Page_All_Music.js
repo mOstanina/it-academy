@@ -11,60 +11,31 @@ import Track from '../components/track';
 class All_Music extends React.PureComponent {
 
   static propTypes = {
-    songs: PropTypes.array.isRequired,
+    songs: PropTypes.array,
+    status:PropTypes.number.isRequired
   };
-
-  // componentDidMount() {
-  //   console.log("!!!")
-  //   this.props.dispatch(songsThunkAC(this.props.dispatch));
-  // }
-
-
   render() {
-    let listOfAllSongs = this.props.songs.map((song, i) => {
-      return <Track key={song.code} info={song} />
-    })
-    return (
-      <div className="pageContainerOfMainPage">
-        {listOfAllSongs}
-      </div>
-    );
-  //  console.log(this.props.allSongs.data.palylist)
-  //   let listOfAllSongs = this.props.allSongs.data.palylist.map((song, i) => {
-  //     return <Track key={song.code} info={song} />
-  //   })
-  //   return (
-  //     <div className="pageContainerOfMainPage">
-  //       {listOfAllSongs}
-  //     </div>
-  //   );
 
-  // return  <h1>hello</h1>
-
-  //return <Track key={this.props.allSongs.data.palylist[1].code} info={this.props.allSongs.data.palylist[1]}/>
+    if (this.props.status !== 3) {
+      return <div>крутёлка с загрузкой</div>
+    } else {
+      let listOfAllSongs = this.props.songs.map((song, i) => {
+        return <Track key={song.code} info={song} />
+      })
+      return (
+        <div className="pageContainerOfMainPage">
+          {listOfAllSongs}
+        </div>
+      );
+    }
   };
-  // render() {
-  //   console.log("Page_All_Music is render");
-  //   console.log(this.state);
-  //   //console.log(this.state.allSongs)
-  //   let listOfAllSongs = this.props.allSongs.map((song, i) => {
-  //     return <Track key={song.code} info={song} />
-  //   })
-  //   return (
-
-  //     <div className="pageContainerOfMainPage">
-  //       {listOfAllSongs}
-  //     </div>
-  //   );
-
-  // }
-
 }
 
 const mapStateToProps = function (state) {
- 
+
   return {
-    songs: state.allSongs.data
+    songs: state.allSongs.data,
+    status: state.allSongs.status
   };
 };
 
