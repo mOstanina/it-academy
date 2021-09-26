@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 
 
 import Track from '../components/track';
-import songsThunkAC from '../redux/fetchThunk'
+//import songsThunkAC from '../redux/fetchThunk'
 //import appData from '../appData';
 //let songs = require('../allSongs.json');
-
 
 class All_Music extends React.PureComponent {
 
   static propTypes = {
-    allSongs: PropTypes.object.isRequired,
+    songs: PropTypes.array.isRequired,
   };
 
   // componentDidMount() {
@@ -22,8 +21,7 @@ class All_Music extends React.PureComponent {
 
 
   render() {
-   console.log(this.props.allSongs)
-    let listOfAllSongs = this.props.allSongs.data.map((song, i) => {
+    let listOfAllSongs = this.props.songs.map((song, i) => {
       return <Track key={song.code} info={song} />
     })
     return (
@@ -31,8 +29,20 @@ class All_Music extends React.PureComponent {
         {listOfAllSongs}
       </div>
     );
+  //  console.log(this.props.allSongs.data.palylist)
+  //   let listOfAllSongs = this.props.allSongs.data.palylist.map((song, i) => {
+  //     return <Track key={song.code} info={song} />
+  //   })
+  //   return (
+  //     <div className="pageContainerOfMainPage">
+  //       {listOfAllSongs}
+  //     </div>
+  //   );
 
-  }
+  // return  <h1>hello</h1>
+
+  //return <Track key={this.props.allSongs.data.palylist[1].code} info={this.props.allSongs.data.palylist[1]}/>
+  };
   // render() {
   //   console.log("Page_All_Music is render");
   //   console.log(this.state);
@@ -52,9 +62,9 @@ class All_Music extends React.PureComponent {
 }
 
 const mapStateToProps = function (state) {
-  console.log(state)
+ 
   return {
-    allSongs: state.allSongs
+    songs: state.allSongs.data
   };
 };
 
