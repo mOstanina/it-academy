@@ -13,7 +13,7 @@ class Your_PlayList extends React.PureComponent {
         localPList: PropTypes.array,
     };
     toDeleteSong= (code) => {
-        console.log(code)
+       // console.log(code)
         this.props.dispatch( toDeleteSongInNewPL(code) );
       }
     render() {
@@ -31,7 +31,7 @@ class Your_PlayList extends React.PureComponent {
                     ddd = [...ddd, item]
                 }
             })
-            console.log(ddd)
+            //console.log(ddd)
 
             let EnewListOfAllSongs = ddd.map((song, i) => {
                 return (

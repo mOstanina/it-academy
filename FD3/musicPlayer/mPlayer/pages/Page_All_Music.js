@@ -13,7 +13,7 @@ class All_Music extends React.PureComponent {
   };
 
   toAddSong= (code) => {
-    console.log(code)
+   // console.log(code)
     this.props.dispatch( toAddSongInNewPL(code) );
   }
 
