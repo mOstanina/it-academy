@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
-//import Track from '../components/track';
 
 import PagesRouter from '../pages/PagesRouter';
 import PagesLinks from '../pages/PagesLinks';

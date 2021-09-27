@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 
 
 import Track from '../components/track';
-//import songsThunkAC from '../redux/fetchThunk'
-//import appData from '../appData';
-//let songs = require('../allSongs.json');
 
 class All_Music extends React.PureComponent {
 
@@ -20,7 +17,7 @@ class All_Music extends React.PureComponent {
       return <div>крутёлка с загрузкой</div>
     } else {
       let listOfAllSongs = this.props.songs.map((song, i) => {
-        return <Track key={song.code} info={song} />
+        return <Track key={song.code} info={song} workMode={"allSongs"} />
       })
       return (
         <div className="pageContainerOfMainPage">
