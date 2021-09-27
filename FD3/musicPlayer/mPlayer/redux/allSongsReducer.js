@@ -1,4 +1,4 @@
-﻿import { ALL_SONGS_LOADING, ALL_SONGS_ERROR, ALL_SONGS_SET, CANGE_IN_LIST } from './allSongsAC';
+﻿import { ALL_SONGS_LOADING, ALL_SONGS_ERROR, ALL_SONGS_SET } from './allSongsAC';
 
 const initState = {
 
@@ -33,17 +33,17 @@ function allSongsLoadReducer(state = initState, action) {
       };
       return newState;
     }
-    //
-    case CANGE_IN_LIST: {
+    // //
+    // case CANGE_IN_LIST: {
 
-      
-      let newState = {
-        status: 3,
-        data: action.allSongs,
-      };
-      return newState;
-    }
-    //
+
+    //   let newState = {
+    //     status: 3,
+    //     data: action.allSongs,
+    //   };
+    //   return newState;
+    // }
+    // //
     default:
       return state;
   }

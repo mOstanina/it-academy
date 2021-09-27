@@ -10,15 +10,15 @@ import PagesRouter from '../pages/PagesRouter';
 import PagesLinks from '../pages/PagesLinks';
 import combinedReducer from '../redux/reducers'
 
-import { allSongsLoadingAC, allSongsErrorAC, allSongsSetAC } from "../redux/allSongsAC";
-
+import { allSongsLoadingAC, allSongsErrorAC, allSongsSetAC, } from "../redux/allSongsAC";
+import {local_PL_create} from "../redux/playlistReducerAC"
 // let store = createStore(combinedReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // //
 
 class MainComponent extends React.PureComponent {
 
     componentDidMount() {
-        console.log("!!!")
+        //console.log("!!!")
         this.props.dispatch(allSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
 
         isoFetch("http://localhost:3000/playlist", {
@@ -42,9 +42,8 @@ class MainComponent extends React.PureComponent {
             .catch((error) => {
                 console.error(error);
                 this.props.dispatch(allSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
-            })
-            ;
-
+            });
+            this.props.dispatch( local_PL_create() );
     }
 
     // oooooo = () => {
@@ -111,7 +110,7 @@ class MainComponent extends React.PureComponent {
     // }
 
     render() {
-        console.log("MainComponent is render");
+        //console.log("MainComponent is render");
         return (
 
             <BrowserRouter>
@@ -129,7 +128,7 @@ class MainComponent extends React.PureComponent {
 }
 
 const mapStateToProps = function (state) {
-    console.log(state)
+   // console.log(state)
     return {
         state
     };

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { mobileEvents } from './events';
 
+import { changeInList } from "../redux/allSongsAC";
 import './track.css';
 
 class Track extends React.PureComponent {
@@ -14,7 +15,9 @@ class Track extends React.PureComponent {
             songName: PropTypes.string,
             url: PropTypes.string,
             isInList: PropTypes.bool,
-        })
+        }), 
+        cbToAddSong:PropTypes.func, 
+        cbToDeleteSong:PropTypes.func, 
     };
 
     // newFamRef = null;
@@ -53,8 +56,17 @@ class Track extends React.PureComponent {
 
     // {this.props.isInList === true && <input type="button" value="добавить нового клиента" onClick={this.addClient} />}
 
-    addToPL = () => {
-        this.props.dispatch(changeInList(this.props.info.code));
+    // addToPL = () => {
+    //     this.props.dispatch(changeInList(this.props.info.code));
+    // }
+
+    btnClickToAdd = () => {
+        //console.log(this.props.info.code)
+        this.props.cbToAddSong(this.props.info.code);
+    }
+    btnClickToDelete = () => {
+        //console.log(this.props.info.code)
+        this.props.cbToDeleteSong(this.props.info.code);
     }
 
     render() {
@@ -70,8 +82,8 @@ class Track extends React.PureComponent {
                         src={this.props.info.url}>
                     </audio></div>
 
-                    {this.props.workMode === "allSongs" && <div className="for_input_track"> <input type="button" value="add to my play-list" onClick={this.addToPL} /></div>}
-                    {this.props.workMode === "PlayList" && <div className="for_input_track"> <input type="button" value="delete" /></div>}
+                    {this.props.workMode === "allSongs" && <div className="for_input_track"> <input type="button" value="add to my play-list" onClick={this.btnClickToAdd} /></div>}
+                    {this.props.workMode === "PlayList" && <div className="for_input_track"> <input type="button" value="delete"  onClick={this.btnClickToDelete}/></div>}
                 </div>
 
             </div>
@@ -81,9 +93,9 @@ class Track extends React.PureComponent {
 
     }
 }
-const mapStateToProps = function (state) {
-    return {
+// const mapStateToProps = function (state) {
+//     return {
        
-    };
-  };
-export default connect(mapStateToProps)(Track);
+//     };
+//   };
+export default Track;
