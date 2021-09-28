@@ -9,11 +9,13 @@ class All_Music extends React.PureComponent {
 
   static propTypes = {
     songs: PropTypes.array,
-    status:PropTypes.number.isRequired
+    status:PropTypes.number.isRequired,
+    userPlayList:PropTypes.array,
   };
 
   toAddSong= (code) => {
-   // console.log(code)
+    // console.log(code)
+    // console.log(this.props.userPlayList)
     this.props.dispatch( toAddSongInNewPL(code) );
   }
 
@@ -39,7 +41,8 @@ const mapStateToProps = function (state) {
 
   return {
     songs: state.allSongs.data,
-    status: state.allSongs.status
+    status: state.allSongs.status,
+    userPlayList:state.playlist.userSongs,
   };
 };
 

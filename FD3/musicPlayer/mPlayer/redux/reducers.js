@@ -2,11 +2,12 @@
 
 import allSongsLoadReducer from "./allSongsReducer";
 import playlistReducer from "./playlistReducer";
-
+//import userSongsLoadReducer from './userSongsReducer'
 
 let combinedReducer = combineReducers({
     allSongs: allSongsLoadReducer, // редьюсер allSongsReducer отвечает за раздел state под именем allSongs
     playlist: playlistReducer,
+   // playlist: userSongsLoadReducer,
     // allSongs: addToListReduser,
     // + другие редьюсеры
 });

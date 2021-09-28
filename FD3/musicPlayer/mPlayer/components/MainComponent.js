@@ -11,7 +11,8 @@ import PagesLinks from '../pages/PagesLinks';
 import combinedReducer from '../redux/reducers'
 
 import { allSongsLoadingAC, allSongsErrorAC, allSongsSetAC, } from "../redux/allSongsAC";
-import {local_PL_create} from "../redux/playlistReducerAC"
+import { userSongsLoadingAC, userSongsErrorAC, userSongsSetAC, } from "../redux/playlistReducerAC";
+//import {local_PL_create} from "../redux/playlistReducerAC"
 // let store = createStore(combinedReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // //
 
@@ -37,14 +38,42 @@ class MainComponent extends React.PureComponent {
                     return response.json();
             })
             .then((data) => {
+                console.log(data)
                 this.props.dispatch(allSongsSetAC(data)); // переводим раздел countries стора в состояние "ошибка"
             })
             .catch((error) => {
                 console.error(error);
                 this.props.dispatch(allSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
             });
-            this.props.dispatch( local_PL_create() );
-    }
+            //this.props.dispatch( local_PL_create() );
+///////////////
+        this.props.dispatch(userSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
+
+        isoFetch("http://localhost:3000/userPlaylist", {
+            method: 'get',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => { // response - HTTP-ответ
+                if (!response.ok) {
+                    let Err = new Error("fetch error " + response.status);
+                    Err.userMessage = "Ошибка связи";
+                    throw Err;
+                }
+                else
+                    return response.json();
+            })
+            .then((userSongs) => {
+                console.log(userSongs)
+                this.props.dispatch(userSongsSetAC(userSongs)); // переводим раздел countries стора в состояние "ошибка"
+            })
+            .catch((error) => {
+                console.error(error);
+                this.props.dispatch(userSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
+            });
+           // this.props.dispatch( local_PL_create() );
+            }
 
     // oooooo = () => {
     //     let list={ 
@@ -128,7 +157,7 @@ class MainComponent extends React.PureComponent {
 }
 
 const mapStateToProps = function (state) {
-   // console.log(state)
+    //console.log(state)
     return {
         state
     };
