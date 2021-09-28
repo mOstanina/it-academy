@@ -22,11 +22,11 @@ class Your_PlayList extends React.PureComponent {
         // console.log(this.props.userPlaylist)
         this.props.dispatch(toSaveUserPLInAjax(this.props.userPlaylist));
   
-        isoFetch("http://localhost:3000/userPlaylist/", {
+        isoFetch("http://localhost:3000/userPlaylist", {
           method: 'put',
           body: JSON.stringify(this.props.userPlaylist),
           headers: {
-              "X-HTTP-Method-Override": "application/json",
+            "Content-Type": "application/json",
           },
       })
           .then((response) => { // response - HTTP-ответ
@@ -49,7 +49,7 @@ class Your_PlayList extends React.PureComponent {
     
       }
     render() {
-        console.log(this.props.userPlaylist)
+        //console.log(this.props.userPlaylist)
         if (this.props.userPlaylistStatus !== 3) {
             return <div>крутёлка с загрузкой</div>
         } if (this.props.userPlaylist.length === 0 && this.props.userPlaylistStatus === 3) {
