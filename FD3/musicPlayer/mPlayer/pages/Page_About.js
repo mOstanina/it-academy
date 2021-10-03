@@ -22,8 +22,8 @@ class Page_About extends React.PureComponent {
 
 
   componentDidMount = () => {
-    let rr = this.props.match.params;
-    console.log(rr)
+    let list = this.props.match.params.list;
+    console.log("this.props.match.params.list: "+list)
     console.log(this.props.match)
     // function List (){
     //   const{listNumber} =useParams()
@@ -40,6 +40,7 @@ class Page_About extends React.PureComponent {
     console.log(this.props.match.params.list)
     var shortistOfAllSongs = this.props.songs
     if (this.props.match.params.list === undefined) {
+      console.log(this.props.match.params.list)
       return shortistOfAllSongs
     } else if (this.props.match.params.list === "0") {
       console.log(this.props.match.params.list)
