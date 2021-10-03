@@ -12,7 +12,7 @@ class PagesRouter extends React.Component {
 
     return (
       <div>
-        <Route path="/main" exact component={MainPageRouter} />
+        <Route path="/" exact component={MainPageRouter} />
         <Route path="/allMusic" component={All_Music} />
         <Route path="/playList" component={Your_PlayList} />
       </div>

@@ -15,7 +15,7 @@ class MainPageLinks extends React.Component {
     return (
       <div className="pageContainer">
        
-        <NavLink to="/0"  className="PageLink" activeClassName="ActivePageLink">1-9</NavLink>
+        <NavLink to="/1"  className="PageLink" activeClassName="ActivePageLink">1-9</NavLink>
         <NavLink to="/10" className="PageLink" activeClassName="ActivePageLink">10-18</NavLink>
         <NavLink to="/19" className="PageLink" activeClassName="ActivePageLink">19-27</NavLink>
         <NavLink to="/28" className="PageLink" activeClassName="ActivePageLink">28-36</NavLink>

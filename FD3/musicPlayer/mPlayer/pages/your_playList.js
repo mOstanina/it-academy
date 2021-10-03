@@ -50,7 +50,6 @@ class Your_PlayList extends React.PureComponent {
     
       }
     render() {
-        //console.log(this.props.userPlaylist)
         if (this.props.userPlaylistStatus !== 3) {
             return <Loader/>
         } if (this.props.userPlaylist.length === 0 && this.props.userPlaylistStatus === 3) {

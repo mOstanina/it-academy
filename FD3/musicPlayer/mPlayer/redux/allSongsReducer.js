@@ -28,6 +28,7 @@ function allSongsLoadReducer(state = initState, action) {
 
     case ALL_SONGS_SET: {
       let newState = {
+        ...state,
         status: 3,
         data: action.allSongs,
       };

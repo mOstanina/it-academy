@@ -13,32 +13,28 @@ import { BrowserRouter } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import Loader from '../components/Loader'
-class Page_About extends React.PureComponent {
+
+class Page_About extends React.Component {
 
   static propTypes = {
     songs: PropTypes.array,
     status: PropTypes.number.isRequired,
     userPlayList: PropTypes.array,
   };
+  state = {
+    listForRender: []
+  }
 
  
-  componentDidMount = () => {
-    let list = this.props.match.params.list;
-    console.log("this.props.match.params.list: "+list)
-    console.log(this.props.match)
-    // function List (){
-    //   const{listNumber} =useParams()
-    //   return <h1>{listNumber}</h1>
-    // }
-  }
 
   toAddSong = (code) => {
     this.props.dispatch(toAddSongInNewPL(code));
   }
 
-  sss = () => {
+  makeNewList = () => {
 
-    console.log(this.props.match.params.list)
+    console.log(this.props.match.params)
+
     var shortistOfAllSongs = this.props.songs
     if (this.props.match.params.list === undefined) {
       console.log(this.props.match.params.list)
@@ -67,29 +63,42 @@ class Page_About extends React.PureComponent {
       shortistOfAllSongs = this.props.songs
     }
     console.log(shortistOfAllSongs)
-    return shortistOfAllSongs
+    this.setState({listForRender:shortistOfAllSongs})
+    console.log("3333"+this.state.listForRender)
+    // return shortistOfAllSongs
 
+  }
+  componentDidMount = () => {
+    let list = this.props.match.params.list;
+    console.log("this.props.match.params.list: " + list)
+    console.log(this.props.match)
+    // function List (){
+    //   const{listNumber} =useParams()
+    //   return <h1>{listNumber}</h1>
+    // }
+    this.makeNewList()
+    console.log("3333"+this.state.listForRender)
   }
 
   render() {
 
-
+    console.log("Page_About is render");
     if (this.props.status !== 3) {
-      return <Loader/>
+      return <Loader />
     } else {
-      let listOfAllSongs = this.sss().map((song, i) => {
+
+      let listOfAllSongs = this.makeNewList().map((song, i) => {
         return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"fullMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
       })
       return (
-        <BrowserRouter>
-        
-          <div className="pageContainerOfMainPageAboutUS">
-          <h1>Hello + {this.props.match.params.list}!</h1>
-            <MainPageLinks />
-            {listOfAllSongs}
 
-          </div>
-        </BrowserRouter>
+
+        <div className="pageContainerOfMainPageAboutUS">
+          <h1>Hello + {this.props.match.params.list}!</h1>
+          <MainPageLinks />
+          {listOfAllSongs}
+        </div>
+
       );
     }
   };
