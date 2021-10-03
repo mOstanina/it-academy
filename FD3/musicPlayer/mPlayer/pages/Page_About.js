@@ -1,20 +1,107 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { toAddSongInNewPL } from "../redux/playlistReducerAC"
+import Track from '../components/track';
+import { changeInList } from "../redux/allSongsAC";
+import { withRouter } from 'react-router-dom';
 import './Page_About.css';
+import MainPageLinks from "./MainPageLinks"
+import MainPageRouter from "./MainPageRouter"
+import { BrowserRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 class Page_About extends React.PureComponent {
-          
-  render() {
-    console.log("Page_About is render");
-    return (
-      <div className="pageContainerOfMainPage">
-        <h1>музыкальный сайт. создай свой плей-лист!</h1>
-       <p>добро пожаловать!</p> 
-      </div>
-    );
-    
+
+  static propTypes = {
+    songs: PropTypes.array,
+    status: PropTypes.number.isRequired,
+    userPlayList: PropTypes.array,
+  };
+
+
+  componentDidMount = () => {
+    let rr = this.props.match.params;
+    console.log(rr)
+    console.log(this.props.match)
+    // function List (){
+    //   const{listNumber} =useParams()
+    //   return <h1>{listNumber}</h1>
+    // }
   }
 
+  toAddSong = (code) => {
+    this.props.dispatch(toAddSongInNewPL(code));
+  }
+
+  sss = () => {
+
+    console.log(this.props.match.params.list)
+    var shortistOfAllSongs = this.props.songs
+    if (this.props.match.params.list === undefined) {
+      return shortistOfAllSongs
+    } else if (this.props.match.params.list === "0") {
+      console.log(this.props.match.params.list)
+      console.log("!!!")
+      shortistOfAllSongs = this.props.songs.slice(0, 9)
+      console.log(shortistOfAllSongs)
+    } else if (this.props.match.params.list === "10") {
+      shortistOfAllSongs = this.props.songs.slice(10, 18)
+      console.log(shortistOfAllSongs)
+    } else if (this.props.match.params.list === "19") {
+      shortistOfAllSongs = this.props.songs.slice(19, 27)
+      console.log(shortistOfAllSongs)
+    } else if (this.props.match.params.list === "28") {
+      shortistOfAllSongs = this.props.songs.slice(28, 36)
+      console.log(shortistOfAllSongs)
+    } else if (this.props.match.params.list === "37") {
+      shortistOfAllSongs = this.props.songs.slice(37, 45)
+      console.log(shortistOfAllSongs)
+    } else if (this.props.match.params.list === "46") {
+      shortistOfAllSongs = this.props.songs.slice(46, 56)
+      console.log(shortistOfAllSongs)
+    } else {
+      shortistOfAllSongs = this.props.songs
+    }
+    console.log(shortistOfAllSongs)
+    return shortistOfAllSongs
+
+  }
+
+  render() {
+
+
+    if (this.props.status !== 3) {
+      return <div>крутёлка с загрузкой</div>
+    } else {
+      let listOfAllSongs = this.sss().map((song, i) => {
+        return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"fullMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
+      })
+      return (
+        <BrowserRouter>
+          <div className="pageContainerOfMainPageAboutUS">
+          <h1>Hello + {this.props.match.params.list}!</h1>
+            <MainPageLinks />
+            {listOfAllSongs}
+
+          </div>
+        </BrowserRouter>
+      );
+    }
+  };
+
 }
-    
-export default Page_About;
-    
+
+
+const mapStateToProps = function (state) {
+
+  return {
+    songs: state.allSongs.data,
+    status: state.allSongs.status,
+    userPlayList: state.playlist.userSongs,
+  };
+};
+
+
+export default connect(mapStateToProps)(Page_About);

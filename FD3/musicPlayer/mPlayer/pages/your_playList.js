@@ -19,11 +19,12 @@ class Your_PlayList extends React.PureComponent {
         this.props.dispatch(toDeleteSongInNewPL(code));
     }
     toSave = () => {
-        // console.log(this.props.userPlaylist)
+        console.log("!!!!")
+        console.log("!!!!"+this.props.userPlaylist)
         this.props.dispatch(toSaveUserPLInAjax(this.props.userPlaylist));
   
-        isoFetch("http://localhost:3000/userPlaylist", {
-          method: 'put',
+        isoFetch("http://localhost:3000/userPlaylist/", {
+          method: 'post',
           body: JSON.stringify(this.props.userPlaylist),
           headers: {
             "Content-Type": "application/json",
@@ -67,7 +68,7 @@ class Your_PlayList extends React.PureComponent {
 
             let EnewListOfAllSongs = ddd.map((song, i) => {
                 return (
-                    <Track key={song.code} info={song} workMode={"PlayList"} cbToDeleteSong={this.toDeleteSong} />
+                    <Track key={song.code} info={song} workMode={"PlayList"} cardMode={"shortMode"} cbToDeleteSong={this.toDeleteSong} />
                 )
             })
             return (

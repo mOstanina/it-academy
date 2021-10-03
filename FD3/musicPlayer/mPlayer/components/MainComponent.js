@@ -65,11 +65,11 @@ class MainComponent extends React.PureComponent {
                     return response.json();
             })
             .then((userSongs) => {
-                console.log(userSongs)
+               // console.log(userSongs)
                 this.props.dispatch(userSongsSetAC(userSongs)); // переводим раздел countries стора в состояние "ошибка"
             })
             .catch((error) => {
-                console.error(error);
+                //console.error(error);
                 this.props.dispatch(userSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
             });
            // this.props.dispatch( local_PL_create() );

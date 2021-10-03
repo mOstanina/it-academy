@@ -47,6 +47,7 @@ const toDeleteSongInNewPL = function (code) { //удаление
 }
 
 const toSaveUserPLInAjax = function (playlist) { // сохранение в AJAX
+    console.log(playlist)
     return {
         type: USER_SONGS_TO_SAVE,
         playlist: playlist,

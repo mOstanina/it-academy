@@ -49,3 +49,28 @@ class Products extends React.Component {
 }
 
 export default Products;
+
+
+//////////////
+// console.log(this.props.match.params.list)
+// let shortistOfAllSongs
+// if (this.props.match.params.list === undefined || this.props.match.params.list === "10") {
+//   console.log("!!!")
+//   shortistOfAllSongs = this.props.songs.slice(0, 9)
+//   console.log(shortistOfAllSongs)
+// }else if (this.props.match.params.list === "20"){
+//   shortistOfAllSongs = this.props.songs.slice(10, 18)
+//   console.log(shortistOfAllSongs)
+// }else if (this.props.match.params.list === "30"){
+//   shortistOfAllSongs = this.props.songs.slice(19, 27)
+//   console.log(shortistOfAllSongs)
+// }else if (this.props.match.params.list === "40"){
+//   shortistOfAllSongs = this.props.songs.slice(28, 36)
+//   console.log(shortistOfAllSongs)
+// }else if (this.props.match.params.list === "30"){
+//   shortistOfAllSongs = this.props.songs.slice(37, 45)
+//   console.log(shortistOfAllSongs)
+// }else if (this.props.match.params.list === "30"){
+//   shortistOfAllSongs = this.props.songs.slice(46, 56)
+//   console.log(shortistOfAllSongs)
+// }

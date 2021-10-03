@@ -4,15 +4,13 @@
   box-sizing: border-box;
 }
 
-.pageContainerOfMainPage {
+.pageContainerOfMainPageAboutUS {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  background-color: #9494a5;
 }
 
 .songName {

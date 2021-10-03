@@ -2,7 +2,7 @@ import { SONG_TO_ADD, SONG_TO_DELETE, USER_SONGS_LOADING, USER_SONGS_ERROR, USER
 const initState = {
 
     status: 0, // 0 - ничего не началось, 1 - идёт загрузка, 2 - была ошибка, 3 - данные загружены
-    playlist: null,
+    playlist: [],
 
 }
 function playlistReducer(state = initState, action) {
@@ -23,7 +23,7 @@ function playlistReducer(state = initState, action) {
         case USER_SONGS_LOADING: { //загрузка
             let newState = {
                 status: 1,
-                userSongs: null,
+                userSongs: [],
             };
             return newState;
         }
@@ -31,15 +31,18 @@ function playlistReducer(state = initState, action) {
         case USER_SONGS_ERROR: { // если ошибка
             let newState = {
                 status: 2,
-                userSongs: null,
+                userSongs: [],
             };
             return newState;
         }
 
         case USER_SONGS_SET: { // установка пришедших данных
+            console.log("!!!"+action.playlist.length)
+           
+           // let lastUserPL=action.playlist[action.playlist.length-1]
             let newState = {
                 status: 3,
-                userSongs: action.playlist,
+                userSongs: action.playlist[(action.playlist.length-1)],
             };
             return newState;
         }

@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes, { func } from 'prop-types';
 import { connect } from 'react-redux';
-
-import {toAddSongInNewPL} from "../redux/playlistReducerAC"
+import { BrowserRouter, Route } from 'react-router-dom';
+import { toAddSongInNewPL } from "../redux/playlistReducerAC"
 import Track from '../components/track';
 
 class All_Music extends React.PureComponent {
 
   static propTypes = {
     songs: PropTypes.array,
-    status:PropTypes.number.isRequired,
-    userPlayList:PropTypes.array,
+    status: PropTypes.number.isRequired,
+    userPlayList: PropTypes.array,
   };
 
-  toAddSong= (code) => {
+  toAddSong = (code) => {
     // console.log(code)
     // console.log(this.props.userPlayList)
-    this.props.dispatch( toAddSongInNewPL(code) );
+    this.props.dispatch(toAddSongInNewPL(code));
   }
 
 
@@ -26,7 +26,7 @@ class All_Music extends React.PureComponent {
       return <div>крутёлка с загрузкой</div>
     } else {
       let listOfAllSongs = this.props.songs.map((song, i) => {
-        return <Track key={song.code} info={song} workMode={"allSongs"} cbToAddSong={this.toAddSong}/>
+        return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"shortMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
       })
       return (
         <div className="pageContainerOfMainPage">
@@ -42,7 +42,7 @@ const mapStateToProps = function (state) {
   return {
     songs: state.allSongs.data,
     status: state.allSongs.status,
-    userPlayList:state.playlist.userSongs,
+    userPlayList: state.playlist.userSongs,
   };
 };
 

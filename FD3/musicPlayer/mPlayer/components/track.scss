@@ -1,5 +1,11 @@
-.songName_track {
-  width: 1000px;
+
+.container_track {
+  display: flex;
+}
+
+.shortMode_track {
+  background-color: rgb(148, 148, 165);
+  width: 1200px;
   margin: 0 auto;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -7,24 +13,55 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-}
-.for_span_track{
+  .for_span_track {
     width: 35%;
+  }
+  .for_audio_track {
+    width: 55%;
+  }
+  .for_input_track {
+    width: 10%;
+  }
+  .for_input_track > input {
+    display: flex;
+    align-items: flex-end;
+  }
+  .for_span_track,
+  .for_audio_track,
+  .for_input_track {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
-.for_audio_track {
-  width: 55%;
-}
-.for_input_track {
-  width: 10%;
-}
-.for_input_track > input {
+
+
+.fullMode_track {
+  background-color: rgb(148, 148, 165);
+  margin: 0 auto;
+  padding: 40px;
   display: flex;
-  align-items: flex-end;
-}
-.for_span_track,
-.for_audio_track,
-.for_input_track {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  .for_full_track {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    .for_span_track {
+      align-self: center;
+    }
+    .for_input_track {
+      align-self: center;
+      text-align: center;
+    }
+    img {
+      width: 250px;
+      height: 250px;
+      align-self: center;
+    }
+    input {
+      margin: 0 auto;
+      justify-content: center;
+      align-self: center;
+    }
+  }
 }
