@@ -38,7 +38,7 @@ class MainComponent extends React.PureComponent {
                     return response.json();
             })
             .then((data) => {
-                console.log(data)
+               // console.log(data)
                 this.props.dispatch(allSongsSetAC(data)); // переводим раздел countries стора в состояние "ошибка"
             })
             .catch((error) => {

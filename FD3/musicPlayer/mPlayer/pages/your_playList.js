@@ -5,7 +5,7 @@ import isoFetch from 'isomorphic-fetch';
 
 import { toDeleteSongInNewPL, toSaveUserPLInAjax } from "../redux/playlistReducerAC"
 import Track from '../components/track';
-
+import Loader from '../components/Loader'
 
 class Your_PlayList extends React.PureComponent {
     static propTypes = {
@@ -52,7 +52,7 @@ class Your_PlayList extends React.PureComponent {
     render() {
         //console.log(this.props.userPlaylist)
         if (this.props.userPlaylistStatus !== 3) {
-            return <div>крутёлка с загрузкой</div>
+            return <Loader/>
         } if (this.props.userPlaylist.length === 0 && this.props.userPlaylistStatus === 3) {
             return <div>добавьте песни из основного списка на вкладке "Все композиции"</div>
         } else {
@@ -73,6 +73,7 @@ class Your_PlayList extends React.PureComponent {
             })
             return (
                 <div className="pageContainerOfMainPage">
+                    
                     <div className="save_btn"> <input type="button" value="save my play-list" onClick={this.toSave} /></div>
                     {EnewListOfAllSongs}
                 </div>

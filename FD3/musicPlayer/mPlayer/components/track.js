@@ -74,7 +74,7 @@ class Track extends React.PureComponent {
     render() {
         console.log("Track is render");
         //console.log(this.props.disab);
-        let sr="../pictures/png-transparent-circle-geometry-vinyl-records-retro-decorative-patterns-gramophone.png"
+        let sr="../pictures/vinyl-logo.png"
         return (
 
             <div className="container_track">

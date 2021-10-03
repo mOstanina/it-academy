@@ -10,8 +10,8 @@ class MainPageRouter extends React.Component {
 
     return (
       <div>
-        <Route path="/main" exact component={Page_About} />
-        <Route path="/:list" component={Page_About} />
+        <Route path="/main"  component={Page_About} />
+        <Route path="/main/:list" render={(props) => <Page_About {...props}/>}/>
       </div>
     );
     

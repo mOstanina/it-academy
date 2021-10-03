@@ -37,7 +37,7 @@ function playlistReducer(state = initState, action) {
         }
 
         case USER_SONGS_SET: { // установка пришедших данных
-            console.log("!!!"+action.playlist.length)
+            //console.log("!!!"+action.playlist.length)
            
            // let lastUserPL=action.playlist[action.playlist.length-1]
             let newState = {

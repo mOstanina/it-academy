@@ -12,6 +12,7 @@ import MainPageRouter from "./MainPageRouter"
 import { BrowserRouter } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import Loader from '../components/Loader'
 class Page_About extends React.PureComponent {
 
   static propTypes = {
@@ -20,7 +21,7 @@ class Page_About extends React.PureComponent {
     userPlayList: PropTypes.array,
   };
 
-
+ 
   componentDidMount = () => {
     let list = this.props.match.params.list;
     console.log("this.props.match.params.list: "+list)
@@ -74,13 +75,14 @@ class Page_About extends React.PureComponent {
 
 
     if (this.props.status !== 3) {
-      return <div>крутёлка с загрузкой</div>
+      return <Loader/>
     } else {
       let listOfAllSongs = this.sss().map((song, i) => {
         return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"fullMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
       })
       return (
         <BrowserRouter>
+        
           <div className="pageContainerOfMainPageAboutUS">
           <h1>Hello + {this.props.match.params.list}!</h1>
             <MainPageLinks />
