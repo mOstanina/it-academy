@@ -12,6 +12,7 @@ class PagesLinks extends React.Component {
       <div className="pageContainer">
         <span>__mPlayer__</span>
         <NavLink to="/"  className="PageLink" activeClassName="ActivePageLink">Главная</NavLink>
+        <NavLink to="/mainPlayList"  className="PageLink" activeClassName="ActivePageLink">Плейлист</NavLink>
         <NavLink to="/allMusic" className="PageLink" activeClassName="ActivePageLink">Все композиции</NavLink>
         <NavLink to="/playList" className="PageLink" activeClassName="ActivePageLink">Ваш плей-лист</NavLink>
       </div>

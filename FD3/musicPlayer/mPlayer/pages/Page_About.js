@@ -21,9 +21,9 @@ class Page_About extends React.Component {
     status: PropTypes.number.isRequired,
     userPlayList: PropTypes.array,
   };
-  state = {
-    listForRender: []
-  }
+  // state = {
+  //   listForRender: []
+  // }
 
  
 
@@ -39,7 +39,7 @@ class Page_About extends React.Component {
     if (this.props.match.params.list === undefined) {
       console.log(this.props.match.params.list)
       return shortistOfAllSongs
-    } else if (this.props.match.params.list === "0") {
+    } else if (this.props.match.params.list === "1") {
       console.log(this.props.match.params.list)
       console.log("!!!")
       shortistOfAllSongs = this.props.songs.slice(0, 9)
@@ -63,9 +63,9 @@ class Page_About extends React.Component {
       shortistOfAllSongs = this.props.songs
     }
     console.log(shortistOfAllSongs)
-    this.setState({listForRender:shortistOfAllSongs})
-    console.log("3333"+this.state.listForRender)
-    // return shortistOfAllSongs
+    // this.setState({listForRender:shortistOfAllSongs})
+    // console.log("3333"+this.state.listForRender)
+     return shortistOfAllSongs
 
   }
   componentDidMount = () => {
@@ -76,8 +76,8 @@ class Page_About extends React.Component {
     //   const{listNumber} =useParams()
     //   return <h1>{listNumber}</h1>
     // }
-    this.makeNewList()
-    console.log("3333"+this.state.listForRender)
+    // this.makeNewList()
+    // console.log("3333"+this.state.listForRender)
   }
 
   render() {
@@ -116,4 +116,4 @@ const mapStateToProps = function (state) {
 };
 
 
-export default connect(mapStateToProps)(Page_About);
+export default withRouter(connect(mapStateToProps)(Page_About));

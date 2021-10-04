@@ -6,16 +6,16 @@ import Page_About from './Page_About';
 
 class MainPageRouter extends React.Component {
           
-  render() {
+  // render() {
 
-    return (
-      <div>
-        <Route path="/" exact component={Page_About} />
-        <Route path="/:list" render={(props) => <Page_About {...props}/>}/>
-      </div>
-    );
+  //   return (
+  //     <div>
+  //       <Route path="/" exact component={Page_About} />
+  //       <Route path="/:list" render={(props) => <Page_About {...props}/>}/>
+  //     </div>
+  //   );
     
-  }
+  // }
 
 }
     

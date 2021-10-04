@@ -19,23 +19,18 @@ class All_Music extends React.PureComponent {
   };
 
   toAddSong = (code) => {
-    // console.log(code)
-    // console.log(this.props.userPlayList)
     this.props.dispatch(toAddSongInNewPL(code));
   }
-  
   render() {
 
     if (this.props.status !== 3) {
       return <Loader />
     } else {
-      console.log(this.state.songsList)
       let listOfAllSongs = this.props.songs.map((song, i) => {
         return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"shortMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
       })
       return (
         <div className="pageContainerOfMainPage">
-          <div><input type="button" value="показать только добавленные"  /></div>
           {listOfAllSongs}
         </div>
       );
