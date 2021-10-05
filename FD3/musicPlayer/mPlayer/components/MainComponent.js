@@ -17,8 +17,21 @@ import { userSongsLoadingAC, userSongsErrorAC, userSongsSetAC, } from "../redux/
 // //
 
 class MainComponent extends React.PureComponent {
+    // onUnload = e => {
+    //     e.preventDefault();
+    //     console.log("HELLO WORLD");
+    //   };
+    
+     
+
 
     componentDidMount() {
+
+        window.addEventListener("beforeunload", (ev) => 
+        {  
+            ev.preventDefault();
+            return ev.returnValue = 'Are you sure you want to close?';
+        });
         //console.log("!!!")
         this.props.dispatch(allSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
 
