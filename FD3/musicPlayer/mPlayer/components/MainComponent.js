@@ -27,11 +27,11 @@ class MainComponent extends React.PureComponent {
 
     componentDidMount() {
 
-        window.addEventListener("beforeunload", (ev) => 
-        {  
-            ev.preventDefault();
-            return ev.returnValue = 'Are you sure you want to close?';
-        });
+        // window.addEventListener("beforeunload", (ev) => 
+        // {  
+        //     ev.preventDefault();
+        //     return ev.returnValue = 'Are you sure you want to close?';
+        // });
         //console.log("!!!")
         this.props.dispatch(allSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
 

@@ -3,6 +3,7 @@ import PropTypes, { func } from 'prop-types';
 import { connect } from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 
+import './Your_PlayList.css';
 import { toDeleteSongInNewPL, toSaveUserPLInAjax } from "../redux/playlistReducerAC"
 import Track from '../components/track';
 import Loader from '../components/Loader'
@@ -67,7 +68,7 @@ class Your_PlayList extends React.PureComponent {
 
             let EnewListOfAllSongs = ddd.map((song, i) => {
                 return (
-                    <Track key={song.code} info={song} workMode={"PlayList"} cardMode={"shortMode"} cbToDeleteSong={this.toDeleteSong} />
+                    <Track key={song.code} info={song} workMode={"PlayList"} cardMode={"shortMode"} lengthOfList={ddd.length} cbToDeleteSong={this.toDeleteSong} />
                 )
             })
             return (
@@ -75,6 +76,7 @@ class Your_PlayList extends React.PureComponent {
                     
                     <div className="save_btn"> <input type="button" value="save my play-list" onClick={this.toSave} /></div>
                     {EnewListOfAllSongs}
+                   
                 </div>
             );
         }

@@ -83,7 +83,9 @@ function playlistReducer(state = initState, action) {
             };
             //console.log('state после обработки редьюсером:',newState);
             
-            return newState;
+          
+
+             return newState;
             //return state;
         }
 
