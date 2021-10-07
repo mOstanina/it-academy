@@ -107,7 +107,7 @@ class Track extends React.PureComponent {
                 {this.props.cardMode === "shortMode" && <div className={this.state.classNameIs2}>
                     <div className="for_span_track"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> </div>
                     <div className="for_audio_track">   <audio
-                        controls
+                        controls ref="audio"
                         src={this.props.info.url}>
                     </audio></div>
 
