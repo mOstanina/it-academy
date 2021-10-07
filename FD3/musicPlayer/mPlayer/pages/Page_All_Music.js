@@ -39,7 +39,7 @@ class All_Music extends React.PureComponent {
 }
 
 const mapStateToProps = function (state) {
-
+  console.log("All_Music");
   return {
     songs: state.allSongs.data,
     status: state.allSongs.status,

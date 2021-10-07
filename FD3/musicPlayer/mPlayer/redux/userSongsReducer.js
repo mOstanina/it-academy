@@ -20,7 +20,6 @@ function userSongsLoadReducer(state = initState, action) {
 
     case USER_SONGS_ERROR: {
       let newState = {
-        ...state,
         status: 2,
         userSongs: null,
       };
@@ -29,7 +28,6 @@ function userSongsLoadReducer(state = initState, action) {
 
     case USER_SONGS_SET: {
       let newState = {
-        ...state,
         status: 3,
         userSongs: action.playlist,
       };
@@ -37,7 +35,7 @@ function userSongsLoadReducer(state = initState, action) {
     }
    
     default:
-      return state;
+      return newState;
   }
 }
 

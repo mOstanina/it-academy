@@ -23,7 +23,7 @@ class Track extends React.PureComponent {
         cbToDeleteSong: PropTypes.func,
     };
     state={
-        audioTag:true,
+        
         classNameIs1:"container_track",
         classNameIs2:"shortMode_track"
     }
@@ -82,13 +82,13 @@ class Track extends React.PureComponent {
 
         setTimeout(() => {
             this.props.cbToDeleteSong(this.props.info.code);
-        },650);
+        },900);
 
     }
 
     render() {
         console.log("Track is render");
-        console.log(this.props.lengthOfList);
+       // console.log(this.props.lengthOfList);
         //console.log(this.props.disab);
         let sr = "../pictures/vinyl-logo.png"
         return (
@@ -106,10 +106,10 @@ class Track extends React.PureComponent {
 
                 {this.props.cardMode === "shortMode" && <div className={this.state.classNameIs2}>
                     <div className="for_span_track"> <span className="songN">{this.props.info.groupName} {"-" + this.props.info.songName}</span> </div>
-                    <div className="for_audio_track">  {this.state.audioTag === true && <audio
+                    <div className="for_audio_track">   <audio
                         controls
                         src={this.props.info.url}>
-                    </audio>}</div>
+                    </audio></div>
 
                     {this.props.workMode === "allSongs" && <div className="for_input_track">  <input type="button" value="add to my play-list" disabled={(this.props.disab)} onClick={this.btnClickToAdd} /></div>}
                     {this.props.workMode === "PlayList" && <div className="for_input_track"> <input type="button" value="delete" onClick={this.btnClickToDelete} /></div>}

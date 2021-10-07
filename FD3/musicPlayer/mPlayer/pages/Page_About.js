@@ -36,25 +36,26 @@ class Page_About extends React.Component {
     console.log(this.props.match.params)
 
     var shortistOfAllSongs = this.props.songs
-    if (this.props.match.params.list === undefined) {
-      console.log(this.props.match.params.list)
-      return shortistOfAllSongs
-    } else if (this.props.match.params.list === "1") {
+    // if (this.props.match.params.list === undefined) {
+    //   console.log(this.props.match.params.list)
+    //   return shortistOfAllSongs
+    // } else
+     if (this.props.match.params.list === "1") {
       console.log(this.props.match.params.list)
       console.log("!!!")
       shortistOfAllSongs = this.props.songs.slice(0, 9)
       console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "10") {
-      shortistOfAllSongs = this.props.songs.slice(10, 18)
+      shortistOfAllSongs = this.props.songs.slice(10, 19)
       console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "19") {
-      shortistOfAllSongs = this.props.songs.slice(19, 27)
+      shortistOfAllSongs = this.props.songs.slice(19, 28)
       console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "28") {
-      shortistOfAllSongs = this.props.songs.slice(28, 36)
+      shortistOfAllSongs = this.props.songs.slice(28, 37)
       console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "37") {
-      shortistOfAllSongs = this.props.songs.slice(37, 45)
+      shortistOfAllSongs = this.props.songs.slice(37, 46)
       console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "46") {
       shortistOfAllSongs = this.props.songs.slice(46, 56)

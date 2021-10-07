@@ -1,4 +1,3 @@
-
 .container_track {
   display: flex;
 }
@@ -7,21 +6,18 @@
 
 // }
 
-.shortMode_track , .shortMode_container_track, .whiteDiv{
-  
+.shortMode_track,
+.shortMode_container_track,
+.whiteDiv {
   background-color: rgb(148, 148, 165);
   width: 1200px;
   height: 50px;
   margin: 0 auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  audio{
-    z-index: 1;
-  }
+ 
   .for_span_track {
     width: 35%;
   }
@@ -43,16 +39,31 @@
     justify-content: space-between;
   }
 }
-.shortMode_container_track{
- // background-color: cadetblue;
+
+.shortMode_container_track {
+  // background-color: cadetblue;
   animation-name: MyAnimation2;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
 
-@keyframes MyAnimation2
-{
-    from { height: 50px }
-    to {  height: 0 }
+.whiteDiv {
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  border-color: red;
+  border-style: solid;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+@keyframes MyAnimation2 {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 0;
+    overflow: hidden;
+  }
 }
 
 
@@ -84,11 +95,4 @@
       align-self: center;
     }
   }
-}
-.whiteDiv{
-  background-color: white;
-  height: 60px;
-  border-color: red;
-  border-style: solid;
-  z-index: 10;
 }

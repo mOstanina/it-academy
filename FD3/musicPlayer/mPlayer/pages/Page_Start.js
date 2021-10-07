@@ -44,7 +44,7 @@ class Page_Start extends React.Component {
 
 
 const mapStateToProps = function (state) {
-
+  console.log("Page_Start is render");
   return {
     songs: state.allSongs.data,
     status: state.allSongs.status,
