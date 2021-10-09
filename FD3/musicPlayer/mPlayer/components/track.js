@@ -22,74 +22,26 @@ class Track extends React.PureComponent {
         cbToAddSong: PropTypes.func,
         cbToDeleteSong: PropTypes.func,
     };
-    state={
-        
-        classNameIs1:"container_track",
-        classNameIs2:"shortMode_track"
+    state = {
+
+        classNameIs1: "container_track",
+        classNameIs2: "shortMode_track"
     }
 
-    // newFamRef = null;
-    // setNewFamRef = (ref) => {
-    //     this.newFamRef = ref;
-    // };
-
-    // newImRef = null;
-    // setNewImRef = (ref) => {
-    //     this.newImRef = ref;
-    // };
-
-    // newOtchRef = null;
-    // setNewOtchRef = (ref) => {
-    //     this.newOtchRef = ref;
-    // };
-
-    // newBalanceRef = null;
-    // setNewBalanceRef = (ref) => {
-    //     this.newBalanceRef = ref;
-    // };
-
-    // setNewInfo = () => {
-    //     let newInfCl = {
-    //         id: this.props.info.id,
-    //         fam: this.newFamRef.value,
-    //         im: this.newImRef.value,
-    //         otch: this.newOtchRef.value,
-    //         balance: Number(this.newBalanceRef.value),
-    //     }
-    //     mobileEvents.emit('SaveClient', newInfCl);
-    // };
-    // cancel = () => {
-    //     mobileEvents.emit('Cancel');
-    // }
-
-    // {this.props.isInList === true && <input type="button" value="добавить нового клиента" onClick={this.addClient} />}
-
-    // addToPL = () => {
-    //     this.props.dispatch(changeInList(this.props.info.code));
-    // }
 
     btnClickToAdd = () => {
-        //console.log(this.props.info.code)
         this.props.cbToAddSong(this.props.info.code);
     }
     btnClickToDelete = () => {
-        //console.log(this.props.info.code)
-        // this.setState({classNameIs:"to_delete_track"})
-        //this.setState({classNameIs1:"to_delete_track"})
-        this.setState({classNameIs2:"shortMode_container_track", audioTag:false})
-
-
-
+        this.setState({ classNameIs2: "shortMode_container_track", audioTag: false })
         setTimeout(() => {
             this.props.cbToDeleteSong(this.props.info.code);
-        },900);
-
+        }, 900);
     }
 
     render() {
-        console.log("Track is render");
-       // console.log(this.props.lengthOfList);
-        //console.log(this.props.disab);
+        // console.log("Track is render");
+
         let sr = "../pictures/vinyl-logo.png"
         return (
 
@@ -111,8 +63,8 @@ class Track extends React.PureComponent {
                         src={this.props.info.url}>
                     </audio></div>
 
-                    {this.props.workMode === "allSongs" && <div className="for_input_track">  <input type="button" value="add to my play-list" disabled={(this.props.disab)} onClick={this.btnClickToAdd} /></div>}
-                    {this.props.workMode === "PlayList" && <div className="for_input_track"> <input type="button" value="delete" onClick={this.btnClickToDelete} /></div>}
+                    {this.props.workMode === "allSongs" && <div className="for_input_track">  <input type="button" value="добавить" disabled={(this.props.disab)} onClick={this.btnClickToAdd} /></div>}
+                    {this.props.workMode === "PlayList" && <div className="for_input_track"> <input type="button" value="удалить" onClick={this.btnClickToDelete} /></div>}
                 </div>}
 
             </div>
@@ -122,9 +74,5 @@ class Track extends React.PureComponent {
 
     }
 }
-// const mapStateToProps = function (state) {
-//     return {
 
-//     };
-//   };
 export default Track;

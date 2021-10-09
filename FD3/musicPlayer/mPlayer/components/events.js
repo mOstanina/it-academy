@@ -1,9 +1,8 @@
 import {EventEmitter} from 'events';
 
-let mobileEvents=new EventEmitter(); 
+let trackEvents=new EventEmitter(); 
 
-// событие "ChangeInfoClicked" - кликнута кнопка редактировать, его сэмиттирует MobileClient и примет MobileCompany
-// событие "DeleteClient" - кликнута кнопка удалить, его сэмиттирует MobileClient и примет MobileCompany
-// событие "SaveClient" - кликнута кнопка сохранить, его сэмиттирует Card и примет MobileCompany
+// событие "AddTrack" - кликнута кнопка добавить, его сэмиттирует Track и примет All_Music
+// событие "DeleteTrack" - кликнута кнопка удалить, его сэмиттирует Track и примет All_Music
 
-export {mobileEvents};
+export {trackEvents};

@@ -6,7 +6,7 @@ import { toAddSongInNewPL } from "../redux/playlistReducerAC"
 import Track from '../components/track';
 import { changeInList } from "../redux/allSongsAC";
 import { withRouter } from 'react-router-dom';
-import './Page_About.css';
+import './Page_Start.css';
 import MainPageLinks from "./MainPageLinks"
 import MainPageRouter from "./MainPageRouter"
 import { BrowserRouter } from 'react-router-dom';
@@ -21,30 +21,33 @@ class Page_Start extends React.Component {
     status: PropTypes.number.isRequired,
     userPlayList: PropTypes.array,
   };
- 
 
- 
+
+
 
   render() {
 
-   
-      return (
+
+    return (
 
 
-        <div className="pageContainerOfMainPageAboutUS">
-          <h1>Hello !!!!!!</h1>
-          <h2>Hello !!!!!!</h2><h2>Hello !!!!!!</h2><h2>Hello !!!!!!</h2><h2>Hello !!!!!!</h2><h2>Hello !!!!!!</h2>
+      <div className="pageContainerOfMainPageAboutUS">
+        <div className="div_Page_Start">
+          <h1>Добро пожаловать на старницу нашего аудио-плеера !!!!!!</h1>
+          <p>Вы можете создать собственный плей-лист из представленных композиций</p>
         </div>
 
-      );
- 
+      </div>
+
+    );
+
   };
 
 }
 
 
 const mapStateToProps = function (state) {
-  console.log("Page_Start is render");
+  //console.log("Page_Start is render");
   return {
     songs: state.allSongs.data,
     status: state.allSongs.status,

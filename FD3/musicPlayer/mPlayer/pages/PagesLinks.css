@@ -131,4 +131,38 @@ body {
 
 .btn-burger_pageContainer_active {
   transform: translate(0);
+}
+
+@-webkit-keyframes MyAnimationON {
+  from {
+    transition: translate(-100%);
+  }
+  to {
+    transition: translate(0);
+  }
+}
+
+@keyframes MyAnimationON {
+  from {
+    transition: translate(-100%);
+  }
+  to {
+    transition: translate(0);
+  }
+}
+@-webkit-keyframes MyAnimationOFF {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+@keyframes MyAnimationOFF {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
 }/*# sourceMappingURL=PagesLinks.css.map */

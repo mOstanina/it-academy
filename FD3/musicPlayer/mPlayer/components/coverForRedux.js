@@ -11,7 +11,7 @@ let store = createStore(combinedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && 
 
 class CoverForRedux extends React.PureComponent {
     render() {
-        console.log("CoverForRedux is render");
+        //console.log("CoverForRedux is render");
         return (
             <Provider store={store}>
                 <MainComponent />

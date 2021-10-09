@@ -94,7 +94,7 @@ function playlistReducer(state = initState, action) {
                 ...state,
                 userSongs: action.playlist,
             };
-            console.log(newState)
+            //console.log(newState)
             return newState;
         }
 

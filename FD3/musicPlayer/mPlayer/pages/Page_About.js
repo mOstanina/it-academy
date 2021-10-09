@@ -21,11 +21,6 @@ class Page_About extends React.Component {
     status: PropTypes.number.isRequired,
     userPlayList: PropTypes.array,
   };
-  // state = {
-  //   listForRender: []
-  // }
-
-
 
   toAddSong = (code) => {
     this.props.dispatch(toAddSongInNewPL(code));
@@ -33,7 +28,7 @@ class Page_About extends React.Component {
 
   makeNewList = () => {
 
-    console.log(this.props.match.params)
+    //console.log(this.props.match.params)
 
     var shortistOfAllSongs = this.props.songs
     // if (this.props.match.params.list === undefined) {
@@ -41,29 +36,29 @@ class Page_About extends React.Component {
     //   return shortistOfAllSongs
     // } else
     if (this.props.match.params.list === "1") {
-      console.log(this.props.match.params.list)
-      console.log("!!!")
+      // console.log(this.props.match.params.list)
+      // console.log("!!!")
       shortistOfAllSongs = this.props.songs.slice(0, 9)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "10") {
       shortistOfAllSongs = this.props.songs.slice(10, 19)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "19") {
       shortistOfAllSongs = this.props.songs.slice(19, 28)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "28") {
       shortistOfAllSongs = this.props.songs.slice(28, 37)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "37") {
       shortistOfAllSongs = this.props.songs.slice(37, 46)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else if (this.props.match.params.list === "46") {
       shortistOfAllSongs = this.props.songs.slice(46, 56)
-      console.log(shortistOfAllSongs)
+      // console.log(shortistOfAllSongs)
     } else {
       shortistOfAllSongs = this.props.songs
     }
-    console.log(shortistOfAllSongs)
+    // console.log(shortistOfAllSongs)
     // this.setState({listForRender:shortistOfAllSongs})
     // console.log("3333"+this.state.listForRender)
     return shortistOfAllSongs
@@ -71,19 +66,19 @@ class Page_About extends React.Component {
   }
   componentDidMount = () => {
     let list = this.props.match.params.list;
-    console.log("this.props.match.params.list: " + list)
-    console.log(this.props.match)
-    // function List (){
-    //   const{listNumber} =useParams()
-    //   return <h1>{listNumber}</h1>
-    // }
-    // this.makeNewList()
-    // console.log("3333"+this.state.listForRender)
+    // console.log("this.props.match.params.list: " + list)
+    // console.log(this.props.match)
+    // // function List (){
+    // //   const{listNumber} =useParams()
+    // //   return <h1>{listNumber}</h1>
+    // // }
+    // // this.makeNewList()
+    // // console.log("3333"+this.state.listForRender)
   }
 
   render() {
 
-    console.log("Page_About is render");
+    //console.log("Page_About is render");
     if (this.props.status !== 3) {
       return <Loader />
     } else {
@@ -93,7 +88,7 @@ class Page_About extends React.Component {
       })
       return (
         <div>
-           <MainPageLinks />
+          <MainPageLinks />
           <div className="pageContainerOfMainPageAboutUS">
             {listOfAllSongs}
           </div>

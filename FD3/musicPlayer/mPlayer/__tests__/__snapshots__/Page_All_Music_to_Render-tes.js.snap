@@ -1,0 +1,417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Page_All_Music_to_Render (выбрана сортировка по букве T) 1`] = `
+<div
+  className="pageContainerOfMainPage"
+>
+  <div
+    className="btn_All_Music"
+  >
+    <div
+      className="input_text"
+    >
+      <input
+        onChange={undefined}
+        type="text"
+        value="T"
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="очистить поиск"
+      />
+    </div>
+    <div
+      className="input_btn"
+    >
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать все"
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать недобавленные"
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать добавленные"
+      />
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          Status Quo
+           
+          -In The Army Now
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/Status Quo - In The Army Now.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          Stereophonics
+           
+          -Maybe Tomorrow
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/Stereophonics - Maybe Tomorrow.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          System Of A Dow
+           
+          -Lonely Day
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/System Of A Down - Lonely Day.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          The Beatles
+           
+          -Come Together
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/The Beatles - Come Together.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`работа Page_All_Music_to_Render 1`] = `
+<div
+  className="pageContainerOfMainPage"
+>
+  <div
+    className="btn_All_Music"
+  >
+    <div
+      className="input_text"
+    >
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="очистить поиск"
+      />
+    </div>
+    <div
+      className="input_btn"
+    >
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать все"
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать недобавленные"
+      />
+      <input
+        onClick={undefined}
+        type="button"
+        value="показать добавленные"
+      />
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          Status Quo
+           
+          -In The Army Now
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/Status Quo - In The Army Now.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          Stereophonics
+           
+          -Maybe Tomorrow
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/Stereophonics - Maybe Tomorrow.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          System Of A Dow
+           
+          -Lonely Day
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/System Of A Down - Lonely Day.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container_track"
+  >
+    <div
+      className="shortMode_track"
+    >
+      <div
+        className="for_span_track"
+      >
+         
+        <span
+          className="songN"
+        >
+          The Beatles
+           
+          -Come Together
+        </span>
+         
+      </div>
+      <div
+        className="for_audio_track"
+      >
+           
+        <audio
+          controls={true}
+          src="../songs/The Beatles - Come Together.mp3"
+        />
+      </div>
+      <div
+        className="for_input_track"
+      >
+          
+        <input
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          value="add to my play-list"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

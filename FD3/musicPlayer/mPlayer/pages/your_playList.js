@@ -3,6 +3,7 @@ import PropTypes, { func } from 'prop-types';
 import { connect } from 'react-redux';
 import isoFetch from 'isomorphic-fetch';
 
+//import { trackEvents } from '../components/events';
 import './Your_PlayList.css';
 import { toDeleteSongInNewPL, toSaveUserPLInAjax } from "../redux/playlistReducerAC"
 import Track from '../components/track';
@@ -15,13 +16,24 @@ class Your_PlayList extends React.PureComponent {
         userPlaylist: PropTypes.array,
         userPlaylistStatus: PropTypes.number.isRequired,
     };
+    // componentDidMount = () => {
+       
+    //     trackEvents.addListener('DeleteTrack', this.toDeleteClient);
+       
+    //   };
+    
+    //   componentWillUnmount = () => {
+       
+    //     trackEvents.removeListener('DeleteTrack', this.toDeleteClient);
+       
+    //   };
     toDeleteSong = (code) => {
         // console.log(code)
         this.props.dispatch(toDeleteSongInNewPL(code));
     }
     toSave = () => {
-        console.log("!!!!")
-        console.log("!!!!" + this.props.userPlaylist)
+        // console.log("!!!!")
+        // console.log("!!!!" + this.props.userPlaylist)
         this.props.dispatch(toSaveUserPLInAjax(this.props.userPlaylist));
 
         isoFetch("http://localhost:3000/userPlaylist/", {
@@ -51,7 +63,7 @@ class Your_PlayList extends React.PureComponent {
 
     }
     render() {
-        console.log("Your_PlayList is render");
+        //console.log("Your_PlayList is render");
         if (this.props.userPlaylistStatus !== 3) {
             return <Loader />
         } if (this.props.userPlaylist.length === 0 && this.props.userPlaylistStatus === 3) {

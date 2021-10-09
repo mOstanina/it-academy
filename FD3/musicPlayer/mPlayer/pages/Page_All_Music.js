@@ -7,8 +7,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { toAddSongInNewPL } from "../redux/playlistReducerAC"
 import Track from '../components/track';
 import Loader from '../components/Loader'
-import "./Page_All_Music.css"
+import Page_All_Music_to_Render from '../components/Page_All_Music_to_Render'
+ import "./Page_All_Music.css"
 
+import { showAdded } from '../modules/showAdded';
+import { showBlocked } from '../modules/showBlocked';
 
 class All_Music extends React.PureComponent {
 
@@ -31,62 +34,43 @@ class All_Music extends React.PureComponent {
       status: newProps.status,
       userPlayList: newProps.userPlayList,
     });
-    console.log(this.state.songs)
+    //console.log(this.state.songs)
   };
   toAddSong = (code) => { //показать все песни
     this.props.dispatch(toAddSongInNewPL(code));
   }
   showAll = () => {
-    console.log(this.props.songs)
+    //console.log(this.props.songs)
     this.setState({ songs: this.props.songs });
   }
-  showAdded = () => { //показать недобавленные в плей-лист
-    let listOfAddedSongs = [...this.props.songs]
-    let userPL = this.props.userPlayList
-    //console.log(userPL)
-    listOfAddedSongs = listOfAddedSongs.filter(function (i) {
-      console.log(i.code)
-      return !userPL.includes(i.code)
-    })
-    //console.log(listOfAddedSongs)
-    this.setState({ songs: listOfAddedSongs });
-  }
-  showBlocked = () => { // показать добавленные в плей-лист
-    let listOfAddedSongs = [...this.props.songs]
-    let userPL = this.props.userPlayList
-    //console.log(userPL)
-    listOfAddedSongs = listOfAddedSongs.filter(function (i) {
-      console.log(i.code)
-      return userPL.includes(i.code)
-    })
-    //console.log(listOfAddedSongs)
-    this.setState({ songs: listOfAddedSongs });
+
+  setActiv = () => {// выбраны только активные клиенты
+    let listBlockSongs = showAdded(this.props.songs, this.props.userPlayList)
+    this.setState({ songs: listBlockSongs });
+  };
+
+  setBlock = () => {     // выбраны добавленные песни
+    let listBlockSongs = showBlocked(this.props.songs, this.props.userPlayList) //передаю из пропсов все песни и массив песен из плей-листа пользователя
+    this.setState({ songs: listBlockSongs });
   }
 
   processList = () => { // фильтрую список песен в зависимости от того, что введено в инпут
     let resultList = [...this.props.songs];
     if (this.state.filtered) {
-      // console.log("11")
-      // console.log(resultList)
       let userFilter = this.state.filtered.toUpperCase()
       resultList = resultList.filter(function (i) {
-        console.log(i.groupName)
-        console.log(userFilter)
+        // console.log(i.groupName)
+        // console.log(userFilter)
         return i.groupName[0].indexOf(userFilter) != -1
       })
-
-      // resultList = resultList.filter((r) => r.indexOf(this.state.filtered) != -1);
     } else {
-      console.log("22")
+      //console.log("22")
       resultList = this.props.songs.slice();
     }
-    // if (this.state.sorted) {
-    //   resultList.sort();
-    // }
-    console.log(resultList)
+    //console.log(resultList)
     this.setState({ songs: resultList });
   }
-  filteredString = (EO) => { // получаюсодержимое инпута
+  filteredString = (EO) => { // получаю содержимое инпута
     this.setState({ filtered: EO.target.value }, this.processList);
   }
   clear = () => { // кнопка ОЧИСТИТЬ 
@@ -98,24 +82,23 @@ class All_Music extends React.PureComponent {
     if (this.state.status !== 3) {
       return <Loader />
     } else {
-      let listOfAllSongs = this.state.songs.map((song, i) => {
-        return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"shortMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
-      })
+      
       return (
 
         <div className="pageContainerOfMainPage">
-          <div className='btn_All_Music'>
-            <div className="input_text">
-              <input type="text" value={this.state.filtered} onChange={this.filteredString} />
-              <input type="button" value="очистить поиск" onClick={this.clear} />
-            </div>
-            <div className="input_btn">
-              <input type="button" value="показать все" onClick={this.showAll} />
-              <input type="button" value="показать недобавленные" onClick={this.showAdded} />
-              <input type="button" value="показать добавленные" onClick={this.showBlocked} />
-            </div>
-          </div>
-          {listOfAllSongs}
+          <Page_All_Music_to_Render
+            listOfAllSongs={ this.state.songs}
+            filteredString={this.filteredString }
+            clear={ this.clear}
+            showAll={this.showAll }
+            setActiv={ this.setActiv}
+            setBlock={ this.setBlock}
+            filtered={this.state.filtered }
+            workMode={ "allSongs"}
+            cardMode={"shortMode" }
+            userPlayList={ this.props.userPlayList}
+            toAddSong={ this.toAddSong}
+          />
         </div>
       );
     }
@@ -123,7 +106,7 @@ class All_Music extends React.PureComponent {
 }
 
 const mapStateToProps = function (state) {
-  console.log("All_Music");
+ // console.log("All_Music");
   return {
     songs: state.allSongs.data,
     status: state.allSongs.status,
