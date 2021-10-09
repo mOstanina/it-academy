@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes, { func } from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
+
+
 import { toAddSongInNewPL } from "../redux/playlistReducerAC"
 import Track from '../components/track';
 import Loader from '../components/Loader'
+import "./Page_All_Music.css"
+
 
 class All_Music extends React.PureComponent {
 
@@ -21,7 +25,7 @@ class All_Music extends React.PureComponent {
     filtered: "",
   };
 
-  componentWillReceiveProps = (newProps) => {
+  componentWillReceiveProps = (newProps) => { // пришедшие из AJAX и REDUX пропсы, устанавливаю в стейт
     this.setState({
       songs: newProps.songs,
       status: newProps.status,
@@ -29,14 +33,14 @@ class All_Music extends React.PureComponent {
     });
     console.log(this.state.songs)
   };
-  toAddSong = (code) => {
+  toAddSong = (code) => { //показать все песни
     this.props.dispatch(toAddSongInNewPL(code));
   }
   showAll = () => {
     console.log(this.props.songs)
     this.setState({ songs: this.props.songs });
   }
-  showAdded = () => {
+  showAdded = () => { //показать недобавленные в плей-лист
     let listOfAddedSongs = [...this.props.songs]
     let userPL = this.props.userPlayList
     //console.log(userPL)
@@ -47,7 +51,7 @@ class All_Music extends React.PureComponent {
     //console.log(listOfAddedSongs)
     this.setState({ songs: listOfAddedSongs });
   }
-  showBlocked = () => {
+  showBlocked = () => { // показать добавленные в плей-лист
     let listOfAddedSongs = [...this.props.songs]
     let userPL = this.props.userPlayList
     //console.log(userPL)
@@ -59,7 +63,7 @@ class All_Music extends React.PureComponent {
     this.setState({ songs: listOfAddedSongs });
   }
 
-  processList = () => {
+  processList = () => { // фильтрую список песен в зависимости от того, что введено в инпут
     let resultList = [...this.props.songs];
     if (this.state.filtered) {
       // console.log("11")
@@ -71,7 +75,7 @@ class All_Music extends React.PureComponent {
         return i.groupName[0].indexOf(userFilter) != -1
       })
 
-     // resultList = resultList.filter((r) => r.indexOf(this.state.filtered) != -1);
+      // resultList = resultList.filter((r) => r.indexOf(this.state.filtered) != -1);
     } else {
       console.log("22")
       resultList = this.props.songs.slice();
@@ -82,10 +86,10 @@ class All_Music extends React.PureComponent {
     console.log(resultList)
     this.setState({ songs: resultList });
   }
-  filteredString = (EO) => {
+  filteredString = (EO) => { // получаюсодержимое инпута
     this.setState({ filtered: EO.target.value }, this.processList);
   }
-  clear = () => {
+  clear = () => { // кнопка ОЧИСТИТЬ 
     this.setState({ filtered: "" });
     this.setState({ songs: this.props.songs });
   }
@@ -100,12 +104,16 @@ class All_Music extends React.PureComponent {
       return (
 
         <div className="pageContainerOfMainPage">
-          <div className='btn'>
-            <input type="text" value={this.state.filtered} onChange={this.filteredString} />
-            <input type="button" value="очистить поиск" onClick={this.clear} />
-            <input type="button" value="все" onClick={this.showAll} />
-            <input type="button" value="активные" onClick={this.showAdded} />
-            <input type="button" value="заблокированные" onClick={this.showBlocked} />
+          <div className='btn_All_Music'>
+            <div className="input_text">
+              <input type="text" value={this.state.filtered} onChange={this.filteredString} />
+              <input type="button" value="очистить поиск" onClick={this.clear} />
+            </div>
+            <div className="input_btn">
+              <input type="button" value="показать все" onClick={this.showAll} />
+              <input type="button" value="показать недобавленные" onClick={this.showAdded} />
+              <input type="button" value="показать добавленные" onClick={this.showBlocked} />
+            </div>
           </div>
           {listOfAllSongs}
         </div>

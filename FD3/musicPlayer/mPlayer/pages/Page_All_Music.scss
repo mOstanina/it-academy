@@ -1,0 +1,45 @@
+@import "../scss/variable";
+@import "../scss/mixins";
+
+.btn_All_Music {
+  padding: 10px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .input_text {
+    input {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    @include myMedia($fourth) {
+      width: 50%;
+      flex-direction: column;
+      padding: 0px 20px;
+    }
+  }
+  .input_btn {
+    input {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      @include myMedia($fourth) {
+        width: 50%;
+        align-self: center;
+      }
+    }
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include myMedia($fourth) {
+      flex-direction: column;
+    }
+  }
+
+  @include myMedia(500px) {
+    flex-direction: column;
+    align-content: space-around;
+  }
+}

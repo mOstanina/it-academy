@@ -21,25 +21,25 @@ class Your_PlayList extends React.PureComponent {
     }
     toSave = () => {
         console.log("!!!!")
-        console.log("!!!!"+this.props.userPlaylist)
+        console.log("!!!!" + this.props.userPlaylist)
         this.props.dispatch(toSaveUserPLInAjax(this.props.userPlaylist));
-  
+
         isoFetch("http://localhost:3000/userPlaylist/", {
-          method: 'post',
-          body: JSON.stringify(this.props.userPlaylist),
-          headers: {
-            "Content-Type": "application/json",
-          },
-      })
-          .then((response) => { // response - HTTP-ответ
-              if (!response.ok) {
-                  let Err = new Error("fetch error " + response.status);
-                  Err.userMessage = "Ошибка связи";
-                  throw Err;
-              }
-              else
-                  return response.json();
-          })
+            method: 'post',
+            body: JSON.stringify(this.props.userPlaylist),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => { // response - HTTP-ответ
+                if (!response.ok) {
+                    let Err = new Error("fetch error " + response.status);
+                    Err.userMessage = "Ошибка связи";
+                    throw Err;
+                }
+                else
+                    return response.json();
+            })
         //   .then((userSongs) => {
         //       console.log(userSongs)
         //       this.props.dispatch(userSongsSetAC(userSongs)); // переводим раздел countries стора в состояние "ошибка"
@@ -48,12 +48,12 @@ class Your_PlayList extends React.PureComponent {
         //       console.error(error);
         //       this.props.dispatch(userSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
         //   });
-    
-      }
+
+    }
     render() {
         console.log("Your_PlayList is render");
         if (this.props.userPlaylistStatus !== 3) {
-            return <Loader/>
+            return <Loader />
         } if (this.props.userPlaylist.length === 0 && this.props.userPlaylistStatus === 3) {
             return <div>добавьте песни из основного списка на вкладке "Все композиции"</div>
         } else {
@@ -74,10 +74,8 @@ class Your_PlayList extends React.PureComponent {
             })
             return (
                 <div className="pageContainerOfMainPage">
-                    
                     <div className="save_btn"> <input type="button" value="save my play-list" onClick={this.toSave} /></div>
                     {EnewListOfAllSongs}
-                   
                 </div>
             );
         }

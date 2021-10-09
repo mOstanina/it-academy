@@ -3,35 +3,48 @@
 }
 
 .shortMode_track,
-.shortMode_container_track,
-.whiteDiv {
-  background-color: #9494a5;
+.shortMode_container_track {
   width: 1200px;
-  height: 50px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  flex-direction: row;
   justify-content: space-between;
 }
 .shortMode_track .for_span_track,
-.shortMode_container_track .for_span_track,
-.whiteDiv .for_span_track {
+.shortMode_container_track .for_span_track {
   width: 35%;
 }
+@media all and (max-width: 729px) {
+  .shortMode_track .for_span_track,
+.shortMode_container_track .for_span_track {
+    width: 100vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
 .shortMode_track .for_audio_track,
-.shortMode_container_track .for_audio_track,
-.whiteDiv .for_audio_track {
-  width: 55%;
+.shortMode_container_track .for_audio_track {
+  width: 50%;
+}
+@media all and (max-width: 729px) {
+  .shortMode_track .for_audio_track,
+.shortMode_container_track .for_audio_track {
+    width: 100vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 .shortMode_track .for_input_track,
-.shortMode_container_track .for_input_track,
-.whiteDiv .for_input_track {
-  width: 10%;
+.shortMode_container_track .for_input_track {
+  width: 15%;
+  align-self: center;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 .shortMode_track .for_input_track > input,
-.shortMode_container_track .for_input_track > input,
-.whiteDiv .for_input_track > input {
+.shortMode_container_track .for_input_track > input {
   display: flex;
   align-items: flex-end;
 }
@@ -40,13 +53,12 @@
 .shortMode_track .for_input_track,
 .shortMode_container_track .for_span_track,
 .shortMode_container_track .for_audio_track,
-.shortMode_container_track .for_input_track,
-.whiteDiv .for_span_track,
-.whiteDiv .for_audio_track,
-.whiteDiv .for_input_track {
+.shortMode_container_track .for_input_track {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .shortMode_container_track {
@@ -54,17 +66,6 @@
           animation-name: MyAnimation2;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-}
-
-.whiteDiv {
-  background-color: white;
-  width: 100%;
-  height: 60px;
-  border-color: red;
-  border-style: solid;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
 }
 
 @-webkit-keyframes MyAnimation2 {
@@ -87,7 +88,6 @@
   }
 }
 .fullMode_track {
-  background-color: #9494a5;
   margin: 0 auto;
   padding: 40px;
   display: flex;
@@ -104,6 +104,9 @@
 .fullMode_track .for_full_track .for_input_track {
   align-self: center;
   text-align: center;
+}
+.fullMode_track .for_full_track .for_input_track input {
+  margin-top: 10px;
 }
 .fullMode_track .for_full_track img {
   width: 250px;

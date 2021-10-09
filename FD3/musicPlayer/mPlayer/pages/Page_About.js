@@ -25,7 +25,7 @@ class Page_About extends React.Component {
   //   listForRender: []
   // }
 
- 
+
 
   toAddSong = (code) => {
     this.props.dispatch(toAddSongInNewPL(code));
@@ -40,7 +40,7 @@ class Page_About extends React.Component {
     //   console.log(this.props.match.params.list)
     //   return shortistOfAllSongs
     // } else
-     if (this.props.match.params.list === "1") {
+    if (this.props.match.params.list === "1") {
       console.log(this.props.match.params.list)
       console.log("!!!")
       shortistOfAllSongs = this.props.songs.slice(0, 9)
@@ -66,7 +66,7 @@ class Page_About extends React.Component {
     console.log(shortistOfAllSongs)
     // this.setState({listForRender:shortistOfAllSongs})
     // console.log("3333"+this.state.listForRender)
-     return shortistOfAllSongs
+    return shortistOfAllSongs
 
   }
   componentDidMount = () => {
@@ -92,13 +92,14 @@ class Page_About extends React.Component {
         return <Track key={song.code} info={song} workMode={"allSongs"} cardMode={"fullMode"} userPlayList={this.props.userPlayList} disab={this.props.userPlayList.includes(song.code)} cbToAddSong={this.toAddSong} />
       })
       return (
+        <div>
+           <MainPageLinks />
+          <div className="pageContainerOfMainPageAboutUS">
+            {listOfAllSongs}
+          </div>
 
-
-        <div className="pageContainerOfMainPageAboutUS">
-          <h1>Hello + {this.props.match.params.list}!</h1>
-          <MainPageLinks />
-          {listOfAllSongs}
         </div>
+
 
       );
     }

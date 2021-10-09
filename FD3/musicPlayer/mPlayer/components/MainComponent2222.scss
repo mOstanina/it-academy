@@ -1,0 +1,21 @@
+@import "../scss/variable.css";
+@import "../scss/mixins.css";
+@import url("../scss/variable.scss");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainComponent_container {
+ // max-width: $md;
+  margin: 0 auto;
+  padding: 0;
+
+  // width: 1200px;
+ // background-color: rgb(182, 182, 209);
+  border-color: $btn-color;
+  border-style: solid;
+
+  font-family: $main-font-family;
+}

@@ -1,0 +1,21 @@
+@import "../scss/variable";
+@import "../scss/mixins";
+
+.selection {
+  max-width: $md;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color:#e1e0e5;
+  .PageLink,
+  span {
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+    @include myMedia($fives) {
+      font-size: 13px;
+    }
+  }
+}

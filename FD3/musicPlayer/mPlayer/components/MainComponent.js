@@ -9,7 +9,7 @@ import isoFetch from 'isomorphic-fetch';
 import PagesRouter from '../pages/PagesRouter';
 import PagesLinks from '../pages/PagesLinks';
 import combinedReducer from '../redux/reducers'
-
+import './MainComponent.css';
 import { allSongsLoadingAC, allSongsErrorAC, allSongsSetAC, } from "../redux/allSongsAC";
 import { userSongsLoadingAC, userSongsErrorAC, userSongsSetAC, } from "../redux/playlistReducerAC";
 //import {local_PL_create} from "../redux/playlistReducerAC"
@@ -156,7 +156,7 @@ class MainComponent extends React.PureComponent {
         return (
 
             <BrowserRouter>
-                <div>
+                <div className="mainComponent_container">
                     <PagesLinks />
                     <PagesRouter />
                     {/* <input type='button' value='ooooo' onClick={this.oooooo} /> */}

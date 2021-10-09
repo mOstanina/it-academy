@@ -4,3 +4,10 @@
 //     height: 30px;
 //     border-color: red;
 // }
+.save_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

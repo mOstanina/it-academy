@@ -1,0 +1,13 @@
+@import "../scss/variable";
+@import "../scss/mixins";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainComponent_container {
+  max-width: $md;
+  margin: 0 auto;
+  padding: 0;
+  font-family: $main-font-family;
+}

@@ -1,0 +1,21 @@
+.selection {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #e1e0e5;
+}
+.selection .PageLink,
+.selection span {
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+}
+@media all and (max-width: 729px) {
+  .selection .PageLink,
+.selection span {
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=MainPageLinks.css.map */
