@@ -12,21 +12,38 @@ import combinedReducer from '../redux/reducers'
 import './MainComponent.css';
 import { allSongsLoadingAC, allSongsErrorAC, allSongsSetAC, } from "../redux/allSongsAC";
 import { userSongsLoadingAC, userSongsErrorAC, userSongsSetAC, } from "../redux/playlistReducerAC";
+//
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+//
 //import {local_PL_create} from "../redux/playlistReducerAC"
 // let store = createStore(combinedReducer,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // //
 
 class MainComponent extends React.PureComponent {
- 
-    componentDidMount() {
 
-        window.addEventListener("beforeunload", (ev) => 
-        {  
-            ev.preventDefault();
-            return ev.returnValue = 'Are you sure you want to close?';
-        });
+    componentDidMount() {
+        ///////// окно предупрежения об обновлении
+        // window.addEventListener("beforeunload", (ev) => 
+        // {  
+        //     ev.preventDefault();
+        //     return ev.returnValue = 'Are you sure you want to close?';
+        // });
         //console.log("!!!")
         this.props.dispatch(allSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
+/////
+// const app = initializeApp(firebaseConfig);
+// console.log(app)
+// const db = getFirestore(app);
+// console.log(db)
+// async function getCities(db) {
+//     const citiesCol = collection(db, 'cities');
+//     const citySnapshot = await getDocs(citiesCol);
+//     const cityList = citySnapshot.docs.map(doc => doc.data());
+//     return cityList;
+//   }
+/////
+
 
         isoFetch("http://localhost:3000/playlist", {
             method: 'get',
@@ -44,15 +61,15 @@ class MainComponent extends React.PureComponent {
                     return response.json();
             })
             .then((data) => {
-               // console.log(data)
+                // console.log(data)
                 this.props.dispatch(allSongsSetAC(data)); // переводим раздел countries стора в состояние "ошибка"
             })
             .catch((error) => {
                 console.error(error);
                 this.props.dispatch(allSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
             });
-            //this.props.dispatch( local_PL_create() );
-///////////////
+        //this.props.dispatch( local_PL_create() );
+        ///////////////
         this.props.dispatch(userSongsLoadingAC()); // переводим раздел countries стора в состояние "загружается"
 
         isoFetch("http://localhost:3000/userPlaylist", {
@@ -71,15 +88,15 @@ class MainComponent extends React.PureComponent {
                     return response.json();
             })
             .then((userSongs) => {
-               // console.log(userSongs)
+                // console.log(userSongs)
                 this.props.dispatch(userSongsSetAC(userSongs)); // переводим раздел countries стора в состояние "ошибка"
             })
             .catch((error) => {
                 //console.error(error);
                 this.props.dispatch(userSongsErrorAC()); // переводим раздел countries стора в состояние "ошибка"
             });
-           // this.props.dispatch( local_PL_create() );
-            }
+        // this.props.dispatch( local_PL_create() );
+    }
 
     // oooooo = () => {
     //     let list={ 

@@ -1,0 +1,64 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  border: 2px solid red;
+  width: 1240px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-size: 14px;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+
+.contacts {
+  background-color: #cecac6;
+  height: 100px;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.contacts .img_container img {
+  height: 230px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 50%;
+}
+.contacts .fas,
+.contacts .fab,
+.contacts .far {
+  color: #3a3a3a;
+  margin-right: 10px;
+}
+.contacts a {
+  color: #3f3e3e;
+}
+
+.main_information {
+  background-color: #c5dbdb;
+  height: 100px;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=main.css.map */

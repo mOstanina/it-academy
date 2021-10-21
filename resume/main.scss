@@ -1,0 +1,60 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  border: 2px solid red;
+  width: 1240px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+h1 {
+  margin-top: 50px;
+  font-weight: bold;
+}
+h2,
+h3,
+h4,
+h5 {
+  font-size: 14px;
+}
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+.contacts {
+  background-color: rgb(206, 202, 198);
+  height: 100px;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .img_container {
+    img {
+      height: 230px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      border-radius: 50%;
+    }
+  }
+  .fas,
+  .fab,
+  .far {
+    color: rgb(58, 58, 58);
+    margin-right: 10px;
+  }
+  a {
+    color: rgb(63, 62, 62);
+  }
+}
+.main_information {
+  background-color: rgb(197, 219, 219);
+  height: 100px;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
