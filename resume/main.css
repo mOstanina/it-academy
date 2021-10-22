@@ -2,40 +2,43 @@
   margin: 0 auto;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
 }
 
 .container {
-  width: 1440px;
+  border: 1px solid red;
+  width: 1702px;
   height: 100vh;
   display: flex;
   flex-direction: row;
 }
 
 h1 {
-  font-size: 35px;
-  margin-top: 50px;
+  font-size: 45px;
+  margin-top: 60px;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 35px;
   margin-top: 40px;
+  margin-bottom: 60px;
   font-weight: bold;
 }
 
 h3 {
   margin-top: 50px;
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 20px;
 }
 
 h5 {
-  font-size: 17px;
+  font-size: 25px;
   font-weight: normal;
 }
 
 h6 {
-  font-size: 12px;
+  font-size: 20px;
   margin-left: 15px;
   margin-bottom: 20px;
   font-weight: normal;
@@ -63,8 +66,11 @@ i {
   display: flex;
   flex-direction: column;
 }
+.contacts .img_container {
+  margin-top: 40px;
+}
 .contacts .img_container img {
-  height: 230px;
+  height: 350px;
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 50%;
@@ -82,14 +88,20 @@ i {
 }
 
 .main_information {
+  margin-top: 40px;
   height: 100px;
   width: 70%;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 20px;
 }
 .main_information .block {
-  margin: 10px;
+  margin: 20px;
+}
+.main_information .block2 {
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 .main_information a {
   color: #3f3e3e;
