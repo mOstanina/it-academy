@@ -20,12 +20,12 @@ h1 {
 h2 {
   font-size: 40px;
   margin-top: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   font-weight: bold;
 }
 
 h3 {
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 35px;
   margin-bottom: 20px;
 }
@@ -58,7 +58,7 @@ i {
 }
 
 .space {
-  height: 1000px;
+  height: 1100px;
   display: inline-block;
 }
 
@@ -102,7 +102,7 @@ br {
 }
 .contacts .tag {
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   font-weight: bold;
 }
 .contacts .lang {
@@ -140,4 +140,18 @@ br {
 .main_information .sert {
   display: inline-block;
   margin-bottom: 20px;
+}
+.main_information .block3 {
+  display: flex;
+  margin-bottom: 30px;
+}
+.main_information .block3 .period {
+  width: 30%;
+}
+.main_information .block3 .opyt {
+  width: 70%;
+}
+.main_information .block3 p {
+  font-size: 29px;
+  margin-bottom: 30px;
 }/*# sourceMappingURL=main.css.map */
