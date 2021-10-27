@@ -14,7 +14,7 @@
 
 h1 {
   font-size: 50px;
-  margin-top: 60px;
+  margin-top: 120px;
   font-weight: bold;
 }
 
@@ -47,6 +47,7 @@ i {
   font-weight: bold;
   color: #3a3a3a;
   margin-right: 10px;
+  font-size: 29px;
 }
 
 .line {
@@ -61,12 +62,16 @@ i {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.skills_container ul {
+  margin-left: -48px;
+}
 
 br {
   margin: 0;
 }
 
 .contacts {
+  background-color: #f1f1f1;
   height: 100px;
   width: 30%;
   height: 100vh;
@@ -74,11 +79,11 @@ br {
   flex-direction: column;
 }
 .contacts .img_container {
-  margin-top: 40px;
+  margin-top: 120px;
 }
 .contacts .img_container img {
   height: 350px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   border-radius: 50%;
 }
@@ -88,10 +93,19 @@ br {
 .contacts .languages_container {
   margin-left: 90px;
 }
+.contacts .languages_container ul {
+  margin-left: 12px;
+}
 .contacts .tag {
   display: inline-block;
   margin-bottom: 15px;
   font-weight: bold;
+}
+.contacts .lang {
+  margin-left: 26px;
+}
+.contacts .skills {
+  margin-left: -35px;
 }
 
 .main_information {
@@ -110,6 +124,16 @@ br {
   margin-top: 35px;
   margin-bottom: 35px;
 }
+.main_information h5 {
+  margin-top: 30px;
+}
+.main_information h6 {
+  margin-bottom: 0;
+}
 .main_information a {
   color: #3f3e3e;
+}
+.main_information .sert {
+  display: inline-block;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=main.css.map */
