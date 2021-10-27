@@ -7,7 +7,7 @@
 .container {
   // border: 1px solid red;
   width: 1920px;
-  height: 100vh;
+  //height: 100vh;
   display: flex;
   flex-direction: row;
 }
@@ -49,6 +49,10 @@ i {
   background-color: black;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+.space{
+  height: 700px;
+  display: inline-block;
 }
 .skills_container{
   margin-top: 10px;
@@ -106,7 +110,7 @@ br{
   flex-direction: column;
   margin: 20px;
   .block {
-    margin: 20px;
+    margin: 40px;
   }
   .block2 {
     margin-top: 35px;

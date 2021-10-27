@@ -7,7 +7,6 @@
 
 .container {
   width: 1920px;
-  height: 100vh;
   display: flex;
   flex-direction: row;
 }
@@ -56,6 +55,11 @@ i {
   background-color: black;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.space {
+  height: 700px;
+  display: inline-block;
 }
 
 .skills_container {
@@ -118,7 +122,7 @@ br {
   margin: 20px;
 }
 .main_information .block {
-  margin: 20px;
+  margin: 40px;
 }
 .main_information .block2 {
   margin-top: 35px;
