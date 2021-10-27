@@ -13,7 +13,7 @@
 
 h1 {
   font-size: 50px;
-  margin-top: 120px;
+  margin-top: 60px;
   font-weight: bold;
 }
 
@@ -58,7 +58,7 @@ i {
 }
 
 .space {
-  height: 1100px;
+  height: 1000px;
   display: inline-block;
 }
 
@@ -83,12 +83,11 @@ br {
   flex-direction: column;
 }
 .contacts .img_container {
-  margin-top: 120px;
+  margin-top: 90px;
 }
 .contacts .img_container img {
   height: 350px;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   border-radius: 50%;
 }
 .contacts a {
@@ -123,6 +122,7 @@ br {
 }
 .main_information .block {
   margin: 40px;
+  margin-bottom: 0;
 }
 .main_information .block2 {
   margin-top: 35px;
@@ -146,10 +146,10 @@ br {
   margin-bottom: 30px;
 }
 .main_information .block3 .period {
-  width: 30%;
+  width: 250px;
 }
 .main_information .block3 .opyt {
-  width: 70%;
+  width: 980px;
 }
 .main_information .block3 p {
   font-size: 29px;

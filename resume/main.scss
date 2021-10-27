@@ -13,7 +13,7 @@
 }
 h1 {
   font-size: 50px;
-  margin-top: 120px;
+  margin-top: 60px;
   font-weight: bold;
 }
 h2 {
@@ -51,7 +51,7 @@ i {
   margin-bottom: 50px;
 }
 .space{
-  height: 1100px;
+  height: 1000px;
   display: inline-block;
 }
 .skills_container{
@@ -72,11 +72,11 @@ br{
   display: flex;
   flex-direction: column;
   .img_container {
-    margin-top: 120px;
+    margin-top: 90px;
     img {
       height: 350px;
-      margin-top: 20px;
-      margin-bottom: 50px;
+      //margin-top: 20px;
+      margin-bottom: 10px;
       border-radius: 50%;
     }
   }
@@ -111,6 +111,7 @@ br{
   margin: 20px;
   .block {
     margin: 40px;
+    margin-bottom: 0;
   }
   .block2 {
     margin-top: 35px;
@@ -133,10 +134,10 @@ br{
     display: flex;
     margin-bottom: 30px;
     .period{
-      width: 30%;
+      width: 250px;
     }
     .opyt{
-      width: 70%;
+      width: 980px;
     }
     p{
       font-size: 29px;
