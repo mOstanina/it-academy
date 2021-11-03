@@ -1,12 +1,15 @@
 {
   "folders": [
-	{
-		"path": "../../.."
-	},
-	{
-		"path": "../../../../FD3-React-V5-master"
-	}
-],
+    {
+      "path": "../../.."
+    },
+    {
+      "path": "../../../../FD3-React-V5-master"
+    },
+    {
+      "path": "../../../../new"
+    }
+  ],
   "settings": {
     "liveServer.settings.multiRootWorkspaceName": "it-academy"
   }

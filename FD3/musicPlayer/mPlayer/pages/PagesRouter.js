@@ -14,7 +14,7 @@ class PagesRouter extends React.Component {
   render() {
 
     if (user === true) {
-      //<Switch>
+    
       return (
         <div>
           <Switch>
@@ -43,22 +43,6 @@ class PagesRouter extends React.Component {
         </div>)
     }
   }
-
-  // render() {
-
-  //   return (
-  //     <div>
-  //       <Route path="/" exact component={Page_Start} />
-  //       <Route path="/mainPlayList" exact component={Page_About} />
-  //       <Route path="/allMusic" component={All_Music} />
-  //       <Route path="/playList" component={Your_PlayList} />
-
-  //       <Route path="/mainPlayList/:list" render={(props) => <Page_About {...props} />} />
-
-  //     </div>
-  //   );
-
-  // }
 }
-// <Redirect to="/"/>
+
 export default withRouter(PagesRouter);

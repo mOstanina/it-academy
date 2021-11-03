@@ -16,17 +16,7 @@ class Your_PlayList extends React.PureComponent {
         userPlaylist: PropTypes.array,
         userPlaylistStatus: PropTypes.number.isRequired,
     };
-    // componentDidMount = () => {
-       
-    //     trackEvents.addListener('DeleteTrack', this.toDeleteClient);
-       
-    //   };
-    
-    //   componentWillUnmount = () => {
-       
-    //     trackEvents.removeListener('DeleteTrack', this.toDeleteClient);
-       
-    //   };
+ 
     toDeleteSong = (code) => {
         // console.log(code)
         this.props.dispatch(toDeleteSongInNewPL(code));

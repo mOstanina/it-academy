@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import "./MainPageLinks.css"
-//import './MainPageLinks.css';
-// function List (){
-//   const{listNumber} =useParams()
-//   return <h1>{listNumber}</h1>
-// }
 
 class MainPageLinks extends React.Component {
 

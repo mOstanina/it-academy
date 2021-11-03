@@ -31,10 +31,6 @@ class Page_About extends React.Component {
     //console.log(this.props.match.params)
 
     var shortistOfAllSongs = this.props.songs
-    // if (this.props.match.params.list === undefined) {
-    //   console.log(this.props.match.params.list)
-    //   return shortistOfAllSongs
-    // } else
     if (this.props.match.params.list === "1") {
       // console.log(this.props.match.params.list)
       // console.log("!!!")
@@ -66,14 +62,7 @@ class Page_About extends React.Component {
   }
   componentDidMount = () => {
     let list = this.props.match.params.list;
-    // console.log("this.props.match.params.list: " + list)
-    // console.log(this.props.match)
-    // // function List (){
-    // //   const{listNumber} =useParams()
-    // //   return <h1>{listNumber}</h1>
-    // // }
-    // // this.makeNewList()
-    // // console.log("3333"+this.state.listForRender)
+ 
   }
 
   render() {

@@ -6,7 +6,6 @@ var updatePassword;
 function AJAXStorage(stringName) {
     var self = this;
     self.storage;
-    // addInfo(self.storage)
     self.restoreInfo = function () {
         $.ajax({
             url: ajaxHandlerScript, type: "POST", cache: false, dataType: "json",
@@ -19,8 +18,6 @@ function AJAXStorage(stringName) {
             alert(callresult.error);
         else if (callresult.result != "") {
             self.storage = JSON.parse(callresult.result);
-            //return info
-            //storage = self.storage
         }
     }
     self.storeInfo = function () {
@@ -74,11 +71,6 @@ function AJAXStorage(stringName) {
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 var gameStorage = new AJAXStorage("OSTANINA_DRINKS_AJAX_STORA");
-//gameStorage.addInfo(self.storage)
-// var alco;
-// var recipe;
-// var IPage = document.getElementById("IPage")
-// IPage.removeChild(startDiv);
 var fonAudio = new Audio("forest.mp3");//объявляю глобальные переменные для звуков фона и столкновения чтобы можно быор остановть звук
 var clickAudio = new Audio;
 drowMainMenu()
@@ -121,10 +113,7 @@ function drowMainMenu() {
                 screenPosition = 1;
                 screenMain.setAttribute("style", "width:" + mobileScreenWidth + "px")
                 screenMain.setAttribute("style", "height:" + mobileScreenHeight + "px");
-                //btnRadius = mobileScreenHeight * 0.05;//задаю радиус кнопки
-                //var btnDistance = (mobileScreenWidth - btnRadius * 2 * 5) / 6; //расстояние между кнопками
-                // console.log(mobileScreenWidth);
-                //console.log(btnDistance);
+        
             }
         }
         rotateMain()
@@ -175,10 +164,7 @@ function createMenuGame() {
     recordeTableConyainer.setAttribute("id", "recordeTableConyainer")
     var recordeTable = document.createElement("div");
     recordeTableConyainer.appendChild(recordeTable);
-    // var ddd=document.getComputedStyle(IPage).width
-    // console.log(ddd)
-    // recordeTable.setAttribute("style", "width:" + 100 + "px")
-    // recordeTable.setAttribute("style", "height:" + 300 + "px")
+
     recordeTable.setAttribute("id", "recordeTable")
     //
     var recordsOfPlay;
@@ -230,25 +216,13 @@ function createMenuGame() {
     btnBackToMainMenu.innerHTML = "OK"
     btnBackToMainMenu.addEventListener("mousedown", switchToMainPage, false);
 
-    // show delete buttons on swipe
-    // $('#btnBackToMainMenu').swipe(function () {
-    //     $('.delete').hide()
-    //     $('.delete', this).show()
-    // })
-
+   
     gameNotEnded = false;
 
-    //switchToMainPage()
 }
 function addName() {
     nameOfGamer = document.getElementById("nameDiv").value
-    console.log(nameOfGamer)
-    // nameDrink = prompt("введите название напитка");
-    // var a = null;
-    // var c = null;
-    // var b = null;
-    // var hash = { nameOfGamer: c, count: b }
-    // gameStorage.addValue(nameOfGamer, count);
+
     if (nameOfGamer === "") {
         alert("введите ваше имя!")
     } else {
@@ -259,10 +233,7 @@ function addName() {
         setTimeout(createMenuGame, 60000)
     }
 };
-// function deleteName() {
-//     var presenceInList = gameStorage.deleteValue((prompt("введите имя, которое хотите удалить")));
-//     (presenceInList) ? alert("имя удалено") : alert("такого имени нет в перечне");
-// }
+
 function game() {// создаю фон для ирового поля
     gameNotEnded = true;
     window.onbeforeunload = befUnload;
@@ -378,57 +349,7 @@ function game() {// создаю фон для ирового поля
     var leftButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     leftButton.id = "leftButton"
     gameContainer.appendChild(leftButton);// прикрепляю кнопку к gameContainer
-    // leftButton.style.position = "absolute";
-    // function hhh() {
-    //     if (screenPosition === 0) {
-    //         leftButton.style.width = heightGameWindow * 0.1;
-    //         leftButton.style.height = heightGameWindow * 0.1;
-    //         console.log(widthGameWindow)
-    //         var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
-    //         btnDistance = Math.floor(rr) + "px";
-    //         leftButton.style.left = btnDistance;
-    //         leftButton.style.bottom = "5px";
-    //     }
-    //     if (screenPosition === 1) {
-    //         //alert("1- мобильное утр-во горизонтально;")
-    //         console.log("!!!")
-    //         leftButton.style.width = mobileScreenWidth * 0.1;
-    //         leftButton.style.height = mobileScreenWidth * 0.1;
-    //         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-    //         btnDistance = Math.floor(rr) + "px";
-    //         // console.log(btnDistance)
-    //         leftButton.style.left = btnDistance;
-    //         leftButton.style.top = "50vh";
-    //     }
-    //     if (screenPosition === 2) {
-    //         // alert("2- мобильное утр-во вертикально;")
-    //         // console.log("jjjjj")
-    //         leftButton.style.width = mobileScreenWidth * 0.1;
-    //         leftButton.style.height = mobileScreenWidth * 0.1;
-    //         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-    //         btnDistance = Math.floor(rr) + "px";
-    //         console.log(btnDistance)
-    //         leftButton.style.left = btnDistance;
-    //         leftButton.style.top = mobileScreenWidth * 0.66 + "px";
-    //         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
-    //     }
-    // }
-    // //hhh()
-    // ////////////////////
-    // function gggg() {
-    //     widthGameWindow = window.getComputedStyle(gameContainer).width;
-    //     widthGameWindow = parseFloat(widthGameWindow.replace(/[px]/g, ''))
-    //     //console.log(widthGameWindow)
-    // }
-    // setInterval(gggg, 1000);
-    // ////////////////////
-
-    // window.addEventListener("resize", hhh, false);
-    // window.addEventListener("load", loadTimer, false);
-
-    // function loadTimer() {
-    //     setTimeout(hhh, 1000);
-    // }
+    
     var leftCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     leftCircle.setAttribute("fill", "sandybrown");
     var leftCircleRdius = btnRadius
@@ -473,47 +394,6 @@ function game() {// создаю фон для ирового поля
     var rightBtn = document.getElementById("left");
     var rightButton = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     gameContainer.appendChild(rightButton);// прикрепляю кнопку к gameContainer
-    // rightButton.style.width = heightGameWindow * 0.1;
-    // rightButton.style.height = heightGameWindow * 0.1;
-    // rightButton.style.position = "absolute";
-    // rightButton.style.right = "10px";
-    // rightButton.style.bottom = "5px";
-    //function mmm() { // позиционирование кнопки
-    // if (screenPosition === 0) {
-    //     rightButton.style.width = heightGameWindow * 0.1;
-    //     rightButton.style.height = heightGameWindow * 0.1;
-    //     console.log(widthGameWindow)
-    //     var rr = (widthGameWindow - btnRadius * 2 * 5) / 6;//расстояние от левого края до кнопки
-    //     btnDistance = Math.floor(rr) + "px";
-    //     rightButton.style.right = btnDistance;
-    //     rightButton.style.bottom = "5px";
-    // }
-    // if (screenPosition === 1) {
-    //     //alert("1- мобильное утр-во горизонтально;")
-    //     console.log("!!!")
-    //     rightButton.style.width = mobileScreenWidth * 0.1;
-    //     rightButton.style.height = mobileScreenWidth * 0.1;
-    //     var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-    //     btnDistance = Math.floor(rr) + "px";
-    //     // console.log(btnDistance)
-    //     rightButton.style.right = btnDistance;
-    //     rightButton.style.top = "50vh";
-    // }
-    //     if (screenPosition === 2) {
-    //         // alert("2- мобильное утр-во вертикально;")
-    //         // console.log("jjjjj")
-    //         rightButton.style.width = mobileScreenWidth * 0.1;
-    //         rightButton.style.height = mobileScreenWidth * 0.1;
-    //         var rr = (mobileScreenWidth * 0.03);//расстояние от левого края до кнопки
-    //         btnDistance = Math.floor(rr) + "px";
-    //         console.log(btnDistance)
-    //         rightButton.style.right = btnDistance;
-    //         rightButton.style.top = mobileScreenWidth * 0.66 + "px";
-    //         console.log(mobileScreenHeight - mobileScreenWidth * 0.66)
-    //     }
-    // }
-    // window.addEventListener("resize", mmm, false);
-    // window.addEventListener("load", mmm, false);
     var rightCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     rightCircle.setAttribute("fill", "sandybrown");
     var rightCircleRdius = btnRadius
@@ -870,51 +750,6 @@ function game() {// создаю фон для ирового поля
         }
     }
 
-    // if (screenPosition === 0) {
-    //     //  создаю canvas-анимацию для фона всего эерана в виде желтых кружочков, которые потом исчезают
-    //     //  (это будет видно только на десктопе)
-    //     function createCanvasFon() {
-    //         var canvasDiv = document.getElementById("canvas");
-    //         var canvas = document.createElement("canvas")
-    //         var canvasContext = canvas.getContext("2d");
-    //         canvasDiv.appendChild(canvas)
-    //         canvasContext.width = canvasContext.offsetWidth;
-    //         canvasContext.height = canvasContext.offsetHeight;
-    //         canvas.style.position = "absolute"
-    //         canvas.left = 0;
-    //         canvas.top = 0;
-    //         canvas.width = window.innerWidth;
-    //         canvas.height = window.innerHeight;
-    //         var height = window.getComputedStyle(canvas).height
-    //         var width = window.getComputedStyle(canvas).width;
-    //         height = parseFloat(height.replace(/[px]/g, ''));
-    //         width = parseFloat(width.replace(/[px]/g, ''));
-    //         var options = {
-    //             color: "rgba(247, 247, 119, opas)",
-    //             opas: 0.5,
-    //             lifeTime: 0.1,
-    //             size: 5,
-    //             maxSize: 100
-    //         }
-    //         function step() {
-    //             canvasContext.beginPath();
-    //             var randomSircle = Math.random() * options.maxSize;
-    //             var fillColor = "rgba(247, 247, 119," + options.opas + ")"
-    //             canvasContext.fillStyle = fillColor;
-    //             var x = Math.random() * width + 0.5;
-    //             var y = Math.random() * height + 0.5;
-    //             var radius = options.size + randomSircle
-    //             canvasContext.arc(x, y, radius, 180, 0, Math.PI * 2, false);
-    //             canvasContext.fill();
-    //             canvasContext.fillStyle = "rgba(255,255,255," + options.lifeTime + ")";
-    //             canvasContext.fillRect(0, 0, width, height);
-    //         }
-    //         setInterval(step, 700);
-    //     }
-    //     createCanvasFon()
-    // }
-    //hhh()
-    ////////////////////
     function gggg() {
         gameContainer.removeChild(timeZone);
         gameContainer.removeChild(scoreZone);
@@ -934,7 +769,7 @@ function game() {// создаю фон для ирового поля
     // window.addEventListener("orientationchange", gggg, false);
     window.addEventListener("orientationchange", hhh, false);
     setTimeout(hhh, 40);
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     //////////////// ПЕРСОНАЖ
     var widthCreature;
     var heightCreature;
@@ -1036,61 +871,7 @@ function game() {// создаю фон для ирового поля
     rightButton.addEventListener("mouseup", foxStop, false);
     leftButton.addEventListener("mousedown", keyMoveLeft, false);
     leftButton.addEventListener("mouseup", foxStop, false);
-    // function moveRight() {
-    //     creature.style.animationDuration = fox.animationDuration = "0.5s";
-    //     creature.style.animationName = fox.animationName = "walkToRight";
-    //     //requestAnimationFrame(moveRightT);
-    // }
-    // function moveRightT() {
-    //    // fox.speedX += fox.accelX;
-    //     fox.posX += fox.speedX;
-    //     if (parseFloat(fox.posX.replace(/[px]/g, '')) + widthCreature >= widthGameWindow) {
-    //         fox.speedY = 0;
-    //     }
-    //     creatureDiv.style.transform = "translateX(" + fox.posX + 10 + "px)";
-    //     fox.update();
-    //     requestAnimationFrame(moveRightT);
-    //      console.log(fox.posX)
-    // }
-    // function moveLeft() {
-    //     creature.style.animationName = fox.animationName = "walkToRight"
-    //     creature.style.animationDuration = fox.animationDuration = "0.5s";
-    //     requestAnimationFrame(moveLeftT);
-    // }
-    // function moveLeftT() {
-    //     fox.posX += fox.speedX;
-    //     if (parseFloat(fox.posX.replace(/[px]/g, '')) <= 0) {
-    //         fox.speedX = 0;
-    //     }
-    //     fox.update();
-    //     requestAnimationFrame(moveRightT);
-    // }
-    // document.addEventListener("mousemove", mouseMoveHandler, false)
-    // function mouseMoveHandler(e) {
-    //     var relativeX = e.clientX - gameContainer.offsetLeft;
-    //     if (relativeX > 0 && relativeX < widthGameWindow) {
-    //         creature.style.left = fox.posX = relativeX - widthCreature + "px";
-    //         console.log(relativeX)
-    //     }
-    //     if (relativeX <= 0) {
-    //         creature.style.left = fox.posX = "0px";
-    //         console.log(relativeX)
-    //     }
-    // }
-    // document.addEventListener("mousemove", mouseVector, false)
-    // var lastPoint = { x: 0, }
-    // function mouseVector(event) {
-    //     if (event.clientX > lastPoint.x && widthGameWindow + widthCreature) {
-    //         //console.log("right")
-    //         moveRight()
-    //     } else if (event.clientX < lastPoint.x) {
-    //         //console.log("left")
-    //         moveLeft()
-    //     } else {
-    //         foxStop()
-    //     }
-    //     lastPoint.x = event.clientX
-    // }
+  
     ///////////////
     console.log(fox.posX)
     function keyMoveRight() {
@@ -1154,7 +935,6 @@ function game() {// создаю фон для ирового поля
         fox.speedX = 0
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////// ЖЕЛУДИ
     var scorearr = []
     var acc = [];
@@ -1194,12 +974,7 @@ function game() {// создаю фон для ирового поля
             acorn.style.top = self.posY + "px";
             acorn.style.left = posX + "px";
             acorn.style.zIndex = 200;
-            // var acornDiv = document.createElement("div");//////////
-            // acornDiv.setAttribute("class", "star")//////////
-            // acorn.appendChild(acornDiv);//////////
-            // // acornDiv.style.position = "relative";//////////
-            // acornDiv.style.height = self.height + "px";//////////
-            // acornDiv.style.width = self.width + "px";//////////
+         
             var nut = {
                 update: function () {
                     mobileScreenWidth = window.screen.width;
@@ -1215,13 +990,7 @@ function game() {// создаю фон для ирового поля
                     }
                     //ЖДУ ЧТОБЫ ОДНА ИЗ КРАЙНИХ ТОЧЕК ПОПАЛА В ПЕРСОНАЖ
                     if (Math.floor(self.posX) <= Math.floor(fox.posX + widthCreature) && Math.floor(self.posX + self.width) >= Math.floor(fox.posX) && Math.floor(self.posY) <= Math.floor((fox.posY + heightCreature)) && Math.floor(self.posY + self.height) >= Math.floor(fox.posY)) {
-                        //if ( ax1<=bx2 && ax2>=bx1 && ay1<=by2 && ay2>=by1 ) 
-                        // console.log(gameWindow)
-                        //  console.log(self.id)
-                        // // acornDiv.removeChild(acorn)
-                        // // gameWindow.removeChild(acornDiv)
-                        //console.log(acorn)
-                        //gameWindow.removeChild(acorn)
+                  
                         acorn.setAttribute("class", "invisible")
                         var acornId = self.id
                         if (scorearr.indexOf(acornId) === (-1)) {
@@ -1288,27 +1057,7 @@ function game() {// создаю фон для ирового поля
     }
     coordinatsOfAcorn()
     // //  ФОНОВЫЙ ЗВУК
-    // // var fonAudio = new Audio("forest.mp3");
-    // var RAFf = window.requestAnimationFrame;
 
-    // function clickSoundf() {
-    //     fonAudio.currentTime = 0; // в секундах
-    //     fonAudio.play();
-    // }
-    // function startTf() {
-    //     clickSoundf()
-    //     RAFf(tickKf);
-    // }
-    // function tickKf() {
-    //     requestAnimationFrame(tickKf);
-    // }
-    // playButton.addEventListener("mousedown", startTf, false);
-
-    // ЗВУК СТОЛКНОВЕНИЯ
-    // var clickAudio = new Audio;
-    // результат canPlayType: "probably" - скорее всего, "maybe" - неизвестно, "" - нет
-    // console.log(clickAudio.canPlayType("audio/ogg; codecs=vorbis"));
-    // console.log(clickAudio.canPlayType("audio/mpeg"));
     if (clickAudio.canPlayType("audio/mpeg") == "probably")
         clickAudio.src = "http://fe.it-academy.by/Examples/Sounds/button-16.mp3";
     else
@@ -1348,4 +1097,3 @@ function game() {// создаю фон для ирового поля
     }
 }
 
-//game()
