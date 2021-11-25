@@ -17,7 +17,7 @@ import Loader from '../components/Loader'
 class Page_About extends React.Component {
 
   static propTypes = {
-    songs: PropTypes.array,
+    
     status: PropTypes.number.isRequired,
     userPlayList: PropTypes.array,
   };
