@@ -1,0 +1,24 @@
+#external_container {
+  position: absolute;
+  //  border: 1px solid red;
+  background-color: red;
+  width: 400px;
+  height: 400px;
+}
+.container_for_crossword {
+  position: relative;
+  // border: 1px solid green;
+  //padding: 15px;
+  background-color: rgb(212, 206, 206);
+  color: green;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.crosswordContainer {
+  position: absolute;
+  background-color: yellowgreen;
+}
+.word{
+  position: absolute;
+}
