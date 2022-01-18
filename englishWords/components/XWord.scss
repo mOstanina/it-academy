@@ -6,7 +6,7 @@
   height: 400px;
 }
 .container_for_crossword {
-  position: relative;
+  position: absolute;
   // border: 1px solid green;
   //padding: 15px;
   background-color: rgb(212, 206, 206);
@@ -17,8 +17,21 @@
 }
 .crosswordContainer {
   position: absolute;
-  background-color: yellowgreen;
+  // background-color: yellowgreen;
 }
-.word{
+.word {
   position: absolute;
+  display: flex;
+}
+.letter {
+  position: relative;
+  //border: 1px solid red;
+  text-align: center;
+  vertical-align: middle;
+}
+.letter_number{
+  font-size: 15px;
+  text-align: left;
+  position: absolute;
+  color: green;
 }

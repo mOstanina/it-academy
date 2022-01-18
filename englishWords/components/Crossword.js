@@ -2,21 +2,22 @@
 
 import React from 'react';
 import PropTypes, { func } from 'prop-types';
-import{findXwordConfig} from './findXwordConfig'
+import { findXwordConfig } from './findXwordConfig'
 import XWord from './XWord'
 //  listOfWordToRender - массив состоящий из:
-    //      [
-    //        i-0 - номер слова
-    //        i-1 - горизонтальное / вертикальное расположение
-    //        i-2 - координаты первой буквы (верхний левый угол)
-    //        i-3 - само слово  
-    //        i-4 - вид отображения слова (видимое/скрытое/отгаданное/)        
-    //      ]
+//      [
+//        i-0 - номер слова
+//        i-1 - горизонтальное / вертикальное расположение
+//        i-2 - координаты первой буквы (верхний левый угол)
+//        i-3 - само слово  
+//        i-4 - вид отображения слова (видимое/скрытое/отгаданное/)        
+//      ]
 let listOfWordToRender = [
-    [1, "vertical", [4,0], "train", "open"],
-    [2, "vertical", [7,0], "elephant", "open"],
-    [3, "horizontal", [0,3], "missisipi", "open"],
-    [4, "vertical", [2,3], "sea", "open"],
+    [1, "vertical", [4, 0], "train", "open"],
+    [2, "vertical", [7, 0], "elephant", "open"],
+    [3, "horizontal", [0, 3], "missisipi", "open"],
+    [4, "vertical", [2, 3], "sea", "open"],
+    [5, "horizontal", [5, 6], "leni", "open"],
 ];
 
 //let wordConfig = findXwordConfig(this.props.words);
@@ -35,9 +36,8 @@ class Crossword extends React.PureComponent {
         });
     }
 
-  
-    render() {
 
+    render() {
         return (
             <XWord listOfWordToRender={listOfWordToRender} workMode={"open"} />
         );
