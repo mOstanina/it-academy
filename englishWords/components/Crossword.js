@@ -20,6 +20,8 @@ let listOfWordToRender = [
     [5, "horizontal", [5, 6], "leni", "open"],
 ];
 
+
+
 //let wordConfig = findXwordConfig(this.props.words);
 class Crossword extends React.PureComponent {
 
@@ -30,16 +32,11 @@ class Crossword extends React.PureComponent {
         words: this.props.words
     };
 
-    componentDidMount() {
-        this.setState({
-            words: findXwordConfig(this.props.words)
-        });
-    }
-
+    componentDidMount() {}
 
     render() {
         return (
-            <XWord listOfWordToRender={listOfWordToRender} workMode={"open"} />
+            <XWord listOfWordToRender={this.props.words} workMode={"open"} />
         );
 
     };

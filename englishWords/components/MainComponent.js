@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes, { func } from 'prop-types';
 import Crossword from './Crossword'
+import { findXwordConfig } from './findXwordConfig'
 
 let newWords = ["hi",
     "mountain",
@@ -15,8 +16,7 @@ let newWords = ["hi",
     "green",
     "train",
     "Czechoslovakia",
-    "human",
-    "0", "0", "0", "0", "0", "0"
+    "human"
 ];
 
 // внешний компонент только получает массив слов и прокидывает его в пропсах
@@ -25,11 +25,11 @@ class MainComponent extends React.PureComponent {
 
     static propTypes = {};
     state = {
-        words: newWords
+        words: findXwordConfig(newWords)
     };
 
-    render() {
 
+    render() {
         return (
             <div id="external_container">
                 <Crossword words={this.state.words} />
