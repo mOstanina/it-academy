@@ -1,18 +1,6 @@
 import React from 'react';
 function findXwordConfig(wordsArray) {
     let wordsArrayLength = wordsArray.length
-    let finalArrayOfWords = []; // массив, который вернет функция
-
-    // каждый элемент массива finalArrayOfWords это хэш вида:
-    // {
-    //   wordName: "train",
-    //   wordCode: 1,   // присваиваю в конце в зависимости откоординат
-    //   wordHeight: 5, // присваиваю в конце "= дина" слва или "=1" в зависимости от горионтальное или вертикальное
-    //   wordWidth: 1   // присваиваю в конце "= дина" слва или "=1" в зависимости от горионтальное или вертикальное
-    //   wordOrientation: "column",
-    //   wordPosX: 4,
-    //   wordPosY: 0,
-    // }
 
     let wordsOnTable = []    // слова попавшие на экран
     let occupiedCoordinates = [] //координаты в которых размещены буквы
@@ -20,7 +8,7 @@ function findXwordConfig(wordsArray) {
         "vertical": [],
         "horizontal": []
     }
-    //\\ ------ выбираем самое длинное слово из первоначального массива wordsArray ------ 
+    //\\  1. ------ выбираем самое длинное слово из первоначального массива wordsArray ------ 
 
     function maxLengthWord(wordsArray) {
         let maxLengthWordInfo = {
@@ -37,57 +25,77 @@ function findXwordConfig(wordsArray) {
         }
         return maxLengthWordInfo
     }
-    let firstWordInfo = null
-    let firstWord = null
-    firstWordInfo = maxLengthWord(wordsArray)
-    firstWord = firstWordInfo.word
-    // добавляем превое слово в массив слов на экране
-    // wordsOnTable.push({
-    //     wordName: firstWord,
-    //     wordCode: null,
-    //     wordHeight: 1,
-    //     wordWidth: firstWord.length,
-    //     wordOrientation: "horizontal",
-    //     wordPosX: 0,
-    //     wordPosY: 0,
-    // })
-    // console.log(wordsOnTable)
-    // wordsArray[firstWordInfo.i] = "0" // заменяем первое слово на "0" типа как удаляем его
 
+    let firstWordInfo = maxLengthWord(wordsArray)
+    let firstWord = firstWordInfo.word
 
-    //\\\\\\\\\\ ------ добавление занятых и запрнщенных координат в список ------
+    //\\\\\\\\\\  2. ------ добавление занятых и запрнщенных координат в список ------
 
+    // function addOccupiedCoordinates(word, wordOrientation, startCoordinates) {
+    //     let wordPosX = null // кооррд X повой буквы добавляемого на экран слова
+    //     let wordPosY = null// кооррд Y повой буквы добавляемого на экран слова
+    //     let ccodinates = []
+    //     let aarayCoor = []
+    //     for (let i = 0; i < word.length; i++) {
+    //         if (wordOrientation === "horizontal") {
+    //             wordPosX = startCoordinates[0] + i
+    //             wordPosY = startCoordinates[1]
+
+    //             ccodinates.push([wordPosX, wordPosY])
+    //             disabletCoordinates.horizontal.push([wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
+
+    //         } else if (wordOrientation === "vertical") {
+    //             wordPosX = startCoordinates[0]
+    //             wordPosY = startCoordinates[1] + i
+    //             ccodinates.push([wordPosX, wordPosY])
+    //             disabletCoordinates.vertical.push([wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
+    //         }
+    //         aarayCoor.push([ccodinates[i]])
+    //     }
+    //     console.log(aarayCoor)
+    //     occupiedCoordinates.push({ [word]: aarayCoor })
+    //     console.log(occupiedCoordinates)
+    //     console.log(disabletCoordinates)
+    // }
     function addOccupiedCoordinates(word, wordOrientation, startCoordinates) {
-        let wordPosX = null
-        let wordPosY = null
-        let ccodinates = []
-        let aarayCoor = []
+        let wordPosX = startCoordinates[0] // кооррд X повой буквы добавляемого на экран слова
+        let wordPosY = startCoordinates[1]// кооррд Y повой буквы добавляемого на экран слова
+        let ccodinates = [] // координаты X и Y
+        let aarayCoor = [] //
         for (let i = 0; i < word.length; i++) {
+
             if (wordOrientation === "horizontal") {
                 wordPosX = startCoordinates[0] + i
                 wordPosY = startCoordinates[1]
-
-                ccodinates.push([wordPosX, wordPosY])
-                // occupiedCoordinates.push({[word]:ccodinates})
-                disabletCoordinates.horizontal.push([wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1])
-
+                if (i === 0) {
+                    disabletCoordinates.horizontal.push([wordPosX - 1, wordPosY])
+                }
+                if (i === word.length - 1) {
+                    disabletCoordinates.horizontal.push([wordPosX + 1, wordPosY])
+                }
+                ccodinates.push([wordPosX, wordPosY]) //
+                disabletCoordinates.horizontal.push([wordPosX, wordPosY], [wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
             } else if (wordOrientation === "vertical") {
                 wordPosX = startCoordinates[0]
                 wordPosY = startCoordinates[1] + i
-                ccodinates.push([wordPosX, wordPosY])
-                //occupiedCoordinates[word].push([wordPosX, wordPosY])
-                disabletCoordinates.vertical.push([wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])
+                if (i === 0) {
+                    disabletCoordinates.horizontal.push([wordPosX, wordPosY - 1])
+                }
+                if (i === word.length - 1) {
+                    disabletCoordinates.horizontal.push([wordPosX, wordPosY + 1])
+                }
+                ccodinates.push([wordPosX, wordPosY]) //
+                disabletCoordinates.vertical.push([wordPosX, wordPosY], [wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
             }
-            // aarayCoor.push([{[word[i]]:ccodinates[i]}])
+
             aarayCoor.push([ccodinates[i]])
         }
-        console.log(aarayCoor)
-        //occupiedCoordinates.push({ [word]: ccodinates })
-        occupiedCoordinates.push({ [word]: aarayCoor })
+        console.log(aarayCoor)//
+        occupiedCoordinates.push({ [word]: aarayCoor })//
         console.log(occupiedCoordinates)
         console.log(disabletCoordinates)
     }
-    //\\\\\\\\\\ ------ добавление слова в массив слов на экране ------
+    //\\\\\\\\\\ 3.  ------ добавление слова в массив слов на экране ------
     function addWordOnTable(nameOfWord, orientation, posX, posY) {
 
         if (orientation === "horizontal") {
@@ -112,11 +120,6 @@ function findXwordConfig(wordsArray) {
             })
         }
         let index = wordsArray.indexOf(nameOfWord)
-        console.log(index)
-        console.log(wordsArray[index])
-        // wordsArray[index] = "0" // заменяем первое слово на "0" типа как удаляем его
-
-        console.log(wordsArray)
         wordsArray.splice(index, 1)
         console.log(wordsArray)
         addOccupiedCoordinates(nameOfWord, orientation, [posX, posY])
@@ -127,15 +130,12 @@ function findXwordConfig(wordsArray) {
     console.log(wordsOnTable)
     let startCoordinates = []
 
+
     startCoordinates = [[0, "horizontal", [0, 0], firstWord, 'open']]
 
 
-    //\\\\\\\\\\ ------ выбираем случайное слово из массива ------
+    //\\\\\\\\\\ 4.  ------ выбираем случайное слово из массива ------
 
-    // let count = wordsOnTable.length; // wordsOnTable.length счетчик для количества переборов слов в зависимости от количества добавленных на экран слов 
-    // let snapshotOIteration = {} //на каждой итерации выбора слова будем получать информацию о нем
-
-    //let word1
     function randomWord(n, m, array) {
         console.log(array)
         let i = Math.floor(Math.random() * (m - n + 1)) + n;
@@ -145,7 +145,7 @@ function findXwordConfig(wordsArray) {
         //проверяем есть ли совападвния по буквам
         let randomWordFromArray = array[i]  //   - рандомное слово из массива
 
-        //\\\\\\\\\\ ------ выбираем случайное слово из массива слов которые уже попали на экран ------
+        //\\\\\\\\\\ 5. ------ выбираем случайное слово из массива слов которые уже попали на экран ------
 
         function random(n, m, array) {
             console.log(array)
@@ -157,11 +157,13 @@ function findXwordConfig(wordsArray) {
         let f = random(0, wordsOnTable.length - 1, wordsOnTable)
         console.log(f)
 
-        //let f = 0 // условный индекс
         console.log(wordsOnTable[f].wordName.split(""))
+
+        //\\\\\\\\\\ 5. ------ ищем совпадения букв------
+
         let arrayOfMatches = [] // массив совпаданий букв
-        console.log(randomWordFromArray)
-        console.log(wordsOnTable)
+        console.log(randomWordFromArray)// слово из массива оставшихся слов
+        console.log(wordsOnTable) // массив слов уже на экране
         console.log(wordsOnTable[f].wordName)
         var countOfMatches = 0
         function findMatches() {
@@ -180,32 +182,24 @@ function findXwordConfig(wordsArray) {
         }
         findMatches()
         while (countOfMatches === 0) {
+            arrayOfMatches = []
             f = random(0, wordsOnTable.length - 1, wordsOnTable)
             findMatches()
         }
         console.log(occupiedCoordinates[f][wordsOnTable[f].wordName])
         console.log(arrayOfMatches)
 
-        console.log(arrayOfMatches)
-        // ///////////  -- нужно удалить +/-
-        // if (arrayOfMatches.some(function (item) {
-        //     return item.length > 0
-        // })) {
-        //     snapshotOIteration[count] = arrayOfMatches
-        //     console.log(snapshotOIteration)
-        // }
-        // /////////// 
-        let letterOnCross = []
+        let letterOnCross = [] // массив букв пересечения
         function randomLetter(a, b, word) {
-            // let letterOnCrossInfo = []
+            console.log(word)
             let e = Math.floor(Math.random() * (b - a + 1)) + a;
             console.log(arrayOfMatches[e])
             if (arrayOfMatches[e].length === 0) {
                 randomLetter(a, b, word)
             } else {
-
-                letterOnCross.push([arrayOfMatches[e][0], e]) //  j - это номер буквы
+                letterOnCross.push([arrayOfMatches[e][0], e]) //  e - это номер буквы
             }
+            console.log(letterOnCross)
             return letterOnCross
         }
         console.log(arrayOfMatches)
@@ -213,33 +207,30 @@ function findXwordConfig(wordsArray) {
         console.log(letterOnCross)
 
 
-        //  находим координаты первой дуквы слова и ориентацию самого слова
+        //  находим координаты первой буквы слова и ориентацию самого слова
 
         console.log(wordsOnTable[f].wordOrientation)
 
         let orienOfFirstWord = wordsOnTable[f].wordOrientation
         let orienOfSecondWord = null
-        // let startCoordinates = []
-        // let listOfWordToRender = [
-        //     [1, "vertical", [4, 0], "train", "open"],
-        //     [2, "vertical", [7, 0], "elephant", "open"],
-        //     [3, "horizontal", [0, 3], "missisipi", "open"],
-        //     [4, "vertical", [2, 3], "sea", "open"],
-        //     [5, "horizontal", [5, 6], "leni", "open"],
-        // ];
+    
         let x = null
         let y = null
         if (orienOfFirstWord === "horizontal") {
             orienOfSecondWord = "vertical"
             console.log(letterOnCross[0][1])
+            console.log(letterOnCross[0][0][1][0])
             console.log(letterOnCross[0][0][1][1])
             x = letterOnCross[0][0][1][0]
             y = letterOnCross[0][0][1][1] - letterOnCross[0][1]
+            console.log(x)
+            console.log(y)
             startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
+            console.log(startCoordinates)
             addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
             console.log(wordsArray)
             console.log(wordsOnTable)
-        } else {
+        } else if(orienOfFirstWord === "vertical"){
             orienOfSecondWord = "horizontal"
             console.log(letterOnCross[0][1])
             console.log(letterOnCross[0][0][1][1])
@@ -257,17 +248,13 @@ function findXwordConfig(wordsArray) {
 
         console.log(startCoordinates)
 
-
-        //console.log(word1)
-        //   finalArrayOfWords.push(word1)
-        console.log(finalArrayOfWords)
         console.log(wordsOnTable)
         console.log(wordsArray)
 
         return startCoordinates
 
     }
-    //finalArrayOfWords.push(randomWord(0, wordsArray.length - 1, wordsArray))
+
     //console.log(wordsOnTable)
     //    word1 = randomWord(0, wordsArray.length - 1, wordsArray)
     //    console.log(word1)
@@ -277,30 +264,15 @@ function findXwordConfig(wordsArray) {
 
     randomWord(0, wordsArray.length - 1, wordsArray)
     while (wordsOnTable.length < wordsArrayLength) {
-        //word1 =  randomWord(0, wordsArray.length - 1, wordsArray)
         randomWord(0, wordsArray.length - 1, wordsArray)
-        // finalArrayOfWords.push(wo)
+
         console.log(wordsOnTable.length)
         console.log(wordsOnTable)
         console.log(wordsArrayLength)
-        console.log(finalArrayOfWords)
     }
-    //return finalArrayOfWords;
-    //     if (wordsOnTable.length < wordsArrayLength) {
-    //        // word1 = randomWord(0, wordsArray.length - 1, wordsArray)
-    //        let wo=randomWord(0, wordsArray.length - 1, wordsArray)
-    //         finalArrayOfWords.push(wo)
-    //         console.log(finalArrayOfWords)
-    //         console.log("rrrrrrrrrrrrrrrrrr")
-    //     } else {
-    //         console.log(finalArrayOfWords)
-    // console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-    //         return finalArrayOfWords;
-    //     }
 
     console.log(wordsOnTable.length)
     console.log(wordsArrayLength)
-    console.log(finalArrayOfWords)
     console.log(startCoordinates)
     //\\\\\\\\\\ ------ переназначаю координаты слов  ------
     let minX = 0
@@ -313,17 +285,17 @@ function findXwordConfig(wordsArray) {
             minY = y
         }
     }
-   
-    for (let i=0; i < startCoordinates.length; i++) {
+
+    for (let i = 0; i < startCoordinates.length; i++) {
         findSizeOfCrosswordArea(startCoordinates[i][2][0], startCoordinates[i][2][1])
     }
 
     console.log(minX)
     console.log(minY)
     console.log(startCoordinates)
-    for (let i=0; i < startCoordinates.length; i++) {
-        startCoordinates[i][2][0] =startCoordinates[i][2][0]+Math.abs(minX) 
-        startCoordinates[i][2][1]=startCoordinates[i][2][1]+Math.abs(minY)
+    for (let i = 0; i < startCoordinates.length; i++) {
+        startCoordinates[i][2][0] = startCoordinates[i][2][0] + Math.abs(minX)
+        startCoordinates[i][2][1] = startCoordinates[i][2][1] + Math.abs(minY)
     }
     console.log(startCoordinates)
     return startCoordinates;

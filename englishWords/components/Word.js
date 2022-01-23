@@ -37,6 +37,7 @@ class Word extends React.PureComponent {
                 top: this.props.wordPosY * this.props.cellWidth + "px",
                 left: this.props.wordPosX * this.props.cellWidth + "px",
                 backgroundColor: "lightsalmon",
+                opacity: 0.5,
             }
         })
         // if(this.props.wordOrientation==="vertical"){

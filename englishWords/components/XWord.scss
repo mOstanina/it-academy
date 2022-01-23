@@ -1,7 +1,7 @@
 #external_container {
   position: absolute;
   //  border: 1px solid red;
-  background-color: red;
+  background-color: rgb(170, 79, 79);
   width: 400px;
   height: 400px;
 }
@@ -28,10 +28,14 @@
   //border: 1px solid red;
   text-align: center;
   vertical-align: middle;
+  
 }
 .letter_number{
   font-size: 15px;
   text-align: left;
   position: absolute;
   color: green;
+}
+.co{
+  height: 300px;
 }

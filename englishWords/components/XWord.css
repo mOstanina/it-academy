@@ -1,6 +1,6 @@
 #external_container {
   position: absolute;
-  background-color: red;
+  background-color: #aa4f4f;
   width: 400px;
   height: 400px;
 }
@@ -34,4 +34,8 @@
   text-align: left;
   position: absolute;
   color: green;
+}
+
+.co {
+  height: 300px;
 }/*# sourceMappingURL=XWord.css.map */
