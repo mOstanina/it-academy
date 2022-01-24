@@ -3,6 +3,7 @@ function findXwordConfig(wordsArray) {
     let wordsArrayLength = wordsArray.length
 
     let wordsOnTable = []    // слова попавшие на экран
+    let occupiedCoordinatesArray = {} //координаты в которых размещены буквы
     let occupiedCoordinates = [] //координаты в которых размещены буквы
     let disabletCoordinates = {   // запрещенные координаты
         "vertical": [],
@@ -73,7 +74,7 @@ function findXwordConfig(wordsArray) {
                 if (i === word.length - 1) {
                     disabletCoordinates.horizontal.push([wordPosX + 1, wordPosY])
                 }
-                ccodinates.push([wordPosX, wordPosY]) //
+                //ccodinates.push([wordPosX, wordPosY]) //
                 disabletCoordinates.horizontal.push([wordPosX, wordPosY], [wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
             } else if (wordOrientation === "vertical") {
                 wordPosX = startCoordinates[0]
@@ -84,12 +85,18 @@ function findXwordConfig(wordsArray) {
                 if (i === word.length - 1) {
                     disabletCoordinates.horizontal.push([wordPosX, wordPosY + 1])
                 }
-                ccodinates.push([wordPosX, wordPosY]) //
+                //ccodinates.push([wordPosX, wordPosY]) //
                 disabletCoordinates.vertical.push([wordPosX, wordPosY], [wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
             }
+            ccodinates.push([wordPosX, wordPosY])
+            // console.log(ccodinates)
+            occupiedCoordinatesArray[[wordPosX, wordPosY]] = word[i]
 
             aarayCoor.push([ccodinates[i]])
         }
+        console.log(occupiedCoordinatesArray)
+        console.log(Object.keys(occupiedCoordinatesArray))
+        console.log(ccodinates)
         console.log(aarayCoor)//
         occupiedCoordinates.push({ [word]: aarayCoor })//
         console.log(occupiedCoordinates)
@@ -213,7 +220,7 @@ function findXwordConfig(wordsArray) {
 
         let orienOfFirstWord = wordsOnTable[f].wordOrientation
         let orienOfSecondWord = null
-    
+
         let x = null
         let y = null
         if (orienOfFirstWord === "horizontal") {
@@ -230,7 +237,7 @@ function findXwordConfig(wordsArray) {
             addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
             console.log(wordsArray)
             console.log(wordsOnTable)
-        } else if(orienOfFirstWord === "vertical"){
+        } else if (orienOfFirstWord === "vertical") {
             orienOfSecondWord = "horizontal"
             console.log(letterOnCross[0][1])
             console.log(letterOnCross[0][0][1][1])
