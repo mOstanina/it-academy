@@ -90,7 +90,7 @@ function findXwordConfig(wordsArray) {
             }
             ccodinates.push([wordPosX, wordPosY])
             // console.log(ccodinates)
-            occupiedCoordinatesArray[[wordPosX, wordPosY]] = word[i]
+            occupiedCoordinatesArray[ccodinates[i]] = word[i]
 
             aarayCoor.push([ccodinates[i]])
         }
@@ -173,6 +173,7 @@ function findXwordConfig(wordsArray) {
         console.log(wordsOnTable) // массив слов уже на экране
         console.log(wordsOnTable[f].wordName)
         var countOfMatches = 0
+        console.log(wordsArray)
         function findMatches() {
             for (let i = 0; i < randomWordFromArray.length; i++) {
                 var letterMatchAr = []
@@ -204,6 +205,9 @@ function findXwordConfig(wordsArray) {
             if (arrayOfMatches[e].length === 0) {
                 randomLetter(a, b, word)
             } else {
+
+
+
                 letterOnCross.push([arrayOfMatches[e][0], e]) //  e - это номер буквы
             }
             console.log(letterOnCross)
@@ -230,25 +234,102 @@ function findXwordConfig(wordsArray) {
             console.log(letterOnCross[0][0][1][1])
             x = letterOnCross[0][0][1][0]
             y = letterOnCross[0][0][1][1] - letterOnCross[0][1]
-            console.log(x)
-            console.log(y)
-            startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-            console.log(startCoordinates)
-            addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-            console.log(wordsArray)
-            console.log(wordsOnTable)
+
         } else if (orienOfFirstWord === "vertical") {
             orienOfSecondWord = "horizontal"
             console.log(letterOnCross[0][1])
             console.log(letterOnCross[0][0][1][1])
             x = letterOnCross[0][0][1][0] - letterOnCross[0][1]
             y = letterOnCross[0][0][1][1]
-            startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-            addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-            console.log(wordsArray)
-            console.log(wordsOnTable)
-        }
 
+        }
+        // проверяем чтобы совпадали буквы при пересечении с остальными словами
+        console.log(occupiedCoordinatesArray)
+        console.log(randomWordFromArray[1])
+        // function checkLetter(wordToCheck, x, y, wordOrientation) {
+        //     let crossLetterArray = []
+        //     for (let i = 0; i < wordToCheck.length; i++) {
+        //         if (wordOrientation === "horizontal") {
+        //             if (!(`${x + i}` + "," + `${y}` in occupiedCoordinatesArray)) {
+        //                 startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
+        //                 addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
+        //             } else {
+        //                 if (occupiedCoordinatesArray[`${x + i}` + "," + `${y}`] === wordToCheck[i]) {
+        //                     startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
+        //                     addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
+        //                 } else {
+        //                     randomWord(0, wordsArray.length - 1, wordsArray)
+        //                 }
+        //             }
+
+
+        //         } else if (orienOfFirstWord === "vertical") {
+        //             if (!(`${x}` + "," + `${y+ i}` in occupiedCoordinatesArray)) {
+        //                 startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
+        //                 addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
+        //             } else {
+        //                 if (occupiedCoordinatesArray[`${x}` + "," + `${y - i}`] === wordToCheck[i]) {
+        //                     startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
+        //                     addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
+        //                 } else {
+        //                     randomWord(0, wordsArray.length - 1, wordsArray)
+        //                 }
+        //             }
+        //         }
+        //     }
+
+
+
+        // }
+
+        function checkLetter(wordToCheck, x, y, wordOrientation) {
+            let crossLetterArray = []
+            for (let i = 0; i < wordToCheck.length; i++) {
+                if (wordOrientation === "horizontal") {
+                    if ((`${x + i}` + "," + `${y}` in occupiedCoordinatesArray)) {
+                        if (occupiedCoordinatesArray[`${x}` + "," + `${y - i}`] === wordToCheck[i]) {
+
+                            crossLetterArray.push("1")
+                        }
+                    } else {
+                        crossLetterArray.push("1")
+                    }
+
+
+                } else if (orienOfFirstWord === "vertical") {
+                    if ((`${x}` + "," + `${y - i}` in occupiedCoordinatesArray)) {
+
+                        if (occupiedCoordinatesArray[`${x + i}` + "," + `${y}`] === wordToCheck[i]) {
+
+                            crossLetterArray.push("1")
+                      
+                        }
+                    } else {
+                        crossLetterArray.push("1")
+
+                    }
+                }
+            }
+            if (crossLetterArray.length === wordToCheck.length) {
+                startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"]) //
+                addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y) //
+            }
+        }
+        
+        console.log(orienOfFirstWord)
+        console.log(randomWordFromArray)
+        console.log(orienOfSecondWord)
+        checkLetter(randomWordFromArray, x, y, orienOfFirstWord)
+        // let c = "100"
+        // let k = "0"
+        // console.log(occupiedCoordinatesArray)
+        // console.log(`${c}` + "," + `${k + 1}`)
+        // console.log(`${c}` + "," + `${k}` in occupiedCoordinatesArray)
+
+        // startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"]) //
+        // addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y) //
+        // console.log(wordsArray)
+        // console.log(wordsOnTable)
 
 
         // !!!!! добавить слово в массив 
@@ -257,6 +338,9 @@ function findXwordConfig(wordsArray) {
 
         console.log(wordsOnTable)
         console.log(wordsArray)
+
+        console.log(wordsOnTable.length)    
+        console.log(wordsArrayLength)
 
         return startCoordinates
 
@@ -269,7 +353,9 @@ function findXwordConfig(wordsArray) {
     //console.log(wordsArray)
     // return word1
 
-    randomWord(0, wordsArray.length - 1, wordsArray)
+   // randomWord(0, wordsArray.length - 1, wordsArray)
+    console.log(wordsOnTable.length)    
+    console.log(wordsArrayLength)
     while (wordsOnTable.length < wordsArrayLength) {
         randomWord(0, wordsArray.length - 1, wordsArray)
 

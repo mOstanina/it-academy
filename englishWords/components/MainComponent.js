@@ -15,7 +15,7 @@ let newWords = ["hi",
     "scissors",
     "green",
     "train",
-    "Czechoslovakia",
+    "czechoslovakia",
     "human"
 ];
 
