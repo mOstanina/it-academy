@@ -9,7 +9,7 @@ function findXwordConfig(wordsArray) {
         "vertical": [],
         "horizontal": []
     }
-
+    let crossLettersCoord = []
     let startCoordinates = []
     //\\  1. ------ выбираем самое длинное слово из первоначального массива wordsArray ------ 
 
@@ -226,7 +226,7 @@ function findXwordConfig(wordsArray) {
 
         let orienOfFirstWord = wordsOnTable[f].wordOrientation
         let orienOfSecondWord = null
-
+        console.log(wordsOnTable[f])
         let x = null
         let y = null
         if (orienOfFirstWord === "horizontal") {
@@ -286,7 +286,42 @@ function findXwordConfig(wordsArray) {
 
         function checkLetter(wordToCheck, x, y, wordOrientation) {
             let crossLetterCounter = 0
+            console.log(letterOnCross)
+            console.log(letterOnCross[0][0][1])
+            console.log(crossLettersCoord.indexOf(letterOnCross[0][0][1]))
+            let disabletHorizontal = disabletCoordinates.horizontal
+            let disabletVertical = disabletCoordinates.vertical
+            //привожу координаты в строки
+            let disabletH = toArrayOfString(disabletCoordinates.horizontal)
+            let disabletV = toArrayOfString(disabletCoordinates.vertical)
+            function toArrayOfString(arr) {
+                let newArrayOfSrings = []
+                for (let i = 0; i < arr.length; i++) {
+                    let s1 = arr[i][0]
+                    let s2 = arr[i][1]
+                    let stri = s1.toString() + "," + s2.toString()
+                    console.log(stri)
+                    newArrayOfSrings.push(stri)
+                }
+                return newArrayOfSrings
+            }
+            
+            if (crossLettersCoord.indexOf(letterOnCross[0][0][1]) !== (-1)) {
+
+                if (wordOrientation === "horizontal") {
+                    disabletHorizontal = disabletCoordinates.horizontal.splice(disabletCoordinates.horizontal.indexOf(letterOnCross[0][0][1]))
+
+                }
+                if (wordOrientation === "vertical") {
+                    disabletVertical = disabletCoordinates.vertical.splice(disabletCoordinates.vertical.indexOf(letterOnCross[0][0][1]))
+
+                }
+            }
+            console.log(disabletHorizontal)
+            console.log(disabletVertical)
             for (let i = 0; i < wordToCheck.length; i++) {
+
+
                 console.log(disabletCoordinates)
                 console.log(disabletCoordinates.horizontal)
                 console.log([x + i, y])
@@ -295,11 +330,17 @@ function findXwordConfig(wordsArray) {
                 if (wordOrientation === "horizontal") {
                     console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
 
-                    if ((disabletCoordinates.horizontal.includes([x + i, y])) === false) {
+                    if ((disabletHorizontal.includes([x + i, y])) === false) {
+                        console.log(randomWordFromArray)
+                        console.log(disabletHorizontal.includes([x + i, y]))
+                        console.log([x + i, y])
                         if ((`${x + i}` + "," + `${y}` in occupiedCoordinatesArray)) {
+                            console.log((`${x + i}` + "," + `${y}` in occupiedCoordinatesArray))
 
                             if (occupiedCoordinatesArray[`${x + i}` + "," + `${y}`] === wordToCheck[i]) {
-
+                                console.log(occupiedCoordinatesArray[`${x + i}` + "," + `${y}`])
+                                console.log(wordToCheck[i])
+                                console.log("111111")
                                 crossLetterCounter++
 
                             }
@@ -313,12 +354,16 @@ function findXwordConfig(wordsArray) {
 
                 } else if (wordOrientation === "vertical") {
                     console.log("verticalverticalverticalverticalverticalvertical")
-                    if ((disabletCoordinates.vertical.includes([x, y - i])) === false) {
+                    if ((disabletVertical.includes([x, y - i])) === false) {
                         console.log(randomWordFromArray)
+                        console.log(disabletVertical.includes([x, y - i]))
                         console.log([x, y - i])
                         if ((`${x}` + "," + `${y - 1}` in occupiedCoordinatesArray)) {
+                            console.log((`${x}` + "," + `${y - 1}` in occupiedCoordinatesArray))
                             if (occupiedCoordinatesArray[`${x}` + "," + `${y - i}`] === wordToCheck[i]) {
-
+                                console.log(occupiedCoordinatesArray[`${x}` + "," + `${y - i}`])
+                                console.log(wordToCheck[i])
+                                console.log("222222")
                                 crossLetterCounter++
                             }
                         } else {
@@ -334,6 +379,9 @@ function findXwordConfig(wordsArray) {
                 console.log(crossLetterCounter)
                 startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"]) //
                 addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y) //
+                crossLettersCoord.push(letterOnCross)
+                disabletCoordinates.horizontal = disabletHorizontal
+                disabletCoordinates.vertical = disabletVertical
             }
         }
 
