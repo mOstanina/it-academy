@@ -32,7 +32,7 @@ class MainComponent extends React.PureComponent {
     render() {
         return (
             <div id="external_container">
-                <div className="co"></div>
+                {/* <div className="co"></div> */}
                 <Crossword words={this.state.words} />
             </div>
         );

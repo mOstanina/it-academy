@@ -5,6 +5,7 @@ function findXwordConfig(wordsArray) {
     let wordsOnTable = []    // слова попавшие на экран
     let occupiedCoordinatesArray = {} //координаты в которых размещены буквы
     let occupiedCoordinates = [] //координаты в которых размещены буквы
+    let occupiedCoord = [] //координаты в которых размещены буквы
     let disabletCoordinates = {   // запрещенные координаты
         "vertical": [],
         "horizontal": []
@@ -78,6 +79,7 @@ function findXwordConfig(wordsArray) {
                     disabletCoordinates.horizontal.push([wordPosX + 1, wordPosY])
                 }
                 //ccodinates.push([wordPosX, wordPosY]) //
+                occupiedCoord.push([word[i], [wordPosX, wordPosY]])
                 disabletCoordinates.horizontal.push([wordPosX, wordPosY], [wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
             } else if (wordOrientation === "vertical") {
                 wordPosX = startCoordinates[0]
@@ -89,6 +91,8 @@ function findXwordConfig(wordsArray) {
                     disabletCoordinates.vertical.push([wordPosX, wordPosY + 1])
                 }
                 //ccodinates.push([wordPosX, wordPosY]) //
+                console.log(word[i])
+                occupiedCoord.push([word[i], [wordPosX, wordPosY]])
                 disabletCoordinates.vertical.push([wordPosX, wordPosY], [wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
             }
             ccodinates.push([wordPosX, wordPosY])
@@ -103,8 +107,9 @@ function findXwordConfig(wordsArray) {
         console.log(aarayCoor)//
         occupiedCoordinates.push({ [word]: aarayCoor })//
         console.log(occupiedCoordinates)
-        
+        console.log(occupiedCoordinatesArray)
         console.log(disabletCoordinates)
+        console.log(occupiedCoord)
     }
     //\\\\\\\\\\ 3.  ------ добавление слова в массив слов на экране ------
     function addWordOnTable(nameOfWord, orientation, posX, posY) {
@@ -303,7 +308,7 @@ function findXwordConfig(wordsArray) {
                     if (disabletHorizontal.length !== 0) {
                         if (disabletHorizontal[i][0] === letterOnCross[0][0][1][0] && disabletHorizontal[i][1] === letterOnCross[0][0][1][1]) {
                             let a = disabletHorizontal.slice(0, i)
-                            let b= disabletHorizontal.slice((i + 1), disabletHorizontal.length-1)
+                            let b = disabletHorizontal.slice((i + 1), disabletHorizontal.length - 1)
 
                             disabletHorizontal = a.concat(b)
                         }
@@ -322,7 +327,7 @@ function findXwordConfig(wordsArray) {
                             console.log(i)
                             let a = disabletVertical.slice(0, i)
                             console.log(a)
-                            let b= disabletVertical.slice((i + 1), disabletVertical.length-1)
+                            let b = disabletVertical.slice((i + 1), disabletVertical.length - 1)
                             console.log(b)
                             disabletVertical = a.concat(b)
                             console.log(a.concat(b))
@@ -337,42 +342,54 @@ function findXwordConfig(wordsArray) {
             console.log(disabletVertical)
             let disabletLettersCounter = 0
             for (let i = 0; i < wordToCheck.length; i++) {
+                console.log(occupiedCoord)
+                console.log(occupiedCoord[1][0])
+                console.log(occupiedCoord[1][1])
+                console.log(wordToCheck[i])
+                console.log(occupiedCoord[0])
+                for (let m = 0; m < occupiedCoord.length; m++) {
+                    if (!(occupiedCoord[m][1][0] === (x + i) && occupiedCoord[m][1][1] === (y)) && wordToCheck[i] === occupiedCoord[m][0]) {
+                        crossLetterCounter++
+                    } else {
+                        if (wordOrientation === "horizontal") {
+                            for (let j = 0; j < disabletHorizontal.length; j++) {
 
+                                console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
+                                if (disabletHorizontal.length === 0) {
+                                    // crossLetterCounter++
+                                } else {
+                                    if (disabletHorizontal[j][0] === (x + i) && disabletHorizontal[j][1] === y) {
 
-                if (wordOrientation === "horizontal") {
-                    for (let j = 0; j < disabletHorizontal.length; j++) {
+                                        disabletLettersCounter++
 
-                        console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
-                        if (disabletHorizontal.length === 0) {
-                            // crossLetterCounter++
-                        } else {
-                            if (disabletHorizontal[j][0] === (x + i) && disabletHorizontal[j][1] === y) {
+                                    } else {
+                                        //crossLetterCounter++
+                                    }
+                                }
+                            }
+                        }
+                        //
+                        if (wordOrientation === "vertical") {
+                            for (let j = 0; j < disabletVertical.length; j++) {
 
-                                disabletLettersCounter++
+                                console.log("verticalverticalverticalverticalverticalvertical")
+                                if (disabletVertical.length === 0) {
+                                    //crossLetterCounter++
+                                } else {
+                                    if (disabletVertical[j][0] === x && disabletVertical[j][1] === (y + i)) {
 
-                            } else {
-                                //crossLetterCounter++
+                                        disabletLettersCounter++
+                                    } else {
+                                        //crossLetterCounter++
+                                    }
+                                }
                             }
                         }
                     }
                 }
-                //
-                if (wordOrientation === "vertical") {
-                    for (let j = 0; j < disabletVertical.length; j++) {
 
-                        console.log("verticalverticalverticalverticalverticalvertical")
-                        if (disabletVertical.length === 0) {
-                            //crossLetterCounter++
-                        } else {
-                            if (disabletVertical[j][0] === x && disabletVertical[j][1] === (y + i)) {
 
-                                disabletLettersCounter++
-                            } else {
-                                //crossLetterCounter++
-                            }
-                        }
-                    }
-                }
+
             }
             // if (wordOrientation === "horizontal") {
             //     console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
