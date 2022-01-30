@@ -6,9 +6,11 @@ function findXwordConfig(wordsArray) {
     let occupiedCoordinatesArray = {} //координаты в которых размещены буквы
     let occupiedCoordinates = [] //координаты в которых размещены буквы
     let occupiedCoord = [] //координаты в которых размещены буквы
+    let occupiedCoordinat = [] //координаты в которых размещены буквы только горизонтальных слов
+
     let disabletCoordinates = {   // запрещенные координаты
-        "vertical": [],
-        "horizontal": []
+        "column": [],
+        "row": []
     }
     let crossLettersCoord = []
     let startCoordinates = []
@@ -35,32 +37,7 @@ function findXwordConfig(wordsArray) {
 
     //\\\\\\\\\\  2. ------ добавление занятых и запрнщенных координат в список ------
 
-    // function addOccupiedCoordinates(word, wordOrientation, startCoordinates) {
-    //     let wordPosX = null // кооррд X повой буквы добавляемого на экран слова
-    //     let wordPosY = null// кооррд Y повой буквы добавляемого на экран слова
-    //     let ccodinates = []
-    //     let aarayCoor = []
-    //     for (let i = 0; i < word.length; i++) {
-    //         if (wordOrientation === "horizontal") {
-    //             wordPosX = startCoordinates[0] + i
-    //             wordPosY = startCoordinates[1]
 
-    //             ccodinates.push([wordPosX, wordPosY])
-    //             disabletCoordinates.horizontal.push([wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
-
-    //         } else if (wordOrientation === "vertical") {
-    //             wordPosX = startCoordinates[0]
-    //             wordPosY = startCoordinates[1] + i
-    //             ccodinates.push([wordPosX, wordPosY])
-    //             disabletCoordinates.vertical.push([wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
-    //         }
-    //         aarayCoor.push([ccodinates[i]])
-    //     }
-    //     console.log(aarayCoor)
-    //     occupiedCoordinates.push({ [word]: aarayCoor })
-    //     console.log(occupiedCoordinates)
-    //     console.log(disabletCoordinates)
-    // }
     function addOccupiedCoordinates(word, wordOrientation, startCoordinates) {
         let wordPosX = startCoordinates[0] // кооррд X повой буквы добавляемого на экран слова
         let wordPosY = startCoordinates[1]// кооррд Y повой буквы добавляемого на экран слова
@@ -69,52 +46,52 @@ function findXwordConfig(wordsArray) {
         console.log(word.length)
         for (let i = 0; i < word.length; i++) {
 
-            if (wordOrientation === "horizontal") {
+            if (wordOrientation === "row") {
                 wordPosX = startCoordinates[0] + i
                 wordPosY = startCoordinates[1]
                 if (i === 0) {
-                    disabletCoordinates.horizontal.push([wordPosX - 1, wordPosY])
+                    disabletCoordinates.row.push([wordPosX - 1, wordPosY])
+                    occupiedCoordinat.push([wordPosX - 1, wordPosY])
+                    disabletCoordinates.column.push([wordPosX - 1, wordPosY])
                 }
                 if (i === word.length - 1) {
-                    disabletCoordinates.horizontal.push([wordPosX + 1, wordPosY])
+                    disabletCoordinates.row.push([wordPosX + 1, wordPosY])
+                    occupiedCoordinat.push([wordPosX + 1, wordPosY])
+                    disabletCoordinates.column.push([wordPosX + 1, wordPosY])
                 }
-                //ccodinates.push([wordPosX, wordPosY]) //
                 occupiedCoord.push([word[i], [wordPosX, wordPosY]])
-                disabletCoordinates.horizontal.push([wordPosX, wordPosY], [wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "horizontal"-слов
-            } else if (wordOrientation === "vertical") {
+
+                disabletCoordinates.row.push([wordPosX, wordPosY], [wordPosX, wordPosY + 1], [wordPosX, wordPosY - 1]) // недопустимые для "ro"-слов
+            } else if (wordOrientation === "column") {
                 wordPosX = startCoordinates[0]
                 wordPosY = startCoordinates[1] + i
                 if (i === 0) {
-                    disabletCoordinates.vertical.push([wordPosX, wordPosY - 1])
+                    disabletCoordinates.column.push([wordPosX, wordPosY - 1])
+                    occupiedCoordinat.push([wordPosX, wordPosY - 1])
+                    disabletCoordinates.row.push([wordPosX, wordPosY - 1])
                 }
                 if (i === word.length - 1) {
-                    disabletCoordinates.vertical.push([wordPosX, wordPosY + 1])
+                    disabletCoordinates.column.push([wordPosX, wordPosY + 1])
+                    occupiedCoordinat.push([wordPosX, wordPosY + 1])
+                    disabletCoordinates.row.push([wordPosX, wordPosY + 1])
                 }
-                //ccodinates.push([wordPosX, wordPosY]) //
                 console.log(word[i])
                 occupiedCoord.push([word[i], [wordPosX, wordPosY]])
-                disabletCoordinates.vertical.push([wordPosX, wordPosY], [wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "vertical"-слов
+
+                disabletCoordinates.column.push([wordPosX, wordPosY], [wordPosX + 1, wordPosY], [wordPosX - 1, wordPosY])// недопустимые для "column"-слов
             }
+            occupiedCoordinat.push([wordPosX, wordPosY])
             ccodinates.push([wordPosX, wordPosY])
-            // console.log(ccodinates)
             occupiedCoordinatesArray[ccodinates[i]] = word[i]
 
             aarayCoor.push([ccodinates[i]])
         }
-        console.log(occupiedCoordinatesArray)
-        console.log(Object.keys(occupiedCoordinatesArray))
-        console.log(ccodinates)
-        console.log(aarayCoor)//
         occupiedCoordinates.push({ [word]: aarayCoor })//
-        console.log(occupiedCoordinates)
-        console.log(occupiedCoordinatesArray)
-        console.log(disabletCoordinates)
-        console.log(occupiedCoord)
     }
     //\\\\\\\\\\ 3.  ------ добавление слова в массив слов на экране ------
     function addWordOnTable(nameOfWord, orientation, posX, posY) {
 
-        if (orientation === "horizontal") {
+        if (orientation === "row") {
             wordsOnTable.push({
                 wordName: nameOfWord,
                 // wordCode: null,
@@ -124,7 +101,7 @@ function findXwordConfig(wordsArray) {
                 wordHeight: 1,
                 wordWidth: nameOfWord.length,
             })
-        } else if (orientation === "vertical") {
+        } else if (orientation === "column") {
             wordsOnTable.push({
                 wordName: nameOfWord,
                 // wordCode: null,
@@ -141,13 +118,8 @@ function findXwordConfig(wordsArray) {
         addOccupiedCoordinates(nameOfWord, orientation, [posX, posY])
     }
 
-    addWordOnTable(firstWord, "horizontal", 0, 0)
-    console.log(wordsArray)
-    console.log(wordsOnTable)
-
-
-
-    startCoordinates = [[0, "horizontal", [0, 0], firstWord, 'open']]
+    addWordOnTable(firstWord, "row", 0, 0)
+    startCoordinates = [[0, "row", [0, 0], firstWord, 'open']]
 
 
     //\\\\\\\\\\ 4.  ------ выбираем случайное слово из массива ------
@@ -171,12 +143,9 @@ function findXwordConfig(wordsArray) {
             return s
         }
         let f = random(0, wordsOnTable.length - 1, wordsOnTable)
-        console.log(f)
-
-        console.log(wordsOnTable[f].wordName.split(""))
 
         //\\\\\\\\\\ 5. ------ ищем совпадения букв------
-
+        console.log(randomWordFromArray.toUpperCase())
         let arrayOfMatches = [] // массив совпаданий букв
         console.log(randomWordFromArray)// слово из массива оставшихся слов
         console.log(wordsOnTable) // массив слов уже на экране
@@ -193,7 +162,6 @@ function findXwordConfig(wordsArray) {
                         letterMatchAr.push([randomWordFromArray[i], occupiedCoordinates[f][wordsOnTable[f].wordName][j][0]])
                     }
                 }
-                console.log(countOfMatches)
                 arrayOfMatches.push(letterMatchAr)
             }
         }
@@ -203,9 +171,6 @@ function findXwordConfig(wordsArray) {
             f = random(0, wordsOnTable.length - 1, wordsOnTable)
             findMatches()
         }
-        console.log(occupiedCoordinates[f][wordsOnTable[f].wordName])
-        console.log(arrayOfMatches)
-
         let letterOnCross = [] // массив букв пересечения
         function randomLetter(a, b, word) {
             console.log(word)
@@ -214,264 +179,127 @@ function findXwordConfig(wordsArray) {
             if (arrayOfMatches[e].length === 0) {
                 randomLetter(a, b, word)
             } else {
-
-
-
                 letterOnCross.push([arrayOfMatches[e][0], e]) //  e - это номер буквы
             }
-            console.log(letterOnCross)
             return letterOnCross
         }
-        console.log(arrayOfMatches)
         randomLetter(0, arrayOfMatches.length - 1, arrayOfMatches)
-        console.log(letterOnCross)
-
 
         //  находим координаты первой буквы слова и ориентацию самого слова
 
-        console.log(wordsOnTable[f].wordOrientation)
-
         let orienOfFirstWord = wordsOnTable[f].wordOrientation
         let orienOfSecondWord = null
-        console.log(wordsOnTable[f])
         let x = null
         let y = null
-        if (orienOfFirstWord === "horizontal") {
-            orienOfSecondWord = "vertical"
-            console.log(letterOnCross[0][1])
-            console.log(letterOnCross[0][0][1][0])
-            console.log(letterOnCross[0][0][1][1])
+        if (orienOfFirstWord === "row") {
+            orienOfSecondWord = "column"
             x = letterOnCross[0][0][1][0]
             y = letterOnCross[0][0][1][1] - letterOnCross[0][1]
 
-        } else if (orienOfFirstWord === "vertical") {
-            orienOfSecondWord = "horizontal"
-            console.log(letterOnCross[0][1])
-            console.log(letterOnCross[0][0][1][1])
+        } else if (orienOfFirstWord === "column") {
+            orienOfSecondWord = "row"
             x = letterOnCross[0][0][1][0] - letterOnCross[0][1]
             y = letterOnCross[0][0][1][1]
 
         }
         // проверяем чтобы совпадали буквы при пересечении с остальными словами
-        console.log(occupiedCoordinatesArray)
-        console.log(randomWordFromArray[1])
-        // function checkLetter(wordToCheck, x, y, wordOrientation) {
-        //     let crossLetterArray = []
-        //     for (let i = 0; i < wordToCheck.length; i++) {
-        //         if (wordOrientation === "horizontal") {
-        //             if (!(`${x + i}` + "," + `${y}` in occupiedCoordinatesArray)) {
-        //                 startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-        //                 addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-        //             } else {
-        //                 if (occupiedCoordinatesArray[`${x + i}` + "," + `${y}`] === wordToCheck[i]) {
-        //                     startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-        //                     addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-        //                 } else {
-        //                     randomWord(0, wordsArray.length - 1, wordsArray)
-        //                 }
-        //             }
-
-
-        //         } else if (orienOfFirstWord === "vertical") {
-        //             if (!(`${x}` + "," + `${y+ i}` in occupiedCoordinatesArray)) {
-        //                 startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-        //                 addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-        //             } else {
-        //                 if (occupiedCoordinatesArray[`${x}` + "," + `${y - i}`] === wordToCheck[i]) {
-        //                     startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"])
-        //                     addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
-        //                 } else {
-        //                     randomWord(0, wordsArray.length - 1, wordsArray)
-        //                 }
-        //             }
-        //         }
-        //     }
-
-
-
-        // }
 
         function checkLetter(wordToCheck, x, y, wordOrientation) {
-            let crossLetterCounter = 0
-            console.log(letterOnCross)
-            console.log(letterOnCross[0][0][1])
-            console.log(crossLettersCoord.indexOf(letterOnCross[0][0][1]))
-            let disabletHorizontal = disabletCoordinates.horizontal // запрещенные координаты для горизонтальных слов
-            let disabletVertical = disabletCoordinates.vertical  // запрещенные координаты для вертикальных слов
 
-            console.log(disabletHorizontal)
-            console.log(disabletVertical)
-            console.log(wordOrientation)
-            if (wordOrientation === "horizontal") {
-                for (let i = 0; i < disabletHorizontal.length; i++) {
+            let disabletHorizontal = disabletCoordinates.row // запрещенные координаты для горизонтальных слов
+            let disabletVertical = disabletCoordinates.column  // запрещенные координаты для вертикальных слов
 
-                    if (disabletHorizontal.length !== 0) {
-                        if (disabletHorizontal[i][0] === letterOnCross[0][0][1][0] && disabletHorizontal[i][1] === letterOnCross[0][0][1][1]) {
-                            let a = disabletHorizontal.slice(0, i)
-                            let b = disabletHorizontal.slice((i + 1), disabletHorizontal.length - 1)
-
-                            disabletHorizontal = a.concat(b)
-                        }
-                    }
-
-                }
-            }
-            //
-            if (wordOrientation === "vertical") {
-                for (let i = 0; i < disabletVertical.length; i++) {
-                    console.log(disabletVertical.length)
-                    if (disabletVertical.length !== 0) {
-                        if (disabletVertical[i][0] === letterOnCross[0][0][1][0] && disabletVertical[i][1] === letterOnCross[0][0][1][1]) {
-                            console.log(disabletVertical)
-                            console.log(disabletVertical[i])
-                            console.log(i)
-                            let a = disabletVertical.slice(0, i)
-                            console.log(a)
-                            let b = disabletVertical.slice((i + 1), disabletVertical.length - 1)
-                            console.log(b)
-                            disabletVertical = a.concat(b)
-                            console.log(a.concat(b))
-                        }
-                    }
-                }
-
-            }
-
-
-            console.log(disabletHorizontal)
-            console.log(disabletVertical)
             let disabletLettersCounter = 0
             for (let i = 0; i < wordToCheck.length; i++) {
-                console.log(occupiedCoord)
-                console.log(occupiedCoord[1][0])
-                console.log(occupiedCoord[1][1])
+
                 console.log(wordToCheck[i])
-                console.log(occupiedCoord[0])
+                if (i === 0 && (wordOrientation === "row")) {
+
+                    for (let e = 0; e < occupiedCoordinat.length; e++) {
+                        if ((occupiedCoordinat[e][0] === (x - 1)) && (occupiedCoordinat[e][1] === y)) {
+                            disabletLettersCounter++
+                        }
+                    }
+                }
+                if (i === 0 && (wordOrientation === "column")) {
+
+                    for (let e = 0; e < occupiedCoordinat.length; e++) {
+                        if ((occupiedCoordinat[e][0] === (x)) && (occupiedCoordinat[e][1] === (y - 1))) {
+                            disabletLettersCounter++
+                        }
+                    }
+                }
+                if (i === (wordToCheck.length - 1) && (wordOrientation === "row")) {
+
+                    for (let e = 0; e < occupiedCoordinat.length; e++) {
+                        if ((occupiedCoordinat[e][0] === (x + i + 1)) && (occupiedCoordinat[e][1] === y)) {
+                            disabletLettersCounter++
+                        }
+                    }
+                }
+                if (i === (wordToCheck.length - 1) && (wordOrientation === "column")) {
+
+                    for (let e = 0; e < occupiedCoordinat.length; e++) {
+                        if ((occupiedCoordinat[e][0] === (x)) && (occupiedCoordinat[e][1] === (y + i + 1))) {
+                            disabletLettersCounter++
+                        }
+                    }
+                }
                 for (let m = 0; m < occupiedCoord.length; m++) {
-                    if (!(occupiedCoord[m][1][0] === (x + i) && occupiedCoord[m][1][1] === (y)) && wordToCheck[i] === occupiedCoord[m][0]) {
-                        crossLetterCounter++
-                    } else {
-                        if (wordOrientation === "horizontal") {
+
+                    if (wordOrientation === "row") {
+                        if ((occupiedCoord[m][1][0] === (x + i)) && (occupiedCoord[m][1][1] === (y)) && (wordToCheck[i] !== occupiedCoord[m][0])) {
+                            disabletLettersCounter++
+                        } else {
                             for (let j = 0; j < disabletHorizontal.length; j++) {
 
-                                console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
                                 if (disabletHorizontal.length === 0) {
-                                    // crossLetterCounter++
+
                                 } else {
                                     if (disabletHorizontal[j][0] === (x + i) && disabletHorizontal[j][1] === y) {
 
                                         disabletLettersCounter++
 
-                                    } else {
-                                        //crossLetterCounter++
                                     }
                                 }
                             }
                         }
-                        //
-                        if (wordOrientation === "vertical") {
+                    }
+
+                    if (wordOrientation === "column") {
+                        if ((occupiedCoord[m][1][0] === (x)) && (occupiedCoord[m][1][1] === (y + i)) && (wordToCheck[i] !== occupiedCoord[m][0])) {
+                            disabletLettersCounter++
+                        } else {
                             for (let j = 0; j < disabletVertical.length; j++) {
 
-                                console.log("verticalverticalverticalverticalverticalvertical")
                                 if (disabletVertical.length === 0) {
-                                    //crossLetterCounter++
+
                                 } else {
                                     if (disabletVertical[j][0] === x && disabletVertical[j][1] === (y + i)) {
 
                                         disabletLettersCounter++
-                                    } else {
-                                        //crossLetterCounter++
                                     }
                                 }
                             }
                         }
                     }
                 }
-
-
-
             }
-            // if (wordOrientation === "horizontal") {
-            //     console.log("horizontalhorizontalhorizontalhorizontalhorizontal")
 
-            //     if ((disabletHorizontal.includes([x + i, y])) === false) {
-            //         console.log(randomWordFromArray)
-            //         console.log(disabletHorizontal.includes([x + i, y]))
-            //         console.log([x + i, y])
-            //         if ((`${x + i}` + "," + `${y}` in occupiedCoordinatesArray)) {
-            //             console.log((`${x + i}` + "," + `${y}` in occupiedCoordinatesArray))
-
-            //             if (occupiedCoordinatesArray[`${x + i}` + "," + `${y}`] === wordToCheck[i]) {
-            //                 console.log(occupiedCoordinatesArray[`${x + i}` + "," + `${y}`])
-            //                 console.log(wordToCheck[i])
-            //                 console.log("111111")
-            //                 crossLetterCounter++
-
-            //             }
-            //         } else {
-            //             crossLetterCounter++
-
-            //         }
-            //     }
-
-
-
-            // } else if (wordOrientation === "vertical") {
-            //     console.log("verticalverticalverticalverticalverticalvertical")
-            //     if ((disabletVertical.includes([x, y - i])) === false) {
-            //         console.log(randomWordFromArray)
-            //         console.log(disabletVertical.includes([x, y - i]))
-            //         console.log([x, y - i])
-            //         if ((`${x}` + "," + `${y - 1}` in occupiedCoordinatesArray)) {
-            //             console.log((`${x}` + "," + `${y - 1}` in occupiedCoordinatesArray))
-            //             if (occupiedCoordinatesArray[`${x}` + "," + `${y - i}`] === wordToCheck[i]) {
-            //                 console.log(occupiedCoordinatesArray[`${x}` + "," + `${y - i}`])
-            //                 console.log(wordToCheck[i])
-            //                 console.log("222222")
-            //                 crossLetterCounter++
-            //             }
-            //         } else {
-            //             crossLetterCounter++
-            //         }
-            //     }
-
-
-
-            // }
-
-            // if (crossLetterCounter === wordToCheck.length) {
             if (disabletLettersCounter === 0) {
-                console.log(crossLetterCounter)
-                startCoordinates.push([wordsOnTable.length, orienOfSecondWord, [x, y], randomWordFromArray, "open"]) //
-                addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y) //
+                startCoordinates.push([null, orienOfSecondWord, [x, y], randomWordFromArray, "open"]) //
+                addWordOnTable(randomWordFromArray, orienOfSecondWord, x, y)
                 crossLettersCoord.push(letterOnCross)
-                disabletCoordinates.horizontal = disabletHorizontal
-                disabletCoordinates.vertical = disabletVertical
+                disabletCoordinates.row = disabletHorizontal
+                disabletCoordinates.column = disabletVertical
             }
         }
 
-        console.log(orienOfFirstWord)
-        console.log(randomWordFromArray)
-        console.log(orienOfSecondWord)
         checkLetter(randomWordFromArray, x, y, orienOfSecondWord)
-
-
-        console.log(startCoordinates)
-
-        console.log(wordsOnTable)
-        console.log(wordsArray)
 
         return startCoordinates
     }
 
-    //console.log(wordsOnTable)
-    //    word1 = randomWord(0, wordsArray.length - 1, wordsArray)
-    //    console.log(word1)
-    //console.log(wordsOnTable)
-    //console.log(wordsArray)
-    // return word1
-
-    // randomWord(0, wordsArray.length - 1, wordsArray)
 
     while (wordsOnTable.length < wordsArrayLength) {
         randomWord(0, wordsArray.length - 1, wordsArray)
@@ -496,7 +324,17 @@ function findXwordConfig(wordsArray) {
     for (let i = 0; i < startCoordinates.length; i++) {
         startCoordinates[i][2][0] = startCoordinates[i][2][0] + Math.abs(minX)
         startCoordinates[i][2][1] = startCoordinates[i][2][1] + Math.abs(minY)
+        
     }
+    console.log(startCoordinates)
+    //\\\\\\\\\\ ------ переназначаю номера слов  ------
+    let lettersCounter=0
+    for (let i = 0; i < startCoordinates.length; i++) {
+      
+        
+    }
+    
+
     return startCoordinates;
 }
 export { findXwordConfig };

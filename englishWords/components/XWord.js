@@ -26,23 +26,7 @@ class XWord extends React.PureComponent {
         widthOfExternalContainer: 400
     };
 
-    toFindSizeOfExternalContainer = () => {
 
-        // function getElementPos(elem) {
-        //     var bbox=elem.getBoundingClientRect();
-        //     return {
-        //         left: bbox.left+window.pageXOffset,
-        //         top: bbox.top+window.pageYOffset
-        //     };
-        // }
-        // var el = document.getElementById('external_container');
-        // let a=getElementPos(el)
-        // console.log(a)
-
-        //console.log(el.clientHeight)
-        console.log(this.state.listOfWordToRender)
-        return 111
-    }
     toFindSizeOfXWordContainer = () => {
         // определяем габариты компонента в координатах:
         // если слово вертикальное - прибавляем длинну слова к "Y"
@@ -74,11 +58,9 @@ class XWord extends React.PureComponent {
             specification.wordPosX = arrayWords[i][2][0];
             specification.wordPosY = arrayWords[i][2][1];
 
-
-
             let wordLength = arrayWords[i][3].length // длина слова
             specification.wordCode = arrayWords[i][0]
-            if (arrayWords[i][1] === "vertical") {
+            if (arrayWords[i][1] === "column") {
                 specification.wordOrientation = "column";
                 let wordY = arrayWords[i][2][1] + wordLength - 1 // координата "Y" последней буквы в слове
                 specification.wordWidth = 1 // слово горизонтально имеет высоту в 1 клетку
@@ -86,7 +68,7 @@ class XWord extends React.PureComponent {
                 if (maxY < wordY) {
                     maxY = wordY
                 }
-            } else if (arrayWords[i][1] === "horizontal") {
+            } else if (arrayWords[i][1] === "row") {
                 specification.wordOrientation = "row";
                 let wordX = arrayWords[i][2][0] + wordLength - 1 // координата "X" последней буквы в слове
                 specification.wordWidth = wordLength // высота в количестве клеток
@@ -100,28 +82,29 @@ class XWord extends React.PureComponent {
         coordinates.push(maxX)
         coordinates.push(maxY)
         //console.log(coordinates)
+        let maxXY = null
+        if (maxX > maxY) {
+            maxXY = maxX
+        } else {
+            maxXY = maxY
+        }
+
         // определяем размер ячейки для буквы
         let cellBorderWidth = 1 // толщина границ обводки
-        //console.log(maxX)
-        let cellWidth = (externalContainerWidth - ((maxX + 1) + 1) * cellBorderWidth) / (maxX + 1)
-        //wordsInfo[1].push({ cellWidth: Math.floor(cellWidth) })
+        let cellWidth = (externalContainerWidth - ((maxXY + 1) + 1) * cellBorderWidth) / (maxXY + 1)
         wordsInfo[1].push({ cellWidth: cellWidth })
-        // let wordFontSize = Math.floor(cellWidth * 0.9)
-        let wordFontSize = cellWidth * 0.6
+        let wordFontSize = cellWidth * 0.7
         wordsInfo[1].push({ wordFontSize: wordFontSize })
 
-
-        //console.log(wordsInfo)
         return wordsInfo
     }
 
     componentDidMount() { }
 
     render() {
-        let ddd = this.toFindSizeOfXWordContainer()
-        ////console.log(ddd)
-        let listAllWords = ddd[0].map((word, i) => {
-            return <Word key={word.wordCode} wordCode={word.wordCode} wordName={word.wordName} wordOrientation={word.wordOrientation} wordPosX={word.wordPosX} wordPosY={word.wordPosY} wordHeight={word.wordHeight} wordWidth={word.wordWidth} wordFontSize={ddd[1][1].wordFontSize} cellWidth={ddd[1][0].cellWidth} wordMode={"visible"} />
+        let XWordContainerSize = this.toFindSizeOfXWordContainer()
+        let listAllWords = XWordContainerSize[0].map((word, i) => {
+            return <Word key={word.wordCode} wordCode={word.wordCode} wordName={word.wordName} wordOrientation={word.wordOrientation} wordPosX={word.wordPosX} wordPosY={word.wordPosY} wordHeight={word.wordHeight} wordWidth={word.wordWidth} wordFontSize={XWordContainerSize[1][1].wordFontSize} cellWidth={XWordContainerSize[1][0].cellWidth} wordMode={"visible"} />
         })
         return (
             <div className="container_for_crossword">

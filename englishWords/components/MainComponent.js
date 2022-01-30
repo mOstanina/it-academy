@@ -7,7 +7,7 @@ import { findXwordConfig } from './findXwordConfig'
 
 let newWords = ["hi",
     "mountain",
-    "Mississippi",
+    "mississippi",
     "submarine",
     "elephant",
     "serious",
