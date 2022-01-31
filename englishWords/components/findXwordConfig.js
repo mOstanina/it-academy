@@ -185,7 +185,7 @@ function findXwordConfig(wordsArray) {
         }
         randomLetter(0, arrayOfMatches.length - 1, arrayOfMatches)
 
-        //  находим координаты первой буквы слова и ориентацию самого слова
+        //\\\\\\\\\\ 6. ------ находим координаты первой буквы слова и ориентацию самого слова
 
         let orienOfFirstWord = wordsOnTable[f].wordOrientation
         let orienOfSecondWord = null
@@ -202,7 +202,7 @@ function findXwordConfig(wordsArray) {
             y = letterOnCross[0][0][1][1]
 
         }
-        // проверяем чтобы совпадали буквы при пересечении с остальными словами
+        //\\\\\\\\\\ 7. ------ проверяем чтобы совпадали буквы при пересечении с остальными словами
 
         function checkLetter(wordToCheck, x, y, wordOrientation) {
 
@@ -305,7 +305,7 @@ function findXwordConfig(wordsArray) {
         randomWord(0, wordsArray.length - 1, wordsArray)
     }
 
-    //\\\\\\\\\\ ------ переназначаю координаты слов  ------
+    //\\\\\\\\\\ 8. ------ переназначаю координаты слов  ------
     let minX = 0
     let minY = 0
     function findSizeOfCrosswordArea(x, y) {
@@ -324,16 +324,21 @@ function findXwordConfig(wordsArray) {
     for (let i = 0; i < startCoordinates.length; i++) {
         startCoordinates[i][2][0] = startCoordinates[i][2][0] + Math.abs(minX)
         startCoordinates[i][2][1] = startCoordinates[i][2][1] + Math.abs(minY)
-        
+
     }
     console.log(startCoordinates)
-    //\\\\\\\\\\ ------ переназначаю номера слов  ------
-    let lettersCounter=0
+    //\\\\\\\\\\ 9. ------ переназначаю номера слов  ------
+
+    startCoordinates.sort(function (a, b) {
+        return (a[2][0] - b[2][0])
+    })
+    startCoordinates.sort(function (a, b) {
+        return (a[2][1] - b[2][1])
+    })
+
     for (let i = 0; i < startCoordinates.length; i++) {
-      
-        
+        startCoordinates[i][0] = i + 1
     }
-    
 
     return startCoordinates;
 }
