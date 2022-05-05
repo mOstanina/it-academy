@@ -10,24 +10,22 @@ function returnForm( userLogin, errorMessage) {
         <input type="submit">
         </form>
         <span>${errorMessage}</span>
-    
     `
-
 }
 
 function helloForm(loginName) {
     return `<span>Hello, ${loginName}</span>`;
 }
 
-
 webserver.get('/form', (req, res) => {
     let login = req.query.login;
-    let validationResult = (login!=="");
 
-    if (!validationResult) {
-        res.send(returnForm(login, ""));
-    }else {
-        res.send(helloForm(login));
+    if (login===""){
+        res.send(returnForm(login, "error"));
+    } else if (login===undefined){
+        res.send(returnForm("", ""));
+    } else {
+        res.send(helloForm(login))
     }
 });
 

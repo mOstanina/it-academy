@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f3c7a99-bdf9-4645-b9fb-ab91ee17a5ae" name="Changes" comment="nJS start commit">
-      <change afterPath="$PROJECT_DIR$/nJS/3097/3097.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/3097/3097.js" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/3097/3097.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +37,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/home/Documents/Dikaya-Dich/it-academy",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "terminal",
+    "settings.editor.selected.configurable": "Settings.JavaScript.Linters.JSHint",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -48,6 +51,7 @@
       <updated>1651136189777</updated>
       <workItem from="1651136191077" duration="162000" />
       <workItem from="1651608529802" duration="3826000" />
+      <workItem from="1651736209269" duration="5351000" />
     </task>
     <task id="LOCAL-00001" summary="nJS start commit">
       <created>1651609894687</created>
