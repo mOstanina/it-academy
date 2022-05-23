@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f3c7a99-bdf9-4645-b9fb-ab91ee17a5ae" name="Changes" comment="3095">
+    <list default="true" id="3f3c7a99-bdf9-4645-b9fb-ab91ee17a5ae" name="Changes" comment="3095/ add log">
+      <change afterPath="$PROJECT_DIR$/nJS/3595/3595.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nJS/3595/public/3595front.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nJS/3595/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nJS/3595/vote.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nJS/3095/3095.js" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/3095/3095.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +41,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/home/Documents/Dikaya-Dich/it-academy",
+    "last_opened_file_path": "C:/it-academy/nJS/3595",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "Settings.JavaScript.Linters.JSHint",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\it-academy\nJS\3595" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\it-academy\nJS\3095" />
       <recent name="C:\it-academy\nJS\3095\public" />
@@ -59,7 +67,8 @@
       <workItem from="1651136191077" duration="162000" />
       <workItem from="1651608529802" duration="3826000" />
       <workItem from="1651736209269" duration="8074000" />
-      <workItem from="1652181773814" duration="44714000" />
+      <workItem from="1652181773814" duration="45572000" />
+      <workItem from="1653234180114" duration="16042000" />
     </task>
     <task id="LOCAL-00001" summary="nJS start commit">
       <created>1651609894687</created>
@@ -82,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652288893985</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="3095/ add log">
+      <created>1652290155927</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652290155927</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +119,8 @@
     <MESSAGE value="nJS start commit" />
     <MESSAGE value="3097" />
     <MESSAGE value="3095" />
-    <option name="LAST_COMMIT_MESSAGE" value="3095" />
+    <MESSAGE value="3095/ add log" />
+    <option name="LAST_COMMIT_MESSAGE" value="3095/ add log" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
