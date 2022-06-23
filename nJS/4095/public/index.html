@@ -6,5 +6,55 @@
 </head>
 <body>
 
+</div>
+<div style="display: flex; flex-direction: row">
+    <div style="display: flex; flex-direction: column">
+        <div style=" width: 500px">
+            <fieldset>
+                <legend>ЗАПРОС</legend><br>
+                <label for="method">метод</label>
+                <select name="метод" id="method">
+                    <option>GET</option>
+                    <option>POST</option>
+                </select><br><br>
+
+                <label for="url">url</label>
+                <input type="text"  id="url" /><br><br>
+
+                <label for="Content-Type">Content-Type</label>
+                <input type="text" id="Content-Type" /><br><br>
+
+                <label for="Accept">Accept</label>
+                <input type="text" id="Accept" /><br><br>
+
+                <label for="body">тело запроса</label><br><br>
+                <textarea name="тело запроса" id="body" style=" width: 400px; height: 200px"></textarea>
+                <br/><br/>
+
+                <input type="button" value="отправить" onclick=runRequest("run") />
+                <input type="button" value="сохранить" onclick=runRequest("save") />
+            </fieldset>
+        </div>
+        <div style=" width: 500px">
+            <br><br>
+            <fieldset>
+                <legend>СОРАНЕННЫЕ ЗАПРОСЫ</legend><br>
+                <div id="saved"></div>
+            </fieldset>
+        </div>
+    </div>
+<div style=" width: 500px">
+    <fieldset>
+        <legend>ОТВЕТ</legend><br>
+        <div id="answer">
+            <div><span>статус: </span><span id="answerStatus"></span></div><br /><br />
+            <div id="answerHeaders"></div>
+            <textarea name="тело запроса" id="answerBody" style=" width: 400px; height: 200px"></textarea>
+        </div>
+    </fieldset>
+</div>
+</div>
+
+<script src="4095front.js"></script>
 </body>
 </html>

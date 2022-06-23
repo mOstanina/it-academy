@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f3c7a99-bdf9-4645-b9fb-ab91ee17a5ae" name="Changes" comment="3595/">
-      <change afterPath="$PROJECT_DIR$/nJS/4095/4095.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nJS/4095/public/4095front.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nJS/4095/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nJS/4097/4097.js" afterDir="false" />
+    <list default="true" id="3f3c7a99-bdf9-4645-b9fb-ab91ee17a5ae" name="Changes" comment="4097/">
+      <change afterPath="$PROJECT_DIR$/nJS/4095/requests.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/4095/4095.js" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/4095/4095.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/4095/public/4095front.js" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/4095/public/4095front.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/4095/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/4095/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/nJS/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,9 @@
       <workItem from="1652181773814" duration="45572000" />
       <workItem from="1653234180114" duration="16951000" />
       <workItem from="1655142176137" duration="12595000" />
-      <workItem from="1655201121359" duration="949000" />
+      <workItem from="1655201121359" duration="1674000" />
+      <workItem from="1655833300250" duration="8300000" />
+      <workItem from="1655962248365" duration="21826000" />
     </task>
     <task id="LOCAL-00001" summary="nJS start commit">
       <created>1651609894687</created>
@@ -105,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653300223983</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="4097/">
+      <created>1655220542105</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655220542105</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +139,8 @@
     <MESSAGE value="3095" />
     <MESSAGE value="3095/ add log" />
     <MESSAGE value="3595/" />
-    <option name="LAST_COMMIT_MESSAGE" value="3595/" />
+    <MESSAGE value="4097/" />
+    <option name="LAST_COMMIT_MESSAGE" value="4097/" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
